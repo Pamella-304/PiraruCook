@@ -8,7 +8,7 @@
       "ingredients": ["pato com cerca de 1,5 kg",
       "cebola", "cenoura", "alho-poró", "salsão em rodelas",
       "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
-      "price": "0.0"
+      "price": 0.0
     },
     {
       "name": "Farofa de tucumã",
@@ -17,7 +17,7 @@
       "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
       "ingredients": ["cebola",
       "farofa", "alho", "tucumãs"],
-      "price": "0.0"
+      "price": 0.0
     },
     {
       "name": "Vaca atolada",
@@ -26,7 +26,7 @@
       "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
       "ingredients": ["costela bovina",
       "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
-      "price": "0.0"
+      "price": 0.0
     },
     {
       "name": "Pirarucu de Casaca",
@@ -36,7 +36,7 @@
       "ingredients": ["pirarucu",
       "bananas", "farinha de mandioca", "leite de coco", "tomate",
        "pimentão", "cebola"],
-      "price": "0.0"
+      "price": 0.0
     },
 }
   ],
@@ -49,7 +49,7 @@
         "ingredients": ["manteiga",
         " Biscoito Laminado", "cupuaçú", "açúcar", " iogurte natural",
          "leite condensado"],
-        "price": "0.0"
+        "price": 0.0
       },
   ],
   "bebidas" : [
@@ -59,7 +59,7 @@
         "image" : "CachacaDeJambu",
         "nutritionalInfo": [""],
         "ingredients": ["Álcool", "Jambu"],
-        "price": "0.0"
+        "price": 0.0
       },
       {
         "name": "Caipirinha",
@@ -67,7 +67,7 @@
         "image" : "Caipirinha",
         "nutritionalInfo": [""],
         "ingredients": ["Álcool", "frutas"],
-        "price": "0.0"
+        "price": 0.0
       },
       {
         "name": "Bacuri",
@@ -75,7 +75,7 @@
         "image" : "Bacuri",
         "nutritionalInfo": [""],
         "ingredients": ["Álcool", "Bacuri"],
-        "price": "0.0"
+        "price": 0.0
       },
       {
         "name": "Cerveja",
@@ -83,7 +83,7 @@
         "image" : "Cerveja",
         "nutritionalInfo": [""],
         "ingredients": ["Álcool"],
-        "price": "0.0"
+        "price": 0.0
       },
       {
         "name": "Suco de frutas",
@@ -91,7 +91,7 @@
         "image" : "Cerveja",
         "nutritionalInfo": [""],
         "ingredients": ["Álcool"],
-        "price": "0.0"
+        "price": 0.0
       },
   ]
 }

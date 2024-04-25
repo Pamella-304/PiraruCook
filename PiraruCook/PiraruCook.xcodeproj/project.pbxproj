@@ -11,6 +11,7 @@
 		61715AA12BD9236300F83338 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715AA02BD9236300F83338 /* ContentView.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
+		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		61715AA02BD9236300F83338 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61715AA52BD9236400F83338 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		61715A9D2BD9236300F83338 /* PiraruCook */ = {
 			isa = PBXGroup;
 			children = (
+				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
 				61715AA02BD9236300F83338 /* ContentView.swift */,
 				61715AA22BD9236400F83338 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				61715AA52BD9236400F83338 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8BB75C372BD9506600CB87B9 /* ItensJson */ = {
+			isa = PBXGroup;
+			children = (
+				8BB75C382BD9510100CB87B9 /* Receitas.json */,
+			);
+			path = ItensJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */,
 				61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */,
 				61715AA32BD9236400F83338 /* Assets.xcassets in Resources */,
 			);

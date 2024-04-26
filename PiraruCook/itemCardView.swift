@@ -10,7 +10,6 @@ import SwiftUI
 struct ItemCardView: View {
     
     let dish: TypeDish
-   
     
     var body: some View {
         
@@ -21,14 +20,14 @@ struct ItemCardView: View {
                 Text(dish.name)
                     .frame(alignment: .top)
                 
-                Text(dish.description)
+                Text("blablabla")
                     .frame(alignment: .bottom)
 
             }
             
             Image(dish.image)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .frame(height: 150)
                 .clipped()
                 .cornerRadius(8)

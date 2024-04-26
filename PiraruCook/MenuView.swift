@@ -13,26 +13,27 @@ struct MenuView: View {
 
     
     var body: some View {
-        
-        ScrollView {
-            
-            VStack(spacing: 16) {
-            
-                Text("oi")
+        GeometryReader { geometry in
+            ScrollView {
                 
-//                ForEach(viewModel.typeDish) { dish in
-//                    ItemCardView(dish: dish)
-//                    
-//                }
+                VStack(spacing: 16) {
+                    
+                    Text("oi")
+                    
+                    ForEach(viewModel.typeDish) { dish in
+                        ItemCardView(dish: dish)
+                            .frame(maxWidth: geometry.size.width - 32)
+                        
+                    }
+                    
+                }
+                .padding()
                 
-            }
-            .padding()
-
+                
+                
+            }.navigationTitle("Menu")
             
-            
-        }.navigationTitle("Menu")
-        
+        }
     }
-    
     
 }

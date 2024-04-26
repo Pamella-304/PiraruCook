@@ -7,24 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */; };
+		614CE8F72BDBD1F400B0DAE8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CE8F62BDBD1F400B0DAE8 /* MenuView.swift */; };
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
-		61715AA12BD9236300F83338 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715AA02BD9236300F83338 /* ContentView.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
 		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
-		8BB75C3C2BDAA4EB00CB87B9 /* DishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3B2BDAA4EB00CB87B9 /* DishView.swift */; };
+		8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */; };
 		8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3D2BDAA63400CB87B9 /* Dish.swift */; };
 		8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCardView.swift; sourceTree = "<group>"; };
+		614CE8F62BDBD1F400B0DAE8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		61715A9B2BD9236300F83338 /* PiraruCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiraruCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
-		61715AA02BD9236300F83338 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61715AA52BD9236400F83338 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
-		8BB75C3B2BDAA4EB00CB87B9 /* DishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishView.swift; sourceTree = "<group>"; };
+		8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		8BB75C3D2BDAA63400CB87B9 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +45,8 @@
 		61715A922BD9236300F83338 = {
 			isa = PBXGroup;
 			children = (
+				614CE8F62BDBD1F400B0DAE8 /* MenuView.swift */,
+				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
 				61715A9D2BD9236300F83338 /* PiraruCook */,
 				61715A9C2BD9236300F83338 /* Products */,
 			);
@@ -61,9 +65,8 @@
 			children = (
 				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
-				61715AA02BD9236300F83338 /* ContentView.swift */,
 				8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */,
-				8BB75C3B2BDAA4EB00CB87B9 /* DishView.swift */,
+				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
 				61715AA22BD9236400F83338 /* Assets.xcassets */,
 				61715AA42BD9236400F83338 /* Preview Content */,
 				8BB75C3D2BDAA63400CB87B9 /* Dish.swift */,
@@ -158,10 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61715AA12BD9236300F83338 /* ContentView.swift in Sources */,
+				614CE8F72BDBD1F400B0DAE8 /* MenuView.swift in Sources */,
+				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
 				8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
-				8BB75C3C2BDAA4EB00CB87B9 /* DishView.swift in Sources */,
+				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,
 				8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

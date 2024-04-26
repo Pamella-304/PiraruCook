@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DishView: View {
     @Binding var dish: TypeDish
-    private var viewModel = DishViewModel()
+    @StateObject private var viewModel = DishViewModel()
     
     var body: some View {
         ScrollView {
@@ -24,7 +24,7 @@ struct DishView: View {
         .navigationTitle("Dish name")
     }
     
-    class DishViewModel {
+    class DishViewModel: ObservableObject {
         
         
         func displayName(dish: TypeDish) -> String {

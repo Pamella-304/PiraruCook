@@ -1,98 +1,104 @@
 {
-  "salgados": [
-    {
-      "name": "Pato no tucupi",
-      "description": "pato cozido no caldo de tucupi, acompanhado de jambu e arroz",
-      "image" : "PatoNoTucupi",
-      "nutritionalInfo": ["Aproximadamente 660 calorias"],
-      "ingredients": ["pato com cerca de 1,5 kg",
-      "cebola", "cenoura", "alho-poró", "salsão em rodelas",
-      "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
-      "price": 0.0
-    },
-    {
-      "name": "Farofa de tucumã",
-      "description": "farofa feita com farinha de mandioca, tucumã (fruto típico da Amazônia), manteiga, cebola e temperos",
-      "image" : "FarofaDeTucuma",
-      "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
-      "ingredients": ["cebola",
-      "farofa", "alho", "tucumãs"],
-      "price": 0.0
-    },
-    {
-      "name": "Vaca atolada",
-      "description": "carne cortada em pedaços grandes, como costelas ou ossobuco",
-      "image" : "VacaAtolada",
-      "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
-      "ingredients": ["costela bovina",
-      "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
-      "price": 0.0
-    },
-    {
-      "name": "Pirarucu de Casaca",
-      "description": "Pirarucu de casaca - culinária regional do amazonas",
-      "image" : "PirarucuDeCasaca",
-      "nutritionalInfo": ["Aproximadamente 270 calorias cada 100g"],
-      "ingredients": ["pirarucu",
-      "bananas", "farinha de mandioca", "leite de coco", "tomate",
-       "pimentão", "cebola"],
-      "price": 0.0
-    },
-}
-  ],
-  "doces" : [
-      {
-        "name": "Torta de cupuaçú",
-        "description": "Torta com cupuaçú",
-        "image" : "TortaDeCupuacu",
-        "nutritionalInfo": ["Aproximadamente 200 calorias cada 100g"],
-        "ingredients": ["manteiga",
-        " Biscoito Laminado", "cupuaçú", "açúcar", " iogurte natural",
-         "leite condensado"],
-        "price": 0.0
-      },
-  ],
-  "bebidas" : [
-      {
-        "name": "Cachaça de Jambu",
-        "description": "Bebida alcoólica com jambu",
-        "image" : "CachacaDeJambu",
-        "nutritionalInfo": [""],
-        "ingredients": ["Álcool", "Jambu"],
-        "price": 0.0
-      },
-      {
-        "name": "Caipirinha",
-        "description": "Tadricional bebida brasileira feita com cachaça, nas opções: limão, abacaxi, maracujá, cupuaçu e graviolas",
-        "image" : "Caipirinha",
-        "nutritionalInfo": [""],
-        "ingredients": ["Álcool", "frutas"],
-        "price": 0.0
-      },
-      {
-        "name": "Bacuri",
-        "description": "Além da soda de bacuri, o drinque leva cachaça, licor de flor de sabugueiro",
-        "image" : "Bacuri",
-        "nutritionalInfo": [""],
-        "ingredients": ["Álcool", "Bacuri"],
-        "price": 0.0
-      },
-      {
-        "name": "Cerveja",
-        "description": "",
-        "image" : "Cerveja",
-        "nutritionalInfo": [""],
-        "ingredients": ["Álcool"],
-        "price": 0.0
-      },
-      {
-        "name": "Suco de frutas",
-        "description": "Nas opções laranja, abacaxi, graviola e cupuaçu",
-        "image" : "Cerveja",
-        "nutritionalInfo": [""],
-        "ingredients": ["Álcool"],
-        "price": 0.0
-      },
-  ]
+    "typeDishes": [
+        {
+            "name": "Pato no tucupi",
+            "description": "pato cozido no caldo de tucupi, acompanhado de jambu e arroz",
+            "image" : "PatoNoTucupi",
+            "nutritionalInfo": ["Aproximadamente 660 calorias"],
+            "ingredients": ["pato com cerca de 1,5 kg",
+                "cebola", "cenoura", "alho-poró", "salsão em rodelas",
+                "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
+            "price": 0.0,
+            "tipo": "salgado"
+        },
+        {
+            "name": "Farofa de tucumã",
+            "description": "farofa feita com farinha de mandioca, tucumã (fruto típico da Amazônia), manteiga, cebola e temperos",
+            "image" : "FarofaDeTucuma",
+            "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
+            "ingredients": ["cebola",
+                "farofa", "alho", "tucumãs"],
+            "price": 0.0,
+            "tipo": "salgado"
+        },
+        {
+            "name": "Vaca atolada",
+            "description": "carne cortada em pedaços grandes, como costelas ou ossobuco",
+            "image" : "VacaAtolada",
+            "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
+            "ingredients": ["costela bovina",
+                "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
+            "price": 0.0,
+            "tipo": "salgado"
+        },
+        {
+            "name": "Pirarucu de Casaca",
+            "description": "Pirarucu de casaca - culinária regional do amazonas",
+            "image" : "PirarucuDeCasaca",
+            "nutritionalInfo": ["Aproximadamente 270 calorias cada 100g"],
+            "ingredients": ["pirarucu",
+                "bananas", "farinha de mandioca", "leite de coco", "tomate",
+                "pimentão", "cebola"],
+            "price": 0.0,
+            "tipo": "salgado"
+        },
+        }
+        {
+            "name": "Torta de cupuaçú",
+            "description": "Torta com cupuaçú",
+            "image" : "TortaDeCupuacu",
+            "nutritionalInfo": ["Aproximadamente 200 calorias cada 100g"],
+            "ingredients": ["manteiga",
+                " Biscoito Laminado", "cupuaçú", "açúcar", " iogurte natural",
+            "leite condensado"],
+            "price": 0.0,
+            "tipo": "doce"
+        },
+        {
+            "name": "Cachaça de Jambu",
+            "description": "Bebida alcoólica com jambu",
+            "image" : "CachacaDeJambu",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "Jambu"],
+            "price": 0.0,
+            "tipo": "bebidas"
+        },
+        {
+            "name": "Caipirinha",
+            "description": "Tadricional bebida brasileira feita com cachaça, nas opções: limão, abacaxi, maracujá, cupuaçu e graviolas",
+            "image" : "Caipirinha",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "frutas"],
+            "price": 0.0,
+            "bebidas"
+        },
+        {
+            "name": "Bacuri",
+            "description": "Além da soda de bacuri, o drinque leva cachaça, licor de flor de sabugueiro",
+            "image" : "Bacuri",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "Bacuri"],
+            "price": 0.0,
+            "bebidas"
+        },
+        {
+            "name": "Cerveja",
+            "description": "",
+            "image" : "Cerveja",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool"],
+            "price": 0.0,
+            "bebidas"
+        },
+        {
+            "name": "Suco de frutas",
+            "description": "Nas opções laranja, abacaxi, graviola e cupuaçu",
+            "image" : "Cerveja",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool"],
+            "price": 0.0,
+            "bebidas"
+        },
+    ]
 }
 

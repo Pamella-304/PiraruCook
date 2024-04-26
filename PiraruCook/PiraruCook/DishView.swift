@@ -48,7 +48,7 @@ struct DishView: View {
 }
 
 
-
-#Preview {
-    DishView()
-}
+//
+//#Preview {
+//    DishView()
+//}

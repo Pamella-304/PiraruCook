@@ -15,6 +15,7 @@
 		8BB75C3C2BDAA4EB00CB87B9 /* DishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3B2BDAA4EB00CB87B9 /* DishView.swift */; };
 		8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3D2BDAA63400CB87B9 /* Dish.swift */; };
 		8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */; };
+		D3E98FBA2BDBC89F00DCE016 /* CardapioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		8BB75C3B2BDAA4EB00CB87B9 /* DishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishView.swift; sourceTree = "<group>"; };
 		8BB75C3D2BDAA63400CB87B9 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
+		D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardapioView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				61715AA02BD9236300F83338 /* ContentView.swift */,
 				8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */,
 				8BB75C3B2BDAA4EB00CB87B9 /* DishView.swift */,
+				D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */,
 				61715AA22BD9236400F83338 /* Assets.xcassets */,
 				61715AA42BD9236400F83338 /* Preview Content */,
 				8BB75C3D2BDAA63400CB87B9 /* Dish.swift */,
@@ -161,6 +164,7 @@
 				61715AA12BD9236300F83338 /* ContentView.swift in Sources */,
 				8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
+				D3E98FBA2BDBC89F00DCE016 /* CardapioView.swift in Sources */,
 				8BB75C3C2BDAA4EB00CB87B9 /* DishView.swift in Sources */,
 				8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */,
 			);

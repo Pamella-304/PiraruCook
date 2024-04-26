@@ -9,11 +9,26 @@ import SwiftUI
 
 struct MenuView: View {
     
+    @StateObject var viewModel = TypeDishesListViewModel()
+
+    
     var body: some View {
         
         ScrollView {
             
-            itemCardView()
+            VStack(spacing: 16) {
+            
+                Text("oi")
+                
+//                ForEach(viewModel.typeDish) { dish in
+//                    ItemCardView(dish: dish)
+//                    
+//                }
+                
+            }
+            .padding()
+
+            
             
         }.navigationTitle("Menu")
         

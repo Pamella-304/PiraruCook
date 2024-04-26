@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DishView: View {
+struct ItemDetailsView: View {
     @Binding var dish: TypeDish
     private var viewModel = DishViewModel()
     

@@ -7,26 +7,37 @@
 
 import SwiftUI
 
-struct itemCardView: View {
+struct ItemCardView: View {
     
-    //let dish: TypeDish
+    let dish: TypeDish
    
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Image("tacaca")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 150)
-                            .clipped()
-                            .cornerRadius(8)
-                        
-            Text("tacaca")
-                            .font(.headline)
-        }
-        .padding(8)
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(8)
+        
+        HStack{
+            
+            VStack( spacing: 8) {
+                
+                Text(dish.name)
+                    .frame(alignment: .top)
+                
+                Text(dish.description)
+                    .frame(alignment: .bottom)
+
+            }
+            
+            Image(dish.image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 150)
+                .clipped()
+                .cornerRadius(8)
+            
+                .font(.headline)
+            
+        }.padding(8)
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(8)
     }
     
 }

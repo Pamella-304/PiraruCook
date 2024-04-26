@@ -41,8 +41,8 @@ struct ItemDetailsView: View {
         func displayIngredients(dish: TypeDish) -> [String] {
             return dish.ingredients
         }
-        func displayPrice(dish: TypeDish) -> Double {
-            return dish.price
+        func displayPrice(dish: TypeDish) -> String {
+            return dish.price.formatted(.number.precision(.fractionLength(2)))
         }
     }
 }

@@ -19,7 +19,7 @@
 		8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */; };
 		D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC3CC82BDBEA45001C4300 /* Cart.swift */; };
 		D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */; };
-		D3E98FBA2BDBC89F00DCE016 /* CardapioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */; };
+		D3DC3CCC2BDBF379001C4300 /* CardapioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */; };
 		D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */; };
 		D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FBD2BDBD8C900DCE016 /* Router.swift */; };
 /* End PBXBuildFile section */
@@ -79,7 +79,6 @@
 			children = (
 				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
-				61715AA02BD9236300F83338 /* ContentView.swift */,
 				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */,
 				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
@@ -183,14 +182,14 @@
 				614CE8F72BDBD1F400B0DAE8 /* MenuView.swift in Sources */,
 				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
 				D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */,
+				D3DC3CCC2BDBF379001C4300 /* CardapioView.swift in Sources */,
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
 				D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */,
-				61715AA12BD9236300F83338 /* ContentView.swift in Sources */,
 				8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
-				8BB75C3C2BDAA4EB00CB87B9 /* DishView.swift in Sources */,
+				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,
 				8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

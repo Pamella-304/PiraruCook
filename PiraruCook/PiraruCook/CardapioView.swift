@@ -15,29 +15,33 @@ struct CardapioView: View {
     @State private var viewModel = CardapioViewModel()
     
     var body: some View {
-        List {
-            ForEach(alphabet, id:\.self) { letter in
-                
-                let subItems = viewModel.dishesList.filteredTypeDishes.filter({ (typeDish) -> Bool in
-                    typeDish.name.prefix(1).folding(options: .diacriticInsensitive, locale: .current) == letter
-                })
-                
-                if !subItems.isEmpty {
-                    Section(header: Text(letter).id(letter)) {
-                        ForEach(subItems, id: \.self) { typeDish in
-                            
-                            NavigationLink(value: RouterMenuData(screen: Views.DishDetails, dish: typeDish)) {
-                                // TODO: Chango for card
-                                Text(typeDish.name)
+        
+        GeometryReader { geometry in
+            List {
+                ForEach(alphabet, id:\.self) { letter in
+                    
+                    let subItems = viewModel.dishesList.filteredTypeDishes.filter({ (typeDish) -> Bool in
+                        typeDish.name.prefix(1).folding(options: .diacriticInsensitive, locale: .current) == letter
+                    })
+                    
+                    if !subItems.isEmpty {
+                        Section(header: Text(letter).id(letter)) {
+                            ForEach(subItems, id: \.self) { typeDish in
+                                
+                                NavigationLink(value: RouterMenuData(screen: Views.DishDetails, dish: typeDish)) {
+                                    // TODO: Chango for card
+                                    ItemCardView(dish: typeDish)
+                                        .frame(maxWidth: geometry.size.width - 32)
+                                }
                             }
                         }
+                        .id(letter)
                     }
-                    .id(letter)
+                    
                 }
-                
             }
+            .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
         }
-        .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
     }
 }
 

@@ -42,7 +42,6 @@
             "price": 0.0,
             "tipo": "salgado"
         },
-        }
         {
             "name": "Torta de cupuaçú",
             "description": "Torta com cupuaçú",
@@ -70,7 +69,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "frutas"],
             "price": 0.0,
-            "bebidas"
+            "tipo": "bebidas"
         },
         {
             "name": "Bacuri",
@@ -79,7 +78,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Bacuri"],
             "price": 0.0,
-            "bebidas"
+            "tipo": "bebidas"
         },
         {
             "name": "Cerveja",
@@ -88,7 +87,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
             "price": 0.0,
-            "bebidas"
+            "tipo": "bebidas"
         },
         {
             "name": "Suco de frutas",
@@ -97,8 +96,8 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
             "price": 0.0,
-            "bebidas"
-        },
+            "tipo": "bebidas"
+        }
     ]
 }
 

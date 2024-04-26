@@ -41,7 +41,7 @@ struct DishView: View {
         func displayIngredients(dish: TypeDish) -> [String] {
             return dish.ingredients
         }
-        func displayPrice(dish: TypeDish) -> Float {
+        func displayPrice(dish: TypeDish) -> Double {
             return dish.price
         }
     }

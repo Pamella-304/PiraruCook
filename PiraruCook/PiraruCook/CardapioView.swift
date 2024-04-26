@@ -18,16 +18,16 @@ struct CardapioView: View {
         List {
             ForEach(alphabet, id:\.self) { letter in
                 
-                let subItems = viewModel.itens.filteredTypeDishes.filter({ (typeDish) -> Bool in
+                let subItems = viewModel.dishesList.filteredTypeDishes.filter({ (typeDish) -> Bool in
                     typeDish.name.prefix(1).folding(options: .diacriticInsensitive, locale: .current) == letter
                 })
-                                
+                
                 if !subItems.isEmpty {
                     Section(header: Text(letter).id(letter)) {
                         ForEach(subItems, id: \.self) { typeDish in
                             
-                            // TODO: Fix Navigation
-                            NavigationLink(value: 1) {
+                            NavigationLink(value: RouterMenuData(screen: Views.DishDetails, dish: typeDish)) {
+                                // TODO: Chango for card
                                 Text(typeDish.name)
                             }
                         }
@@ -37,6 +37,7 @@ struct CardapioView: View {
                 
             }
         }
+        .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
     }
 }
 
@@ -46,12 +47,7 @@ extension CardapioView {
     @Observable
     class CardapioViewModel {
         
-        private(set) var itens = TypeDishesListViewModel()
-        private var itemShow: TypeDish = TypeDish.example
-        
-        func setItemShow(item :TypeDish){
-            itemShow = item
-        }
+        var dishesList = TypeDishesListViewModel()
         
     }
     

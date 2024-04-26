@@ -33,6 +33,7 @@ struct TypeDish: Codable, Hashable {
         TypeDish(name: "", description: "", nutritionalInfo: "", ingredients: [], image: "", price: 0.0)
     }
     
+    static let example = TypeDish(name: "teste", description: "", nutritionalInfo: "", ingredients: [], image: "", price: 0.0)
 }
 
 struct sampleRecord: Codable {

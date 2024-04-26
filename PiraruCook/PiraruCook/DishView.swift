@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DishView: View {
-    @Binding var dish
+    @Binding var dish: TypeDish
+    private var viewModel = DishViewModel()
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -21,7 +23,31 @@ struct DishView: View {
         }
         .navigationTitle("Dish name")
     }
+    
+    class DishViewModel {
+        
+        
+        func displayName(dish: TypeDish) -> String {
+            return dish.name
+        }
+        
+        func displayImage(dish: TypeDish) {
+            
+        }
+        func displayDescription(dish: TypeDish) {
+            
+        }
+        
+        func displayIngredients(dish: TypeDish) -> [String] {
+            return dish.ingredients
+        }
+        func displayPrice(dish: TypeDish) -> Float {
+            return dish.price
+        }
+    }
 }
+
+
 
 #Preview {
     DishView()

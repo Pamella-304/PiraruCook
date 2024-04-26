@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemDetailsView: View {
     @Binding var dish: TypeDish
-    private var viewModel = DishViewModel()
+    @StateObject private var viewModel = DishViewModel()
     
     var body: some View {
         ScrollView {
@@ -24,15 +24,15 @@ struct ItemDetailsView: View {
         .navigationTitle("Dish name")
     }
     
-    class DishViewModel {
+    class DishViewModel: ObservableObject {
         
         
         func displayName(dish: TypeDish) -> String {
             return dish.name
         }
         
-        func displayImage(dish: TypeDish) {
-            
+        func displayImage(dish: TypeDish) -> String{
+            return dish.image
         }
         func displayDescription(dish: TypeDish) {
             
@@ -41,14 +41,14 @@ struct ItemDetailsView: View {
         func displayIngredients(dish: TypeDish) -> [String] {
             return dish.ingredients
         }
-        func displayPrice(dish: TypeDish) -> Float {
-            return dish.price
+        func displayPrice(dish: TypeDish) -> String {
+            return dish.price.formatted(.number.precision(.fractionLength(2)))
         }
     }
 }
 
 
-
+//
 //#Preview {
-//    DishView()
+//    ItemDetailsView(dish: $TypeDish.example)
 //}

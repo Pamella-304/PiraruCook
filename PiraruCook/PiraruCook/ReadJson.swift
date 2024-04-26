@@ -8,36 +8,26 @@
 import Foundation
 
 
-func readLocalJSONFile(forName name: String) -> Data? {
-    do {
-           if let filePath = Bundle.main.path(forResource: name, ofType: "json") {
-               let fileUrl = URL(fileURLWithPath: filePath)
-               let data = try Data(contentsOf: fileUrl)
-               return data
-           }
-       } catch {
-           print("error: \(error)")
-       }
-       return nil
-}
+
 
 struct TypeDish: Codable, Hashable {
     let name: String
     let description: String
-    let nutritionalInfo: String
-    let ingredients: [String]
     let image: String
-    let price: Float
+    let nutritionalInfo: [String]
+    let ingredients: [String]
+    let price: Double
+    let tipo: String
     
     static func preview() -> TypeDish {
-        TypeDish(name: "", description: "", nutritionalInfo: "", ingredients: [], image: "", price: 0.0)
+        TypeDish(name: "", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba")
     }
     
-    static let example = TypeDish(name: "teste", description: "", nutritionalInfo: "", ingredients: [], image: "", price: 0.0)
+    static let example = TypeDish(name: "teste", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba")
 }
 
-struct sampleRecord: Codable {
-    let typesDishes: [TypeDish]
+struct Dishes: Codable {
+     let typeDishes: [TypeDish]
 }
 
 class TypeDishesListViewModel: ObservableObject {
@@ -54,14 +44,28 @@ class TypeDishesListViewModel: ObservableObject {
     }
     
     init() {
-        let data = readLocalJSONFile(forName: "challenges")
-        let sampleData = parse(jsonData: data!)
+        let data = readLocalJSONFile(filename: "Receitas")
+        let sampleData = data?.typeDishes
         
-        if let sampleData {
-            typeDish = sampleData.typesDishes
-            typeDish = getUniqueItems(typeDish)
+        if sampleData != nil {
+            typeDish = getUniqueItems(sampleData!)
         }
     }
+    
+    func readLocalJSONFile(filename fileName: String) -> Dishes? {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(Dishes.self, from: data)
+                return jsonData
+            } catch {
+                print("error:\(error)")
+            }
+        }
+        return nil
+    }
+    
     
     func getUniqueItems(_ arr: [TypeDish]) -> [TypeDish] {
         var uniqueItems = [TypeDish]()
@@ -78,13 +82,5 @@ class TypeDishesListViewModel: ObservableObject {
     
 }
 
-func parse(jsonData: Data) -> sampleRecord? {
-    do {
-        let decodedData = try JSONDecoder().decode(sampleRecord.self, from: jsonData)
-        return decodedData
-    } catch {
-        print("error: \(error)")
-    }
-    return nil
-}
+
 

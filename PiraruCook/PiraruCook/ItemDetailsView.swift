@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemDetailsView: View {
-    @Binding var dish: TypeDish
+    var dish: TypeDish
     @StateObject private var viewModel = DishViewModel()
     
     var body: some View {

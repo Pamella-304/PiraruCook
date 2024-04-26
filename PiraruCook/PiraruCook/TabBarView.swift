@@ -32,7 +32,7 @@ struct TabBarView: View {
                         case Views.Menu:
                             CardapioView()
                         case Views.DishDetails:
-                            CardapioView()
+                            ItemDetailsView(dish: data.dish!)
                         }
                     }
             }

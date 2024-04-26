@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct PiraruCookApp: App {
+    
+    @State private var cart = Cart()
+    
     var body: some Scene {
         WindowGroup {
-            MenuView()
+
+            TabBarView()
+                .environment(cart)
         }
     }
 }

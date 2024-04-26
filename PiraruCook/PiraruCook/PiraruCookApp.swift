@@ -14,6 +14,7 @@ struct PiraruCookApp: App {
     
     var body: some Scene {
         WindowGroup {
+
             TabBarView()
                 .environment(cart)
         }

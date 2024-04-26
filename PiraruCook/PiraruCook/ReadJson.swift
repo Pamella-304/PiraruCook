@@ -10,7 +10,8 @@ import Foundation
 
 
 
-struct TypeDish: Codable, Hashable {
+struct TypeDish: Codable, Hashable, Identifiable {
+    let id = UUID()
     let name: String
     let description: String
     let image: String

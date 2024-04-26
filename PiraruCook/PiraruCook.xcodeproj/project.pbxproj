@@ -11,6 +11,7 @@
 		61715AA12BD9236300F83338 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715AA02BD9236300F83338 /* ContentView.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
+		8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */; };
 		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
 		8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */; };
 		8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3D2BDAA63400CB87B9 /* Dish.swift */; };
@@ -28,6 +29,7 @@
 		61715AA02BD9236300F83338 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61715AA52BD9236400F83338 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownComponent.swift; sourceTree = "<group>"; };
 		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
 		8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		8BB75C3D2BDAA63400CB87B9 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
 				61715AA02BD9236300F83338 /* ContentView.swift */,
+				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */,
 				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
 				D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */,
@@ -179,6 +182,7 @@
 				61715AA12BD9236300F83338 /* ContentView.swift in Sources */,
 				8BB75C3E2BDAA63400CB87B9 /* Dish.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
+				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
 				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,
 				D3E98FBA2BDBC89F00DCE016 /* CardapioView.swift in Sources */,

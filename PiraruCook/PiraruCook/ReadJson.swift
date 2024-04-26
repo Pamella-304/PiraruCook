@@ -26,7 +26,7 @@ struct TypeDish: Codable, Hashable {
 }
 
 struct sampleRecord: Codable {
-    let typesDishes: [TypeDish]
+    let typeDishes: [TypeDish]
 }
 
 class TypeDishesListViewModel: ObservableObject {
@@ -47,7 +47,7 @@ class TypeDishesListViewModel: ObservableObject {
         let sampleData = parse(jsonData: data!)
         
         if let sampleData {
-            typeDish = sampleData.typesDishes
+            typeDish = sampleData.typeDishes
             typeDish = getUniqueItems(typeDish)
         }
     }

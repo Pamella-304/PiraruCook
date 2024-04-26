@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DishView: View {
+struct ItemDetailsView: View {
     @Binding var dish: TypeDish
     @StateObject private var viewModel = DishViewModel()
     
@@ -31,8 +31,8 @@ struct DishView: View {
             return dish.name
         }
         
-        func displayImage(dish: TypeDish) {
-            
+        func displayImage(dish: TypeDish) -> String{
+            return dish.image
         }
         func displayDescription(dish: TypeDish) {
             
@@ -48,7 +48,7 @@ struct DishView: View {
 }
 
 
-
-#Preview {
-    DishView()
-}
+//
+//#Preview {
+//    ItemDetailsView(dish: $TypeDish.example)
+//}

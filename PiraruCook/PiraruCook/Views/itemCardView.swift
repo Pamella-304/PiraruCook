@@ -120,6 +120,7 @@ extension ItemCardView {
                                     .frame(height: 4)
                                     .hidden()
                             }
+                            .foregroundStyle(colorScheme == .light ? .black : .white)
                         
                             
                         }

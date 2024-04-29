@@ -71,7 +71,6 @@ struct ItemDetailsView: View {
             
             
         }
-        .navigationTitle("\(dish.name)")
         .ignoresSafeArea()
         VStack {
             Button(action: {

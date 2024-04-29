@@ -13,6 +13,23 @@ struct ItemCardView: View {
     
     var body: some View {
         
+        if dish.tipo == "Bebidas" {
+            drinks
+        } else {
+            dishes
+        }
+        
+    }
+    
+}
+
+extension ItemCardView {
+    
+    var drinks: some View {
+        Text("haha")
+    }
+    
+    var dishes: some View {
         VStack(spacing: 0) {
             
             Image(dish.image)
@@ -50,4 +67,6 @@ struct ItemCardView: View {
     
 }
 
-
+#Preview {
+    ItemCardView(dish: TypeDish(name: "Tacupi", description: "Bom", image: "Tacaca", nutritionalInfo: ["Arroz"], ingredients: ["arros"], price: 20.25, tipo: "Salgado"))
+}

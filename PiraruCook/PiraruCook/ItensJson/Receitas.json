@@ -9,7 +9,7 @@
                 "cebola", "cenoura", "alho-poró", "salsão em rodelas",
                 "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
             "price": 0.0,
-            "tipo": "salgado"
+            "tipo": "Salgado"
         },
         {
             "name": "Farofa de tucumã",
@@ -19,7 +19,7 @@
             "ingredients": ["cebola",
                 "farofa", "alho", "tucumãs"],
             "price": 0.0,
-            "tipo": "salgado"
+            "tipo": "Salgado"
         },
         {
             "name": "Vaca atolada",
@@ -29,7 +29,7 @@
             "ingredients": ["costela bovina",
                 "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
             "price": 0.0,
-            "tipo": "salgado"
+            "tipo": "Salgado"
         },
         {
             "name": "Pirarucu de Casaca",
@@ -40,7 +40,7 @@
                 "bananas", "farinha de mandioca", "leite de coco", "tomate",
                 "pimentão", "cebola"],
             "price": 0.0,
-            "tipo": "salgado"
+            "tipo": "Salgado"
         },
         {
             "name": "Torta de cupuaçú",
@@ -51,7 +51,7 @@
                 " Biscoito Laminado", "cupuaçú", "açúcar", " iogurte natural",
             "leite condensado"],
             "price": 0.0,
-            "tipo": "doce"
+            "tipo": "Doce"
         },
         {
             "name": "Cachaça de Jambu",
@@ -60,7 +60,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Jambu"],
             "price": 0.0,
-            "tipo": "bebidas"
+            "tipo": "Bebidas"
         },
         {
             "name": "Caipirinha",
@@ -69,7 +69,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "frutas"],
             "price": 0.0,
-            "tipo": "bebidas"
+            "tipo": "Bebidas"
         },
         {
             "name": "Bacuri",
@@ -78,7 +78,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Bacuri"],
             "price": 0.0,
-            "tipo": "bebidas"
+            "tipo": "Bebidas"
         },
         {
             "name": "Cerveja",
@@ -87,7 +87,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
             "price": 0.0,
-            "tipo": "bebidas"
+            "tipo": "Bebidas"
         },
         {
             "name": "Suco de frutas",
@@ -96,7 +96,7 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
             "price": 0.0,
-            "tipo": "bebidas"
+            "tipo": "Bebidas"
         }
     ]
 }

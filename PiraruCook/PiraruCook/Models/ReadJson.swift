@@ -29,10 +29,11 @@ struct TypeDish: Codable, Hashable, Identifiable {
 }
 
 struct Dishes: Codable {
-     let typeDishes: [TypeDish]
+    let typeDishes: [TypeDish]
 }
 
-class TypeDishesListViewModel: ObservableObject {
+class TypeDishesListViewModel: ObservableObject, Sequence {
+    
     @Published var typeDish = [TypeDish]()
     @Published var searchText: String = ""
     
@@ -66,6 +67,7 @@ class TypeDishesListViewModel: ObservableObject {
             }
         }
         return nil
+        
     }
     
     
@@ -80,6 +82,17 @@ class TypeDishesListViewModel: ObservableObject {
         
         uniqueItems = uniqueItems.sorted { $0.name < $1.name }
         return uniqueItems
+    }
+    
+    // Implementação do protocolo Sequence
+    func makeIterator() -> AnyIterator<TypeDish> {
+        var index = 0
+        return AnyIterator {
+            guard index < self.typeDish.count else { return nil }
+            let element = self.typeDish[index]
+            index += 1
+            return element
+        }
     }
     
 }

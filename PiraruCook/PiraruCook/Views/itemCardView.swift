@@ -13,9 +13,19 @@ struct ItemCardView: View {
     
     var body: some View {
         
-        HStack{
+        
+            
+            
             
             VStack( spacing: 8) {
+                
+                Image(dish.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 150)
+                    .clipped()
+                
+                    .font(.headline)
                 
                 Text(dish.name)
                     .frame(alignment: .top)
@@ -24,21 +34,12 @@ struct ItemCardView: View {
                     .frame(alignment: .bottom)
 
             }
-            
-            Image(dish.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 150)
-                .clipped()
-                .cornerRadius(8)
-            
-                .font(.headline)
-            
-        }.padding(8)
+                
+            .padding(8)
             .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
+            .cornerRadius(20)
     }
+       
     
 }
-
 

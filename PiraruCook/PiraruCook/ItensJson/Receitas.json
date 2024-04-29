@@ -92,7 +92,7 @@
         {
             "name": "Suco de frutas",
             "description": "Nas opções laranja, abacaxi, graviola e cupuaçu",
-            "image" : "Suco",
+            "image" : "SucoDeFrutas",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
             "price": 0.0,

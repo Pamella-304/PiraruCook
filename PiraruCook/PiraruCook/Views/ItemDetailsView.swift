@@ -20,7 +20,7 @@ struct ItemDetailsView: View {
                 Image(viewModel.displayImage(dish: dish)).resizable().frame(width: width,height: height*0.25)
                 VStack{
                     HStack{
-                        Text(viewModel.displayName(dish: dish)).font(.title)
+//                        Text(viewModel.displayName(dish: dish)).font(.title)
                         Spacer()
                         Text("R$ \(viewModel.displayPrice(dish: dish))")
                     }.padding()
@@ -47,7 +47,7 @@ struct ItemDetailsView: View {
             
             
         }
-        .navigationTitle("Dish name")
+        .navigationTitle("\(dish.name)")
         VStack {
             Button(action: {
                 // Order Now

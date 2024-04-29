@@ -31,11 +31,18 @@ struct DishView: View {
                     }.padding()
                     
                 }
-                HStack{
-                    Text("Ingredients").font(.title2)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                }.padding()
+                VStack{
+                    HStack{
+                        Text("Ingredients").font(.title2)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    }.padding()
+                    ForEach(viewModel.displayIngredients(dish: dish), id: \.self) { ingredient in
+                        
+                         
+                        
+                    }
+                }
                 VStack{
                     HStack{
                         Text("Images").font(.title2)

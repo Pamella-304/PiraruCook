@@ -15,9 +15,10 @@
 		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
 		8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */; };
 		8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */; };
+		D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */; };
 		D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC3CC82BDBEA45001C4300 /* Cart.swift */; };
 		D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */; };
-		D3DC3CCC2BDBF379001C4300 /* CardapioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */; };
+		D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FB92BDBC89F00DCE016 /* MenuView.swift */; };
 		D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */; };
 		D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E98FBD2BDBD8C900DCE016 /* Router.swift */; };
 /* End PBXBuildFile section */
@@ -32,9 +33,10 @@
 		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
 		8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
+		D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D3DC3CC82BDBEA45001C4300 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
-		D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardapioView.swift; sourceTree = "<group>"; };
+		D3E98FB92BDBC89F00DCE016 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D3E98FBD2BDBD8C900DCE016 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +59,7 @@
 				D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */,
 				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
-				D3E98FB92BDBC89F00DCE016 /* CardapioView.swift */,
+				D3E98FB92BDBC89F00DCE016 /* MenuView.swift */,
 				D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */,
 			);
 			path = Views;
@@ -66,6 +68,7 @@
 		3F852DDF2BDC0E7800962A5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -215,9 +218,10 @@
 			files = (
 				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
 				D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */,
-				D3DC3CCC2BDBF379001C4300 /* CardapioView.swift in Sources */,
+				D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */,
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
 				D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */,
+				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,

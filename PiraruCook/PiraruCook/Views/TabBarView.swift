@@ -10,11 +10,12 @@ import SwiftUI
 struct TabBarView: View {
     
     @StateObject private var stackPathMenu = Router()
-        @StateObject private var stackPathHome = Router()
+    @StateObject private var stackPathHome = Router()
+    @State private var selection = 2
     
     var body: some View {
         
-        TabView {
+        TabView(selection:$selection) {
             NavigationStack(path: $stackPathHome.path) {
                 Text("HOLD")
             }
@@ -22,15 +23,16 @@ struct TabBarView: View {
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
+            .tag(1)
             
             NavigationStack(path: $stackPathMenu.path) {
-                CardapioView()
+                MenuView()
                     .navigationTitle("Cardápio")
                     .navigationDestination(for: RouterMenuData.self) { data in
                         
                         switch data.screen {
                         case Views.Menu:
-                            CardapioView()
+                            MenuView()
                         case Views.DishDetails:
                             ItemDetailsView(dish: data.dish!)
                         }
@@ -40,6 +42,7 @@ struct TabBarView: View {
             .tabItem {
                 Label("Cardápio", systemImage: "book.fill")
             }
+            .tag(2)
         }
         
     }

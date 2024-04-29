@@ -42,12 +42,10 @@ struct ItemCardView: View {
                 Text("Serve até 2 pessoas")
                     .font(.footnote)
             }
-            
-            
-            
+
         }.padding(8)
             .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
+            .cornerRadius(20)
     }
     
 }

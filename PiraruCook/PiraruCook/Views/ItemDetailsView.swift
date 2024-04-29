@@ -20,26 +20,50 @@ struct ItemDetailsView: View {
                 Image(viewModel.displayImage(dish: dish)).resizable().frame(width: width,height: height*0.25)
                 VStack{
                     HStack{
-//                        Text(viewModel.displayName(dish: dish)).font(.title)
+                        Text(viewModel.displayName(dish: dish)).font(.title)
                         Spacer()
                         Text("R$ \(viewModel.displayPrice(dish: dish))")
-                    }.padding()
+                    }.padding(.horizontal)
                     HStack{
                         Text(viewModel.displayDescription(dish: dish)).font(.title3)
                         Spacer()
-                    }.padding()
+                    }.padding(.horizontal)
                 }
-                ChevronDownComponent(displayName:"Ingredients" ,hasClicked: $showIngredients, array: viewModel.displayIngredients(dish: dish))
+                ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $showIngredients, array: viewModel.displayIngredients(dish: dish))
                     .padding()
-                
+                VStack{
+                    HStack{
+                        Text("Imagens").font(.title2)
+                        Spacer()
+                    }.padding()
+                    ScrollView(.horizontal){
+                        HStack{
+                            ForEach(viewModel.displayIngredients(dish: dish), id: \.self){ img in
+                                Image(img).resizable().frame(width: width*0.3,height: height*0.2)
+                                
+                            }
+                        }
+                    }
+                    
+                }
                 
                 HStack{
-                    Text("Nutritional Facts").font(.title2)
+                    Text("Fatos Nutricionais").font(.title2)
                     Spacer()
                     Image(systemName: "chevron.right")
                 }.padding()
-                //Allergen Information
-                //Rating
+                HStack{
+                    Text("Alergias").font(.title2)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }.padding()
+
+                HStack{
+                    Text("Avaliações").font(.title2)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }.padding()
+
                 
                 
                
@@ -48,13 +72,23 @@ struct ItemDetailsView: View {
             
         }
         .navigationTitle("\(dish.name)")
+        .ignoresSafeArea()
         VStack {
             Button(action: {
                 // Order Now
             }) {
                 Text("Order Now")
                     .foregroundColor(.white)
-                    .frame(width: width*0.8, height: height*0.07).background(.blue)
+                    .frame(width: width*0.8, height: height*0.05).background(.black).opacity(0.7)
+            }
+            
+            .cornerRadius(10)
+            Button(action: {
+                // Order Now
+            }) {
+                Text("Add to cart")
+                    .foregroundColor(.white)
+                    .frame(width: width*0.8, height: height*0.05).background(.black)
             }
             
             .cornerRadius(10)

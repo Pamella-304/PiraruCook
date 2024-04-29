@@ -24,7 +24,8 @@ struct TypeDish: Codable, Hashable, Identifiable {
         TypeDish(name: "", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba")
     }
     
-    static let example = TypeDish(name: "teste", description: "", image: "SucoDeFrutas", nutritionalInfo: [], ingredients: ["fruta"], price: 0.0, tipo: "bebiba")
+    static let example = TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Tacaca", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba")
+
 }
 
 struct Dishes: Codable {

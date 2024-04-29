@@ -22,7 +22,7 @@ struct ChevronDownComponent: View {
                 Image(systemName: (hasClicked ? "chevron.down" : "chevron.right"))
             }
         }
-        .padding()
+        
         
         if hasClicked {
             VStack {

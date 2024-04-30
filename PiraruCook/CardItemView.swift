@@ -1,0 +1,91 @@
+//
+//  CardItemView.swift
+//  PiraruCook
+//
+//  Created by Gabriel Leite on 30/04/24.
+//
+
+import SwiftUI
+
+struct CardItemView: View {
+    
+    let dish: TypeDish
+    @Binding var quantity: Int
+    @Environment(\.colorScheme) var colorScheme
+    
+    var body: some View {
+        HStack(spacing:-12) {
+            Image(dish.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 102,height: 102)
+                .clipped()
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 10,
+                        bottomLeadingRadius: 10,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 0
+                    )
+                )
+            
+            RoundedRectangle(cornerRadius: 10)
+                .frame(height: 102)
+                .foregroundStyle(colorScheme == .dark ? .black : .white)
+                .overlay {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(dish.name)
+                                .font(.title2)
+                                .bold()
+                            
+                            Spacer()
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(.quaternary)
+                                .overlay {
+                                    Text("\(quantity)")
+                                }
+                        }
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing) {
+                            Text("R$\(totalPrice().formatted(.number.precision(.fractionLength(2))))")
+                                .font(.body)
+                                .bold()
+                            
+                            Spacer()
+                            
+                            Stepper("") {
+                                incrementQuantity()
+                            } onDecrement: {
+                                decrementQuantity()
+                            }
+                            
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(20)
+                    .foregroundStyle(colorScheme == .light ? .black : .white)
+                    
+                }
+        }
+    }
+    
+    func totalPrice() -> Double { Double(quantity) * dish.price}
+    
+    func incrementQuantity() { quantity += 1 }
+    
+    func decrementQuantity() {
+        if quantity > 0 {
+            quantity -= 1
+        }
+    }
+    
+}
+
+#Preview {
+    CardItemView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas"),quantity: .constant(2))
+}

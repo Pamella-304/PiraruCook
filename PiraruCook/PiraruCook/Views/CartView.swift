@@ -4,18 +4,44 @@
 //
 //  Created by Gabriel Leite on 26/04/24.
 //
-
 import SwiftUI
 
 struct CartView: View {
-    
-    @Environment(Cart.self) private var cart
-    
+    @ObservedObject var viewModel: CartViewModel
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(viewModel.cart.itens, id: \.id) { item in
+                    HStack {
+                        Text(item.name)
+                        Spacer()
+                        Text(String(format: "%.2f", item.price))
+                    }
+                }
+                HStack {
+                    Text("Subtotal:")
+                    Spacer()
+                    Text(String(format: "%.2f", viewModel.cart.subTotalValue))
+                }
+                HStack {
+                    Text("Transportation:")
+                    Spacer()
+                    Text(String(format: "%.2f", viewModel.cart.transportationValue))
+                }
+                HStack {
+                    Text("Total:")
+                    Spacer()
+                    Text(String(format: "%.2f", viewModel.cart.totalValue))
+                }
+            }
+            .navigationTitle("Cart")
+        }
     }
 }
 
-#Preview {
-    CartView()
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        CartView(viewModel: CartViewModel())
+    }
 }

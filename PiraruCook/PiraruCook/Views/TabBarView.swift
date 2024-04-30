@@ -11,7 +11,8 @@ struct TabBarView: View {
     
     @StateObject private var stackPathMenu = Router()
     @StateObject private var stackPathHome = Router()
-    @State private var selection = 2
+    @StateObject private var stackPathCart = Router()
+    @State private var selection = 3
     
     var body: some View {
         
@@ -43,6 +44,25 @@ struct TabBarView: View {
                 Label("Cardápio", systemImage: "book.fill")
             }
             .tag(2)
+            
+            NavigationStack(path: $stackPathCart.path) {
+                CartView()
+                    .navigationTitle("Cardápio")
+                    .navigationDestination(for: RouterMenuData.self) { data in
+                        
+                        switch data.screen {
+                        case Views.Menu:
+                            MenuView()
+                        case Views.DishDetails:
+                            ItemDetailsView(dish: data.dish!)
+                        }
+                    }
+            }
+            .environmentObject(stackPathCart)
+            .tabItem {
+                Label("Carrinho", systemImage: "cart.fill")
+            }
+            .tag(3)
         }
         
     }

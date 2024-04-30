@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CardItemView: View {
     
-    let dish: TypeDish
-    @Binding var quantity: Int
+    @Environment(Cart.self) private var cart
+    @State var dishCart: DishCart
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         HStack(spacing:-12) {
-            Image(dish.image)
+            Image(dishCart.dish.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 102,height: 102)
@@ -35,7 +35,7 @@ struct CardItemView: View {
                 .overlay {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(dish.name)
+                            Text(dishCart.dish.name)
                                 .font(.title2)
                                 .bold()
                             
@@ -45,7 +45,7 @@ struct CardItemView: View {
                                 .frame(width: 30, height: 30)
                                 .foregroundStyle(.quaternary)
                                 .overlay {
-                                    Text("\(quantity)")
+                                    Text("\(dishCart.quantity)")
                                 }
                         }
                         
@@ -74,18 +74,23 @@ struct CardItemView: View {
         }
     }
     
-    func totalPrice() -> Double { Double(quantity) * dish.price}
+    func totalPrice() -> Double { Double(dishCart.quantity) * dishCart.dish.price}
     
-    func incrementQuantity() { quantity += 1 }
+    func incrementQuantity() {
+        dishCart.quantity += 1
+        cart.addItem(item: dishCart.dish)
+    }
     
     func decrementQuantity() {
-        if quantity > 0 {
-            quantity -= 1
+        if dishCart.quantity > 0 {
+            dishCart.quantity -= 1
+            cart.removeItem(item: dishCart.dish)
         }
     }
     
 }
 
 #Preview {
-    CardItemView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas"),quantity: .constant(2))
+    CardItemView(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas"), quantity: 2))
+        .environment(Cart())
 }

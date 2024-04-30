@@ -121,17 +121,17 @@ extension ItemCardView {
                                     .hidden()
                             }
                             .foregroundStyle(colorScheme == .light ? .black : .white)
-                        
+                            
                             
                         }
                         .padding(4)
                         .background(Color.white.opacity(1))
                     }
                 }
-                //
-                //        .cornerRadius(20)
-                }
-            
+            //
+            //        .cornerRadius(20)
+        }
+        
         
     }
     

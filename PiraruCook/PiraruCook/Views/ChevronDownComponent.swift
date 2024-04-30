@@ -13,26 +13,36 @@ struct ChevronDownComponent: View {
     var array: [String]
     
     var body: some View {
-        HStack(){
-            Text("\(displayName)").font(.title2)
-            Spacer()
-            Button {
-                hasClicked.toggle()
-            } label: {
-                Image(systemName: (hasClicked ? "chevron.down" : "chevron.right"))
-            }
-        }
-        
-        
-        if hasClicked {
-            VStack {
-                ForEach(array, id: \.self) {
-                    Text($0)
-                }
-            }
-            .padding()
-        }
+        VStack(alignment: .leading) {
             
+            Button {
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    hasClicked.toggle()
+                }
+                
+            } label: {
+                HStack {
+                    Text("\(displayName)").font(.title2)
+                        .foregroundStyle(.black)
+                    Spacer()
+                    Image(systemName: ("chevron.right"))
+                        .rotationEffect(.degrees(hasClicked ? 90 : 0))
+                }
+                
+            }
+            
+            
+            if hasClicked {
+                VStack(alignment: .leading) {
+                    ForEach(array, id: \.self) {
+                        Text("• \($0)")
+                    }
+                }
+                .padding()
+            }
+        }
+        
+        
     }
 }
 

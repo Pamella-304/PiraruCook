@@ -67,13 +67,10 @@
 		3F852DDE2BDC0E5B00962A5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
 				D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */,
-				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
 				D3E98FB92BDBC89F00DCE016 /* MenuView.swift */,
 				D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */,
-				8B0175182BE12E700022410B /* ReviewCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				D3782FB12BE115A20041EEAC /* CartItemView.swift */,
+				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
+				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
+				8B0175182BE12E700022410B /* ReviewCard.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

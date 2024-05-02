@@ -10,9 +10,9 @@ import Foundation
 extension String {
     func TrimAndUpperCase() -> String? {
         
-        var temp =  self.trimmingCharacters(in: .whitespaces)
-        var temp1 = temp.first?.uppercased()
-        var temp2 = temp.dropFirst().lowercased()
+        let temp =  self.trimmingCharacters(in: .whitespaces)
+        let temp1 = temp.first?.uppercased()
+        let temp2 = temp.dropFirst().lowercased()
         if temp1 != nil {
             return temp1! + temp2
         }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-class DishCart: Hashable {
+class DishCart: Hashable, Identifiable {
     
+    let id = UUID()
     let dish: TypeDish
     var quantity: Int
     

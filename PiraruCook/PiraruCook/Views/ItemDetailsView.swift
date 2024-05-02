@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ItemDetailsView: View {
+    
+    @EnvironmentObject var stackPathMenu: Router
+    @Environment(Cart.self) private var cart
     var dish: TypeDish
     @State private var viewModel = DishViewModel()
     let width = UIScreen.main.bounds.width

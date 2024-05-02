@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardItemView: View {
+struct CartItemView: View {
     
     @Environment(Cart.self) private var cart
     @State var dishCart: DishCart
@@ -91,6 +91,6 @@ struct CardItemView: View {
 }
 
 #Preview {
-    CardItemView(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas"), quantity: 2))
+    CartItemView(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas"), quantity: 2))
         .environment(Cart())
 }

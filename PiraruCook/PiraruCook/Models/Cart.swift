@@ -10,13 +10,13 @@ import Foundation
 @Observable
 class Cart {
     
-    var itens: [DishCart]
+    var items: [DishCart]
     var totalValue: Double
     var subTotalValue: Double
     var transportationValue: Double
     
-    init(itens: [DishCart] = [], totalValue: Double = 0, subTotalValue: Double = 0, transportationValue: Double = 0) {
-        self.itens = itens
+    init(items: [DishCart] = [], totalValue: Double = 0, subTotalValue: Double = 0, transportationValue: Double = 0) {
+        self.items = items
         self.totalValue = totalValue
         self.subTotalValue = subTotalValue
         self.transportationValue = transportationValue
@@ -27,7 +27,7 @@ class Cart {
         if cartHas(item: item) {
             changeQuantity(item: item, increase: true)
         } else {
-            itens.append(DishCart(dish: item, quantity: 1))
+            items.append(DishCart(dish: item, quantity: 1))
         }
         subTotalValue += item.price
     }
@@ -36,7 +36,7 @@ class Cart {
         if cartHas(item: item) {
             changeQuantity(item: item, increase: false)
         } else {
-            itens.removeAll{ $0 == DishCart(dish: item, quantity: 1)}
+            items.removeAll{ $0 == DishCart(dish: item, quantity: 1)}
         }
         subTotalValue -= item.price
     }
@@ -47,25 +47,23 @@ class Cart {
     }
     
     func cartHas(item: TypeDish) -> Bool {
-        let dishes = itens.map { $0.dish }
+        let dishes = items.map { $0.dish }
         return dishes.contains(item)
     }
     
     func changeQuantity(item: TypeDish, increase: Bool) {
-        for (index, dishCart) in itens.enumerated() {
+        for (index, dishCart) in items.enumerated() {
             if dishCart.dish == item {
                 
                 if increase {
-                    itens[index].quantity += 1
+                    items[index].quantity += 1
                 } else {
-                    itens[index].quantity += 1
+                    items[index].quantity += 1
                 }
                 break
             }
         }
     }
-    
-    
     
 }
 

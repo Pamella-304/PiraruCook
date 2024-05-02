@@ -106,6 +106,7 @@ struct ItemDetailsView: View {
             .cornerRadius(10)
             Button(action: {
                 // Order Now
+                cart.addItem(item: dish)
             }) {
                 Text("Add to cart")
                     .foregroundColor(.white)

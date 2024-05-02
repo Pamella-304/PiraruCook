@@ -12,20 +12,21 @@ struct CartView: View {
     @State var viewModel = CartViewModel()
     
     var body: some View {
-        ScrollView {
-            
-            Section {
-                if let items = viewModel.cart?.items {
-                    if !items.isEmpty {
-                        ForEach(items) { item in
-                            CartItemView(dishCart: item)
+        
+        VStack {
+            ScrollView {
+                
+                Section {
+                    if let items = viewModel.cart?.items {
+                        if !items.isEmpty {
+                            ForEach(items) { item in
+                                CartItemView(dishCart: item)
+                            }
                         }
                     }
                 }
             }
-            
-            Section {
-                
+            VStack {
                 HStack {
                     Text("Subtotal:")
                     Spacer()

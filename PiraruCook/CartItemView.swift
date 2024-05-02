@@ -60,8 +60,10 @@ struct CartItemView: View {
                             
                             Stepper("") {
                                 incrementQuantity()
+                                print(cart.items)
                             } onDecrement: {
                                 decrementQuantity()
+                                print(cart.items)
                             }
                             
                         }
@@ -74,16 +76,14 @@ struct CartItemView: View {
         }
     }
     
-    func totalPrice() -> Double { Double(dishCart.quantity) * dishCart.dish.price}
+    func totalPrice() -> Double { Double(dishCart.quantity) * self.dishCart.dish.price}
     
     func incrementQuantity() {
-        dishCart.quantity += 1
         cart.addItem(item: dishCart.dish)
     }
     
     func decrementQuantity() {
         if dishCart.quantity > 0 {
-            dishCart.quantity -= 1
             cart.removeItem(item: dishCart.dish)
         }
     }

@@ -8,7 +8,7 @@
             "ingredients": ["pato com cerca de 1,5 kg",
                 "cebola", "cenoura", "alho-poró", "salsão em rodelas",
                 "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
-            "price": 0.0,
+            "price": 10.0,
             "tipo": "Salgado"
         },
         {
@@ -18,7 +18,7 @@
             "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
             "ingredients": ["cebola",
                 "farofa", "alho", "tucumãs"],
-            "price": 0.0,
+            "price": 15.0,
             "tipo": "Salgado"
         },
         {
@@ -95,7 +95,7 @@
             "image" : "Suco",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
-            "price": 0.0,
+            "price": 5.0,
             "tipo": "Bebidas"
         }
     ]

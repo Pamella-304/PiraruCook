@@ -42,9 +42,11 @@ struct MenuView: View {
         .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
         .ignoresSafeArea()
         .padding()
+        
     }
-}
+        
 
+}
 #Preview {
     MenuView()
 }

@@ -11,6 +11,8 @@ struct TabBarView: View {
     
     @StateObject private var stackPathMenu = Router()
     @StateObject private var stackPathHome = Router()
+    @StateObject private var stackPathProfile = Router()
+
     @State private var selection = 2
     
     var body: some View {
@@ -43,6 +45,16 @@ struct TabBarView: View {
                 Label("Cardápio", systemImage: "book.fill")
             }
             .tag(2)
+            
+            NavigationStack(path: $stackPathProfile.path) {
+                ProfileView()
+                    .navigationTitle("Perfil")
+            }
+            .environmentObject(stackPathProfile)
+            .tabItem {
+                Label("Profile", systemImage: "person.fill")
+            }
+            .tag(3)
         }
         
     }

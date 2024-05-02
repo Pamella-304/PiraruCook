@@ -9,12 +9,11 @@ import Foundation
 import Combine
 
 @Observable
-class CartViewModel {
+class CartViewModel: Setup {
     var cart: Cart?
     
-    func setup(_ cart: Cart) {
-        self.cart = cart
-    }
+    
+    
     
     //        func addItemToCart(_ item: TypeDish) {
     //            cart.addItem(item: item)

@@ -35,7 +35,7 @@ struct ChevronDownComponent: View {
             if hasClicked {
                 VStack(alignment: .leading) {
                     ForEach(array, id: \.self) {
-                        Text("• \($0)")
+                        Text("• \($0.TrimAndUpperCase() ?? "")")
                     }
                 }
                 .padding()

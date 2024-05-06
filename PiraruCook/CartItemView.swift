@@ -80,14 +80,12 @@ struct CartItemView: View {
     
     func incrementQuantity() {
         cart.addItem(item: viewModel.dishCart.dish)
-        print(viewModel.dishCart.quantity)
     }
     
     func decrementQuantity() {
         if viewModel.dishCart.quantity > 0 {
             cart.removeItem(item: viewModel.dishCart.dish)
         }
-        print(viewModel.dishCart.quantity)
     }
     
 }
@@ -105,7 +103,7 @@ class CartItemViewModel: Setup {
 
 #Preview {
     
-    CartItemView(viewModel: CartItemViewModel(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "nada", image: "Caipirinha", nutritionalInfo: [], ingredients: [], price: 10.10, tipo: "Bebidas"),quantity: 2)))
+    CartItemView(viewModel: CartItemViewModel(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "nada", image: "Caipirinha", nutritionalInfo: [], ingredients: [], price: 10.10, tipo: "Bebidas", comment: "Sem gelo"),quantity: 2)))
         .environment(Cart())
 }
 

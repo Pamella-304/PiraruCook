@@ -21,16 +21,7 @@
             "price": 15.0,
             "tipo": "Salgado"
         },
-        {
-            "name": "Vaca atolada",
-            "description": "carne cortada em pedaços grandes, como costelas ou ossobuco",
-            "image" : "VacaAtolada",
-            "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
-            "ingredients": ["costela bovina",
-                "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
-            "price": 0.0,
-            "tipo": "Salgado"
-        },
+       
         {
             "name": "Pirarucu de Casaca",
             "description": "Pirarucu de casaca - culinária regional do amazonas",

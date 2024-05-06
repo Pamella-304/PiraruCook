@@ -9,73 +9,81 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    
     @AppStorage("email") var email: String = ""
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userID") var userID: String = ""
-
-    private var isSignedIn: Bool {
-        !userID.isEmpty
-    }
+    
+    @State private var isAuthenticated = false
+    
+//    private var isSignedIn: Bool {
+//        !userID.isEmpty
+//    }
     
     var body: some View {
         VStack{
             
-            if !isSignedIn {
-                ProfileViewModel()
-            }
-            
-           
-            
-        }.navigationTitle("Fazer login")
+            if !isAuthenticated {
+                SignInWithAppleButton(.signIn) { request in
+                    
+                    request.requestedScopes = [.email, .fullName]
+                    
+                } onCompletion: { result in
+                    
+                    switch result {
+                    case .success(let auth):
+                        switch auth.credential {
+                        case let credential as ASAuthorizationAppleIDCredential:
+                            
+                            let userID = credential.user
+                            let email = credential.email
+                            let firstName = credential.fullName?.givenName
+                            let lastName = credential.fullName?.familyName
+                            
+                            self.userID = userID
+                            self.email = email ?? ""
+                            self.firstName = firstName ?? ""
+                            self.lastName = lastName ?? ""
+                            
+                            isAuthenticated = true
+
+                            
+                        default:
+                            break
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }.frame(height: 50)
+                    .padding()
+                    .cornerRadius(8)
+                
+            } else {
+                NavigationLink(destination: WelcomeView(firstName: firstName), isActive: $isAuthenticated) {
+                                        EmptyView()
+                                    }
+                        }
+        }
+        .navigationTitle("Fazer login")
     }
-        
-        
 }
 
-struct ProfileViewModel: View {
-    
-    @AppStorage("email") var email: String = ""
-    @AppStorage("firstName") var firstName: String = ""
-    @AppStorage("lastName") var lastName: String = ""
-    @AppStorage("userID") var userID: String = ""
+
+
+struct WelcomeView: View {
+    let firstName: String
     
     var body: some View {
-        
-        SignInWithAppleButton(.signIn) { request in
-            
-            request.requestedScopes = [.email, .fullName]
-            
-        } onCompletion: { result in
-            
-            switch result {
-            case .success(let auth):
-                switch auth.credential {
-                case let credential as ASAuthorizationAppleIDCredential:
-                    
-                    let userID = credential.user
-                    
-                    let email = credential.email
-                    let firstName = credential.fullName?.givenName
-                    let lastName = credential.fullName?.familyName
-                    
-                    self.userID = userID
-                    self.email = email ?? ""
-                    self.firstName = firstName ?? ""
-                    self.lastName = lastName ?? ""
-                    
-                default:
-                    break
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }.frame(height: 50)
-            .padding()
-            .cornerRadius(8)
+        VStack {
+            Text("Bem-vindo, \(firstName)!")
+                .padding()
+                .foregroundColor(.black)
+            // Outros conteúdos da página de boas-vindas
+        }
+        .navigationTitle("Bem-vindo")
     }
 }
-
 #Preview {
     ProfileView()
 }

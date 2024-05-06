@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ItemDetailsView: View {
+    
+    @EnvironmentObject var stackPathMenu: Router
+    @Environment(Cart.self) private var cart
     var dish: TypeDish
-    @State private var viewModel = DishViewModel()
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
+    @State private var viewModel = DishViewModel()
+    
     
     var body: some View {
         ScrollView {
@@ -96,25 +100,23 @@ struct ItemDetailsView: View {
                 Text("Order Now")
                     .foregroundColor(.white)
                     .frame(width: width*0.8, height: height*0.05)
-                    .background(.blue.opacity(0.7))
-                    
+                    .background(.blue.opacity(0.7))       
             }
-            
             .cornerRadius(10)
             Button(action: {
-                // Order Now
+                stackPathMenu.goBack()
+                viewModel.cart?.addItem(item: dish)
             }) {
                 Text("Add to cart")
                     .foregroundColor(.white)
                     .frame(width: width*0.8, height: height*0.05).background(.blue)
             }
-            
             .cornerRadius(10)
         }
-       
+        .onAppear {
+            self.viewModel.setup(self.cart)
+        }
     }
-    
-    
 }
 
 

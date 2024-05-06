@@ -10,7 +10,9 @@ import Foundation
 extension ItemDetailsView {
     
     @Observable
-    class DishViewModel {
+    class DishViewModel: Setup {
+        var cart: Cart?
+        
         var showIngredients: Bool = false
         var showNutritionalInfo: Bool = false
         

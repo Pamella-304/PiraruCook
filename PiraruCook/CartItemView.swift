@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct CardItemView: View {
+struct CartItemView: View {
     
-    let dish: TypeDish
-    @Binding var quantity: Int
+    @Environment(Cart.self) private var cart
     @Environment(\.colorScheme) var colorScheme
+    @State var viewModel: CartItemViewModel
     
     var body: some View {
         HStack(spacing:-12) {
-            Image(dish.image)
+            Image(viewModel.dishCart.dish.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 102,height: 102)
@@ -35,7 +35,7 @@ struct CardItemView: View {
                 .overlay {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(dish.name)
+                            Text(viewModel.dishCart.dish.name)
                                 .font(.title2)
                                 .bold()
                             
@@ -45,7 +45,7 @@ struct CardItemView: View {
                                 .frame(width: 30, height: 30)
                                 .foregroundStyle(.quaternary)
                                 .overlay {
-                                    Text("\(quantity)")
+                                    Text("\(viewModel.dishCart.quantity)")
                                 }
                         }
                         
@@ -69,23 +69,44 @@ struct CardItemView: View {
                     .frame(maxWidth: .infinity)
                     .padding(20)
                     .foregroundStyle(colorScheme == .light ? .black : .white)
-                    
+                    .onAppear{
+                        viewModel.setup(self.cart)
+                    }
                 }
         }
     }
     
-    func totalPrice() -> Double { Double(quantity) * dish.price}
+    func totalPrice() -> Double { Double(viewModel.dishCart.quantity) * viewModel.dishCart.dish.price}
     
-    func incrementQuantity() { quantity += 1 }
+    func incrementQuantity() {
+        cart.addItem(item: viewModel.dishCart.dish)
+        print(viewModel.dishCart.quantity)
+    }
     
     func decrementQuantity() {
-        if quantity > 0 {
-            quantity -= 1
+        if viewModel.dishCart.quantity > 0 {
+            cart.removeItem(item: viewModel.dishCart.dish)
         }
+        print(viewModel.dishCart.quantity)
     }
     
 }
 
-#Preview {
-    CardItemView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas"),quantity: .constant(2))
+@Observable
+class CartItemViewModel: Setup {
+    var cart: Cart?
+    var dishCart: DishCart
+    
+    init(cart: Cart? = nil, dishCart: DishCart) {
+        self.cart = cart
+        self.dishCart = dishCart
+    }
 }
+
+#Preview {
+    
+    CartItemView(viewModel: CartItemViewModel(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "nada", image: "Caipirinha", nutritionalInfo: [], ingredients: [], price: 10.10, tipo: "Bebidas"),quantity: 2)))
+        .environment(Cart())
+}
+
+

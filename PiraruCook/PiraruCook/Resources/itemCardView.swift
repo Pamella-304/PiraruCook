@@ -125,7 +125,7 @@ extension ItemCardView {
                             
                         }
                         .padding(4)
-                        .background(Color.white.opacity(1))
+                        .background(colorScheme == .dark ? .black : .white)
                     }
                 }
             //

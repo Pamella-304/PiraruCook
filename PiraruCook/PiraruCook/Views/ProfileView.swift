@@ -4,12 +4,14 @@
 //
 //  Created by Pamella Alvarenga on 06/05/24.
 //
+
+import Combine
 import AuthenticationServices
 import SwiftUI
 
 struct ProfileView: View {
     
-    @State private var isLoggedIn = false
+    @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
         NavigationView{

@@ -20,7 +20,7 @@ struct CartView: View {
                     if let items = viewModel.cart?.items {
                         if !items.isEmpty {
                             ForEach(items) { item in
-                                CartItemView(viewModel: CartItemViewModel(dishCart: item))
+                                CartItemView(dish: item)
                             }
                         }
                     }

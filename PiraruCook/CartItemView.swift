@@ -13,6 +13,10 @@ struct CartItemView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var viewModel: CartItemViewModel
     
+    init(dish: DishCart) {
+        self.viewModel = CartItemViewModel(dishCart: dish)
+    }
+    
     var body: some View {
         VStack {
             
@@ -106,15 +110,14 @@ class CartItemViewModel: Setup {
     let imageWidth: CGFloat = 102
     let imageHeight: CGFloat = 102
     
-    init(cart: Cart? = nil, dishCart: DishCart) {
-        self.cart = cart
+    init(dishCart: DishCart) {
         self.dishCart = dishCart
     }
 }
 
 #Preview {
     
-    CartItemView(viewModel: CartItemViewModel(dishCart: DishCart(dish: TypeDish(name: "Capirinha", description: "nada", image: "Caipirinha", nutritionalInfo: [], ingredients: [], price: 10.10, tipo: "Bebidas", comment: "Sem gelo"),quantity: 2)))
+    CartItemView(dish: DishCart(dish: TypeDish(name: "Capirinha", description: "nada", image: "Caipirinha", nutritionalInfo: [], ingredients: [], price: 10.10, tipo: "Bebidas", comment: "Sem gelo"),quantity: 2))
         .environment(Cart())
 }
 

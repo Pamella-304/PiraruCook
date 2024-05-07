@@ -1,5 +1,4 @@
 import Foundation
-import CloudKit
 
 
 enum RecordKeysUser: String {
@@ -14,69 +13,51 @@ enum RecordKeysUser: String {
     
 }
 
-// classe para o modelo da atividade
-// id: identificador de ID
-// recordId: id do identificador de id dentro do conteiner
-// name: nome do desafio
-// description: descrição do desafio
-// distance: distância do desafio
-// img: imagem do desafio
-// actualDist: distância atual que a comunidade já percorreu do desafio
-// days: quantos dias o desafio já teve
-// ActiveMembers: membros ativos no desafio
-struct User: CKRecordValueProtocol, Identifiable, Hashable {
-    var id: ObjectIdentifier
-    var recordId: CKRecord.ID?
+enum Boi {
+    case garantido
+    case caprichoso
+}
+
+
+struct User {
     var name: String
     var birthDate: Date
     var userID: String
     var address: String
     var email: String
     var cpf: String
-    var boi: String
+    var boi: Boi
     
-    var record: CKRecord {
-        let record = CKRecord(recordType: RecordKeysUser.type.rawValue)
-        record[RecordKeysUser.name.rawValue] = name
-        record[RecordKeysUser.birthDate.rawValue] = birthDate
-        record[RecordKeysUser.userID.rawValue] = userID
-        record[RecordKeysUser.email.rawValue] = email
-        record[RecordKeysUser.address.rawValue] = address
-        record[RecordKeysUser.cpf.rawValue] = cpf
-        record[RecordKeysUser.boi.rawValue] = boi
-        return record
-    }
-    
-    
-    static func == (lhs: User, rhs: User) -> Bool {
-        lhs.recordId == rhs.recordId
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-    
-}
-    
-extension User{
-    init?(record: CKRecord) {
-        guard let name = record[RecordKeysUser.name.rawValue] as? String,
-              
-        let birthDate = record[RecordKeysUser.birthDate.rawValue] as? Date,
-              
-        let address = record[RecordKeysUser.address.rawValue] as? String,
-              
-        let email = record[RecordKeysUser.email.rawValue] as? String,
-      
-        let cpf = record[RecordKeysUser.cpf.rawValue] as? String,
-              
-        let boi = record[RecordKeysUser.boi.rawValue] as? String,
-                
-        let userId = record[RecordKeysUser.userID.rawValue] as? String else{
-            print("erro de inicialização de usuário")
-            return nil
-        }
+    func formatCPF(_ s: String) -> String{
+        let start1 = s.index(s.startIndex, offsetBy: 0)
+        let end1 = s.index(s.startIndex, offsetBy: 3)
+        let range1 = start1..<end1
         
-        self.init(id: ObjectIdentifier(User.self), name: name, birthDate: birthDate, userID: userId, address: address, email: email, cpf: cpf, boi: boi)
+        let start2 = s.index(s.startIndex, offsetBy: 3)
+        let end2 = s.index(s.startIndex, offsetBy: 6)
+        let range2 = start1..<end1
+        
+        let start3 = s.index(s.startIndex, offsetBy: 6)
+        let end3 = s.index(s.startIndex, offsetBy: 9)
+        let range3 = start1..<end1
+        
+        let start4 = s.index(s.startIndex, offsetBy: 9)
+        let end4 = s.index(s.startIndex, offsetBy: 11)
+        let range4 = start1..<end1
+        
+        
+        return("\(s[range1]).\(s[range2]).\(s[range3])-\(s[range4])")
+    }
+    
+    
+    init(name: String, birthDate: Date, userID: String, address: String, email: String, cpf: String, boi: Boi) {
+        self.name = name
+        self.birthDate = birthDate
+        self.userID = userID
+        self.address = address
+        self.email = email
+        self.cpf = cpf
+        self.boi = boi
     }
 }
+

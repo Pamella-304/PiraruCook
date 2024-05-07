@@ -9,7 +9,7 @@ import Combine
 import AuthenticationServices
 import SwiftUI
 
-struct ProfileView: View {
+struct LoginProfileView: View {
     
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
@@ -79,5 +79,5 @@ struct LoggedInView: View {
 
 
 #Preview {
-    ProfileView()
+    LoginProfileView()
 }

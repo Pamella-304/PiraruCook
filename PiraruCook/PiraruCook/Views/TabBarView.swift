@@ -9,9 +9,9 @@ import SwiftUI
 
 struct TabBarView: View {
     
-    @StateObject private var stackPathMenu = Router()
-    @StateObject private var stackPathHome = Router()
-    @StateObject private var stackPathCart = Router()
+    @State private var stackPathMenu = Router()
+    @State private var stackPathHome = Router()
+    @State private var stackPathCart = Router()
     @State private var selection = 3
     
     var body: some View {
@@ -20,7 +20,7 @@ struct TabBarView: View {
             NavigationStack(path: $stackPathHome.path) {
                 Text("HOLD")
             }
-            .environmentObject(stackPathHome)
+            .environment(stackPathHome)
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
@@ -36,10 +36,13 @@ struct TabBarView: View {
                             MenuView()
                         case Views.DishDetails:
                             ItemDetailsView(dish: data.dish!)
+                        default:
+                            // TODO: should never end up here
+                            MenuView()
                         }
                     }
             }
-            .environmentObject(stackPathMenu)
+            .environment(stackPathMenu)
             .tabItem {
                 Label("Cardápio", systemImage: "book.fill")
             }
@@ -55,10 +58,13 @@ struct TabBarView: View {
                             MenuView()
                         case Views.DishDetails:
                             ItemDetailsView(dish: data.dish!)
+                        case .Payment:
+                            // TODO: Change to PaymentView()
+                            MenuView()
                         }
                     }
             }
-            .environmentObject(stackPathCart)
+            .environment(stackPathCart)
             .tabItem {
                 Label("Carrinho", systemImage: "cart.fill")
             }

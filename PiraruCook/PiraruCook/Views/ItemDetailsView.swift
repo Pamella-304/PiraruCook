@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemDetailsView: View {
     
-    @EnvironmentObject var stackPathMenu: Router
+    @Environment(Router.self) private var stackPathMenu
     @Environment(Cart.self) private var cart
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height

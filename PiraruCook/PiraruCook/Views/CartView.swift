@@ -8,6 +8,7 @@ import SwiftUI
 
 struct CartView: View {
     
+    @Environment(Router.self) private var stackPathCart
     @Environment(Cart.self) private var cart
     @State var viewModel = CartViewModel()
     
@@ -26,6 +27,7 @@ struct CartView: View {
                     }
                 }
             }
+            
             VStack {
                 HStack {
                     Text("Subtotal:")
@@ -40,9 +42,26 @@ struct CartView: View {
                 HStack {
                     Text("Total:")
                     Spacer()
-                    Text(String(format: "%.2f", viewModel.cart?.totalValue ?? 0))
+                    Text(String(format: "%.2f", viewModel.cart?.getTotalValue() ?? 0))
                 }
             }
+            .padding(.horizontal)
+            
+            // MARK: Payment
+            Button{
+                // TODO: payment logic
+                stackPathCart.path.append(RouterMenuData(screen: .Payment))
+            }label: {
+                Text("Pagamento")
+                    .foregroundColor(.white)
+                    .padding(16)
+                    .frame(maxWidth: .infinity)
+                    .background(.blue)
+            }
+            .cornerRadius(10)
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+            
+            
         }
         .navigationTitle("Cart")
         .onAppear {
@@ -51,8 +70,7 @@ struct CartView: View {
     }
 }
 
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView()
-    }
+#Preview {
+    CartView()
+        .environment(Cart())
 }

@@ -84,7 +84,7 @@
             "image" : "Bacuri",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Bacuri"],
-            "price": 0.0,
+            "price": 3.5,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -94,7 +94,7 @@
             "image" : "Cerveja",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
-            "price": 0.0,
+            "price": 2.0,
             "tipo": "Bebidas",
             "comment": ""
         },

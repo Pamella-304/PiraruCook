@@ -7,8 +7,9 @@
 
 import Foundation
 
-class Router: ObservableObject {
-    @Published var path: [RouterMenuData]
+@Observable
+class Router {
+    var path: [RouterMenuData]
     init(){
         self.path = []
     }
@@ -23,7 +24,7 @@ class Router: ObservableObject {
 }
 
 enum Views {
-    case Menu, DishDetails
+    case Menu, DishDetails, Payment
 }
 
 class RouterMenuData: Hashable {

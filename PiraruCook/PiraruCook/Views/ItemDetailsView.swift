@@ -11,14 +11,12 @@ struct ItemDetailsView: View {
     
     @EnvironmentObject var stackPathMenu: Router
     @Environment(Cart.self) private var cart
-    var dish: TypeDish
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     @State private var viewModel: ItemDetailsViewModel
     
     init(dish: TypeDish) {
-        self.dish = dish
-        self.viewModel = ItemDetailsViewModel()
+        self.viewModel = ItemDetailsViewModel(dish: dish)
     }
     
     var body: some View {
@@ -26,24 +24,24 @@ struct ItemDetailsView: View {
             VStack(spacing:24) {
                 
                 // MARK: Image
-                Image(viewModel.displayImage(dish: dish)).resizable().frame(width: width,height: height*0.25)
+                Image(viewModel.displayImage()).resizable().frame(width: width,height: height*0.25)
                 
                 // MARK: Description
                 VStack{
                     HStack{
-                        Text(viewModel.displayName(dish: dish)).font(.title)
+                        Text(viewModel.displayName()).font(.title)
                         Spacer()
-                        Text("R$ \(viewModel.displayPrice(dish: dish))")
+                        Text("R$ \(viewModel.displayPrice())")
                             .font(.title2)
                     }.padding(.horizontal)
                     HStack{
-                        Text(viewModel.displayDescription(dish: dish)).font(.title3)
+                        Text(viewModel.displayDescription()).font(.title3)
                         Spacer()
                     }.padding(.horizontal)
                 }
                 
                 // MARK: Ingredients
-                ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $viewModel.showIngredients, array: viewModel.displayIngredients(dish: dish))
+                ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $viewModel.showIngredients, array: viewModel.displayIngredients())
                     .padding(.horizontal)
                 
                 // MARK: Comment
@@ -80,7 +78,7 @@ struct ItemDetailsView: View {
                 // MARK: Recomendation
                 VStack {
                     HStack {
-                        Text("Seu prato \(dish.name) combina com:")
+                        Text("Seu prato \(viewModel.dish.name) combina com:")
                             .font(.title2)
                         Spacer()
                     }
@@ -115,8 +113,8 @@ struct ItemDetailsView: View {
             
             // MARK: Add to cart
             Button(action: {
-                dish
-                viewModel.cart?.addItem(item: dish)
+                viewModel.updateCommnet()
+                viewModel.addToCart()
                 stackPathMenu.goBack()
             }) {
                 Text("Add to cart")

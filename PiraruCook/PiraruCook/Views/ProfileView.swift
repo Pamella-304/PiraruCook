@@ -1,89 +1,58 @@
 //
-//  ProfileView.swift
+//  Profile2View.swift
 //  PiraruCook
 //
-//  Created by Pamella Alvarenga on 02/05/24.
+//  Created by Pamella Alvarenga on 06/05/24.
 //
 import AuthenticationServices
 import SwiftUI
-//
-//struct ProfileView: View {
-//    
-//    
-//    @AppStorage("email") var email: String = ""
-//    @AppStorage("firstName") var firstName: String = ""
-//    @AppStorage("lastName") var lastName: String = ""
-//    @AppStorage("userID") var userID: String = ""
-//    
-//    @State private var isAuthenticated = false
-//    
-////    private var isSignedIn: Bool {
-////        !userID.isEmpty
-////    }
-//    
-//    var body: some View {
-//        VStack{
-//            
-//            if !isAuthenticated {
-//                SignInWithAppleButton(.signIn) { request in
-//                    
-//                    request.requestedScopes = [.email, .fullName]
-//                    
-//                } onCompletion: { result in
-//                    
-//                    switch result {
-//                    case .success(let auth):
-//                        switch auth.credential {
-//                        case let credential as ASAuthorizationAppleIDCredential:
-//                            
-//                            let userID = credential.user
-//                            let email = credential.email
-//                            let firstName = credential.fullName?.givenName
-//                            let lastName = credential.fullName?.familyName
-//                            
-//                            self.userID = userID
-//                            self.email = email ?? ""
-//                            self.firstName = firstName ?? ""
-//                            self.lastName = lastName ?? ""
-//                            
-//                            isAuthenticated = true
-//
-//                            
-//                        default:
-//                            break
-//                        }
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                }.frame(height: 50)
-//                    .padding()
-//                    .cornerRadius(8)
-//                
-//            } else {
-//                NavigationLink(destination: WelcomeView(firstName: firstName), isActive: $isAuthenticated) {
-//                                        EmptyView()
-//                                    }
-//                        }
-//        }
-//        .navigationTitle("Fazer login")
-//    }
-//}
-//
-//
-//
-//struct WelcomeView: View {
-//    let firstName: String
-//    
-//    var body: some View {
-//        VStack {
-//            Text("Bem-vindo, \(firstName)!")
-//                .padding()
-//                .foregroundColor(.black)
-//            // Outros conteúdos da página de boas-vindas
-//        }
-//        .navigationTitle("Bem-vindo")
-//    }
-//}
-//#Preview {
-//    ProfileView()
-//}
+
+struct ProfileView: View {
+    var body: some View {
+        SignInWithAppleButton(
+            .signIn,
+            onRequest: configure,
+            onCompletion: handle
+        )
+        .frame(height: 45)
+        .padding()
+    }
+    
+    func configure(_ request: ASAuthorizationAppleIDRequest) {
+        request.requestedScopes = [.fullName, .email]
+        print("resquested")
+    }
+    
+    func handle(_ authResult: Result<ASAuthorization, Error>) {
+        switch authResult {
+        case .success(let auth):
+            print(auth)
+            switch auth.credential {
+            case let appleIDCredentials as ASAuthorizationAppleIDCredential:
+                if let appleUser = AppleUser(credentials: appleIDCredentials),
+                    let appleUserData =  try? JSONEncoder().encode(appleUser) {
+                        UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
+                        print("saved Apple User", appleUser)
+                    } else {
+                        print("missing some fileds", appleIDCredentials.email, appleIDCredentials.fullName, appleIDCredentials.user)
+                        
+                        guard
+                            let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
+                            let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
+                        else {return}
+                        
+                        print(appleUser)
+                    }
+                
+            default:
+                print(auth.credential)
+            }
+        case .failure(let error):
+            print(error)
+        }
+    }
+}
+
+#Preview {
+    ProfileView()
+}

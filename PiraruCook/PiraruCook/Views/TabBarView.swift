@@ -47,7 +47,7 @@ struct TabBarView: View {
             .tag(2)
             
             NavigationStack(path: $stackPathProfile.path) {
-                Profile2View()
+                ProfileView()
                     .navigationTitle("Perfil")
             }
             .environmentObject(stackPathProfile)

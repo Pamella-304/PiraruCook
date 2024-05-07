@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class DishViewModel: Setup {
+class ItemDetailsViewModel: Setup {
     var cart: Cart?
     
     var showIngredients: Bool = false

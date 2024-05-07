@@ -14,7 +14,12 @@ struct ItemDetailsView: View {
     var dish: TypeDish
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
-    @State private var viewModel = DishViewModel()
+    @State private var viewModel: ItemDetailsViewModel
+    
+    init(dish: TypeDish) {
+        self.dish = dish
+        self.viewModel = ItemDetailsViewModel()
+    }
     
     var body: some View {
         ScrollView {
@@ -110,8 +115,9 @@ struct ItemDetailsView: View {
             
             // MARK: Add to cart
             Button(action: {
-                stackPathMenu.goBack()
+                dish
                 viewModel.cart?.addItem(item: dish)
+                stackPathMenu.goBack()
             }) {
                 Text("Add to cart")
                     .foregroundColor(.white)

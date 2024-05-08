@@ -43,8 +43,9 @@ struct MenuView: View {
         .ignoresSafeArea()
         .padding()
     }
-}
+        
 
+}
 #Preview {
     MenuView()
 }

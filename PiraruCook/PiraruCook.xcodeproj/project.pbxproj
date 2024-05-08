@@ -12,10 +12,14 @@
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
+		61CED8D72BE971B900798247 /* ReviewCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D62BE971B900798247 /* ReviewCart.swift */; };
+		61E10D0C2BE90E1700ACF7E9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */; };
+		61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */; };
 		8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175162BE122410022410B /* DishDetailsViewModel.swift */; };
-		8B0175192BE12E700022410B /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175182BE12E700022410B /* ReviewCard.swift */; };
 		8B1E6BE22BE9228400625875 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E6BE12BE9228400625875 /* User.swift */; };
 		8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */; };
+		8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */; };
+		8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */; };
 		8BB66BAB2BE3B9EB000E9E5B /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */; };
 		8BB66BAD2BE3C219000E9E5B /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB66BAC2BE3C219000E9E5B /* Setup.swift */; };
 		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
@@ -38,10 +42,15 @@
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61715AA52BD9236400F83338 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		61CED8D62BE971B900798247 /* ReviewCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCart.swift; sourceTree = "<group>"; };
+		61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUser.swift; sourceTree = "<group>"; };
+		61E3BA4E2BE3B869001C0201 /* PiraruCook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiraruCook.entitlements; sourceTree = "<group>"; };
 		8B0175162BE122410022410B /* DishDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishDetailsViewModel.swift; path = PiraruCook/Views/DishDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
-		8B0175182BE12E700022410B /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 		8B1E6BE12BE9228400625875 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownComponent.swift; sourceTree = "<group>"; };
+		8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedProfileView.swift; sourceTree = "<group>"; };
+		8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsView.swift; sourceTree = "<group>"; };
 		8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		8BB66BAC2BE3C219000E9E5B /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
@@ -75,6 +84,9 @@
 				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
 				D3E98FB92BDBC89F00DCE016 /* MenuView.swift */,
 				D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */,
+				61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */,
+				8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */,
+				61CED8D62BE971B900798247 /* ReviewCart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -94,6 +106,7 @@
 			children = (
 				D3DC3CC82BDBEA45001C4300 /* Cart.swift */,
 				8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */,
+				61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */,
 				D3782FB32BE134630041EEAC /* DishCart.swift */,
 				8B1E6BE12BE9228400625875 /* User.swift */,
 			);
@@ -106,7 +119,7 @@
 				D3782FB12BE115A20041EEAC /* CartItemView.swift */,
 				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
-				8B0175182BE12E700022410B /* ReviewCard.swift */,
+				8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -140,6 +153,7 @@
 		61715A9D2BD9236300F83338 /* PiraruCook */ = {
 			isa = PBXGroup;
 			children = (
+				61E3BA4E2BE3B869001C0201 /* PiraruCook.entitlements */,
 				3F852DE12BDC0EA000962A5F /* Resources */,
 				3F852DE22BDC0EB200962A5F /* Utilities */,
 				3F852DE02BDC0E7E00962A5F /* Models */,
@@ -242,23 +256,27 @@
 			files = (
 				3F3FD9F22BE11698006D933A /* CartViewModel.swift in Sources */,
 				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
+				8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */,
+				61E10D0C2BE90E1700ACF7E9 /* ProfileView.swift in Sources */,
+				61CED8D72BE971B900798247 /* ReviewCart.swift in Sources */,
 				D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */,
 				D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */,
 				D3782FB42BE134630041EEAC /* DishCart.swift in Sources */,
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
 				D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */,
+				61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */,
 				D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */,
 				8B1E6BE22BE9228400625875 /* User.swift in Sources */,
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */,
+				8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */,
 				8BB66BAD2BE3C219000E9E5B /* Setup.swift in Sources */,
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
 				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,
 				8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */,
 				8BB66BAB2BE3B9EB000E9E5B /* Formatter.swift in Sources */,
-				8B0175192BE12E700022410B /* ReviewCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -374,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -389,10 +407,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiraruCook/PiraruCook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PiraruCook/Preview Content\"";
-				DEVELOPMENT_TEAM = KK45GWU9MA;
+				DEVELOPMENT_TEAM = 56QA9FYA3V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -423,10 +442,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiraruCook/PiraruCook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PiraruCook/Preview Content\"";
-				DEVELOPMENT_TEAM = KK45GWU9MA;
+				DEVELOPMENT_TEAM = 56QA9FYA3V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

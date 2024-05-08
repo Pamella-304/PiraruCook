@@ -16,6 +16,9 @@ struct SignInFormsView: View {
     @State private var cpf = ""
     @State private var selectedBoi: Boi = .garantido
     @State private var accountCreated = false
+    @State private var showAlert = false
+    @State private var alertMessage = "A senha deve ter no mínimo 6 caracteres"
+
     @AppStorage("isLoggedIn") private var isLoggedIn = false
 
     var body: some View {
@@ -25,7 +28,7 @@ struct SignInFormsView: View {
                 DatePicker("Data de Nascimento", selection: $birthDate, displayedComponents: .date)
                 TextField("Endereço", text: $address)
                 TextField("E-mail", text: $email)
-                TextField("Senha", text: $senha)
+                SecureField("Senha", text: $senha)
                 TextField("CPF", text: $cpf)
             }
             
@@ -38,18 +41,25 @@ struct SignInFormsView: View {
             }
             
             Button("Cadastrar") {
-                saveUser()
-                    
+                if senha.count >= 6 {
+                    saveUser()
+                } else {
+                    showAlert = true
+                    alertMessage = "A senha deve ter no mínimo 6 caracteres"
+                }
+                
             }
         }.navigationTitle("Cadastrar")
             .background(
                 NavigationLink(destination: LoggedProfileView(isLoggedIn: $isLoggedIn), isActive: $accountCreated) {
-                        EmptyView()
+                    EmptyView()
                 }
             )
-            
-        }
-    
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Erro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                
+            }
+    }
     
     func saveUser() {
         

@@ -29,7 +29,7 @@ struct TabBarView: View {
             NavigationStack(path: $stackPathMenu.path) {
                 MenuView()
                     .navigationTitle("Cardápio")
-                    .navigationDestination(for: RouterMenuData.self) { data in
+                    .navigationDestination(for: RouterData.self) { data in
                         
                         switch data.screen {
                         case Views.Menu:
@@ -51,7 +51,7 @@ struct TabBarView: View {
             NavigationStack(path: $stackPathCart.path) {
                 CartView()
                     .navigationTitle("Cardápio")
-                    .navigationDestination(for: RouterMenuData.self) { data in
+                    .navigationDestination(for: RouterData.self) { data in
                         
                         switch data.screen {
                         case Views.Menu:

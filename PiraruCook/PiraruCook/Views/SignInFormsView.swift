@@ -16,6 +16,7 @@ struct SignInFormsView: View {
     @State private var cpf = ""
     @State private var selectedBoi: Boi = .garantido
     @State private var accountCreated = false
+    @AppStorage("isLoggedIn") private var isLoggedIn = false
 
     var body: some View {
         Form {
@@ -42,7 +43,7 @@ struct SignInFormsView: View {
             }
         }.navigationTitle("Cadastrar")
             .background(
-                NavigationLink(destination: LoggedProfileView(), isActive: $accountCreated) {
+                NavigationLink(destination: LoggedProfileView(isLoggedIn: $isLoggedIn), isActive: $accountCreated) {
                         EmptyView()
                 }
             )
@@ -63,6 +64,7 @@ struct SignInFormsView: View {
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
             
             accountCreated = true
+            isLoggedIn = true
             
         } else {
             print("Erro ao salvar o usuário.")

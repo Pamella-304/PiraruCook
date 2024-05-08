@@ -20,7 +20,7 @@ struct LoginProfileView: View {
         NavigationView{
             
             if isLoggedIn {
-                LoggedInView(isLoggedIn: $isLoggedIn)
+                LoggedProfileView(isLoggedIn: $isLoggedIn)
             } else {
                 VStack{
                     TextField("Email", text: $email)
@@ -120,28 +120,3 @@ struct LoginProfileView: View {
     
     
 }
-    struct LoggedInView: View {
-        
-        @Binding var isLoggedIn: Bool
-        
-        var body: some View {
-            
-            VStack {
-                
-                Text("Você está logado")
-                    .navigationTitle("Perfil")
-                Button("LogOut") {
-                    isLoggedIn = false
-                }
-                .padding()
-            }
-        }
-        
-        
-    }
-    
-    
-
-//#Preview {
-//    LoginProfileView()
-//}

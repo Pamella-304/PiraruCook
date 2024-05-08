@@ -10,6 +10,8 @@ import SwiftUI
 
 struct LoggedProfileView: View {
     
+    @Binding var isLoggedIn: Bool
+    
     var body: some View {
         VStack {
             VStack {
@@ -47,17 +49,20 @@ struct LoggedProfileView: View {
                 
                 ProfileOptionsView(imageName: "party.popper.fill", title:
                                 "Festival de Paratins", description: "Acesse as informações do evento atual")
-                
-                
+
             }
-            Spacer()
+
+            Button("Sair") {
+                isLoggedIn = false
+            }
+            .padding()
+            
         }
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
+        
     }
         
 }
 
-#Preview {
-    LoggedProfileView()
-}
+

@@ -54,6 +54,7 @@ struct LoggedProfileView: View {
 
             Button("Sair") {
                 isLoggedIn = false
+             
             }
             .padding()
             

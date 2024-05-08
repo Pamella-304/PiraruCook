@@ -17,7 +17,7 @@ struct SignInFormsView: View {
     @State private var selectedBoi: Boi = .garantido
     @State private var accountCreated = false
     @State private var showAlert = false
-    @State private var alertMessage = "A senha deve ter no mínimo 6 caracteres"
+    @State private var alertMessage = ""
 
     @AppStorage("isLoggedIn") private var isLoggedIn = false
 
@@ -41,13 +41,19 @@ struct SignInFormsView: View {
             }
             
             Button("Cadastrar") {
-                if senha.count >= 6 {
+                                
+                if senha.count >= 6 && cpf.count == 11 && cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil {
                     saveUser()
                 } else {
                     showAlert = true
-                    alertMessage = "A senha deve ter no mínimo 6 caracteres"
+                    if !(senha.count >= 6) {
+                        alertMessage = "A senha deve ter no mínimo 6 caracteres"
+                    } else if !(cpf.count == 11) || !(cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil) {
+                       alertMessage = "Formato de CPF inválido"
+                    } else {
+                        alertMessage = "Erro no cadastro. Reverifique os campos preenchidos."
+                    }
                 }
-                
             }
         }.navigationTitle("Cadastrar")
             .background(
@@ -56,8 +62,10 @@ struct SignInFormsView: View {
                 }
             )
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Erro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-                
+                    
+                    Alert(title: Text("Erro"), 
+                          message: Text(alertMessage),
+                          dismissButton: .default(Text("OK")))
             }
     }
     
@@ -82,4 +90,5 @@ struct SignInFormsView: View {
     }
     
 }
+
 

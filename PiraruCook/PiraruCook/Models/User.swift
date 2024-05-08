@@ -5,7 +5,6 @@ enum RecordKeysUser: String {
     case type = "user"
     case name
     case birthDate
-    case userID
     case address
     case cpf
     case email
@@ -13,18 +12,18 @@ enum RecordKeysUser: String {
     
 }
 
-enum Boi {
+enum Boi: Codable {
     case garantido
     case caprichoso
 }
 
 
-struct User {
+struct User: Codable {
     var name: String
     var birthDate: Date
-    var userID: String
     var address: String
     var email: String
+    var password: String
     var cpf: String
     var boi: Boi
     
@@ -49,13 +48,22 @@ struct User {
         return("\(s[range1]).\(s[range2]).\(s[range3])-\(s[range4])")
     }
     
+    func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(name, forKey: .name)
+            try container.encode(birthDate, forKey: .birthDate)
+            try container.encode(address, forKey: .address)
+            try container.encode(email, forKey: .email)
+            try container.encode(cpf, forKey: .cpf)
+            try container.encode(boi, forKey: .boi)
+        }
     
-    init(name: String, birthDate: Date, userID: String, address: String, email: String, cpf: String, boi: Boi) {
+    init(name: String, birthDate: Date, address: String, email: String, password: String, cpf: String, boi: Boi) {
         self.name = name
         self.birthDate = birthDate
-        self.userID = userID
         self.address = address
         self.email = email
+        self.password = password
         self.cpf = cpf
         self.boi = boi
     }

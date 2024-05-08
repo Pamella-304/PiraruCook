@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct PiraruCookApp: App {
-    let exampleUser = User(name: "Jonas da Silva", birthDate: Date.now, address: "", email: "", password: ", cpf: "", boi: Boi.caprichoso)
+    let exampleUser = User(name: "Jonas da Silva", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     @State private var cart = Cart()
     
     var body: some Scene {

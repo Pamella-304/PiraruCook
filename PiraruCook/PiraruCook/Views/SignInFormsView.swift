@@ -15,7 +15,8 @@ struct SignInFormsView: View {
     @State private var senha = ""
     @State private var cpf = ""
     @State private var selectedBoi: Boi = .garantido
-    
+    @State private var accountCreated = false
+
     var body: some View {
         Form {
             Section(header: Text("Informações Pessoais")) {
@@ -37,12 +38,21 @@ struct SignInFormsView: View {
             
             Button("Cadastrar") {
                 saveUser()
+                    
             }
+        }.navigationTitle("Cadastrar")
+            .background(
+                NavigationLink(destination: LoggedProfileView(), isActive: $accountCreated) {
+                        EmptyView()
+                }
+            )
             
         }
-    }
+    
     
     func saveUser() {
+        
+        
         let newUser = User(name: name, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
         
         // Convertendo a estrutura de usuário para dados
@@ -51,6 +61,9 @@ struct SignInFormsView: View {
             let userID = UUID().uuidString
 
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
+            
+            accountCreated = true
+            
         } else {
             print("Erro ao salvar o usuário.")
         }

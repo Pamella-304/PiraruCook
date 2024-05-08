@@ -38,6 +38,7 @@ struct LoginProfileView: View {
                     
                     NavigationLink(destination: SignInFormsView(), isActive: $creatingAccount) {
                         Text("Cria Conta")
+                        
                     }
                     .padding()
                     Spacer()

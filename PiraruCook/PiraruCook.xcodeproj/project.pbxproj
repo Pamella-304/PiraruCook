@@ -19,6 +19,8 @@
 		8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175162BE122410022410B /* DishDetailsViewModel.swift */; };
 		8B1E6BE22BE9228400625875 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E6BE12BE9228400625875 /* User.swift */; };
 		8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */; };
+		8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */; };
+		8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */; };
 		8BB66BAB2BE3B9EB000E9E5B /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */; };
 		8BB66BAD2BE3C219000E9E5B /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB66BAC2BE3C219000E9E5B /* Setup.swift */; };
 		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
@@ -49,6 +51,8 @@
 		8B0175162BE122410022410B /* DishDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishDetailsViewModel.swift; path = PiraruCook/Views/DishDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B1E6BE12BE9228400625875 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownComponent.swift; sourceTree = "<group>"; };
+		8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedProfileView.swift; sourceTree = "<group>"; };
+		8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsView.swift; sourceTree = "<group>"; };
 		8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		8BB66BAC2BE3C219000E9E5B /* Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */,
 				61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */,
 				61CED8D82BEA79D500798247 /* SignInFormsView.swift */,
+				61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */,
+				8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */,
 				61CED8D62BE971B900798247 /* ReviewCart.swift */,
 			);
 			path = Views;
@@ -117,6 +123,7 @@
 				D3782FB12BE115A20041EEAC /* CartItemView.swift */,
 				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
+				8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -254,6 +261,8 @@
 				3F3FD9F22BE11698006D933A /* CartViewModel.swift in Sources */,
 				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
+				8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */,
+				61E10D0C2BE90E1700ACF7E9 /* ProfileView.swift in Sources */,
 				61CED8D72BE971B900798247 /* ReviewCart.swift in Sources */,
 				D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */,
 				D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */,
@@ -267,6 +276,7 @@
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */,
+				8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */,
 				8BB66BAD2BE3C219000E9E5B /* Setup.swift in Sources */,
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,

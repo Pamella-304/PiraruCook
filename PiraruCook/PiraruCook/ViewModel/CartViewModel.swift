@@ -11,20 +11,8 @@ import Combine
 @Observable
 class CartViewModel: Setup {
     var cart: Cart?
+    var isDelivery = false
     
     
     
-    
-    //        func addItemToCart(_ item: TypeDish) {
-    //            cart.addItem(item: item)
-    //            updateTotals()
-    //        }
-    //
-    //        func updateTransportationCost(_ cost: Double) {
-    //            cart.setTransportation(cost: cost)
-    //        }
-    //
-    //        private func updateTotals() {
-    //            cart.totalValue = cart.subTotalValue + cart.transportationValue
-    //        }
 }

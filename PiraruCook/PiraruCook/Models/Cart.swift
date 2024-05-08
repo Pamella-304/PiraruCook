@@ -11,15 +11,17 @@ import Foundation
 class Cart {
     
     var items: [DishCart]
-    var totalValue: Double
     var subTotalValue: Double
     var transportationValue: Double
     
-    init(items: [DishCart] = [], totalValue: Double = 0, subTotalValue: Double = 0, transportationValue: Double = 0) {
+    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0) {
         self.items = items
-        self.totalValue = totalValue
         self.subTotalValue = subTotalValue
         self.transportationValue = transportationValue
+    }
+    
+    func getTotalValue() -> Double {
+        subTotalValue + transportationValue
     }
     
     func addItem(item: TypeDish) {
@@ -46,7 +48,6 @@ class Cart {
     
     func setTransportation(cost: Double) {
         transportationValue = cost
-        totalValue = subTotalValue + cost
     }
     
     func cartHas(item: TypeDish) -> Bool {

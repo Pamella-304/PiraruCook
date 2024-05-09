@@ -51,13 +51,13 @@ class ItemDetailsViewModel: Setup {
     func displayAllergies() -> String{
         switch dish.tipo {
         case "Bebidas":
-            ""
+            "Pode conter: (Alergias na produção de bebidas)"
         case "Doce":
-            "Você selecionou a Opção 2"
+            "Pode conter: (Alergias na produção de doces)"
         case "Salgado":
-            "Você selecionou a Opção 3"
+            "Pode conter: (Alergias na produção de salgados)"
         default:
-            "Opção inválida"
+            "Pode conter: (Alergias na produção de )"
         }
     }
     

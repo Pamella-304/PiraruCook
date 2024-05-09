@@ -40,16 +40,9 @@ struct ItemDetailsView: View {
                     }.padding(.horizontal)
                 }
                 //MARK: Allergies
-                VStack{
-                    HStack{
-                        Text("Alérgicos").font(.title)
-                        Spacer()
-                    }.padding(.horizontal)
-                    HStack{
-                        Text(viewModel.displayAllergies()).font(.title3)
-                        Spacer()
-                    }.padding(.horizontal)
-                }
+                ChevronDownComponent(displayName:"Alergias" ,hasClicked: $viewModel.showNutritionalInfo, array: [viewModel.displayAllergies()])
+                    .padding(.horizontal)
+
                 
                 
                 

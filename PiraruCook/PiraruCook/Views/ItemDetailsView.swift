@@ -9,56 +9,60 @@ import SwiftUI
 
 struct ItemDetailsView: View {
     
-    @EnvironmentObject var stackPathMenu: Router
+    @Environment(Router.self) private var stackPathMenu
     @Environment(Cart.self) private var cart
-    var dish: TypeDish
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
-    @State private var viewModel = DishViewModel()
+    @State private var viewModel: ItemDetailsViewModel
     
+    init(dish: TypeDish) {
+        self.viewModel = ItemDetailsViewModel(dish: dish)
+    }
     
     var body: some View {
         ScrollView {
-            VStack {
-                Image(viewModel.displayImage(dish: dish)).resizable().frame(width: width,height: height*0.25)
+            VStack(spacing:24) {
+                
+                // MARK: Image
+                Image(viewModel.displayImage()).resizable().frame(width: width,height: height*0.25)
+                
+                // MARK: Description
                 VStack{
                     HStack{
-                        Text(viewModel.displayName(dish: dish)).font(.title)
+                        Text(viewModel.displayName()).font(.title)
                         Spacer()
-                        Text("R$ \(viewModel.displayPrice(dish: dish))")
+                        Text("R$ \(viewModel.displayPrice())")
                             .font(.title2)
                     }.padding(.horizontal)
                     HStack{
-                        Text(viewModel.displayDescription(dish: dish)).font(.title3)
+                        Text(viewModel.displayDescription()).font(.title3)
                         Spacer()
                     }.padding(.horizontal)
                 }
-                ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $viewModel.showIngredients, array: viewModel.displayIngredients(dish: dish))
-                    .padding()
-                VStack{
-//                    HStack{
-//                        Text("Imagens").font(.title2)
-//                        Spacer()
-//                    }.padding()
-//                    ScrollView(.horizontal){
-//                        HStack{
-//                            ForEach(viewModel.displayIngredients(dish: dish), id: \.self){ img in
-//                                Image(img).resizable().frame(width: width*0.3,height: height*0.2)
-//                                
-//                            }
-//                        }
-//                    }
-                    
+                
+                // MARK: Ingredients
+                ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $viewModel.showIngredients, array: viewModel.displayIngredients())
+                    .padding(.horizontal)
+                
+                // MARK: Comment
+                
+                VStack {
+                    Text("Observações")
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    TextField("Ex: Tirar verduras, sem sal etc.", text: $viewModel.comment, axis: .vertical)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
+                .padding(.horizontal)
                 
-                
+                // MARK: Avaliations
                 VStack {
                     
                     HStack{
                         Text("Avaliações").font(.title2)
                         Spacer()
                         
-                    }.padding()
+                    }
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(viewModel.exampleReviews, id: \.self) {
@@ -68,13 +72,13 @@ struct ItemDetailsView: View {
                         }
                         
                     }
-                    
                 }
+                .padding(.horizontal)
                 
-
+                // MARK: Recomendation
                 VStack {
                     HStack {
-                        Text("Seu prato \(dish.name) combina com:")
+                        Text("Seu prato \(viewModel.dish.name) combina com:")
                             .font(.title2)
                         Spacer()
                     }
@@ -85,34 +89,43 @@ struct ItemDetailsView: View {
                                     .frame(width: 340)
                             }
                         }
-                        
-                        .padding(.horizontal)
                     }
                 }
-                .padding()
+                .padding(.horizontal)
             }
         }
         .ignoresSafeArea()
+        
+        // MARK: Buttons
         VStack {
+            
+            // MARK: Order now
             Button(action: {
                 // Order Now
             }) {
                 Text("Order Now")
                     .foregroundColor(.white)
-                    .frame(width: width*0.8, height: height*0.05)
-                    .background(.blue.opacity(0.7))       
+                    .padding(16)
+                    .frame(maxWidth: .infinity)
+                    .background(.blue.opacity(0.7))
             }
             .cornerRadius(10)
+            
+            // MARK: Add to cart
             Button(action: {
+                viewModel.updateCommnet()
+                viewModel.addToCart()
                 stackPathMenu.goBack()
-                viewModel.cart?.addItem(item: dish)
             }) {
                 Text("Add to cart")
                     .foregroundColor(.white)
-                    .frame(width: width*0.8, height: height*0.05).background(.blue)
+                    .padding(16)
+                    .frame(maxWidth: .infinity)
+                    .background(.blue)
             }
             .cornerRadius(10)
         }
+        .padding(.horizontal)
         .onAppear {
             self.viewModel.setup(self.cart)
         }
@@ -123,4 +136,5 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(dish: TypeDish.example)
+        .environment(Cart())
 }

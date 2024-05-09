@@ -7,8 +7,9 @@
 
 import Foundation
 
-class Router: ObservableObject {
-    @Published var path: [RouterMenuData]
+@Observable
+class Router {
+    var path: [RouterData]
     init(){
         self.path = []
     }
@@ -23,10 +24,10 @@ class Router: ObservableObject {
 }
 
 enum Views {
-    case Menu, DishDetails
+    case Menu, DishDetails, Payment
 }
 
-class RouterMenuData: Hashable {
+class RouterData: Hashable {
     
     let screen: Views
     let dish: TypeDish?
@@ -36,7 +37,7 @@ class RouterMenuData: Hashable {
         self.dish = dish
     }
     
-    static func == (lhs: RouterMenuData, rhs: RouterMenuData) -> Bool {
+    static func == (lhs: RouterData, rhs: RouterData) -> Bool {
         lhs.screen == rhs.screen
     }
     

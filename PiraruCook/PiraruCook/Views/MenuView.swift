@@ -24,7 +24,7 @@ struct MenuView: View {
                     
                     Section {
                         ForEach(subItems, id: \.self) { typeDish in
-                            NavigationLink(value: RouterMenuData(screen: Views.DishDetails, dish: typeDish)) {
+                            NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
                                 // TODO: Chango for card
                                 ItemCardView(dish: typeDish)
                             }

@@ -62,6 +62,8 @@ struct LoggedProfileView: View {
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
         
+
+        Spacer()
     }
         
 }

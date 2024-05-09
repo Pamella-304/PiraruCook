@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TabBarView: View {
     
-    @StateObject private var stackPathMenu = Router()
-    @StateObject private var stackPathHome = Router()
-    @StateObject private var stackPathProfile = Router()
-
-    @State private var selection = 2
+    @State private var stackPathMenu = Router()
+    @State private var stackPathHome = Router()
+    @State private var stackPathCart = Router()
+    @State private var stackPathProfile = Router()
+    @State private var selection = 3
     
     var body: some View {
         
@@ -21,7 +21,7 @@ struct TabBarView: View {
             NavigationStack(path: $stackPathHome.path) {
                 Text("HOLD")
             }
-            .environmentObject(stackPathHome)
+            .environment(stackPathHome)
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
@@ -30,31 +30,58 @@ struct TabBarView: View {
             NavigationStack(path: $stackPathMenu.path) {
                 MenuView()
                     .navigationTitle("Cardápio")
-                    .navigationDestination(for: RouterMenuData.self) { data in
+                    .navigationDestination(for: RouterData.self) { data in
                         
                         switch data.screen {
                         case Views.Menu:
                             MenuView()
                         case Views.DishDetails:
                             ItemDetailsView(dish: data.dish!)
+                        default:
+                            // TODO: should never end up here
+                            MenuView()
                         }
                     }
             }
-            .environmentObject(stackPathMenu)
+            .environment(stackPathMenu)
             .tabItem {
                 Label("Cardápio", systemImage: "book.fill")
             }
             .tag(2)
             
+            NavigationStack(path: $stackPathCart.path) {
+                CartView()
+                    .navigationTitle("Cardápio")
+                    .navigationDestination(for: RouterData.self) { data in
+                        
+                        switch data.screen {
+                        case Views.Menu:
+                            MenuView()
+                        case Views.DishDetails:
+                            ItemDetailsView(dish: data.dish!)
+                        case .Payment:
+                            // TODO: Change to PaymentView()
+                            MenuView()
+                        }
+                    }
+            }
+            .environment(stackPathCart)
+            .tabItem {
+                Label("Carrinho", systemImage: "cart.fill")
+            }
+            .tag(3)
+            
+            
+            
             NavigationStack(path: $stackPathProfile.path) {
                 LoginProfileView()
                     .navigationTitle("Perfil")
             }
-            .environmentObject(stackPathProfile)
+            .environment(stackPathProfile)
             .tabItem {
                 Label("Profile", systemImage: "person.fill")
             }
-            .tag(3)
+            .tag(4)
         }
         
     }

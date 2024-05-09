@@ -19,15 +19,19 @@ struct TypeDish: Codable, Hashable, Identifiable {
     let ingredients: [String]
     let price: Double
     let tipo: String
+    var comment: String
     
     static func preview() -> TypeDish {
-        TypeDish(name: "", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba")
+        TypeDish(name: "", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba", comment: "Sem gelo")
     }
     
-    static let example = TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Tacaca", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba")
+    static let example = TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Tacaca", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba", comment: "Sem sal")
     
-    static let exampleBebida = TypeDish(name: "Suco de laranha", description: "Suco de laranja fresca, feito na hora", image: "Suco", nutritionalInfo: [], ingredients: ["Laranja"], price: 6.99, tipo: "Bebidas")
+    static let exampleBebida = TypeDish(name: "Suco de laranha", description: "Suco de laranja fresca, feito na hora", image: "Suco", nutritionalInfo: [], ingredients: ["Laranja"], price: 6.99, tipo: "Bebidas", comment: "Sem açúcar")
 
+    mutating func updateComment(_ comment :String) {
+        self.comment = comment
+    }
 
 }
 

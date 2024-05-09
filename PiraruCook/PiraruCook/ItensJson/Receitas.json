@@ -8,8 +8,9 @@
             "ingredients": ["pato com cerca de 1,5 kg",
                 "cebola", "cenoura", "alho-poró", "salsão em rodelas",
                 "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
-            "price": 10.0,
-            "tipo": "Salgado"
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
         },
         {
             "name": "Farofa de tucumã",
@@ -18,10 +19,21 @@
             "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
             "ingredients": ["cebola",
                 "farofa", "alho", "tucumãs"],
-            "price": 15.0,
-            "tipo": "Salgado"
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
         },
-       
+        {
+            "name": "Vaca atolada",
+            "description": "carne cortada em pedaços grandes, como costelas ou ossobuco",
+            "image" : "VacaAtolada",
+            "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
+            "ingredients": ["costela bovina",
+                "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
         {
             "name": "Pirarucu de Casaca",
             "description": "Pirarucu de casaca - culinária regional do amazonas",
@@ -31,7 +43,8 @@
                 "bananas", "farinha de mandioca", "leite de coco", "tomate",
                 "pimentão", "cebola"],
             "price": 0.0,
-            "tipo": "Salgado"
+            "tipo": "Salgado",
+            "comment": ""
         },
         {
             "name": "Torta de cupuaçú",
@@ -42,7 +55,8 @@
                 " Biscoito Laminado", "cupuaçú", "açúcar", "iogurte natural",
             "leite condensado"],
             "price": 0.0,
-            "tipo": "Doce"
+            "tipo": "Doce",
+            "comment": ""
         },
         {
             "name": "Cachaça de Jambu",
@@ -51,7 +65,8 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Jambu"],
             "price": 0.0,
-            "tipo": "Bebidas"
+            "tipo": "Bebidas",
+            "comment": ""
         },
         {
             "name": "Caipirinha",
@@ -60,7 +75,8 @@
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "frutas"],
             "price": 0.0,
-            "tipo": "Bebidas"
+            "tipo": "Bebidas",
+            "comment": ""
         },
         {
             "name": "Bacuri",
@@ -68,8 +84,9 @@
             "image" : "Bacuri",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Bacuri"],
-            "price": 0.0,
-            "tipo": "Bebidas"
+            "price": 3.5,
+            "tipo": "Bebidas",
+            "comment": ""
         },
         {
             "name": "Cerveja",
@@ -77,8 +94,9 @@
             "image" : "Cerveja",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
-            "price": 0.0,
-            "tipo": "Bebidas"
+            "price": 2.0,
+            "tipo": "Bebidas",
+            "comment": ""
         },
         {
             "name": "Suco de frutas",
@@ -86,9 +104,9 @@
             "image" : "Suco",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
-            "price": 5.0,
-            "tipo": "Bebidas"
+            "price": 0.0,
+            "tipo": "Bebidas",
+            "comment": ""
         }
     ]
 }
-

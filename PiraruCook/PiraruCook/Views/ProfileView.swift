@@ -14,20 +14,18 @@ struct ProfileView: View {
     @AppStorage("isLoggedIn") private var isLoggedIn = true
     
     var body: some View {
-        NavigationView{
+        
+        if isLoggedIn {
+            LoggedInView()
+        } else {
             
-            if isLoggedIn {
-                LoggedInView()
-            } else {
-                
-                SignInWithAppleButton(
-                    .signIn,
-                    onRequest: configure,
-                    onCompletion: handle
-                )
-                .frame(height: 45)
-                .padding()
-            }
+            SignInWithAppleButton(
+                .signIn,
+                onRequest: configure,
+                onCompletion: handle
+            )
+            .frame(height: 45)
+            .padding()
         }
     }
     func configure(_ request: ASAuthorizationAppleIDRequest) {
@@ -45,19 +43,19 @@ struct ProfileView: View {
                 isLoggedIn = true
                 
                 if let appleUser = AppleUser(credentials: appleIDCredentials),
-                    let appleUserData =  try? JSONEncoder().encode(appleUser) {
-                        UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
-                        print("saved Apple User", appleUser)
-                    } else {
-                        print("missing some fileds", appleIDCredentials.email, appleIDCredentials.fullName, appleIDCredentials.user)
-                        
-                        guard
-                            let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
-                            let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
-                        else {return}
-                        
-                        print(appleUser)
-                    }
+                   let appleUserData =  try? JSONEncoder().encode(appleUser) {
+                    UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
+                    print("saved Apple User", appleUser)
+                } else {
+                    print("missing some fileds", appleIDCredentials.email, appleIDCredentials.fullName, appleIDCredentials.user)
+                    
+                    guard
+                        let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
+                        let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
+                    else {return}
+                    
+                    print(appleUser)
+                }
                 
             default:
                 print(auth.credential)

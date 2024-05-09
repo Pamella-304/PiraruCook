@@ -18,18 +18,23 @@ struct SignInFormsView: View {
     @State private var accountCreated = false
     @State private var showAlert = false
     @State private var alertMessage = ""
-
+    
     @AppStorage("isLoggedIn") private var isLoggedIn = false
-
+    
     var body: some View {
         Form {
             Section(header: Text("Informações Pessoais")) {
                 TextField("Nome", text: $name)
-                DatePicker("Data de Nascimento", selection: $birthDate, displayedComponents: .date)
+                DatePicker("Data de Nascimento", selection: $birthDate,in: ...Date(), displayedComponents: .date)
+                    .foregroundColor(birthDate > Date() ? .red : .primary) // Altera a cor da data de nascimento para vermelho se for no futuro
                 TextField("Endereço", text: $address)
                 TextField("E-mail", text: $email)
                 SecureField("Senha", text: $senha)
                 TextField("CPF", text: $cpf)
+                    .onChange(of: cpf) { newValue in
+                        cpf = formatCPF(newValue)
+                    }
+                
             }
             
             Section(header: Text("Preferência de Boi")) {
@@ -41,15 +46,20 @@ struct SignInFormsView: View {
             }
             
             Button("Cadastrar") {
-                                
-                if senha.count >= 6 && cpf.count == 11 && cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil {
+                
+                
+                if senha.count >= 6 && cpf.count == 11 && cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && birthDate < Date() && isValidEmail(email) {
                     saveUser()
                 } else {
                     showAlert = true
                     if !(senha.count >= 6) {
                         alertMessage = "A senha deve ter no mínimo 6 caracteres"
                     } else if !(cpf.count == 11) || !(cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil) {
-                       alertMessage = "Formato de CPF inválido"
+                        alertMessage = "Formato de CPF inválido"
+                    } else if birthDate > Date() {
+                        alertMessage = "Data de nascimento inválida!"
+                    } else if !isValidEmail(email) {
+                        alertMessage = "E-mail inválido!"
                     } else {
                         alertMessage = "Erro no cadastro. Reverifique os campos preenchidos."
                     }
@@ -62,10 +72,10 @@ struct SignInFormsView: View {
                 }
             )
             .alert(isPresented: $showAlert) {
-                    
-                    Alert(title: Text("Erro"), 
-                          message: Text(alertMessage),
-                          dismissButton: .default(Text("OK")))
+                
+                Alert(title: Text("Erro"),
+                      message: Text(alertMessage),
+                      dismissButton: .default(Text("OK")))
             }
     }
     
@@ -76,9 +86,9 @@ struct SignInFormsView: View {
         
         // Convertendo a estrutura de usuário para dados
         if let encodedUser = try? JSONEncoder().encode(newUser) {
-        // Salvando os dados do usuário no UserDefaults
+            // Salvando os dados do usuário no UserDefaults
             let userID = UUID().uuidString
-
+            
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
             
             accountCreated = true
@@ -89,6 +99,32 @@ struct SignInFormsView: View {
         }
     }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        
+    }
+    
+    func formatCPF(_ cpf: String) -> String {
+        var formattedCPF = cpf.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        if formattedCPF.count > 11 {
+            formattedCPF = String(formattedCPF.prefix(11))
+        }
+        
+        if formattedCPF.count > 9 {
+            formattedCPF.insert(".", at: formattedCPF.index(formattedCPF.startIndex, offsetBy: 3))
+            formattedCPF.insert(".", at: formattedCPF.index(formattedCPF.startIndex, offsetBy: 7))
+            formattedCPF.insert("-", at: formattedCPF.index(formattedCPF.startIndex, offsetBy: 11))
+        } else if formattedCPF.count > 6 {
+            formattedCPF.insert(".", at: formattedCPF.index(formattedCPF.startIndex, offsetBy: 3))
+            formattedCPF.insert(".", at: formattedCPF.index(formattedCPF.startIndex, offsetBy: 7))
+        } else if formattedCPF.count > 3 {
+            formattedCPF.insert(".", at: formattedCPF.index(formattedCPF.startIndex, offsetBy: 3))
+        }
+        
+        return formattedCPF
+        
+    }
+    
 }
-
-

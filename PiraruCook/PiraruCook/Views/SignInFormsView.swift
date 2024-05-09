@@ -18,6 +18,8 @@ struct SignInFormsView: View {
     @State private var accountCreated = false
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var formattedCpf = ""
+
     
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
@@ -48,7 +50,10 @@ struct SignInFormsView: View {
             Button("Cadastrar") {
                 
                 
-                if senha.count >= 6 && cpf.count == 11 && cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && birthDate < Date() && isValidEmail(email) {
+                if senha.count >= 6 
+                    && birthDate < Date()
+                    && isValidEmail(email)
+                    && cpf.isValidCPFFormat(){
                     saveUser()
                 } else {
                     showAlert = true
@@ -127,4 +132,12 @@ struct SignInFormsView: View {
         
     }
     
+}
+
+
+extension String {
+    func isValidCPFFormat() -> Bool {
+        let cpfRegex = #"^\d{3}\.\d{3}\.\d{3}-\d{2}$"#
+        return NSPredicate(format: "SELF MATCHES %@", cpfRegex).evaluate(with: self)
+    }
 }

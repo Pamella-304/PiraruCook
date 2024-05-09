@@ -48,6 +48,18 @@ class ItemDetailsViewModel: Setup {
     func displayPrice() -> String {
         return dish.price.formatted(.number.precision(.fractionLength(2)))
     }
+    func displayAllergies() -> String{
+        switch dish.tipo {
+        case "Bebidas":
+            ""
+        case "Doce":
+            "Você selecionou a Opção 2"
+        case "Salgado":
+            "Você selecionou a Opção 3"
+        default:
+            "Opção inválida"
+        }
+    }
     
     func updateCommnet() {
         dish.updateComment(comment)

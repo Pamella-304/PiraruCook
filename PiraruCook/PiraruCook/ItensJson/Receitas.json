@@ -1,97 +1,89 @@
 {
     "typeDishes": [
         {
-            "name": "Pato no tucupi",
-            "description": "pato cozido no caldo de tucupi, acompanhado de jambu e arroz",
-            "image" : "PatoNoTucupi",
+            "name": "Bolinho de Piracuí",
+            "description": "Bolinho de batata envolvido com farinha de peixe regional",
+            "image" : "BolinhoDePiracui",
             "nutritionalInfo": ["Aproximadamente 660 calorias"],
-            "ingredients": ["pato com cerca de 1,5 kg",
-                "cebola", "cenoura", "alho-poró", "salsão em rodelas",
-                "louro", "tomilho", "Sal e pimenta-do-reino", "vinho branco", "tucupi", "óleo de canola"],
+            "ingredients": ["batata, farinha, peixe Piracuí"],
             "price": 0.0,
             "tipo": "Salgado",
             "comment": ""
         },
         {
-            "name": "Farofa de tucumã",
-            "description": "farofa feita com farinha de mandioca, tucumã (fruto típico da Amazônia), manteiga, cebola e temperos",
-            "image" : "FarofaDeTucuma",
+            "name": "Bolinho de Pirarucu seco",
+            "description": "Bolinho de batata envolvido com Pirarucu seco e desfiado",
+            "image" : "BolinhoDePirarucu",
             "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
-            "ingredients": ["cebola",
-                "farofa", "alho", "tucumãs"],
+            "ingredients": ["Batata", "farinha", "pirarucu"],
             "price": 0.0,
             "tipo": "Salgado",
             "comment": ""
         },
         {
-            "name": "Vaca atolada",
-            "description": "carne cortada em pedaços grandes, como costelas ou ossobuco",
-            "image" : "VacaAtolada",
+            "name": "Camarão empanado na farinha de tapioca",
+            "description": "Servido com maionese de leite e ervas",
+            "image" : "CamaraoEmpanado",
             "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
-            "ingredients": ["costela bovina",
-                "mandioca descascada", "pimenta-do-reino", "tomate", "cebola", "pimentão"],
+            "ingredients": ["camarão", "farinha", "leite", "ervas da casa"],
             "price": 0.0,
             "tipo": "Salgado",
             "comment": ""
         },
         {
-            "name": "Pirarucu de Casaca",
-            "description": "Pirarucu de casaca - culinária regional do amazonas",
-            "image" : "PirarucuDeCasaca",
+            "name": "Dadinhos de tapioca",
+            "description": "Dadinhos de tapioca e queijo coalho fritos, servidos com geleia de cupuaçu levemente apimentada",
+            "image" : "DadinhoDeTapioca",
             "nutritionalInfo": ["Aproximadamente 270 calorias cada 100g"],
-            "ingredients": ["pirarucu",
-                "bananas", "farinha de mandioca", "leite de coco", "tomate",
-                "pimentão", "cebola"],
+            "ingredients": ["tapioca", "queijo", "geleia", "cupuaçu", "pimenta"],
             "price": 0.0,
             "tipo": "Salgado",
             "comment": ""
         },
         {
-            "name": "Torta de cupuaçú",
-            "description": "Torta com cupuaçú",
-            "image" : "TortaDeCupuacu",
+            "name": "Mojica",
+            "description": "Caldo de peixe assado, encorpado com farinha de mandioca",
+            "image" : "Mojica",
             "nutritionalInfo": ["Aproximadamente 200 calorias cada 100g"],
-            "ingredients": ["manteiga",
-                " Biscoito Laminado", "cupuaçú", "açúcar", "iogurte natural",
-            "leite condensado"],
+            "ingredients": ["farinha", "peixe à escolha" ,"legumes"],
             "price": 0.0,
-            "tipo": "Doce",
+            "tipo": "Salgado",
             "comment": ""
         },
         {
-            "name": "Cachaça de Jambu",
-            "description": "Bebida alcoólica com jambu",
-            "image" : "CachacaDeJambu",
+            "name": "Pastel de camarão com Jambu",
+            "description": "Camarão seco refogado com ervas da Amazônia e jambu",
+            "image" : "PastelCamaraoJambu",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "Jambu"],
+            "ingredients": ["Camarão", "ervas da casa", "jambu"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        {
+            "name": "Guaraná",
+            "description": "Xarope de guaraná, guaraná em pó, amendoim e mel",
+            "image" : "Guarana",
+            "nutritionalInfo": [""],
+            "ingredients": ["xarope de guaraná", "amendoim", "mel"],
             "price": 0.0,
             "tipo": "Bebidas",
             "comment": ""
         },
         {
-            "name": "Caipirinha",
-            "description": "Tadricional bebida brasileira feita com cachaça, nas opções: limão, abacaxi, maracujá, cupuaçu e graviolas",
-            "image" : "Caipirinha",
-            "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "frutas"],
-            "price": 0.0,
-            "tipo": "Bebidas",
-            "comment": ""
-        },
-        {
-            "name": "Bacuri",
+            "name": "Soda amazônica",
             "description": "Além da soda de bacuri, o drinque leva cachaça, licor de flor de sabugueiro",
-            "image" : "Bacuri",
+            "image" : "Suco",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "Bacuri"],
+            "ingredients": ["frutas com soda"],
             "price": 3.5,
             "tipo": "Bebidas",
             "comment": ""
         },
         {
-            "name": "Cerveja",
-            "description": "",
-            "image" : "Cerveja",
+            "name": "Cumaru",
+            "description": "sementes de Cumaru, cachaça, dose de maracujá, sumo de limão, Mel natural de abelha",
+            "image" : "Cumaru",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
             "price": 2.0,
@@ -100,13 +92,235 @@
         },
         {
             "name": "Suco de frutas",
-            "description": "Nas opções laranja, abacaxi, graviola e cupuaçu",
+            "description": "Nas opções Abacaxi, Acerola, Cupuaçu, Guaraná, Limão, Morango, Laranha, Maracujá",
             "image" : "Suco",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool"],
+            "ingredients": ["Frutas à escolha"],
             "price": 0.0,
             "tipo": "Bebidas",
             "comment": ""
-        }
+        },
+        
+        {
+            "name": "Cachaça de Jambu",
+            "description": "cachaça de Jambu, Pedaços de abacaxi, Sumo de limão, Melado de cana.",
+            "image" : "CachacaDeJambu",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "Jambu"],
+            "price": 0.0,
+            "tipo": "Bebidas",
+            "comment": ""
+        },
+        
+        {
+            "name": "Mule Amazônico",
+            "description": "Vodka, Sumo de limão, Sugar syrup, Espuma de taperebá a cereja da Amazônia, a Fisális.",
+            "image" : "MuleAmazonico",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "açúcar", "limão"],
+            "price": 0.0,
+            "tipo": "Bebidas",
+            "comment": ""
+        },
+        
+        {
+            "name": "Pinaçu",
+            "description": "Suco de cupuaçu, vodka, xarope de açúcar, Cremosa espuma de taperebá ",
+            "image" : "Pinacu",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "açúcar", "suco de cupuaçu"],
+            "price": 0.0,
+            "tipo": "Bebidas",
+            "comment": ""
+        },
+        
+        {
+            "name": "Cunhatã",
+            "description": "Cachaça Branca, taperebá, xarope de mel com sementes de camu-camu, pimenta rosa, finalizado com pacovã frita",
+            "image" : "Cunhata",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "taperabá", "mel", "pimenta", "pacovã"],
+            "price": 0.0,
+            "tipo": "Bebidas",
+            "comment": ""
+        },
+        
+        {
+            "name": "Ambuçu com cana",
+            "description": "Cachaça imburana, cupuaçu, caldo de cana, xarope de açúcar e sumo de limão",
+            "image" : "Cunhata",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "caldo de cana", "açúcar", "limão"],
+            "price": 0.0,
+            "tipo": "Bebidas",
+            "comment": ""
+        },
+        
+        {
+            "name": "Tacaca",
+            "description": "Tucupi, Goma de tapioca, camarão seco, jambu",
+            "image" : "Tacaca",
+            "nutritionalInfo": [""],
+            "ingredients": ["Tucupi", "farinha de tapioca", "camarão", "jambu"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Pirarucu grelhado",
+            "description": "O peixe é temperado com ingredientes típicos da região, como alho, limão, pimenta eervas locais, e depois grelhado na brasa, o que realça o sabor da carne e a torna suculenta e saborosa",
+            "image" : "PirarucuGrelhado",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe pirarucu", "alho", "limão", "pimenta"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Pirarucu de Casaca",
+            "description": "Pirarucu salgado, Farinha de trigo, Farinha de mandioca, Banana-da-terra, Leite de coco, Azeite de dende, Batata palha, Tomates, Cebola, Pimentão, Cheiro-verde ",
+            "image" : "PirarucuDeCasaca",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe pirarucu", "farinha de trigo", "legumes", "banana", "leite de coco"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Matrinxã recheada com farofa de banana",
+            "description": "Peixe (Matrinxã), limão, olho, cebola,  queijo mussarela, banana pacovã, bacon em fatias, calabresa cortada em pedacinhos, cenoura ralada, tomate, couve e Farinha do Urini.",
+            "image" : "Matrinxa",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe Matrinxã", "limão", "legumes", "queijo", "banana", "bacon", "calabresa"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Caldeira de tambaqui",
+            "description": "1 kg de tambaqui, tomates sem sementes, cebolas, pimentas de cheiro, cheiro verde (coentro)picadinho, cebolinha picadinha, colorau (colorifico), azeite de oliva e limão.",
+            "image" : "CaldeiraTambaqui",
+            "nutritionalInfo": [""],
+            "ingredients": ["Tambaqui, tomates, legumes, temeperos"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Ravioli verde de jambu",
+            "description": "Ravioli verde de jambu, ricota de tucumã, Manteiga com puxuri ",
+            "image" : "RavioliVerde",
+            "nutritionalInfo": [""],
+            "ingredients": ["Ravioli", "jambu", "queijo ricota", "manteiga"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Carré de tambaqui",
+            "description": "Costelas de Tambaqui servidas com arroz com camarão, farofa molhada e banana frita",
+            "image" : "CarreTambaqui",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe Tambaqui", "arroz", "camarão", "farofa", "banana"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Tacaqui",
+            "description": "Nhoque de tambaqui ao molho de tucupi, bambu e camarão fresco.",
+            "image" : "Tacaqui",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe Tambaqui", "farinha", "molho de tucupi", "camarão"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Salada caesar de tambaqui",
+            "description": "Costela de tambaqui assado na brasa, alface americana, banana frita estilo chips, queijo coalho e molho de tucupi reduzido",
+            "image" : "SaladaCaesar",
+            "nutritionalInfo": [""],
+            "ingredients": ["tambaqui", "legumes", "queijo", "molho de tucupi"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Moqueca de pirarucu com camarão",
+            "description": "Pirarucu montado em postas, refogado no azeite de dendê com leite de coco, tomate, cebola e camarões frescos, acompanha arroz e pirão",
+            "image" : "MoquecaPirarucu",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe pirarucu", "camarão", "leite de coco", "legumes"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Pacu",
+            "description": "Pacu recheado com farofa de uarini temperada e assado na brasa, acompanha baião de dois ou arroz, farofa e vinagrete.",
+            "image" : "Pacu",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe pacu", "farofa", "arroz", "farofa"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Jaraqui frito",
+            "description": "Tiras de jaraqui frito acompanhando baião de dois ou arroz, farofa de banana e vinagrete.",
+            "image" : "JaraquiFrito",
+            "nutritionalInfo": [""],
+            "ingredients": ["Peixe jaraqui", "farofa", "arroz", "farofa de banana"],
+            "price": 0.0,
+            "tipo": "Salgado",
+            "comment": ""
+        },
+        
+        {
+            "name": "Cubiu",
+            "description": "Compota de subiu, caldo de tucuri preto, sorvete e farinha de castanha",
+            "image" : "Cubiu",
+            "nutritionalInfo": [""],
+            "ingredients": ["Sorvete", "caldo de tucuri", "farinha"],
+            "price": 0.0,
+            "tipo": "Doces",
+            "comment": ""
+        },
+        
+        {
+            "name": "Camu-Camu",
+            "description": "moraya triturada, chancaca, canela, cravo de cheiro, casca de laranja",
+            "image" : "CamuCamu",
+            "nutritionalInfo": [""],
+            "ingredients": ["canela", "chancaca", "laranja"],
+            "price": 0.0,
+            "tipo": "Doces",
+            "comment": ""
+        },
+        
+        {
+            "name": "Petit gateau de cumaru",
+            "description": "Petit gateau de chocolate com sorvete artesanal de cumaru e com calda de chocolate e farofa crocante de castanha",
+            "image" : "PetitGateauCumaru",
+            "nutritionalInfo": [""],
+            "ingredients": ["chocolate", "sorvete de cumaru", "castanha"],
+            "price": 0.0,
+            "tipo": "Doces",
+            "comment": ""
+        },
+        
+        
     ]
 }

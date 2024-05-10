@@ -16,6 +16,7 @@ struct LoginProfileView: View {
     @State private var email = ""
     @State private var senha = ""
     @State private var creatingAccount = false
+    //var usersArray: [User]?
     
     var body: some View {
             
@@ -36,15 +37,11 @@ struct LoginProfileView: View {
                     
                     //inserir navigation link para página logada
                     
-                    
                     Button("Criar Conta"){
                         stackPathProfile.path.append(RouterData(screen: .SignInForms))
                     }
                     .padding()
                     Spacer()
-                
-                    
-                    
                     
                     SignInWithAppleButton(
                         .signIn,
@@ -56,6 +53,8 @@ struct LoginProfileView: View {
                     .colorInvert()
                 }
             }
+        let userarray = getAllUsers()
+            
         
     }
     func configure(_ request: ASAuthorizationAppleIDRequest) {
@@ -66,7 +65,7 @@ struct LoginProfileView: View {
     func handle(_ authResult: Result<ASAuthorization, Error>) {
         switch authResult {
         case .success(let auth):
-            print(auth)
+           // print(auth)
             switch auth.credential {
             case let appleIDCredentials as ASAuthorizationAppleIDCredential:
                 
@@ -76,11 +75,11 @@ struct LoginProfileView: View {
                    let appleUserData =  try? JSONEncoder().encode(appleUser) {
                     
                     UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
-                    print("saved Apple User", appleUser)
+                   // print("saved Apple User", appleUser)
                     
                 } else {
                     
-                    print("missing some fileds", appleIDCredentials.email, appleIDCredentials.fullName, appleIDCredentials.user)
+                 //   print("missing some fileds", appleIDCredentials.email, appleIDCredentials.fullName, appleIDCredentials.user)
                     
                     guard
                         let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
@@ -88,7 +87,7 @@ struct LoginProfileView: View {
                             
                     else {return}
                     
-                    print(appleUser)
+                //    print(appleUser)
                 }
                 
             default:
@@ -116,10 +115,33 @@ struct LoginProfileView: View {
                     print("usuario nao cadastrado")
                 }
                 
-                
             }
         }
     }
     
+    func getAllUsers() -> [User] {
+        var users: [User] = []
+        
+        // Obtém todas as chaves do UserDefaults
+        let keys = UserDefaults.standard.dictionaryRepresentation().keys
+        
+        // Itera sobre as chaves
+        for key in keys {
+            // Verifica se a chave começa com "user_"
+            if key.hasPrefix("user_") {
+                // Obtém os dados associados à chave
+                if let userData = UserDefaults.standard.data(forKey: key) {
+                    // Decodifica os dados em um objeto User e adiciona à lista
+                    if let user = try? JSONDecoder().decode(User.self, from: userData) {
+                        users.append(user)
+                    }
+                }
+            }
+        }
+        
+        print(users)
+        
+        return users
+    }
     
 }

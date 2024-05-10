@@ -11,13 +11,13 @@ import SwiftUI
 
 struct LoginProfileView: View {
     
+    @Environment(Router.self) private var stackPathProfile
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     @State private var email = ""
     @State private var senha = ""
     @State private var creatingAccount = false
     
     var body: some View {
-        NavigationView{
             
             if isLoggedIn {
                 LoggedProfileView(isLoggedIn: $isLoggedIn)
@@ -36,12 +36,15 @@ struct LoginProfileView: View {
                     
                     //inserir navigation link para página logada
                     
-                    NavigationLink(destination: SignInFormsView(), isActive: $creatingAccount) {
-                        Text("Cria Conta")
-                        
+                    
+                    Button("Criar Conta"){
+                        stackPathProfile.path.append(RouterData(screen: .SignInForms))
                     }
                     .padding()
                     Spacer()
+                
+                    
+                    
                     
                     SignInWithAppleButton(
                         .signIn,
@@ -53,7 +56,7 @@ struct LoginProfileView: View {
                     .colorInvert()
                 }
             }
-        }
+        
     }
     func configure(_ request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]

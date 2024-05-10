@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LoggedProfileView: View {
     
+    @Environment(Router.self) private var stackPathProfile
     @Binding var isLoggedIn: Bool
     
     var body: some View {
@@ -54,7 +55,8 @@ struct LoggedProfileView: View {
 
             Button("Sair") {
                 isLoggedIn = false
-             
+                stackPathProfile.path.removeAll()
+                stackPathProfile.goToRoot()
             }
             .padding()
             

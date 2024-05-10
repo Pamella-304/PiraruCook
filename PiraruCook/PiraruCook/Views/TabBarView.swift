@@ -62,6 +62,8 @@ struct TabBarView: View {
                         case .Payment:
                             // TODO: Change to PaymentView()
                             MenuView()
+                        default:
+                            MenuView()
                         }
                     }
             }
@@ -76,6 +78,17 @@ struct TabBarView: View {
             NavigationStack(path: $stackPathProfile.path) {
                 LoginProfileView()
                     .navigationTitle("Perfil")
+                    .navigationDestination(for: RouterData.self) { data in
+                        
+                        switch data.screen {
+                        case Views.SignInForms:
+                            SignInFormsView()
+                        default:
+                            // TODO: verify navigation
+                            LoginProfileView()
+                        }
+                    }
+
             }
             .environment(stackPathProfile)
             .tabItem {

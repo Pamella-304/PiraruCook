@@ -5,9 +5,12 @@
 //  Created by Pamella Alvarenga on 07/05/24.
 //
 
+import Foundation
 import SwiftUI
 
 struct SignInFormsView: View {
+    
+    @EnvironmentObject var stackPathProfile: Router
     @State private var name = ""
     @State private var birthDate = Date()
     @State private var address = ""
@@ -19,7 +22,6 @@ struct SignInFormsView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var formattedCpf = ""
-
     
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
@@ -47,14 +49,15 @@ struct SignInFormsView: View {
                 .pickerStyle(SegmentedPickerStyle())
             }
             
-            Button("Cadastrar") {
+            Button(action: {
                 
-                
-                if senha.count >= 6 
+                if senha.count >= 6
                     && birthDate < Date()
-                    && isValidEmail(email)
-                    && cpf.isValidCPFFormat(){
+                    && isValidEmail(email) {
+                    //&& cpf.isValidCPFFormat(){
                     saveUser()
+                    stackPathProfile.path.append(RouterData(screen: .LoggedProfile))
+                    
                 } else {
                     showAlert = true
                     if !(senha.count >= 6) {
@@ -70,20 +73,19 @@ struct SignInFormsView: View {
                     }
                 }
             }
-        }.navigationTitle("Cadastrar")
-            .background(
-                NavigationLink(destination: LoggedProfileView(isLoggedIn: $isLoggedIn), isActive: $accountCreated) {
-                    EmptyView()
-                }
-            )
+            ) {
+                Text("Cadastrar")
+            }
+            
+            .navigationTitle("Cadastrar")
             .alert(isPresented: $showAlert) {
                 
                 Alert(title: Text("Erro"),
                       message: Text(alertMessage),
                       dismissButton: .default(Text("OK")))
             }
+        }
     }
-    
     func saveUser() {
         
         
@@ -133,6 +135,7 @@ struct SignInFormsView: View {
     }
     
 }
+
 
 
 extension String {

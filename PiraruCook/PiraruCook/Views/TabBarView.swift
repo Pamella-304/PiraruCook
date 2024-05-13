@@ -61,7 +61,7 @@ struct TabBarView: View {
                             ItemDetailsView(dish: data.dish!)
                         case .Payment:
                             // TODO: Change to PaymentView()
-                            MenuView()
+                            PaymentView(subtotal: 10, discount: 3, delivery: 10)
                         }
                     }
             }

@@ -21,15 +21,15 @@ struct PaymentView: View {
                 Spacer()
             }.padding(.horizontal)
             PaymentSections(img1: "rectangle.checkered", subtext: "", text: "Pix")
-                .padding()
+                
             PaymentSections(img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
-                .padding()
+                
             HStack{
                 Text("Entrega").bold()
                 Spacer()
             }.padding(.horizontal)
             PaymentSections(img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
-                .padding()
+                
             Spacer()
             HStack{
                 Text("Resumo da Compra").bold()

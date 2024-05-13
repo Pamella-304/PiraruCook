@@ -21,7 +21,7 @@ struct ValuesSection: View {
                     Text("R$ \((Price).formatted(.number.precision(.fractionLength(2))))").bold()
                 }
             }else{
-                Text("R$ \((Price).formatted(.number.precision(.fractionLength(2))))").opacity(0.6)
+                Text((Title == "Desconto") ? "- R$ \((Price).formatted(.number.precision(.fractionLength(2))))" : "R$ \((Price).formatted(.number.precision(.fractionLength(2))))").opacity(0.6)
             }
         }.padding(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
     }

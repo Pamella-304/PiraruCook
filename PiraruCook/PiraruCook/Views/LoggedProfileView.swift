@@ -36,15 +36,7 @@ struct LoggedProfileView: View {
                 
                 Divider()
                     .padding(.horizontal, 8)
-                
-//                ForEach(subItems, id: \.self) { typeDish in
-//                    NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
-//                        // TODO: Chango for card
-//                        ItemCardView(dish: typeDish)
-//                    }
-//                }
-                
-                
+            
                 ProfileOptionsView(imageName: "creditcard.fill", title:
                                 "Pagamentos", description: "Preferências de transferência")
                 
@@ -88,16 +80,13 @@ struct LoggedProfileView: View {
  
     
     func printAllUserData() {
-        // Obtém todas as chaves do UserDefaults
+
         let keys = UserDefaults.standard.dictionaryRepresentation().keys
         
-        // Itera sobre as chaves
         for key in keys {
             print("key")
-            // Verifica se a chave começa com "user_"
             if key.hasPrefix("user_ ") {
                 print("key com prefixo user_")
-                // Obtém os dados associados à chave
                 if let userData = UserDefaults.standard.data(forKey: key) {
                     print("passou por aqui")
                     

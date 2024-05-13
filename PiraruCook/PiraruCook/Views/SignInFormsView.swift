@@ -22,7 +22,6 @@ struct SignInFormsView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var formattedCpf = ""
-    
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
@@ -30,7 +29,7 @@ struct SignInFormsView: View {
             Section(header: Text("Informações Pessoais")) {
                 TextField("Nome", text: $name)
                 DatePicker("Data de Nascimento", selection: $birthDate,in: ...Date(), displayedComponents: .date)
-                    .foregroundColor(birthDate > Date() ? .red : .primary) // Altera a cor da data de nascimento para vermelho se for no futuro
+                    .foregroundColor(birthDate > Date() ? .red : .primary)
                 TextField("Endereço", text: $address)
                 TextField("E-mail", text: $email)
                 SecureField("Senha", text: $senha)
@@ -54,7 +53,6 @@ struct SignInFormsView: View {
                 if senha.count >= 6
                     && birthDate < Date()
                     && isValidEmail(email) {
-                    //&& cpf.isValidCPFFormat(){
                     saveUser()
                     let usersArray = getAllUsers()
                     stackPathProfile.path.append(RouterData(screen: .LoggedProfile))
@@ -80,7 +78,6 @@ struct SignInFormsView: View {
             
             .navigationTitle("Cadastrar")
             .alert(isPresented: $showAlert) {
-                
                 Alert(title: Text("Erro"),
                       message: Text(alertMessage),
                       dismissButton: .default(Text("OK")))
@@ -108,17 +105,15 @@ struct SignInFormsView: View {
         
         let newUser = User(name: name, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
         
-        // Convertendo a estrutura de usuário para dados
         if let encodedUser = try? JSONEncoder().encode(newUser) {
-            // Salvando os dados do usuário no UserDefaults
             let userID = UUID().uuidString
-            
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
             accountCreated = true
             isLoggedIn = true
             print("usuário salvo com sucesso")
         } else {
-           // print("Erro ao salvar o usuário.")
+            showAlert = true
+            alertMessage = "Erro ao cadastrar usuário. Tente novamente mais tarde."
         }
     }
     
@@ -151,25 +146,20 @@ struct SignInFormsView: View {
     }
     
     func getAllUsers() -> [User] {
-        var users: [User] = []
         
-        // Obtém todas as chaves do UserDefaults
+        var users: [User] = []
         let keys = UserDefaults.standard.dictionaryRepresentation().keys
         
-        // Itera sobre as chaves
         for key in keys {
-            // Verifica se a chave começa com "user_"
+
             if key.hasPrefix("user_") {
-                // Obtém os dados associados à chave
                 if let userData = UserDefaults.standard.data(forKey: key) {
-                    // Decodifica os dados em um objeto User e adiciona à lista
                     if let user = try? JSONDecoder().decode(User.self, from: userData) {
                         users.append(user)
                     }
                 }
             }
         }
-        
         print("printando todos os usuários")
         print(users)
         
@@ -177,18 +167,16 @@ struct SignInFormsView: View {
     }
     
     func isEmailAlreadyRegistered(_ email: String) -> Bool {
-        // Obtém todos os usuários salvos
+
         let users = getAllUsers()
         
-        // Verifica se algum usuário tem o mesmo email
         return users.contains { $0.email == email }
     }
 
     func isCPFAlreadyRegistered(_ cpf: String) -> Bool {
-        // Obtém todos os usuários salvos
+
         let users = getAllUsers()
         
-        // Verifica se algum usuário tem o mesmo CPF
         return users.contains { $0.cpf == cpf }
     }
 

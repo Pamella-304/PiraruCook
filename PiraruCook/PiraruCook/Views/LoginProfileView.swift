@@ -16,7 +16,10 @@ struct LoginProfileView: View {
     @State private var email = ""
     @State private var senha = ""
     @State private var creatingAccount = false
-    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
+
     var body: some View {
             
             if isLoggedIn {
@@ -34,6 +37,11 @@ struct LoginProfileView: View {
                     Button("Entrar") {
                         verificacaoLogin()
                     }.padding()
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Erro"),
+                                  message: Text(alertMessage),
+                                  dismissButton: .default(Text("OK")))
+                        }
                     
                     //inserir navigation link para página logada
                     
@@ -122,7 +130,8 @@ struct LoginProfileView: View {
                          break
                      }
                  } catch {
-                     print("Erro ao decodificar usuário")
+                     showAlert = true
+                     alertMessage = "Login e/ou senha incorreto(s)"
                  }
              }
          }

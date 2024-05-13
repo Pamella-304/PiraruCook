@@ -31,7 +31,6 @@ struct LoggedProfileView: View {
                     Image(systemName: "pencil")
                         .resizable()
                         .frame(width: 32, height: 32)
-                    
                 }
                 .padding()
                 

@@ -15,6 +15,9 @@
 		61CED8D72BE971B900798247 /* ReviewCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D62BE971B900798247 /* ReviewCart.swift */; };
 		61E10D0C2BE90E1700ACF7E9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */; };
 		61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */; };
+		7408011C2BF235FD008E18E6 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408011B2BF235FD008E18E6 /* PaymentView.swift */; };
+		7408011E2BF2372B008E18E6 /* PaymentSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408011D2BF2372B008E18E6 /* PaymentSections.swift */; };
+		740801202BF23D77008E18E6 /* ValuesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408011F2BF23D77008E18E6 /* ValuesSection.swift */; };
 		8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175162BE122410022410B /* DishDetailsViewModel.swift */; };
 		8B1E6BE22BE9228400625875 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E6BE12BE9228400625875 /* User.swift */; };
 		8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */; };
@@ -46,6 +49,9 @@
 		61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUser.swift; sourceTree = "<group>"; };
 		61E3BA4E2BE3B869001C0201 /* PiraruCook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiraruCook.entitlements; sourceTree = "<group>"; };
+		7408011B2BF235FD008E18E6 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		7408011D2BF2372B008E18E6 /* PaymentSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSections.swift; sourceTree = "<group>"; };
+		7408011F2BF23D77008E18E6 /* ValuesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesSection.swift; sourceTree = "<group>"; };
 		8B0175162BE122410022410B /* DishDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishDetailsViewModel.swift; path = PiraruCook/Views/DishDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B1E6BE12BE9228400625875 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownComponent.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 				61E10D0B2BE90E1700ACF7E9 /* ProfileView.swift */,
 				8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */,
 				61CED8D62BE971B900798247 /* ReviewCart.swift */,
+				7408011B2BF235FD008E18E6 /* PaymentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +127,8 @@
 				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
 				8BB16D5F2BEB9F3C000B7DDF /* ProfileOptionsView.swift */,
+				7408011D2BF2372B008E18E6 /* PaymentSections.swift */,
+				7408011F2BF23D77008E18E6 /* ValuesSection.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -267,13 +276,16 @@
 				61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */,
 				D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */,
 				8B1E6BE22BE9228400625875 /* User.swift in Sources */,
+				7408011C2BF235FD008E18E6 /* PaymentView.swift in Sources */,
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */,
 				8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */,
 				8BB66BAD2BE3C219000E9E5B /* Setup.swift in Sources */,
+				740801202BF23D77008E18E6 /* ValuesSection.swift in Sources */,
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
+				7408011E2BF2372B008E18E6 /* PaymentSections.swift in Sources */,
 				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,
 				8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */,
 				8BB66BAB2BE3B9EB000E9E5B /* Formatter.swift in Sources */,

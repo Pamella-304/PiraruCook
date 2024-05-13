@@ -16,12 +16,12 @@ struct LoginProfileView: View {
     @State private var email = ""
     @State private var senha = ""
     @State private var creatingAccount = false
-    //var usersArray: [User]?
     
     var body: some View {
             
             if isLoggedIn {
                 LoggedProfileView(isLoggedIn: $isLoggedIn)
+                   
             } else {
                 VStack{
                     TextField("Email", text: $email)
@@ -53,7 +53,7 @@ struct LoginProfileView: View {
                     .colorInvert()
                 }
             }
-        let userarray = getAllUsers()
+        //let userarray = getAllUsers()
             
         
     }
@@ -143,5 +143,8 @@ struct LoginProfileView: View {
         
         return users
     }
+    
+
+    
     
 }

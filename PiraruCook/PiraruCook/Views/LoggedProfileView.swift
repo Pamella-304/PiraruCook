@@ -50,6 +50,9 @@ struct LoggedProfileView: View {
                 
                 ProfileOptionsView(imageName: "party.popper.fill", title:
                                 "Festival de Paratins", description: "Acesse as informações do evento atual")
+                .onAppear{
+                    printAllUserData()
+                }
 
             }
 
@@ -67,7 +70,33 @@ struct LoggedProfileView: View {
 
         Spacer()
     }
+ 
+    
+    func printAllUserData() {
+        // Obtém todas as chaves do UserDefaults
+        let keys = UserDefaults.standard.dictionaryRepresentation().keys
         
+        // Itera sobre as chaves
+        for key in keys {
+            print("key")
+            // Verifica se a chave começa com "user_"
+            if key.hasPrefix("user_ ") {
+                print("key com prefixo user_")
+                // Obtém os dados associados à chave
+                if let userData = UserDefaults.standard.data(forKey: key) {
+                    print("passou por aqui")
+                    
+                    do {
+                        let user = try JSONDecoder().decode(User.self, from: userData)
+                        print("printado: \(user)")
+                    } catch {
+                        print("Erro ao decodificar usuário:", error)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 

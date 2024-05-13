@@ -8,6 +8,7 @@ enum RecordKeysUser: String {
     case address
     case cpf
     case email
+    case password
     case boi
     
 }

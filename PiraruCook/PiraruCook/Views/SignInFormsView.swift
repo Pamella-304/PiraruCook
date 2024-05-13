@@ -56,6 +56,7 @@ struct SignInFormsView: View {
                     && isValidEmail(email) {
                     //&& cpf.isValidCPFFormat(){
                     saveUser()
+                    let usersArray = getAllUsers()
                     stackPathProfile.path.append(RouterData(screen: .LoggedProfile))
                     
                 } else {
@@ -86,7 +87,7 @@ struct SignInFormsView: View {
             }
         }
         
-        
+
     }
     
     
@@ -104,7 +105,7 @@ struct SignInFormsView: View {
            // UserDefaults.standard.object(forKey: <#T##String#>)
             accountCreated = true
             isLoggedIn = true
-            
+            print("usuário salvo com sucesso")
         } else {
            // print("Erro ao salvar o usuário.")
         }
@@ -138,9 +139,34 @@ struct SignInFormsView: View {
         
     }
     
- 
-}
+    func getAllUsers() -> [User] {
+        var users: [User] = []
+        
+        // Obtém todas as chaves do UserDefaults
+        let keys = UserDefaults.standard.dictionaryRepresentation().keys
+        
+        // Itera sobre as chaves
+        for key in keys {
+            // Verifica se a chave começa com "user_"
+            if key.hasPrefix("user_") {
+                // Obtém os dados associados à chave
+                if let userData = UserDefaults.standard.data(forKey: key) {
+                    // Decodifica os dados em um objeto User e adiciona à lista
+                    if let user = try? JSONDecoder().decode(User.self, from: userData) {
+                        users.append(user)
+                    }
+                }
+            }
+        }
+        
+        print("printando todos os usuários")
+        print(users)
+        
+        return users
+    }
+    
 
+}
 
 
 extension String {

@@ -28,7 +28,7 @@ struct LoggedProfileView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     Spacer()
-                    Image(systemName: "gear")
+                    Image(systemName: "pencil")
                         .resizable()
                         .frame(width: 32, height: 32)
                     
@@ -38,15 +38,31 @@ struct LoggedProfileView: View {
                 Divider()
                     .padding(.horizontal, 8)
                 
+//                ForEach(subItems, id: \.self) { typeDish in
+//                    NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
+//                        // TODO: Chango for card
+//                        ItemCardView(dish: typeDish)
+//                    }
+//                }
+                
+                
                 ProfileOptionsView(imageName: "creditcard.fill", title:
                                 "Pagamentos", description: "Preferências de transferência")
                 
-                ProfileOptionsView(imageName: "mappin", title:
-                                "Endereços", description: "Preferências de endereço de entrega")
+                NavigationLink(value: RouterData(screen: Views.Addresses)) {
+                    ProfileOptionsView(imageName: "mappin", title:
+                                    "Endereços", description: "Preferências de endereço de entrega")
+                }
+                .foregroundStyle(.primary)
                 
                 
-                ProfileOptionsView(imageName: "book.pages.fill", title:
-                                "Histórico", description: "Histórico de pedidos")
+                NavigationLink(value: RouterData(screen: Views.PreviousOrders)) {
+                                        
+                    ProfileOptionsView(imageName: "book.pages.fill", title: "Histórico", description: "Histórico de pedidos")
+                }
+                .foregroundStyle(.primary)
+                
+                
                 
                 ProfileOptionsView(imageName: "party.popper.fill", title:
                                 "Festival de Paratins", description: "Acesse as informações do evento atual")
@@ -99,4 +115,7 @@ struct LoggedProfileView: View {
     
 }
 
-
+#Preview {
+    LoggedProfileView(isLoggedIn: .constant(true))
+        .environment(Router())
+}

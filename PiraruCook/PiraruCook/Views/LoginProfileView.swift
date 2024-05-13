@@ -19,7 +19,6 @@ struct LoginProfileView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
 
-
     var body: some View {
             
             if isLoggedIn {

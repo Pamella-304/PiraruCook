@@ -93,6 +93,18 @@ struct SignInFormsView: View {
     
     func saveUser() {
         
+        if isEmailAlreadyRegistered(email) {
+                showAlert = true
+                alertMessage = "E-mail já cadastrado"
+                return
+        }
+        
+        if isCPFAlreadyRegistered(cpf) {
+                showAlert = true
+                alertMessage = "CPF já cadastrado"
+                return
+        }
+            
         
         let newUser = User(name: name, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
         
@@ -102,7 +114,6 @@ struct SignInFormsView: View {
             let userID = UUID().uuidString
             
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
-           // UserDefaults.standard.object(forKey: <#T##String#>)
             accountCreated = true
             isLoggedIn = true
             print("usuário salvo com sucesso")
@@ -165,6 +176,21 @@ struct SignInFormsView: View {
         return users
     }
     
+    func isEmailAlreadyRegistered(_ email: String) -> Bool {
+        // Obtém todos os usuários salvos
+        let users = getAllUsers()
+        
+        // Verifica se algum usuário tem o mesmo email
+        return users.contains { $0.email == email }
+    }
+
+    func isCPFAlreadyRegistered(_ cpf: String) -> Bool {
+        // Obtém todos os usuários salvos
+        let users = getAllUsers()
+        
+        // Verifica se algum usuário tem o mesmo CPF
+        return users.contains { $0.cpf == cpf }
+    }
 
 }
 

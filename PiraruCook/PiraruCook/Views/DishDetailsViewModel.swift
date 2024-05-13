@@ -8,9 +8,8 @@
 import Foundation
 
 @Observable
-class ItemDetailsViewModel: Setup {
+class ItemDetailsViewModel {
     
-    var cart: Cart?
     var dish: TypeDish
     
     var showIngredients: Bool = false
@@ -53,9 +52,6 @@ class ItemDetailsViewModel: Setup {
         dish.updateComment(comment)
     }
     
-    func addToCart() {
-        cart?.addItem(item: dish)
-    }
 }
 
 struct Review: Hashable {

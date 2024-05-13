@@ -10,7 +10,7 @@ import SwiftUI
 struct ItemDetailsView: View {
     
     @Environment(Router.self) private var stackPathMenu
-    @Environment(Cart.self) private var cart
+    @Environment(CartViewModel.self) private var cart
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     @State private var viewModel: ItemDetailsViewModel
@@ -114,7 +114,7 @@ struct ItemDetailsView: View {
             // MARK: Add to cart
             Button(action: {
                 viewModel.updateCommnet()
-                viewModel.addToCart()
+                cart.addItem(item: viewModel.dish)
                 stackPathMenu.goBack()
             }) {
                 Text("Add to cart")
@@ -126,9 +126,7 @@ struct ItemDetailsView: View {
             .cornerRadius(10)
         }
         .padding(.horizontal)
-        .onAppear {
-            self.viewModel.setup(self.cart)
-        }
+
     }
 }
 
@@ -136,5 +134,5 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(dish: TypeDish.example)
-        .environment(Cart())
+        .environment(CartViewModel())
 }

@@ -9,37 +9,41 @@ import SwiftUI
 
 struct CartPaymentResumeView: View {
     
-    @Binding var viewModel: CartViewModel
+    @Environment(CartViewModel.self) private var cart
+    @State var isDelivery = false
     
     var body: some View {
         VStack(spacing:16) {
             HStack {
                 Text("Subtotal")
                 Spacer()
-                Text("R$\((viewModel.cart?.subTotalValue ?? 0).formatted(.number.precision(.fractionLength(2))))")
+                Text(cart.getSubTotalValue())
             }
             
             VStack {
                 HStack {
                     Text("Entrega")
                     Spacer()
-                    Picker(selection: $viewModel.isDelivery, label: Text("Opção de entrega")) {
+                    Picker(selection: $isDelivery, label: Text("Opção de entrega")) {
                         Text("Entrega").tag(true)
                         Text("Retirar no local").tag(false)
                     }
-                    .onChange(of: viewModel.isDelivery) { oldValue, newValue in
-                        viewModel.cart?.setTransportation(cost: newValue ? 5.0 : 0.0)
+                    .onChange(of: isDelivery) { oldValue, newValue in
+                        cart.setTransportation(cost: newValue ? 5.0 : 0.0)
+                        cart.isDelivery = newValue
                     }
                 }
                 
-                Text("R$\((viewModel.cart?.transportationValue ?? 0).formatted(.number.precision(.fractionLength(2))))")
+                Text(cart.getTransportation())
                     .frame(maxWidth: .infinity, alignment: .trailing)
+                
             }
             
             HStack {
                 Text("Total")
                 Spacer()
-                Text("R$\((viewModel.cart?.getTotalValue() ?? 0).formatted(.number.precision(.fractionLength(2))))")
+                Text(cart.getTotalValue())
+                
             }
         }
         .padding(.horizontal)

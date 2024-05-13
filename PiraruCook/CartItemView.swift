@@ -9,22 +9,21 @@ import SwiftUI
 
 struct CartItemView: View {
     
-    @Environment(Cart.self) private var cart
+    @Environment(CartViewModel.self) private var cart
     @Environment(\.colorScheme) var colorScheme
-    @State var viewModel: CartItemViewModel
-    
-    init(dish: DishCart) {
-        self.viewModel = CartItemViewModel(dishCart: dish)
-    }
+    @State var dish: TypeDish
+    let imageWidth:CGFloat? = 102
+    let imageHeight:CGFloat? = 102
+
     
     var body: some View {
         VStack {
             
             HStack(spacing:-12) {
-                Image(viewModel.dishCart.dish.image)
+                Image(dish.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: viewModel.imageWidth, height: viewModel.imageWidth)
+                    .frame(width: imageWidth, height: imageHeight)
                     .clipped()
                     .clipShape(
                         .rect(
@@ -41,7 +40,7 @@ struct CartItemView: View {
                     .overlay {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(viewModel.dishCart.dish.name)
+                                Text(dish.name)
                                     .font(.title2)
                                     .bold()
                                 
@@ -51,7 +50,7 @@ struct CartItemView: View {
                                     .frame(width: 30, height: 30)
                                     .foregroundStyle(.quaternary)
                                     .overlay {
-                                        Text("\(viewModel.dishCart.quantity)")
+                                        Text("\(cart.getQuantity(item: dish))")
                                     }
                             }
                             
@@ -75,13 +74,10 @@ struct CartItemView: View {
                         .frame(maxWidth: .infinity)
                         .padding(20)
                         .foregroundStyle(colorScheme == .light ? .black : .white)
-                        .onAppear{
-                            viewModel.setup(self.cart)
-                        }
                     }
             }
             
-            Text(viewModel.dishCart.dish.comment)
+            Text(dish.comment)
                 .background()
                 .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -89,36 +85,18 @@ struct CartItemView: View {
         }
     }
     
-    func totalPrice() -> Double { Double(viewModel.dishCart.quantity) * viewModel.dishCart.dish.price}
+    func totalPrice() -> Double { Double(cart.getQuantity(item: dish)) * dish.price}
     
     func incrementQuantity() {
-        cart.addItem(item: viewModel.dishCart.dish)
+        cart.addItem(item: dish)
     }
     
     func decrementQuantity() {
-        if viewModel.dishCart.quantity > 0 {
-            cart.removeItem(item: viewModel.dishCart.dish)
+        if cart.getQuantity(item: dish) > 0 {
+            cart.removeItem(item: dish)
         }
     }
     
-}
-
-@Observable
-class CartItemViewModel: Setup {
-    var cart: Cart?
-    var dishCart: DishCart
-    let imageWidth: CGFloat = 102
-    let imageHeight: CGFloat = 102
-    
-    init(dishCart: DishCart) {
-        self.dishCart = dishCart
-    }
-}
-
-#Preview {
-    
-    CartItemView(dish: DishCart(dish: TypeDish(name: "Capirinha", description: "nada", image: "Caipirinha", nutritionalInfo: [], ingredients: [], price: 10.10, tipo: "Bebidas", comment: "Sem gelo"),quantity: 2))
-        .environment(Cart())
 }
 
 

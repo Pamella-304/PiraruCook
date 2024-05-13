@@ -9,15 +9,14 @@ import SwiftUI
 struct CartView: View {
     
     @Environment(Router.self) private var stackPathCart
-    @Environment(Cart.self) private var cart
-    @State var viewModel = CartViewModel()
-    
+    @Environment(CartViewModel.self) private var cart
+        
     var body: some View {
         
         VStack {
             
             // MARK: Cart's items
-            CartItemsView(viewModel: $viewModel)
+            CartItemsView()
             
             VStack(spacing:16) {
                 
@@ -26,7 +25,7 @@ struct CartView: View {
                 
                 
                 // MARK: Payment Resume
-                CartPaymentResumeView(viewModel: $viewModel)
+                CartPaymentResumeView()
                 
                 // MARK: Payment
                 CartPaymentButtonView()
@@ -35,13 +34,11 @@ struct CartView: View {
             
         }
         .navigationTitle("Carrinho")
-        .onAppear {
-            self.viewModel.setup(self.cart)
-        }
+
     }
 }
 
 #Preview {
     CartView()
-        .environment(Cart())
+        .environment(CartViewModel())
 }

@@ -2,42 +2,28 @@
 //  CartItemsView.swift
 //  PiraruCook
 //
-//  Created by Gabriel Leite on 12/05/24.
+//  Created by Gabriel Leite on 13/05/24.
 //
 
 import SwiftUI
 
 struct CartItemsView: View {
     
-    @Binding var viewModel: CartViewModel
+    @Environment(CartViewModel.self) private var cart
     
     var body: some View {
         ScrollView {
             
             Section {
-                
-                Task {
-                    do {
-                        let items = try viewModel.getItems()
-                        
-                        if !items.isEmpty {
-                            ForEach(items) { item in
-                                CartItemView(dish: item)
-                            }
-                        }
-                    } catch {
-                        print("error")
+                      
+                if !cart.items.isEmpty {
+                    ForEach(cart.items) { item in
+                        CartItemView(dish: item.dish)
                     }
                 }
-                
-                
-                
-                
-                
-                
-                
-                
+
             }
+            
         }
     }
 }

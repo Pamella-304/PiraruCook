@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PiraruCookApp: App {
     let exampleUser = User(name: "Jonas da Silva", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
-    @State private var cart = Cart()
+    @State private var cart = CartViewModel()
     
     var body: some Scene {
         WindowGroup {

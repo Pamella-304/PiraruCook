@@ -11,6 +11,7 @@ struct PaymentView: View {
     var subtotal: Int
     var discount: Int
     var delivery: Int
+    @State private var finalPayment = false
    
     
     var body: some View {
@@ -43,6 +44,7 @@ struct PaymentView: View {
             
             Button{
                 // TODO: ended payment logic
+                finalPayment = true
             }label: {
                 Text("Finalizar Compra")
                     .foregroundColor(.white)
@@ -56,7 +58,9 @@ struct PaymentView: View {
             
             
         
-        }.navigationTitle("Pagamento")
+        }.navigationTitle("Pagamento").sheet(isPresented: $finalPayment) {
+            ConfirmOrderView().presentationDetents([.fraction(0.3)])
+        }
         
     }
 }

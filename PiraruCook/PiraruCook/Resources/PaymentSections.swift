@@ -22,7 +22,7 @@ struct PaymentSections: View {
                 // TODO: Retrive number of cupons
                 if text == "Pix"{
                     
-                } else{
+                }else{
                     Text(subtext)
                         .font(.footnote)
                         .foregroundStyle(.secondary)

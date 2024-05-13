@@ -11,6 +11,8 @@ struct PaymentView: View {
     var subtotal: Int
     var discount: Int
     var delivery: Int
+    var paymentMethod: String
+    var paymentSubtitle: String = ""
     @State private var finalPayment = false
    
     
@@ -21,7 +23,7 @@ struct PaymentView: View {
                 Text("Forma de Pagamento").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(img1: "rectangle.checkered", subtext: "", text: "Pix")
+            PaymentSections(img1: "rectangle.checkered", subtext: paymentSubtitle, text: paymentMethod)
                 
             PaymentSections(img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
                 
@@ -66,5 +68,5 @@ struct PaymentView: View {
 }
 
 #Preview {
-    PaymentView(subtotal: 10, discount: 5, delivery: 10)
+    PaymentView(subtotal: 10, discount: 5, delivery: 10, paymentMethod: "Pix")
 }

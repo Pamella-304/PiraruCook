@@ -24,7 +24,7 @@ class Router {
 }
 
 enum Views {
-    case Menu, DishDetails, Payment
+    case Menu, DishDetails, Payment, Pix
 }
 
 class RouterData: Hashable {

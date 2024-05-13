@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConfirmOrderView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(Router.self) private var stackPathPix
     
     var body: some View {
         VStack{
@@ -29,6 +30,7 @@ struct ConfirmOrderView: View {
             Button{
                 // TODO: ended payment logic
                 dismiss()
+                stackPathPix.path.append(RouterData(screen: .Pix))
             }label: {
                 Text("Confirmar Pedido")
                     .foregroundColor(.white)

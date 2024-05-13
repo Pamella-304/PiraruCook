@@ -83,6 +83,11 @@ struct TabBarView: View {
                         switch data.screen {
                         case Views.SignInForms:
                             SignInFormsView()
+                        case Views.PreviousOrders:
+                            PreviousOrdersView()
+                        case Views.Addresses:
+                            EditAddressView()
+
                         default:
                             // TODO: verify navigation
                             LoginProfileView()

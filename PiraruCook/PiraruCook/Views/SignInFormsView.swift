@@ -87,6 +87,7 @@ struct SignInFormsView: View {
             }
         }
         
+
     }
     
     
@@ -101,7 +102,7 @@ struct SignInFormsView: View {
             let userID = UUID().uuidString
             
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
-            
+           // UserDefaults.standard.object(forKey: <#T##String#>)
             accountCreated = true
             isLoggedIn = true
             print("usuário salvo com sucesso")
@@ -164,6 +165,7 @@ struct SignInFormsView: View {
         return users
     }
     
+
 }
 
 

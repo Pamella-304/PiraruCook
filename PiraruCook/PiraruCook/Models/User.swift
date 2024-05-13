@@ -53,6 +53,7 @@ struct User: Codable {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(name, forKey: .name)
             try container.encode(birthDate, forKey: .birthDate)
+            try container.encode(password, forKey: .password)
             try container.encode(address, forKey: .address)
             try container.encode(email, forKey: .email)
             try container.encode(cpf, forKey: .cpf)

@@ -59,7 +59,7 @@ struct LoginProfileView: View {
     }
     func configure(_ request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]
-        print("resquested")
+      //  print("resquested")
     }
     
     func handle(_ authResult: Result<ASAuthorization, Error>) {
@@ -91,32 +91,54 @@ struct LoginProfileView: View {
                 }
                 
             default:
-                print(auth.credential)
+           //     print(auth.credential)
+                print("a")
             }
         case .failure(let error):
-            print(error)
+        //    print(error)
+            print("b")
         }
     }
     
     func verificacaoLogin() {
         
-        let userIDs = UserDefaults.standard.dictionaryRepresentation().keys.filter { $0.hasPrefix("user_") }
+        guard !email.isEmpty && !senha.isEmpty else {
+             // Exibe um alerta se o email ou a senha estiverem vazios
+     //        showAlert(message: "Por favor, preencha todos os campos.")
+            print("preencha todos os campos")
+             return
+         }
+
+         let userIDs = UserDefaults.standard.dictionaryRepresentation().keys.filter { $0.hasPrefix("user_") }
+         
+         var isLoggedIn = false
+         
+         for userID in userIDs {
+             if let userData = UserDefaults.standard.data(forKey: userID) {
+                 do {
+                     let user = try JSONDecoder().decode(User.self, from: userData)
+                     if user.email == email && user.password == senha {
+                         isLoggedIn = true
+                         break
+                     }
+                 } catch {
+                     print("Erro ao decodificar usuário")
+                 }
+             }
+         }
         
-        for userID in userIDs {
-            if let userData = UserDefaults.standard.data(forKey: userID) {
-                do {
-                    let user = try JSONDecoder().decode(User.self, from: userData)
-                    if user.email == email && user.password == senha {
-                        isLoggedIn = true
-                        return
-                    }
-                }
-                catch {
-                    print("usuario nao cadastrado")
-                }
-                
+        if isLoggedIn {
+                // Login bem-sucedido
+                self.isLoggedIn = true
+                // Limpa os campos
+            print("Usuário logado")
+            LoggedProfileView(isLoggedIn: $isLoggedIn)
+            
+            } else {
+                // Exibe um alerta se o login falhar
+      //          showAlert(message: "E-mail ou senha incorretos.")
+        print("email incorreto")
             }
-        }
     }
     
     func getAllUsers() -> [User] {
@@ -143,5 +165,8 @@ struct LoginProfileView: View {
         
         return users
     }
-    
+//    func showAlert(message: String) {
+//        alertMessage = message
+//        showAlert = true
+//    }
 }

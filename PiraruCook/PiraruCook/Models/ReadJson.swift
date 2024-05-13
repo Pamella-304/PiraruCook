@@ -70,7 +70,7 @@ class TypeDishesListViewModel: ObservableObject, Sequence {
                 let jsonData = try decoder.decode(Dishes.self, from: data)
                 return jsonData
             } catch {
-                print("error:\(error)")
+              //  print("error:\(error)")
             }
         }
         return nil

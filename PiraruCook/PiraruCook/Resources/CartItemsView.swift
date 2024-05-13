@@ -15,13 +15,28 @@ struct CartItemsView: View {
         ScrollView {
             
             Section {
-                if let items = viewModel.cart?.items {
-                    if !items.isEmpty {
-                        ForEach(items) { item in
-                            CartItemView(dish: item)
+                
+                Task {
+                    do {
+                        let items = try viewModel.getItems()
+                        
+                        if !items.isEmpty {
+                            ForEach(items) { item in
+                                CartItemView(dish: item)
+                            }
                         }
+                    } catch {
+                        print("error")
                     }
                 }
+                
+                
+                
+                
+                
+                
+                
+                
             }
         }
     }

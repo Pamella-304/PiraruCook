@@ -30,7 +30,3 @@ struct CartCupomView: View {
         .padding(.horizontal)
     }
 }
-
-#Preview {
-    CartCupomView()
-}

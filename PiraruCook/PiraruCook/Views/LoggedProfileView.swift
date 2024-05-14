@@ -12,6 +12,9 @@ struct LoggedProfileView: View {
     
     @Environment(Router.self) private var stackPathProfile
     @Binding var isLoggedIn: Bool
+    @State private var user: User?
+    
+    
     
     var body: some View {
         VStack {
@@ -24,9 +27,17 @@ struct LoggedProfileView: View {
                         Image(systemName: "person")
                     }
                     
-                    Text("Nome usuario")
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                    if let presentedUserName = user?.userName {
+                        Text(presentedUserName)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                    } else {
+                        Text("Nome usuario")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                    }
                     Spacer()
                     Image(systemName: "pencil")
                         .resizable()
@@ -37,13 +48,7 @@ struct LoggedProfileView: View {
                 Divider()
                     .padding(.horizontal, 8)
                 
-//                ForEach(subItems, id: \.self) { typeDish in
-//                    NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
-//                        // TODO: Chango for card
-//                        ItemCardView(dish: typeDish)
-//                    }
-//                }
-                
+
                 NavigationLink(value: RouterData(screen: Views.PaymentMethods)) {
                     ProfileOptionsView(imageName: "creditcard.fill", title:
                                     "Pagamentos", description: "Preferências de transferência")
@@ -81,33 +86,30 @@ struct LoggedProfileView: View {
         }
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            loadUserData()
+        }
+        .onChange(of: isLoggedIn) { _ in
+                    loadUserData()
+        }
         
 
         Spacer()
     }
- 
     
-    func printAllUserData() {
-
-        let keys = UserDefaults.standard.dictionaryRepresentation().keys
-        
-        for key in keys {
-            print("key")
-            if key.hasPrefix("user_ ") {
-                print("key com prefixo user_")
-                if let userData = UserDefaults.standard.data(forKey: key) {
-                    print("passou por aqui")
-                    
+    func loadUserData() {
+            if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
+                if let userData = UserDefaults.standard.data(forKey: userID) {
                     do {
+                        // Decodifica os dados do usuário
                         let user = try JSONDecoder().decode(User.self, from: userData)
-                        print("printado: \(user)")
+                        self.user = user // Define o usuário recuperado na variável de estado
                     } catch {
                         print("Erro ao decodificar usuário:", error)
                     }
                 }
             }
         }
-    }
     
 }
 

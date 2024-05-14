@@ -11,7 +11,9 @@ import SwiftUI
 struct SignInFormsView: View {
     
     @EnvironmentObject var stackPathProfile: Router
-    @State private var name = ""
+    @State private var userName = ""
+    @State private var firstName = ""
+    @State private var lastName = ""
     @State private var birthDate = Date()
     @State private var address = ""
     @State private var email = ""
@@ -27,7 +29,10 @@ struct SignInFormsView: View {
     var body: some View {
         Form {
             Section(header: Text("Informações Pessoais")) {
-                TextField("Nome", text: $name)
+                
+                TextField("Primeiro nome", text: $firstName)
+                TextField("Sobrenome", text: $lastName)
+                TextField("Como deseja ser chamado?", text: $userName)
                 DatePicker("Data de Nascimento", selection: $birthDate,in: ...Date(), displayedComponents: .date)
                     .foregroundColor(birthDate > Date() ? .red : .primary)
                 TextField("Endereço", text: $address)
@@ -103,7 +108,7 @@ struct SignInFormsView: View {
         }
             
         
-        let newUser = User(name: name, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
+        let newUser = User(userName: userName, firstName: firstName, lastName: lastName, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
         
         if let encodedUser = try? JSONEncoder().encode(newUser) {
             let userID = UUID().uuidString

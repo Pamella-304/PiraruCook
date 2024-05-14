@@ -100,9 +100,9 @@ struct LoginProfileView: View {
     func verificacaoLogin() {
         
         guard !email.isEmpty && !senha.isEmpty else {
-
-            print("preencha todos os campos")
-             return
+            showAlert = true
+            alertMessage = "Preencha todos os campos"
+            return
          }
 
          let userIDs = UserDefaults.standard.dictionaryRepresentation().keys.filter { $0.hasPrefix("user_") }

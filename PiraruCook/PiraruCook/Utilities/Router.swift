@@ -26,7 +26,7 @@ class Router: ObservableObject {
 enum Views {
     case Menu, DishDetails, Payment, SignInForms, LoggedProfile
     //cases para o profile logado
-    case PreviousOrders, Addresses
+    case PreviousOrders, Addresses, EventInfo, PaymentMethods
 }
 
 class RouterData: Hashable {

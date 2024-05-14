@@ -48,6 +48,7 @@ struct CardPreviousOrderView: View {
                 .foregroundStyle(.primary)
                 
             }
+            .background(.quinary)
     }
 }
 

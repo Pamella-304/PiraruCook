@@ -87,7 +87,11 @@ struct TabBarView: View {
                             PreviousOrdersView()
                         case Views.Addresses:
                             EditAddressView()
-
+                        
+                        case Views.EventInfo:
+                            EventDescriptionView()
+                        case Views.PaymentMethods:
+                            PaymentMethodsView()
                         default:
                             // TODO: verify navigation
                             LoginProfileView()

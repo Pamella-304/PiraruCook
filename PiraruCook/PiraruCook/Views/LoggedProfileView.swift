@@ -36,9 +36,19 @@ struct LoggedProfileView: View {
                 
                 Divider()
                     .padding(.horizontal, 8)
-            
-                ProfileOptionsView(imageName: "creditcard.fill", title:
-                                "Pagamentos", description: "Preferências de transferência")
+                
+//                ForEach(subItems, id: \.self) { typeDish in
+//                    NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
+//                        // TODO: Chango for card
+//                        ItemCardView(dish: typeDish)
+//                    }
+//                }
+                
+                NavigationLink(value: RouterData(screen: Views.PaymentMethods)) {
+                    ProfileOptionsView(imageName: "creditcard.fill", title:
+                                    "Pagamentos", description: "Preferências de transferência")
+                }
+                
                 
                 NavigationLink(value: RouterData(screen: Views.Addresses)) {
                     ProfileOptionsView(imageName: "mappin", title:
@@ -54,13 +64,11 @@ struct LoggedProfileView: View {
                 .foregroundStyle(.primary)
                 
                 
-                
-                ProfileOptionsView(imageName: "party.popper.fill", title:
-                                "Festival de Paratins", description: "Acesse as informações do evento atual")
-                .onAppear{
-                    printAllUserData()
+                NavigationLink(value: RouterData(screen: Views.EventInfo)) {
+                    ProfileOptionsView(imageName: "party.popper.fill", title:
+                                    "Festival de Paratins", description: "Acesse as informações do evento atual")
                 }
-
+                .foregroundStyle(.primary)
             }
 
             Button("Sair") {

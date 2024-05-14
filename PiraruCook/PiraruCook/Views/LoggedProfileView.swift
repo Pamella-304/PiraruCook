@@ -45,9 +45,11 @@ struct LoggedProfileView: View {
 //                    }
 //                }
                 
+                NavigationLink(value: RouterData(screen: Views.PaymentMethods)) {
+                    ProfileOptionsView(imageName: "creditcard.fill", title:
+                                    "Pagamentos", description: "Preferências de transferência")
+                }
                 
-                ProfileOptionsView(imageName: "creditcard.fill", title:
-                                "Pagamentos", description: "Preferências de transferência")
                 
                 NavigationLink(value: RouterData(screen: Views.Addresses)) {
                     ProfileOptionsView(imageName: "mappin", title:
@@ -63,10 +65,11 @@ struct LoggedProfileView: View {
                 .foregroundStyle(.primary)
                 
                 
-                
-                ProfileOptionsView(imageName: "party.popper.fill", title:
-                                "Festival de Paratins", description: "Acesse as informações do evento atual")
-
+                NavigationLink(value: RouterData(screen: Views.EventInfo)) {
+                    ProfileOptionsView(imageName: "party.popper.fill", title:
+                                    "Festival de Paratins", description: "Acesse as informações do evento atual")
+                }
+                .foregroundStyle(.primary)
             }
 
             Button("Sair") {

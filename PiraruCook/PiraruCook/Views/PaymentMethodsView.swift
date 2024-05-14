@@ -8,8 +8,34 @@
 import SwiftUI
 
 struct PaymentMethodsView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Section {
+            ScrollView(.horizontal) {
+                HStack {
+                    CardPaymentMethodView(symbol: "plus", description: ["Cadastrar", "Novo cartão"])
+                        .padding()
+                    
+                    CardPaymentMethodView(symbol: "creditcard", description: ["Pagamento", "Cartão crédito"])
+                        .padding()
+                    CardPaymentMethodView(symbol: "apple.logo", description: ["Pagamento", "Apple Pay"])
+                        .padding()
+                    
+                }
+                
+            }
+            
+        }
+        header: {
+            
+            HStack {
+                Text("Formas de pagamento")
+                    .padding(.horizontal)
+                    .font(.title3)
+                    .foregroundStyle(.primary)
+                Spacer()
+            }
+        }
     }
 }
 

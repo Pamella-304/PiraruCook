@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EventDescriptionView: View {
-    
+    @State var showingSheet: Bool = false
     var body: some View {
         VStack {
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
@@ -47,9 +47,17 @@ struct EventDescriptionView: View {
             }
             
             Spacer()
+            Button("Escolher meu boi") {
+                showingSheet.toggle()
+            }
+            .padding()
+            .sheet(isPresented: $showingSheet) {
+                ChooseBoiSheet()
+            }
             
         }
         .navigationTitle("Festival de Parintins")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

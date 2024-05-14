@@ -87,7 +87,8 @@ struct TabBarView: View {
                             PreviousOrdersView()
                         case Views.Addresses:
                             EditAddressView()
-                        
+                        case Views.Configuration:
+                            ChangeUserInfoView()
                         case Views.EventInfo:
                             EventDescriptionView()
                         case Views.PaymentMethods:

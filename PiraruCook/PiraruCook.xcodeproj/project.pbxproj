@@ -33,6 +33,8 @@
 		8BF4077A2BF2455B00E5988A /* EventDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407792BF2455B00E5988A /* EventDescriptionView.swift */; };
 		8BF4077C2BF25D6500E5988A /* PaymentMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4077B2BF25D6500E5988A /* PaymentMethodsView.swift */; };
 		8BF4077E2BF25E9F00E5988A /* CardPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4077D2BF25E9F00E5988A /* CardPaymentMethodView.swift */; };
+		8BF407802BF3A4B600E5988A /* ChooseBoiSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */; };
+		8BF407822BF3AC1B00E5988A /* ChangeUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407812BF3AC1B00E5988A /* ChangeUserInfoView.swift */; };
 		D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */; };
 		D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3782FB12BE115A20041EEAC /* CartItemView.swift */; };
 		D3782FB42BE134630041EEAC /* DishCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3782FB32BE134630041EEAC /* DishCart.swift */; };
@@ -72,6 +74,8 @@
 		8BF407792BF2455B00E5988A /* EventDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionView.swift; sourceTree = "<group>"; };
 		8BF4077B2BF25D6500E5988A /* PaymentMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsView.swift; sourceTree = "<group>"; };
 		8BF4077D2BF25E9F00E5988A /* CardPaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentMethodView.swift; sourceTree = "<group>"; };
+		8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBoiSheet.swift; sourceTree = "<group>"; };
+		8BF407812BF3AC1B00E5988A /* ChangeUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserInfoView.swift; sourceTree = "<group>"; };
 		D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D3782FB12BE115A20041EEAC /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = SOURCE_ROOT; };
 		D3782FB32BE134630041EEAC /* DishCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCart.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		3F852DDE2BDC0E5B00962A5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8BF407812BF3AC1B00E5988A /* ChangeUserInfoView.swift */,
 				D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */,
 				8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */,
 				D3E98FB92BDBC89F00DCE016 /* MenuView.swift */,
@@ -144,6 +149,7 @@
 				8BF407732BEE68CB00E5988A /* CardPreviousOrderView.swift */,
 				8BF407772BF2331D00E5988A /* CardAddressView.swift */,
 				8BF4077D2BF25E9F00E5988A /* CardPaymentMethodView.swift */,
+				8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				8BF407782BF2331D00E5988A /* CardAddressView.swift in Sources */,
 				8BF407762BF232BD00E5988A /* EditAddressView.swift in Sources */,
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
+				8BF407822BF3AC1B00E5988A /* ChangeUserInfoView.swift in Sources */,
 				D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */,
 				61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */,
 				D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */,
@@ -300,6 +307,7 @@
 				8BF4077A2BF2455B00E5988A /* EventDescriptionView.swift in Sources */,
 				8B1E6BE22BE9228400625875 /* User.swift in Sources */,
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
+				8BF407802BF3A4B600E5988A /* ChooseBoiSheet.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */,
 				8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */,

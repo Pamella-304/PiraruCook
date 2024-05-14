@@ -19,6 +19,7 @@ struct EditAddressView: View {
         }
         .listStyle(.inset)
         .navigationTitle("Endereços")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

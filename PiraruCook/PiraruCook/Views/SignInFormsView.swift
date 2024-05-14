@@ -45,13 +45,6 @@ struct SignInFormsView: View {
                 
             }
             
-            Section(header: Text("Preferência de Boi")) {
-                Picker("Preferência", selection: $selectedBoi) {
-                    Text("Garantido").tag(Boi.garantido)
-                    Text("Caprichoso").tag(Boi.caprichoso)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-            }
             
             Button(action: {
                 

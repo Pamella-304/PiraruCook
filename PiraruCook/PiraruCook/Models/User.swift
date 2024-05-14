@@ -31,7 +31,7 @@ struct User: Codable {
     var password: String
     var cpf: String
  //   var photo: UIImage = UIImage (named: "BolinhoDePiracui") ?? nil
-    var boi: Boi
+    var boi: Boi?
     
     func formatCPF(_ s: String) -> String{
         let start1 = s.index(s.startIndex, offsetBy: 0)

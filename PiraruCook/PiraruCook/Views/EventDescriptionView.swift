@@ -43,7 +43,8 @@ struct EventDescriptionView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                .underline()
+                .bold()
+                
             }
             
             Spacer()

@@ -16,12 +16,14 @@ struct LoginProfileView: View {
     @State private var email = ""
     @State private var senha = ""
     @State private var creatingAccount = false
-    //var usersArray: [User]?
-    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
     var body: some View {
             
             if isLoggedIn {
                 LoggedProfileView(isLoggedIn: $isLoggedIn)
+                   
             } else {
                 VStack{
                     TextField("Email", text: $email)
@@ -34,9 +36,12 @@ struct LoginProfileView: View {
                     Button("Entrar") {
                         verificacaoLogin()
                     }.padding()
-                    
-                    //inserir navigation link para página logada
-                    
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Erro"),
+                                  message: Text(alertMessage),
+                                  dismissButton: .default(Text("OK")))
+                        }
+                                        
                     Button("Criar Conta"){
                         stackPathProfile.path.append(RouterData(screen: .SignInForms))
                     }
@@ -53,19 +58,17 @@ struct LoginProfileView: View {
                     .colorInvert()
                 }
             }
-        let userarray = getAllUsers()
             
         
     }
+    
     func configure(_ request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]
-      //  print("resquested")
     }
     
     func handle(_ authResult: Result<ASAuthorization, Error>) {
         switch authResult {
         case .success(let auth):
-           // print(auth)
             switch auth.credential {
             case let appleIDCredentials as ASAuthorizationAppleIDCredential:
                 
@@ -75,27 +78,21 @@ struct LoginProfileView: View {
                    let appleUserData =  try? JSONEncoder().encode(appleUser) {
                     
                     UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
-                   // print("saved Apple User", appleUser)
                     
                 } else {
-                    
-                 //   print("missing some fileds", appleIDCredentials.email, appleIDCredentials.fullName, appleIDCredentials.user)
-                    
+                                        
                     guard
                         let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
                         let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
                             
                     else {return}
                     
-                //    print(appleUser)
                 }
                 
             default:
-           //     print(auth.credential)
                 print("a")
             }
         case .failure(let error):
-        //    print(error)
             print("b")
         }
     }
@@ -103,10 +100,9 @@ struct LoginProfileView: View {
     func verificacaoLogin() {
         
         guard !email.isEmpty && !senha.isEmpty else {
-             // Exibe um alerta se o email ou a senha estiverem vazios
-     //        showAlert(message: "Por favor, preencha todos os campos.")
-            print("preencha todos os campos")
-             return
+            showAlert = true
+            alertMessage = "Preencha todos os campos"
+            return
          }
 
          let userIDs = UserDefaults.standard.dictionaryRepresentation().keys.filter { $0.hasPrefix("user_") }
@@ -122,38 +118,26 @@ struct LoginProfileView: View {
                          break
                      }
                  } catch {
-                     print("Erro ao decodificar usuário")
+                     showAlert = true
+                     alertMessage = "Login e/ou senha incorreto(s)"
                  }
              }
          }
         
         if isLoggedIn {
-                // Login bem-sucedido
-                self.isLoggedIn = true
-                // Limpa os campos
-            print("Usuário logado")
+            self.isLoggedIn = true
             LoggedProfileView(isLoggedIn: $isLoggedIn)
-            
-            } else {
-                // Exibe um alerta se o login falhar
-      //          showAlert(message: "E-mail ou senha incorretos.")
-        print("email incorreto")
-            }
+        }
     }
     
     func getAllUsers() -> [User] {
         var users: [User] = []
         
-        // Obtém todas as chaves do UserDefaults
         let keys = UserDefaults.standard.dictionaryRepresentation().keys
         
-        // Itera sobre as chaves
         for key in keys {
-            // Verifica se a chave começa com "user_"
             if key.hasPrefix("user_") {
-                // Obtém os dados associados à chave
                 if let userData = UserDefaults.standard.data(forKey: key) {
-                    // Decodifica os dados em um objeto User e adiciona à lista
                     if let user = try? JSONDecoder().decode(User.self, from: userData) {
                         users.append(user)
                     }
@@ -165,8 +149,5 @@ struct LoginProfileView: View {
         
         return users
     }
-//    func showAlert(message: String) {
-//        alertMessage = message
-//        showAlert = true
-//    }
+
 }

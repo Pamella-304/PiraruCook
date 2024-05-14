@@ -39,6 +39,12 @@ struct ItemDetailsView: View {
                         Spacer()
                     }.padding(.horizontal)
                 }
+                //MARK: Allergies
+                ChevronDownComponent(displayName:"Alergias" ,hasClicked: $viewModel.showNutritionalInfo, array: [viewModel.displayAllergies()])
+                    .padding(.horizontal)
+
+                
+                
                 
                 // MARK: Ingredients
                 ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $viewModel.showIngredients, array: viewModel.displayIngredients())

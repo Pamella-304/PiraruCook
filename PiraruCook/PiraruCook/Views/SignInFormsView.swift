@@ -11,7 +11,9 @@ import SwiftUI
 struct SignInFormsView: View {
     
     @EnvironmentObject var stackPathProfile: Router
-    @State private var name = ""
+    @State private var userName = ""
+    @State private var firstName = ""
+    @State private var lastName = ""
     @State private var birthDate = Date()
     @State private var address = ""
     @State private var email = ""
@@ -22,15 +24,17 @@ struct SignInFormsView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var formattedCpf = ""
-    
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
         Form {
             Section(header: Text("Informações Pessoais")) {
-                TextField("Nome", text: $name)
+                
+                TextField("Primeiro nome", text: $firstName)
+                TextField("Sobrenome", text: $lastName)
+                TextField("Como deseja ser chamado?", text: $userName)
                 DatePicker("Data de Nascimento", selection: $birthDate,in: ...Date(), displayedComponents: .date)
-                    .foregroundColor(birthDate > Date() ? .red : .primary) // Altera a cor da data de nascimento para vermelho se for no futuro
+                    .foregroundColor(birthDate > Date() ? .red : .primary)
                 TextField("Endereço", text: $address)
                 TextField("E-mail", text: $email)
                 SecureField("Senha", text: $senha)
@@ -41,21 +45,14 @@ struct SignInFormsView: View {
                 
             }
             
-            Section(header: Text("Preferência de Boi")) {
-                Picker("Preferência", selection: $selectedBoi) {
-                    Text("Garantido").tag(Boi.garantido)
-                    Text("Caprichoso").tag(Boi.caprichoso)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-            }
             
             Button(action: {
                 
                 if senha.count >= 6
                     && birthDate < Date()
                     && isValidEmail(email) {
-                    //&& cpf.isValidCPFFormat(){
                     saveUser()
+                    let usersArray = getAllUsers()
                     stackPathProfile.path.append(RouterData(screen: .LoggedProfile))
                     
                 } else {
@@ -79,30 +76,42 @@ struct SignInFormsView: View {
             
             .navigationTitle("Cadastrar")
             .alert(isPresented: $showAlert) {
-                
                 Alert(title: Text("Erro"),
                       message: Text(alertMessage),
                       dismissButton: .default(Text("OK")))
             }
         }
+        
+
     }
+    
+    
     func saveUser() {
         
+        if isEmailAlreadyRegistered(email) {
+                showAlert = true
+                alertMessage = "E-mail já cadastrado"
+                return
+        }
         
-        let newUser = User(name: name, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
+        if isCPFAlreadyRegistered(cpf) {
+                showAlert = true
+                alertMessage = "CPF já cadastrado"
+                return
+        }
+            
         
-        // Convertendo a estrutura de usuário para dados
+        let newUser = User(userName: userName, firstName: firstName, lastName: lastName, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
+        
         if let encodedUser = try? JSONEncoder().encode(newUser) {
-            // Salvando os dados do usuário no UserDefaults
             let userID = UUID().uuidString
-            
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
-            
             accountCreated = true
             isLoggedIn = true
-            
+            print("usuário salvo com sucesso")
         } else {
-           // print("Erro ao salvar o usuário.")
+            showAlert = true
+            alertMessage = "Erro ao cadastrar usuário. Tente novamente mais tarde."
         }
     }
     
@@ -134,8 +143,42 @@ struct SignInFormsView: View {
         
     }
     
-}
+    func getAllUsers() -> [User] {
+        
+        var users: [User] = []
+        let keys = UserDefaults.standard.dictionaryRepresentation().keys
+        
+        for key in keys {
 
+            if key.hasPrefix("user_") {
+                if let userData = UserDefaults.standard.data(forKey: key) {
+                    if let user = try? JSONDecoder().decode(User.self, from: userData) {
+                        users.append(user)
+                    }
+                }
+            }
+        }
+        print("printando todos os usuários")
+        print(users)
+        
+        return users
+    }
+    
+    func isEmailAlreadyRegistered(_ email: String) -> Bool {
+
+        let users = getAllUsers()
+        
+        return users.contains { $0.email == email }
+    }
+
+    func isCPFAlreadyRegistered(_ cpf: String) -> Bool {
+
+        let users = getAllUsers()
+        
+        return users.contains { $0.cpf == cpf }
+    }
+
+}
 
 
 extension String {

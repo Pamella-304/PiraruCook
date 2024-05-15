@@ -47,6 +47,18 @@ class ItemDetailsViewModel {
     func displayPrice() -> String {
         return dish.price.formatted(.number.precision(.fractionLength(2)))
     }
+    func displayAllergies() -> String{
+        switch dish.tipo {
+        case "Bebidas":
+            "Pode conter: (Alergias na produção de bebidas)"
+        case "Doce":
+            "Pode conter: (Alergias na produção de doces)"
+        case "Salgado":
+            "Pode conter: (Alergias na produção de salgados)"
+        default:
+            "Pode conter: (Alergias na produção de )"
+        }
+    }
     
     func updateCommnet() {
         dish.updateComment(comment)

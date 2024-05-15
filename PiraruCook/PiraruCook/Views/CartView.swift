@@ -9,7 +9,6 @@ import SwiftUI
 struct CartView: View {
     
     @Environment(Router.self) private var stackPathCart
-    @Environment(CartViewModel.self) private var cart
         
     var body: some View {
         
@@ -40,5 +39,4 @@ struct CartView: View {
 
 #Preview {
     CartView()
-        .environment(CartViewModel())
 }

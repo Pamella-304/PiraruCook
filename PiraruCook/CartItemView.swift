@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartItemView: View {
     
-    @Environment(CartViewModel.self) private var cart
+    @Environment(CartViewModel.self) private var viewModel
     @Environment(\.colorScheme) var colorScheme
     @State var dish: TypeDish
     let imageWidth:CGFloat? = 102
@@ -50,14 +50,14 @@ struct CartItemView: View {
                                     .frame(width: 30, height: 30)
                                     .foregroundStyle(.quaternary)
                                     .overlay {
-                                        Text("\(cart.getQuantity(item: dish))")
+                                        Text("\(viewModel.getQuantity(item: dish))")
                                     }
                             }
                             
                             Spacer()
                             
                             VStack(alignment: .trailing) {
-                                Text("R$\(totalPrice().formatted(.number.precision(.fractionLength(2))))")
+                                Text(totalPrice())
                                     .font(.body)
                                     .bold()
                                 
@@ -85,18 +85,25 @@ struct CartItemView: View {
         }
     }
     
-    func totalPrice() -> Double { Double(cart.getQuantity(item: dish)) * dish.price}
+}
+
+extension CartItemView {
+    
+    func totalPrice() -> String {
+        
+        let value = Double(viewModel.getQuantity(item: dish)) * dish.price
+        return "R$ " + value.formatted(.number.precision(.fractionLength(2)))
+        
+    }
     
     func incrementQuantity() {
-        cart.addItem(item: dish)
+        viewModel.addItem(item: dish)
     }
     
     func decrementQuantity() {
-        if cart.getQuantity(item: dish) > 0 {
-            cart.removeItem(item: dish)
+        if viewModel.getQuantity(item: dish) > 0 {
+            viewModel.removeItem(item: dish)
         }
     }
-    
 }
-
 

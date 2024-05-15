@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartPaymentResumeView: View {
     
-    @Environment(CartViewModel.self) private var cart
+    @Environment(CartViewModel.self) private var viewModel
     @State var isDelivery = false
     
     var body: some View {
@@ -17,7 +17,7 @@ struct CartPaymentResumeView: View {
             HStack {
                 Text("Subtotal")
                 Spacer()
-                Text(cart.getSubTotalValue())
+                Text(viewModel.getSubTotalValue())
             }
             
             VStack {
@@ -29,12 +29,12 @@ struct CartPaymentResumeView: View {
                         Text("Retirar no local").tag(false)
                     }
                     .onChange(of: isDelivery) { oldValue, newValue in
-                        cart.setTransportation(cost: newValue ? 5.0 : 0.0)
-                        cart.isDelivery = newValue
+                        viewModel.setTransportation(cost: newValue ? 5.0 : 0.0)
+                        viewModel.isDelivery = newValue
                     }
                 }
                 
-                Text(cart.getTransportation())
+                Text(viewModel.getTransportation())
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 
             }
@@ -42,7 +42,7 @@ struct CartPaymentResumeView: View {
             HStack {
                 Text("Total")
                 Spacer()
-                Text(cart.getTotalValue())
+                Text(viewModel.getTotalValue())
                 
             }
         }

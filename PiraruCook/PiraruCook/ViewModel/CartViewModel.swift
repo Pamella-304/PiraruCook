@@ -9,6 +9,8 @@ import Foundation
 
 enum PaymentMethods: String {
     case Pix
+    case CreditCard
+    case ApplePay
 }
 
 class Cupom {
@@ -72,6 +74,7 @@ class CartViewModel {
     
     func getDiscount() -> Double {
         subTotalValue + transportationValue - getTotalValue()
+        
     }
     
     func displaySubTotalValue() -> String {
@@ -94,4 +97,16 @@ class CartViewModel {
         return "R$ " + text
         
     }
+    func PixOption(){
+        paymentMethod = PaymentMethods.Pix
+    }
+    func CreditCardOption(){
+        paymentMethod = PaymentMethods.CreditCard
+    }
+    func ApplePayOption(){
+        paymentMethod = PaymentMethods.ApplePay
+    }
+    
+    
+    
 }

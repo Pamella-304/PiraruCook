@@ -23,7 +23,7 @@ struct PaymentSections: View {
                 Text(text)
                     .bold()
                 // TODO: Retrive number of cupons
-                if text == "Pix"{
+                if subtext == ""{
                     
                 }else{
                     Text(subtext)

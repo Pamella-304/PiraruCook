@@ -59,9 +59,7 @@ struct SignInFormsView: View {
                     showAlert = true
                     if !(senha.count >= 6) {
                         alertMessage = "A senha deve ter no mínimo 6 caracteres"
-                    } else if !(cpf.count == 11) || !(cpf.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil) {
-                        alertMessage = "Formato de CPF inválido"
-                    } else if birthDate > Date() {
+                    }  else if birthDate > Date() {
                         alertMessage = "Data de nascimento inválida!"
                     } else if !isValidEmail(email) {
                         alertMessage = "E-mail inválido!"
@@ -102,6 +100,8 @@ struct SignInFormsView: View {
             
         
         let newUser = User(userName: userName, firstName: firstName, lastName: lastName, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
+        
+        
         
         if let encodedUser = try? JSONEncoder().encode(newUser) {
             let userID = UUID().uuidString

@@ -14,7 +14,7 @@ struct TabBarView: View {
     @State private var stackPathCart = Router()
     @State private var stackPathProfile = Router()
     @State private var selection = 3
-    @Binding var user: User?
+    @Environment(User.self) var user: User?
     
     var body: some View {
         
@@ -77,7 +77,8 @@ struct TabBarView: View {
             
             
             NavigationStack(path: $stackPathProfile.path) {
-                LoginProfileView(user: $user)
+                LoginProfileView()
+                    .environment(user)
                     .navigationTitle("Perfil")
                     .navigationDestination(for: RouterData.self) { data in
                         
@@ -95,7 +96,8 @@ struct TabBarView: View {
                             PaymentMethodsView()
                         default:
                             // TODO: verify navigation
-                            LoginProfileView(user: $user)
+                            LoginProfileView()
+                                .environment(user)
                         }
                     }
 

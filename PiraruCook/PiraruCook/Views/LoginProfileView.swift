@@ -12,19 +12,21 @@ import SwiftUI
 struct LoginProfileView: View {
     
     @Environment(Router.self) private var stackPathProfile
+    @Environment(User.self) private var user: User?
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     @State private var email = ""
     @State private var senha = ""
     @State private var creatingAccount = false
     @State private var showAlert = false
     @State private var alertMessage = ""
-    @Binding var user: User?
+    
 
     var body: some View {
             
             if isLoggedIn {
                 
-                LoggedProfileView(isLoggedIn: $isLoggedIn, user: $user)
+                LoggedProfileView(isLoggedIn: $isLoggedIn)
+                    .environment(user)
                 
                    
             } else {
@@ -130,7 +132,8 @@ struct LoginProfileView: View {
         
         if isLoggedIn {
             self.isLoggedIn = true
-            LoggedProfileView(isLoggedIn: $isLoggedIn, user: $user)
+            LoggedProfileView(isLoggedIn: $isLoggedIn)
+                .environment(user)
         }
     }
     
@@ -160,7 +163,7 @@ struct LoginProfileView: View {
                     do {
                         // Decodifica os dados do usuário
                         let user = try JSONDecoder().decode(User.self, from: userData)
-                        self.user = user // Define o usuário recuperado na variável de estado
+                        self.user?.updateUser(user: user) // Define o usuário recuperado na variável de estado
                     } catch {
                         print("Erro ao decodificar usuário:", error)
                     }

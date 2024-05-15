@@ -3,15 +3,8 @@ import SwiftUI
 
 
 enum RecordKeysUser: String {
-    case type = "user"
-    case name
-    case birthDate
-    case address
-    case cpf
-    case email
-    case password
-    case boi
-    
+    case userName, firstName, lastName, birthDate
+    case address, email, password, cpf
 }
 
 enum Boi: Codable {
@@ -19,8 +12,35 @@ enum Boi: Codable {
     case caprichoso
 }
 
+//struct UserData: Codable {
+//    var userName: String
+//    var firstName: String
+//    var lastName: String
+//    var birthDate: Date
+//    var address: String
+//    var email: String
+//    var password: String
+//    var cpf: String
+//}
+//
+//struct UserService: Codable {
+//    var userData: UserData?
+//    
+////    func loggedUser() -> User {
+////        // API
+////        // User
+////    }
 
-struct User: Codable {
+//}
+
+enum CodingKeysUser: CodingKey {
+    case userName, firstName, lastName, birthDate
+    case address, email, password, cpf, boi
+}
+
+
+@Observable
+class User: Codable {
     
     var userName: String
     var firstName: String
@@ -30,8 +50,10 @@ struct User: Codable {
     var email: String
     var password: String
     var cpf: String
- //   var photo: UIImage = UIImage (named: "BolinhoDePiracui") ?? nil
+//    var photo: UIImage = UIImage (named: "BolinhoDePiracui") ?? nil
     var boi: Boi?
+    
+
     
     func formatCPF(_ s: String) -> String{
         let start1 = s.index(s.startIndex, offsetBy: 0)
@@ -50,24 +72,20 @@ struct User: Codable {
         let end4 = s.index(s.startIndex, offsetBy: 11)
         let range4 = start1..<end1
         
-        
         return("\(s[range1]).\(s[range2]).\(s[range3])-\(s[range4])")
+      }
+    
+    func updateUser(user: User) {
+        self.userName = user.userName
+        self.firstName = user.firstName
+        self.lastName = user.lastName
+        self.birthDate = user.birthDate
+        self.address = user.address
+        self.email = user.email
+        self.password = user.password
+        self.cpf = user.cpf
+        self.boi = user.boi
     }
-    
-    func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            
-        try container.encode(userName, forKey: .userName)
-            try container.encode(firstName, forKey: .firstName)
-            try container.encode(lastName, forKey: .lastName)
-            try container.encode(birthDate, forKey: .birthDate)
-            try container.encode(password, forKey: .password)
-            try container.encode(address, forKey: .address)
-            try container.encode(email, forKey: .email)
-            try container.encode(cpf, forKey: .cpf)
-            try container.encode(boi, forKey: .boi)
-        }
-    
     
     init(userName: String, firstName: String,lastName: String, birthDate: Date, address: String, email: String, password: String, cpf: String, boi: Boi) {
 

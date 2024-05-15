@@ -12,7 +12,7 @@ struct PiraruCookApp: App {
 //    let exampleUser = User(userName: "Jonas Silva",firstName: "Jonas", lastName: "da Silva", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     
     @State private var cart = Cart()
-    @State var user: User?
+    @State var user: User = User(userName: "Jonas Silva",firstName: "Jonas", lastName: "da Silva", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     
     init() {
         loadUserData()
@@ -22,9 +22,14 @@ struct PiraruCookApp: App {
         
         WindowGroup {
 
-            TabBarView(user: $user)
+            TabBarView()
                 .environment(cart)
+                .environment(user)
+                .task {
+                    loadUserData()
+                }
         }
+        
         
     }
     
@@ -33,8 +38,8 @@ struct PiraruCookApp: App {
                 if let userData = UserDefaults.standard.data(forKey: userID) {
                     do {
                         // Decodifica os dados do usuário
-                        let user = try JSONDecoder().decode(User.self, from: userData)
-                        self.user = user // Define o usuário recuperado na variável de estado
+                        var myUser = try JSONDecoder().decode(User.self, from: userData)
+                        self.user.updateUser(user: myUser) // Define o usuário recuperado na variável de estado
                         print(user)
                     } catch {
                         print("Erro ao decodificar usuário:", error)

@@ -15,7 +15,7 @@
 		61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D82BEA79D500798247 /* SignInFormsView.swift */; };
 		61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */; };
 		61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */; };
-		8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175162BE122410022410B /* DishDetailsViewModel.swift */; };
+		8B0175172BE122410022410B /* ItemDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175162BE122410022410B /* ItemDetailsViewModel.swift */; };
 		8B1E6BE22BE9228400625875 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E6BE12BE9228400625875 /* User.swift */; };
 		8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */; };
 		8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */; };
@@ -60,7 +60,7 @@
 		61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProfileView.swift; sourceTree = "<group>"; };
 		61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUser.swift; sourceTree = "<group>"; };
 		61E3BA4E2BE3B869001C0201 /* PiraruCook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiraruCook.entitlements; sourceTree = "<group>"; };
-		8B0175162BE122410022410B /* DishDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishDetailsViewModel.swift; path = PiraruCook/Views/DishDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
+		8B0175162BE122410022410B /* ItemDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDetailsViewModel.swift; path = PiraruCook/Views/ItemDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B1E6BE12BE9228400625875 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownComponent.swift; sourceTree = "<group>"; };
 		8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedProfileView.swift; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 			children = (
 				D3DC3CC82BDBEA45001C4300 /* CartViewModel.swift */,
 				D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */,
-				8B0175162BE122410022410B /* DishDetailsViewModel.swift */,
+				8B0175162BE122410022410B /* ItemDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 				8BF407762BF232BD00E5988A /* EditAddressView.swift in Sources */,
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
 				8BF407822BF3AC1B00E5988A /* ChangeUserInfoView.swift in Sources */,
-				D3DC3CC92BDBEA45001C4300 /* Cart.swift in Sources */,
+				D3DC3CC92BDBEA45001C4300 /* CartViewModel.swift in Sources */,
 				61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */,
 				D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */,
 				8BF407722BEE51BE00E5988A /* PreviousOrdersView.swift in Sources */,
@@ -325,13 +325,12 @@
 				8BF407802BF3A4B600E5988A /* ChooseBoiSheet.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				D3C73C802BF1B53E00CF9B44 /* CartService.swift in Sources */,
-				8B0175172BE122410022410B /* DishDetailsViewModel.swift in Sources */,
+				8B0175172BE122410022410B /* ItemDetailsViewModel.swift in Sources */,
 				D3C73C842BF1B61800CF9B44 /* CartPaymentResumeView.swift in Sources */,
 				8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */,
 				D3B167DF2BF2567600C067DA /* CartItemsView.swift in Sources */,
 				D3C73C822BF1B5B000CF9B44 /* CartCupomView.swift in Sources */,
 				8BF4077C2BF25D6500E5988A /* PaymentMethodsView.swift in Sources */,
-				8BB66BAD2BE3C219000E9E5B /* Setup.swift in Sources */,
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
 				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,

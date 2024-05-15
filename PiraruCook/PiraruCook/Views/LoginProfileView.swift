@@ -18,11 +18,14 @@ struct LoginProfileView: View {
     @State private var creatingAccount = false
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @Binding var user: User?
 
     var body: some View {
             
             if isLoggedIn {
-                LoggedProfileView(isLoggedIn: $isLoggedIn)
+                
+                LoggedProfileView(isLoggedIn: $isLoggedIn, user: $user)
+                
                    
             } else {
                 VStack{
@@ -57,10 +60,11 @@ struct LoginProfileView: View {
                     .padding()
                     .colorInvert()
                 }
-            }
-            
+            }        
+           
         
     }
+       
     
     func configure(_ request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]
@@ -126,7 +130,7 @@ struct LoginProfileView: View {
         
         if isLoggedIn {
             self.isLoggedIn = true
-            LoggedProfileView(isLoggedIn: $isLoggedIn)
+            LoggedProfileView(isLoggedIn: $isLoggedIn, user: $user)
         }
     }
     
@@ -149,5 +153,19 @@ struct LoginProfileView: View {
         
         return users
     }
+    
+    func loadUserData() {
+            if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
+                if let userData = UserDefaults.standard.data(forKey: userID) {
+                    do {
+                        // Decodifica os dados do usuário
+                        let user = try JSONDecoder().decode(User.self, from: userData)
+                        self.user = user // Define o usuário recuperado na variável de estado
+                    } catch {
+                        print("Erro ao decodificar usuário:", error)
+                    }
+                }
+            }
+        }
 
 }

@@ -12,9 +12,7 @@ struct LoggedProfileView: View {
     
     @Environment(Router.self) private var stackPathProfile
     @Binding var isLoggedIn: Bool
-    @State private var user: User?
-    
-    
+    @Binding var user: User?
     
     var body: some View {
         VStack {
@@ -86,34 +84,32 @@ struct LoggedProfileView: View {
         }
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
-        .onAppear {
-            loadUserData()
-        }
-        .onChange(of: isLoggedIn) { _ in
-                    loadUserData()
-        }
-        
-
+//        .onAppear {
+//            loadUserData()
+//        }
+//        .onChange(of: isLoggedIn) { _ in
+//                    loadUserData()
+//        }
         Spacer()
     }
     
-    func loadUserData() {
-            if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
-                if let userData = UserDefaults.standard.data(forKey: userID) {
-                    do {
-                        // Decodifica os dados do usuário
-                        let user = try JSONDecoder().decode(User.self, from: userData)
-                        self.user = user // Define o usuário recuperado na variável de estado
-                    } catch {
-                        print("Erro ao decodificar usuário:", error)
-                    }
-                }
-            }
-        }
-    
+//    func loadUserData() {
+//            if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
+//                if let userData = UserDefaults.standard.data(forKey: userID) {
+//                    do {
+//                        // Decodifica os dados do usuário
+//                        let user = try JSONDecoder().decode(User.self, from: userData)
+//                        self.user = user // Define o usuário recuperado na variável de estado
+//                    } catch {
+//                        print("Erro ao decodificar usuário:", error)
+//                    }
+//                }
+//            }
+//        }
+//    
 }
 
-#Preview {
-    LoggedProfileView(isLoggedIn: .constant(true))
-        .environment(Router())
-}
+//#Preview {
+//    LoggedProfileView(isLoggedIn: .constant(true))
+//        .environment(Router())
+//}

@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct PaymentView: View {
-    var subtotal: Int
-    var discount: Int
-    var delivery: Int
-    var paymentMethod: String
+    
+    @Environment(CartViewModel.self) private var viewModel
     var paymentSubtitle: String = ""
     @State private var finalPayment = false
    
@@ -23,7 +21,7 @@ struct PaymentView: View {
                 Text("Forma de Pagamento").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(img1: "rectangle.checkered", subtext: paymentSubtitle, text: paymentMethod)
+            PaymentSections(img1: "rectangle.checkered", subtext: paymentSubtitle, text: viewModel.paymentMethod.rawValue)
                 
             PaymentSections(img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
                 
@@ -38,10 +36,10 @@ struct PaymentView: View {
                 Text("Resumo da Compra").bold()
                 Spacer()
             }.padding()
-            ValuesSection(Title: "Subtotal", Price: subtotal)
-            ValuesSection(Title: "Desconto", Price: discount)
-            ValuesSection(Title: "Entrega", Price: delivery)
-            ValuesSection(Title: "Total", Price: subtotal - discount + delivery)
+            ValuesSection(Title: "Subtotal", Price: viewModel.subTotalValue)
+            ValuesSection(Title: "Desconto", Price: viewModel.getDiscount())
+            ValuesSection(Title: "Entrega", Price: viewModel.transportationValue)
+            ValuesSection(Title: "Total", Price: viewModel.getTotalValue())
             
             
             Button{
@@ -57,8 +55,6 @@ struct PaymentView: View {
             .cornerRadius(10)
             .padding(16)
             
-            
-            
         
         }.navigationTitle("Pagamento").sheet(isPresented: $finalPayment) {
             ConfirmOrderView().presentationDetents([.fraction(0.3)])
@@ -68,5 +64,6 @@ struct PaymentView: View {
 }
 
 #Preview {
-    PaymentView(subtotal: 10, discount: 5, delivery: 10, paymentMethod: "Pix")
+    PaymentView()
+        .environment(CartViewModel())
 }

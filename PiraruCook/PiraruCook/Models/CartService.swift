@@ -69,4 +69,16 @@ class CartService {
         }
         return 0
     }
+    
+    func getTotalValue(subTotalValue: Double, transportationValue: Double, cupom: Cupom?) -> Double {
+        if let cupom = cupom {
+            if cupom.discountIsFixed {
+                return subTotalValue + transportationValue - cupom.discountValue
+            } else {
+                return subTotalValue * (1 - cupom.discountValue) + transportationValue
+            }
+        } else {
+            return subTotalValue + transportationValue
+        }
+    }
 }

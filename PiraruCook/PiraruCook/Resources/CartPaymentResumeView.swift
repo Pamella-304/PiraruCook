@@ -17,7 +17,7 @@ struct CartPaymentResumeView: View {
             HStack {
                 Text("Subtotal")
                 Spacer()
-                Text(viewModel.getSubTotalValue())
+                Text(viewModel.displaySubTotalValue())
             }
             
             VStack {
@@ -34,7 +34,7 @@ struct CartPaymentResumeView: View {
                     }
                 }
                 
-                Text(viewModel.getTransportation())
+                Text(viewModel.displayTransportation())
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 
             }
@@ -42,7 +42,7 @@ struct CartPaymentResumeView: View {
             HStack {
                 Text("Total")
                 Spacer()
-                Text(viewModel.getTotalValue())
+                Text(viewModel.displayTotalValue())
                 
             }
         }

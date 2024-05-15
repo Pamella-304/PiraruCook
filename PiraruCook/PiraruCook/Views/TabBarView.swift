@@ -64,6 +64,8 @@ struct TabBarView: View {
                             PaymentView(subtotal: 10, discount: 3, delivery: 10,paymentMethod: "Pix")
                         case .Pix:
                             PaymentDoneView()
+                        default:
+                            MenuView()
 
                         }
                     }

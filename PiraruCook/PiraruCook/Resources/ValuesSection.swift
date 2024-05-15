@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ValuesSection: View {
     var Title: String
-    var Price: Int
+    var Price: Double
     
     var body: some View {
         HStack{

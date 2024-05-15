@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ConfirmOrderView: View {
+    
     @Environment(\.dismiss) var dismiss
     @Environment(Router.self) private var stackPathPix
+    @Environment(CartViewModel.self) private var viewModel
     
     var body: some View {
         VStack{
@@ -22,15 +24,15 @@ struct ConfirmOrderView: View {
             Divider().padding(.horizontal)
             HStack{
                 Image(systemName: "mappin")
-                Text("Pix")
+                Text(viewModel.paymentMethod.rawValue)
                 Spacer()
-                Text("R$ \((20).formatted(.number.precision(.fractionLength(2))))").bold()
+                Text(viewModel.displayTotalValue()).bold()
             }.padding()
             Spacer()
             Button{
                 // TODO: ended payment logic
                 dismiss()
-                stackPathPix.path.append(RouterData(screen: .Pix))
+                stackPathPix.path.append(RouterData(screen: .PaymentDone))
             }label: {
                 Text("Confirmar Pedido")
                     .foregroundColor(.white)

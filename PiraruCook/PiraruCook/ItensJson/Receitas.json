@@ -6,7 +6,7 @@
             "image" : "BolinhoDePiracui",
             "nutritionalInfo": ["Aproximadamente 660 calorias"],
             "ingredients": ["batata, farinha, peixe Piracuí"],
-            "price": 0.0,
+            "price": 29.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -16,7 +16,7 @@
             "image" : "BolinhoDePirarucu",
             "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
             "ingredients": ["Batata", "farinha", "pirarucu"],
-            "price": 0.0,
+            "price": 29.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -26,7 +26,7 @@
             "image" : "CamaraoEmpanado",
             "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
             "ingredients": ["camarão", "farinha", "leite", "ervas da casa"],
-            "price": 0.0,
+            "price": 39.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -46,7 +46,7 @@
             "image" : "Mojica",
             "nutritionalInfo": ["Aproximadamente 200 calorias cada 100g"],
             "ingredients": ["farinha", "peixe à escolha" ,"legumes"],
-            "price": 0.0,
+            "price": 30.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -56,7 +56,7 @@
             "image" : "PastelCamaraoJambu",
             "nutritionalInfo": [""],
             "ingredients": ["Camarão", "ervas da casa", "jambu"],
-            "price": 0.0,
+            "price": 25.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -66,7 +66,7 @@
             "image" : "Guarana",
             "nutritionalInfo": [""],
             "ingredients": ["xarope de guaraná", "amendoim", "mel"],
-            "price": 0.0,
+            "price": 10.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -76,7 +76,7 @@
             "image" : "Suco",
             "nutritionalInfo": [""],
             "ingredients": ["frutas com soda"],
-            "price": 3.5,
+            "price": 18.50,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -86,7 +86,7 @@
             "image" : "Cumaru",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
-            "price": 2.0,
+            "price": 25.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -96,7 +96,7 @@
             "image" : "Suco",
             "nutritionalInfo": [""],
             "ingredients": ["Frutas à escolha"],
-            "price": 0.0,
+            "price": 14.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -107,7 +107,7 @@
             "image" : "CachacaDeJambu",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Jambu"],
-            "price": 0.0,
+            "price": 21.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -118,7 +118,7 @@
             "image" : "MuleAmazonico",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "açúcar", "limão"],
-            "price": 0.0,
+            "price": 31.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -129,7 +129,7 @@
             "image" : "Pinacu",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "açúcar", "suco de cupuaçu"],
-            "price": 0.0,
+            "price": 29.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -140,7 +140,7 @@
             "image" : "Cunhata",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "taperabá", "mel", "pimenta", "pacovã"],
-            "price": 0.0,
+            "price": 29.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -151,7 +151,7 @@
             "image" : "Cunhata",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "caldo de cana", "açúcar", "limão"],
-            "price": 0.0,
+            "price": 32.90,
             "tipo": "Bebidas",
             "comment": ""
         },
@@ -162,7 +162,7 @@
             "image" : "Tacaca",
             "nutritionalInfo": [""],
             "ingredients": ["Tucupi", "farinha de tapioca", "camarão", "jambu"],
-            "price": 0.0,
+            "price": 39.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -173,7 +173,7 @@
             "image" : "PirarucuGrelhado",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe pirarucu", "alho", "limão", "pimenta"],
-            "price": 0.0,
+            "price": 75.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -184,7 +184,7 @@
             "image" : "PirarucuDeCasaca",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe pirarucu", "farinha de trigo", "legumes", "banana", "leite de coco"],
-            "price": 0.0,
+            "price": 82.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -195,7 +195,7 @@
             "image" : "Matrinxa",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe Matrinxã", "limão", "legumes", "queijo", "banana", "bacon", "calabresa"],
-            "price": 0.0,
+            "price": 89.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -206,7 +206,7 @@
             "image" : "CaldeiraTambaqui",
             "nutritionalInfo": [""],
             "ingredients": ["Tambaqui, tomates, legumes, temeperos"],
-            "price": 0.0,
+            "price": 66.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -217,7 +217,7 @@
             "image" : "RavioliVerde",
             "nutritionalInfo": [""],
             "ingredients": ["Ravioli", "jambu", "queijo ricota", "manteiga"],
-            "price": 0.0,
+            "price": 52.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -228,7 +228,7 @@
             "image" : "CarreTambaqui",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe Tambaqui", "arroz", "camarão", "farofa", "banana"],
-            "price": 0.0,
+            "price": 55.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -239,7 +239,7 @@
             "image" : "Tacaqui",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe Tambaqui", "farinha", "molho de tucupi", "camarão"],
-            "price": 0.0,
+            "price": 60.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -250,7 +250,7 @@
             "image" : "SaladaCaesar",
             "nutritionalInfo": [""],
             "ingredients": ["tambaqui", "legumes", "queijo", "molho de tucupi"],
-            "price": 0.0,
+            "price": 45.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -261,7 +261,7 @@
             "image" : "MoquecaPirarucu",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe pirarucu", "camarão", "leite de coco", "legumes"],
-            "price": 0.0,
+            "price": 74.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -272,7 +272,7 @@
             "image" : "Pacu",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe pacu", "farofa", "arroz", "farofa"],
-            "price": 0.0,
+            "price": 67.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -283,7 +283,7 @@
             "image" : "JaraquiFrito",
             "nutritionalInfo": [""],
             "ingredients": ["Peixe jaraqui", "farofa", "arroz", "farofa de banana"],
-            "price": 0.0,
+            "price": 34.90,
             "tipo": "Salgado",
             "comment": ""
         },
@@ -294,7 +294,7 @@
             "image" : "Cubiu",
             "nutritionalInfo": [""],
             "ingredients": ["Sorvete", "caldo de tucuri", "farinha"],
-            "price": 0.0,
+            "price": 39.90,
             "tipo": "Doces",
             "comment": ""
         },
@@ -305,7 +305,7 @@
             "image" : "CamuCamu",
             "nutritionalInfo": [""],
             "ingredients": ["canela", "chancaca", "laranja"],
-            "price": 0.0,
+            "price": 29.90,
             "tipo": "Doces",
             "comment": ""
         },
@@ -316,7 +316,7 @@
             "image" : "PetitGateauCumaru",
             "nutritionalInfo": [""],
             "ingredients": ["chocolate", "sorvete de cumaru", "castanha"],
-            "price": 0.0,
+            "price": 34.90,
             "tipo": "Doces",
             "comment": ""
         },

@@ -7,19 +7,37 @@
 
 import Foundation
 
+enum PaymentMethods: String {
+    case Pix
+}
+
+class Cupom {
+    let discountIsFixed: Bool
+    let discountValue: Double
+    
+    init(discountIsFixed: Bool, discountValue: Double) {
+        self.discountIsFixed = discountIsFixed
+        self.discountValue = discountValue
+    }
+}
+
 @Observable
 class CartViewModel {
     
     var items: [DishCart]
     var subTotalValue: Double
     var transportationValue: Double
+    var paymentMethod: PaymentMethods
     var isDelivery = false
+    var cupom: Cupom?
     var services = CartService()
     
-    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0) {
+    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0, paymentMethod: PaymentMethods = .Pix, cupom: Cupom? = nil) {
         self.items = items
         self.subTotalValue = subTotalValue
         self.transportationValue = transportationValue
+        self.paymentMethod = paymentMethod
+        self.cupom = cupom
     }
     
     
@@ -48,25 +66,32 @@ class CartViewModel {
         items
     }
     
-    func getSubTotalValue() -> String {
+    func getTotalValue() -> Double {
+        services.getTotalValue(subTotalValue: subTotalValue, transportationValue: transportationValue, cupom: cupom)
+    }
+    
+    func getDiscount() -> Double {
+        subTotalValue + transportationValue - getTotalValue()
+    }
+    
+    func displaySubTotalValue() -> String {
         
         let text = String((subTotalValue).formatted(.number.precision(.fractionLength(2))))
         return "R$ " + text
         
     }
     
-    func getTotalValue() -> String {
-        
-        let text = String((subTotalValue + transportationValue).formatted(.number.precision(.fractionLength(2))))
-        return "R$ " + text
-        
-    }
-    
-    func getTransportation() -> String {
+    func displayTransportation() -> String {
         
         let text = String((transportationValue).formatted(.number.precision(.fractionLength(2))))
         return "R$ " + text
         
     }
     
+    func displayTotalValue() -> String {
+        
+        let text = String((getTotalValue()).formatted(.number.precision(.fractionLength(2))))
+        return "R$ " + text
+        
+    }
 }

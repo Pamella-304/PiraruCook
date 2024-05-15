@@ -11,7 +11,7 @@ import SwiftUI
 struct PiraruCookApp: App {
 //    let exampleUser = User(userName: "Jonas Silva",firstName: "Jonas", lastName: "da Silva", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     
-    @State private var cart = Cart()
+    @State private var cart = CartViewModel()
     @State var user: User = User(userName: "Jonas Silva",firstName: "Jonas", lastName: "da Silva", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     
     init() {

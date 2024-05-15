@@ -62,9 +62,12 @@ struct TabBarView: View {
                             ItemDetailsView(dish: data.dish!)
                         case .Payment:
                             // TODO: Change to PaymentView()
-                            MenuView()
+                            PaymentView()
+                        case .PaymentDone:
+                            PaymentDoneView()
                         default:
                             MenuView()
+
                         }
                     }
             }
@@ -89,7 +92,8 @@ struct TabBarView: View {
                             PreviousOrdersView()
                         case Views.Addresses:
                             EditAddressView()
-                        
+                        case Views.Configuration:
+                            ChangeUserInfoView()
                         case Views.EventInfo:
                             EventDescriptionView()
                         case Views.PaymentMethods:

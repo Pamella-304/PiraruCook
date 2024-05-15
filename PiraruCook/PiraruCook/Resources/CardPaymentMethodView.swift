@@ -25,7 +25,7 @@ struct CardPaymentMethodView: View {
                         .font(.caption2)
                     
                     Text("\(description[1])")
-                        .font(.caption)
+                        .font(.footnote)
                 }
                 .font(.body)
                 .padding()

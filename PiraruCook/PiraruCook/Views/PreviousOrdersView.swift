@@ -16,6 +16,7 @@ struct PreviousOrdersView: View {
         }
         .listStyle(.inset)
         .navigationTitle("Histórico de Pedidos")
+        .navigationBarTitleDisplayMode(.inline)
         
     }
     

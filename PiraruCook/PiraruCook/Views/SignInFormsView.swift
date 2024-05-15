@@ -39,7 +39,7 @@ struct SignInFormsView: View {
                 TextField("E-mail", text: $email)
                 SecureField("Senha", text: $senha)
                 TextField("CPF", text: $cpf)
-                    .onChange(of: cpf) { newValue in
+                    .onChange(of: cpf) { oldValue, newValue in
                         cpf = formatCPF(newValue)
                     }
                 

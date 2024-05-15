@@ -11,8 +11,8 @@ struct PaymentView: View {
     var subtotal: Int
     var discount: Int
     var delivery: Int
-    var paymentMethod: String
-    var paymentSubtitle: String = ""
+    @State var paymentMethod: String
+    @State var paymentSubtitle: String = ""
     @State private var finalPayment = false
    
     
@@ -23,15 +23,17 @@ struct PaymentView: View {
                 Text("Forma de Pagamento").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(img1: "rectangle.checkered", subtext: paymentSubtitle, text: paymentMethod)
-                
-            PaymentSections(img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
-                
+            PaymentSections(usage: "Método de pagamento", img1: "rectangle.checkered", subtext: paymentSubtitle, text: paymentMethod)
             HStack{
                 Text("Entrega").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
+            PaymentSections(usage: "", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
+            HStack{
+                Text("Desconto").bold()
+                Spacer()
+            }.padding(.horizontal)
+            PaymentSections(usage: "", img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
                 
             Spacer()
             HStack{

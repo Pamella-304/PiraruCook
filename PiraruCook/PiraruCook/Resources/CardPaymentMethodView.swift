@@ -35,6 +35,6 @@ struct CardPaymentMethodView: View {
     }
 }
 
-//#Preview {
-//    CardPaymentMethodView()
-//}
+#Preview {
+    CardPaymentMethodView(symbol: "apple.logo", description: ["Pagamento", "Apple Pay"])
+}

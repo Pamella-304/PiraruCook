@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct PaymentSections: View {
+    var usage: String
     var img1: String
     var subtext: String
     var text: String
+    @State private var changeMethod = false
+    
     
     
     var body: some View {
@@ -30,16 +33,26 @@ struct PaymentSections: View {
             }
             Spacer()
             Button {
-                //TODO: Levar para cada tela de mudança
+                switch usage{
+                case "Método de pagamento":
+                    changeMethod = true
+                default:
+                    print("1")
+                    
+                }
+                
+                
             } label: {
                 Text("Trocar")
                     .bold()
             }
+        }.sheet(isPresented: $changeMethod) {
+            ChangeMethodView().presentationDetents([.fraction(0.25)])
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
     }
 }
 
 #Preview {
-    PaymentSections(img1: "ticket.fill",subtext: "\(1) cupons disponíveis",text: "Cupom")
+    PaymentSections(usage:"Método de pagamento", img1: "ticket.fill",subtext: "\(1) cupons disponíveis",text: "Cupom")
 }

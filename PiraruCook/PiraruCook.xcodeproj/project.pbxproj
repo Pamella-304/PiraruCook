@@ -11,7 +11,6 @@
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
-		61CED8D72BE971B900798247 /* ReviewCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D62BE971B900798247 /* ReviewCart.swift */; };
 		61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D82BEA79D500798247 /* SignInFormsView.swift */; };
 		61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */; };
 		61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */; };
@@ -33,6 +32,12 @@
 		8BF4077E2BF25E9F00E5988A /* CardPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4077D2BF25E9F00E5988A /* CardPaymentMethodView.swift */; };
 		8BF407802BF3A4B600E5988A /* ChooseBoiSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */; };
 		8BF407822BF3AC1B00E5988A /* ChangeUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407812BF3AC1B00E5988A /* ChangeUserInfoView.swift */; };
+		D3380E442BF4E3A900457CC6 /* PaymentDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E412BF4E3A900457CC6 /* PaymentDoneView.swift */; };
+		D3380E452BF4E3A900457CC6 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E422BF4E3A900457CC6 /* PaymentView.swift */; };
+		D3380E462BF4E3A900457CC6 /* ConfirmOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E432BF4E3A900457CC6 /* ConfirmOrderView.swift */; };
+		D3380E4A2BF4E3D200457CC6 /* ValuesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E472BF4E3D200457CC6 /* ValuesSection.swift */; };
+		D3380E4B2BF4E3D200457CC6 /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E482BF4E3D200457CC6 /* ReviewCard.swift */; };
+		D3380E4C2BF4E3D200457CC6 /* PaymentSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E492BF4E3D200457CC6 /* PaymentSections.swift */; };
 		D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */; };
 		D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3782FB12BE115A20041EEAC /* CartItemView.swift */; };
 		D3782FB42BE134630041EEAC /* DishCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3782FB32BE134630041EEAC /* DishCart.swift */; };
@@ -55,7 +60,6 @@
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61715AA52BD9236400F83338 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		61CED8D62BE971B900798247 /* ReviewCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCart.swift; sourceTree = "<group>"; };
 		61CED8D82BEA79D500798247 /* SignInFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormsView.swift; sourceTree = "<group>"; };
 		61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProfileView.swift; sourceTree = "<group>"; };
 		61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUser.swift; sourceTree = "<group>"; };
@@ -78,6 +82,12 @@
 		8BF4077D2BF25E9F00E5988A /* CardPaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentMethodView.swift; sourceTree = "<group>"; };
 		8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBoiSheet.swift; sourceTree = "<group>"; };
 		8BF407812BF3AC1B00E5988A /* ChangeUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserInfoView.swift; sourceTree = "<group>"; };
+		D3380E412BF4E3A900457CC6 /* PaymentDoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentDoneView.swift; sourceTree = "<group>"; };
+		D3380E422BF4E3A900457CC6 /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		D3380E432BF4E3A900457CC6 /* ConfirmOrderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmOrderView.swift; sourceTree = "<group>"; };
+		D3380E472BF4E3D200457CC6 /* ValuesSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesSection.swift; sourceTree = "<group>"; };
+		D3380E482BF4E3D200457CC6 /* ReviewCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
+		D3380E492BF4E3D200457CC6 /* PaymentSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSections.swift; sourceTree = "<group>"; };
 		D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D3782FB12BE115A20041EEAC /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = SOURCE_ROOT; };
 		D3782FB32BE134630041EEAC /* DishCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCart.swift; sourceTree = "<group>"; };
@@ -108,6 +118,9 @@
 		3F852DDE2BDC0E5B00962A5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3380E432BF4E3A900457CC6 /* ConfirmOrderView.swift */,
+				D3380E412BF4E3A900457CC6 /* PaymentDoneView.swift */,
+				D3380E422BF4E3A900457CC6 /* PaymentView.swift */,
 				8BF407812BF3AC1B00E5988A /* ChangeUserInfoView.swift */,
 				D3DC3CCA2BDBEB1B001C4300 /* CartView.swift */,
 				61CED8D82BEA79D500798247 /* SignInFormsView.swift */,
@@ -116,7 +129,6 @@
 				D3E98FBB2BDBD7F900DCE016 /* TabBarView.swift */,
 				61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */,
 				8BB16D5D2BEA769A000B7DDF /* LoggedProfileView.swift */,
-				61CED8D62BE971B900798247 /* ReviewCart.swift */,
 				8BF407712BEE51BE00E5988A /* PreviousOrdersView.swift */,
 				8BF407752BF232BD00E5988A /* EditAddressView.swift */,
 				8BF407792BF2455B00E5988A /* EventDescriptionView.swift */,
@@ -151,6 +163,9 @@
 		3F852DE12BDC0EA000962A5F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3380E492BF4E3D200457CC6 /* PaymentSections.swift */,
+				D3380E482BF4E3D200457CC6 /* ReviewCard.swift */,
+				D3380E472BF4E3D200457CC6 /* ValuesSection.swift */,
 				D3782FB12BE115A20041EEAC /* CartItemView.swift */,
 				8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */,
 				614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */,
@@ -300,13 +315,16 @@
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
 				8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */,
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
+				D3380E442BF4E3A900457CC6 /* PaymentDoneView.swift in Sources */,
 				8BF407742BEE68CB00E5988A /* CardPreviousOrderView.swift in Sources */,
-				61CED8D72BE971B900798247 /* ReviewCart.swift in Sources */,
 				D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */,
 				D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */,
 				61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */,
 				8BF4077E2BF25E9F00E5988A /* CardPaymentMethodView.swift in Sources */,
+				D3380E4A2BF4E3D200457CC6 /* ValuesSection.swift in Sources */,
+				D3380E4B2BF4E3D200457CC6 /* ReviewCard.swift in Sources */,
 				D3782FB42BE134630041EEAC /* DishCart.swift in Sources */,
+				D3380E462BF4E3A900457CC6 /* ConfirmOrderView.swift in Sources */,
 				D3B167DD2BF23F2200C067DA /* CartError.swift in Sources */,
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
 				D3DC3CC92BDBEA45001C4300 /* CartViewModel.swift in Sources */,
@@ -322,10 +340,12 @@
 				8B1E6BE22BE9228400625875 /* User.swift in Sources */,
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3C73C862BF1B77D00CF9B44 /* CartPaymentButtonView.swift in Sources */,
+				D3380E4C2BF4E3D200457CC6 /* PaymentSections.swift in Sources */,
 				8BF407802BF3A4B600E5988A /* ChooseBoiSheet.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,
 				D3C73C802BF1B53E00CF9B44 /* CartService.swift in Sources */,
 				8B0175172BE122410022410B /* ItemDetailsViewModel.swift in Sources */,
+				D3380E452BF4E3A900457CC6 /* PaymentView.swift in Sources */,
 				D3C73C842BF1B61800CF9B44 /* CartPaymentResumeView.swift in Sources */,
 				8BB16D602BEB9F3D000B7DDF /* ProfileOptionsView.swift in Sources */,
 				D3B167DF2BF2567600C067DA /* CartItemsView.swift in Sources */,

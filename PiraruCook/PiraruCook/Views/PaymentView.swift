@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PaymentView: View {
-    
+
+    @State var paymentSubtitle: String = ""
     @Environment(CartViewModel.self) private var viewModel
-    var paymentSubtitle: String = ""
     @State private var finalPayment = false
    
     
@@ -21,15 +21,19 @@ struct PaymentView: View {
                 Text("Forma de Pagamento").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(img1: "rectangle.checkered", subtext: paymentSubtitle, text: viewModel.paymentMethod.rawValue)
-                
-            PaymentSections(img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
+            
+            PaymentSections(usage: "Método de pagamento", img1: "rectangle.checkered", subtext: paymentSubtitle, text: viewModel.paymentMethod.rawValue)
                 
             HStack{
                 Text("Entrega").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
+            PaymentSections(usage: "", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
+            HStack{
+                Text("Desconto").bold()
+                Spacer()
+            }.padding(.horizontal)
+            PaymentSections(usage: "", img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
                 
             Spacer()
             HStack{

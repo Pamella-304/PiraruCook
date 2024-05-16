@@ -32,7 +32,11 @@ struct ConfirmOrderView: View {
             Button{
                 // TODO: ended payment logic
                 dismiss()
-                stackPathPix.path.append(RouterData(screen: .PaymentDone))
+                if viewModel.paymentMethod.rawValue == "Pix"{
+                    stackPathPix.path.append(RouterData(screen: .PaymentDone))
+                }else{
+                    
+                }
             }label: {
                 Text("Confirmar Pedido")
                     .foregroundColor(.white)

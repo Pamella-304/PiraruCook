@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */; };
 		614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */; };
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BrandColors.xcassets; sourceTree = "<group>"; };
 		614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCardView.swift; sourceTree = "<group>"; };
 		61715A9B2BD9236300F83338 /* PiraruCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiraruCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
 				61715AA22BD9236400F83338 /* Assets.xcassets */,
+				610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */,
 				61715AA42BD9236400F83338 /* Preview Content */,
 			);
 			path = PiraruCook;
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */,
+				610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */,
 				61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */,
 				61715AA32BD9236400F83338 /* Assets.xcassets in Resources */,
 			);

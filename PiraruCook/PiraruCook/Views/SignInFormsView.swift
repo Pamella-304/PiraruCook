@@ -12,20 +12,6 @@ struct SignInFormsView: View {
     
     @EnvironmentObject var stackPathProfile: Router
     @Environment(\.colorScheme) var colorScheme
-    @State private var userName = ""
-    @State private var firstName = ""
-    @State private var lastName = ""
-    @State private var birthDate = Date()
-    @State private var address = ""
-    @State private var email = ""
-    @State private var senha = ""
-    @State private var cpf = ""
-    @State private var selectedBoi: Boi = .garantido
-    @State private var accountCreated = false
-    @State private var showAlert = false
-    @State private var alertMessage = ""
-    @State private var formattedCpf = ""
-    @State private var viewModel = LoginProfileViewModel()
     
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
@@ -219,15 +205,4 @@ extension String {
 #Preview {
     SignInFormsView()
         .environment(Router())
-}
-
-
-@Observable
-class LoginProfileViewModel{
-    
-    var email = ""
-    var senha = ""
-    var creatingAccount = false
-    var showAlert = false
-    var alertMessage = ""
 }

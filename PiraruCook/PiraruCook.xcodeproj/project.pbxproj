@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */; };
 		614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */; };
+		616604112BF63B5D00C82774 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616604102BF63B5D00C82774 /* Fonts.swift */; };
+		616604142BF6433900C82774 /* Fraunces_9pt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 616604132BF6433900C82774 /* Fraunces_9pt-Black.ttf */; };
+		616604172BF6469200C82774 /* Fraunces_9pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 616604162BF6469200C82774 /* Fraunces_9pt-Italic.ttf */; };
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
@@ -58,6 +61,11 @@
 /* Begin PBXFileReference section */
 		610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BrandColors.xcassets; sourceTree = "<group>"; };
 		614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCardView.swift; sourceTree = "<group>"; };
+		616604102BF63B5D00C82774 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		616604132BF6433900C82774 /* Fraunces_9pt-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces_9pt-Black.ttf"; sourceTree = "<group>"; };
+		616604152BF643AE00C82774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		616604162BF6469200C82774 /* Fraunces_9pt-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces_9pt-Italic.ttf"; sourceTree = "<group>"; };
+		616604182BF646B700C82774 /* Fraunces_9pt-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces_9pt-BoldItalic.ttf"; sourceTree = "<group>"; };
 		61715A9B2BD9236300F83338 /* PiraruCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiraruCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,10 +195,40 @@
 		3F852DE22BDC0EB200962A5F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6166040A2BF63AEE00C82774 /* Fonts */,
+				616604092BF63AE100C82774 /* Assets */,
 				D3E98FBD2BDBD8C900DCE016 /* Router.swift */,
 				8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		616604092BF63AE100C82774 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */,
+				61715AA22BD9236400F83338 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		6166040A2BF63AEE00C82774 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				616604122BF63C8100C82774 /* Fraunces */,
+				616604102BF63B5D00C82774 /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		616604122BF63C8100C82774 /* Fraunces */ = {
+			isa = PBXGroup;
+			children = (
+				616604162BF6469200C82774 /* Fraunces_9pt-Italic.ttf */,
+				616604132BF6433900C82774 /* Fraunces_9pt-Black.ttf */,
+				616604182BF646B700C82774 /* Fraunces_9pt-BoldItalic.ttf */,
+			);
+			path = Fraunces;
 			sourceTree = "<group>";
 		};
 		61715A922BD9236300F83338 = {
@@ -212,6 +250,7 @@
 		61715A9D2BD9236300F83338 /* PiraruCook */ = {
 			isa = PBXGroup;
 			children = (
+				616604152BF643AE00C82774 /* Info.plist */,
 				61E3BA4E2BE3B869001C0201 /* PiraruCook.entitlements */,
 				3F852DE12BDC0EA000962A5F /* Resources */,
 				3F852DE22BDC0EB200962A5F /* Utilities */,
@@ -220,8 +259,6 @@
 				3F852DDF2BDC0E7800962A5F /* ViewModel */,
 				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
-				61715AA22BD9236400F83338 /* Assets.xcassets */,
-				610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */,
 				61715AA42BD9236400F83338 /* Preview Content */,
 			);
 			path = PiraruCook;
@@ -302,7 +339,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */,
+				616604172BF6469200C82774 /* Fraunces_9pt-Italic.ttf in Resources */,
 				610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */,
+				616604142BF6433900C82774 /* Fraunces_9pt-Black.ttf in Resources */,
 				61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */,
 				61715AA32BD9236400F83338 /* Assets.xcassets in Resources */,
 			);
@@ -325,6 +364,7 @@
 				D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */,
 				61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */,
 				8BF4077E2BF25E9F00E5988A /* CardPaymentMethodView.swift in Sources */,
+				616604112BF63B5D00C82774 /* Fonts.swift in Sources */,
 				D3380E4A2BF4E3D200457CC6 /* ValuesSection.swift in Sources */,
 				D3380E4B2BF4E3D200457CC6 /* ReviewCard.swift in Sources */,
 				D3782FB42BE134630041EEAC /* DishCart.swift in Sources */,
@@ -497,6 +537,7 @@
 				DEVELOPMENT_TEAM = 56QA9FYA3V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PiraruCook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -532,6 +573,7 @@
 				DEVELOPMENT_TEAM = 56QA9FYA3V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PiraruCook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

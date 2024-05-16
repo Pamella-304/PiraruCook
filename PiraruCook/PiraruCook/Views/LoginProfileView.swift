@@ -12,7 +12,6 @@ import SwiftUI
 struct LoginProfileView: View {
     
     @Environment(Router.self) private var stackPathProfile
-    @Environment(User.self) private var user: User?
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     @State private var viewModel =  LoginProfileViewModel()
     
@@ -51,7 +50,7 @@ struct LoginProfileView: View {
             .colorInvert()
         }
         .onAppear{
-            
+            viewModel.isLoggedIn = isLoggedIn
         }
     }
     

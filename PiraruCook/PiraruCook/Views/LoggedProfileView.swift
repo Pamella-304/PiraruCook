@@ -12,8 +12,7 @@ struct LoggedProfileView: View {
     
     @Environment(Router.self) private var stackPathProfile
     @Environment(User.self) private var user: User?
-    @Binding var isLoggedIn: Bool
-    
+    @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
         VStack {
@@ -85,7 +84,6 @@ struct LoggedProfileView: View {
             
             Button("Sair") {
                 isLoggedIn = false
-                stackPathProfile.path.removeAll()
                 stackPathProfile.goToRoot()
             }
             .padding()

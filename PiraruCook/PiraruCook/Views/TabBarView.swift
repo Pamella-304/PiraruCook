@@ -10,7 +10,6 @@ import SwiftUI
 struct TabBarView: View {
     
     @State private var stackPathMenu = Router()
-    @State private var stackPathHome = Router()
     @State private var stackPathCart = Router()
     @State private var stackPathProfile = Router()
     @State private var selection = 3
@@ -19,14 +18,6 @@ struct TabBarView: View {
     var body: some View {
         
         TabView(selection:$selection) {
-            NavigationStack(path: $stackPathHome.path) {
-                Text("HOLD")
-            }
-            .environment(stackPathHome)
-            .tabItem {
-                Label("Home", systemImage: "house.fill")
-            }
-            .tag(1)
             
             NavigationStack(path: $stackPathMenu.path) {
                 MenuView()
@@ -48,7 +39,7 @@ struct TabBarView: View {
             .tabItem {
                 Label("Cardápio", systemImage: "book.fill")
             }
-            .tag(2)
+            .tag(1)
             
             NavigationStack(path: $stackPathCart.path) {
                 CartView()
@@ -75,7 +66,7 @@ struct TabBarView: View {
             .tabItem {
                 Label("Carrinho", systemImage: "cart.fill")
             }
-            .tag(3)
+            .tag(2)
             
             
             
@@ -110,12 +101,8 @@ struct TabBarView: View {
             .tabItem {
                 Label("Profile", systemImage: "person.fill")
             }
-            .tag(4)
+            .tag(3)
         }
         
     }
 }
-
-//#Preview {
-//    TabBarView()
-//}

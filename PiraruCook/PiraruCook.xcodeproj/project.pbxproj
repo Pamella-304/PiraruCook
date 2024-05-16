@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */; };
-		610B2E722BF62F6500533B52 /* BebidasMockadas.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E712BF62F6500533B52 /* BebidasMockadas.xcassets */; };
-		610B2E742BF62FF500533B52 /* SobremesasMockadas.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E732BF62FF500533B52 /* SobremesasMockadas.xcassets */; };
-		610B2E762BF630A400533B52 /* PratosSalgadosMockados.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E752BF630A400533B52 /* PratosSalgadosMockados.xcassets */; };
-		610B2E782BF630FA00533B52 /* Outros.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E772BF630FA00533B52 /* Outros.xcassets */; };
 		614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */; };
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
+		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
 		61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D82BEA79D500798247 /* SignInFormsView.swift */; };
 		61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */; };
@@ -60,13 +57,10 @@
 
 /* Begin PBXFileReference section */
 		610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BrandColors.xcassets; sourceTree = "<group>"; };
-		610B2E712BF62F6500533B52 /* BebidasMockadas.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BebidasMockadas.xcassets; sourceTree = "<group>"; };
-		610B2E732BF62FF500533B52 /* SobremesasMockadas.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SobremesasMockadas.xcassets; sourceTree = "<group>"; };
-		610B2E752BF630A400533B52 /* PratosSalgadosMockados.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PratosSalgadosMockados.xcassets; sourceTree = "<group>"; };
-		610B2E772BF630FA00533B52 /* Outros.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Outros.xcassets; sourceTree = "<group>"; };
 		614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCardView.swift; sourceTree = "<group>"; };
 		61715A9B2BD9236300F83338 /* PiraruCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiraruCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
+		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61715AA52BD9236400F83338 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61CED8D82BEA79D500798247 /* SignInFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormsView.swift; sourceTree = "<group>"; };
 		61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProfileView.swift; sourceTree = "<group>"; };
@@ -226,11 +220,8 @@
 				3F852DDF2BDC0E7800962A5F /* ViewModel */,
 				8BB75C372BD9506600CB87B9 /* ItensJson */,
 				61715A9E2BD9236300F83338 /* PiraruCookApp.swift */,
-				610B2E712BF62F6500533B52 /* BebidasMockadas.xcassets */,
-				610B2E732BF62FF500533B52 /* SobremesasMockadas.xcassets */,
+				61715AA22BD9236400F83338 /* Assets.xcassets */,
 				610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */,
-				610B2E752BF630A400533B52 /* PratosSalgadosMockados.xcassets */,
-				610B2E772BF630FA00533B52 /* Outros.xcassets */,
 				61715AA42BD9236400F83338 /* Preview Content */,
 			);
 			path = PiraruCook;
@@ -310,13 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				610B2E742BF62FF500533B52 /* SobremesasMockadas.xcassets in Resources */,
 				8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */,
-				610B2E762BF630A400533B52 /* PratosSalgadosMockados.xcassets in Resources */,
-				610B2E722BF62F6500533B52 /* BebidasMockadas.xcassets in Resources */,
 				610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */,
 				61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */,
-				610B2E782BF630FA00533B52 /* Outros.xcassets in Resources */,
+				61715AA32BD9236400F83338 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

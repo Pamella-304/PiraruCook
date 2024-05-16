@@ -7,24 +7,30 @@
 
 import SwiftUI
 
+@Observable
+class ChangeUserInfoViewModel {
+    var showingSheet = false
+    var currentEmail = ""
+    var newEmail = ""
+    var currentPassword = ""
+    var newPassword = ""
+}
+
 struct ChangeUserInfoView: View {
-    @State var showingSheet = false
-    @State var currentEmail = ""
-    @State var newEmail = ""
-    @State var currentPassword = ""
-    @State var newPassword = ""
+    
+    @State var viewModel = ChangeUserInfoViewModel()
     
     var body: some View {
         VStack {
             Section {
                 VStack {
-                    TextField("Email Atual", text: $currentEmail)
+                    TextField("Email Atual", text: $viewModel.currentEmail)
                         .textFieldStyle(.roundedBorder)
                         .foregroundStyle(.secondary)
                         .padding(.horizontal)
                         .padding(.vertical, 8)
                     
-                    TextField("Email", text: $newEmail)
+                    TextField("Email", text: $viewModel.newEmail)
                         .textFieldStyle(.roundedBorder)
                         .foregroundStyle(.secondary)
                         .padding(.horizontal)
@@ -42,13 +48,13 @@ struct ChangeUserInfoView: View {
             
             Section {
                 VStack {
-                    TextField("Senha atual", text: $currentPassword)
+                    TextField("Senha atual", text: $viewModel.currentPassword)
                         .textFieldStyle(.roundedBorder)
                         .foregroundStyle(.secondary)
                         .padding(.horizontal)
                         .padding(.vertical, 8)
                     
-                    TextField("Nova senha", text: $newPassword)
+                    TextField("Nova senha", text: $viewModel.newPassword)
                         .textFieldStyle(.roundedBorder)
                         .foregroundStyle(.secondary)
                         .padding(.horizontal)
@@ -71,7 +77,7 @@ struct ChangeUserInfoView: View {
             Section {
                 VStack {
                     Button("Alterar meu Boi selecionado") {
-                        showingSheet.toggle()
+                        viewModel.showingSheet.toggle()
                     }
                 }
             } header: {
@@ -83,7 +89,7 @@ struct ChangeUserInfoView: View {
                 
             }
             Spacer()
-                .sheet(isPresented: $showingSheet) {
+                .sheet(isPresented: $viewModel.showingSheet) {
                     ChooseBoiSheet()
                 }
         }

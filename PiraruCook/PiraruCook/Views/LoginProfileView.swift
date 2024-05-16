@@ -14,11 +14,7 @@ struct LoginProfileView: View {
     @Environment(Router.self) private var stackPathProfile
     @Environment(User.self) private var user: User?
     @AppStorage("isLoggedIn") private var isLoggedIn = false
-    @State private var email = ""
-    @State private var senha = ""
-    @State private var creatingAccount = false
-    @State private var showAlert = false
-    @State private var alertMessage = ""
+    @State private var viewModel = LoginProfileViewModel()
     
 
     var body: some View {
@@ -26,8 +22,6 @@ struct LoginProfileView: View {
             if isLoggedIn {
                 
                 LoggedProfileView(isLoggedIn: $isLoggedIn)
-                    .environment(user)
-                
                    
             } else {
                 VStack{

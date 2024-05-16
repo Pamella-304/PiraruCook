@@ -83,32 +83,32 @@ struct TabBarView: View {
                 
                 Group {
                     if isLoggedIn {
-                        LoggedProfileView(isLoggedIn: $isLoggedIn)
+                        LoggedProfileView()
                     } else {
                         LoginProfileView()
                     }
                 }
-                    .navigationTitle("Perfil")
-                    .navigationDestination(for: RouterData.self) { data in
-                        
-                        switch data.screen {
-                        case Views.SignInForms:
-                            SignInFormsView()
-                        case Views.PreviousOrders:
-                            PreviousOrdersView()
-                        case Views.Addresses:
-                            EditAddressView()
-                        case Views.Configuration:
-                            ChangeUserInfoView()
-                        case Views.EventInfo:
-                            EventDescriptionView()
-                        case Views.PaymentMethods:
-                            PaymentMethodsView()
-                        default:
-                            // TODO: verify navigation
-                            LoginProfileView()
-                        }
+                .navigationTitle("Perfil")
+                .navigationDestination(for: RouterData.self) { data in
+                    
+                    switch data.screen {
+                    case Views.SignInForms:
+                        SignInFormsView()
+                    case Views.PreviousOrders:
+                        PreviousOrdersView()
+                    case Views.Addresses:
+                        EditAddressView()
+                    case Views.Configuration:
+                        ChangeUserInfoView()
+                    case Views.EventInfo:
+                        EventDescriptionView()
+                    case Views.PaymentMethods:
+                        PaymentMethodsView()
+                    default:
+                        // TODO: verify navigation
+                        LoginProfileView()
                     }
+                }
                 
             }
             .environment(stackPathProfile)

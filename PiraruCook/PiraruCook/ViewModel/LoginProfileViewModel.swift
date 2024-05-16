@@ -35,21 +35,21 @@ class LoginProfileViewModel{
                    let appleUserData =  try? JSONEncoder().encode(appleUser) {
                     
                     UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
-                    
-                } else {
-                    
-                    guard
-                        let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
-                        let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
-                            
-                    else {return}
-                    
                 }
+//                } else {
+//                    
+//                    guard
+//                        let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
+//                        let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
+//                            
+//                    else {return}
+//                    
+//                }
                 
             default:
                 print("a")
             }
-        case .failure(let error):
+        case .failure(_):
             print("b")
         }
     }
@@ -63,9 +63,7 @@ class LoginProfileViewModel{
         }
         
         let userIDs = UserDefaults.standard.dictionaryRepresentation().keys.filter { $0.hasPrefix("user_") }
-        
-        var isLoggedIn = false
-        
+                
         for userID in userIDs {
             if let userData = UserDefaults.standard.data(forKey: userID) {
                 do {
@@ -81,29 +79,6 @@ class LoginProfileViewModel{
             }
         }
         
-        if isLoggedIn {
-            self.isLoggedIn = true
-        }
-    }
-    
-    func getAllUsers() -> [User] {
-        var users: [User] = []
-        
-        let keys = UserDefaults.standard.dictionaryRepresentation().keys
-        
-        for key in keys {
-            if key.hasPrefix("user_") {
-                if let userData = UserDefaults.standard.data(forKey: key) {
-                    if let user = try? JSONDecoder().decode(User.self, from: userData) {
-                        users.append(user)
-                    }
-                }
-            }
-        }
-        
-        print(users)
-        
-        return users
     }
     
 }

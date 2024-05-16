@@ -11,6 +11,7 @@ import SwiftUI
 struct SignInFormsView: View {
     
     @EnvironmentObject var stackPathProfile: Router
+    @Environment(\.colorScheme) var colorScheme
     @State private var userName = ""
     @State private var firstName = ""
     @State private var lastName = ""
@@ -24,29 +25,51 @@ struct SignInFormsView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var formattedCpf = ""
+    @State private var viewModel = LoginProfileViewModel()
+    
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
         Form {
-            Section(header: Text("Informações Pessoais")) {
-                
+            Section("Nome") {
                 TextField("Primeiro nome", text: $firstName)
                 TextField("Sobrenome", text: $lastName)
                 TextField("Como deseja ser chamado?", text: $userName)
-                DatePicker("Data de Nascimento", selection: $birthDate,in: ...Date(), displayedComponents: .date)
-                    .foregroundColor(birthDate > Date() ? .red : .primary)
-                TextField("Endereço", text: $address)
+            }
+            .padding(4)
+            
+            
+            
+            Section("Email") {
                 TextField("E-mail", text: $email)
+            }
+            .padding(4)
+            
+            Section("Senha") {
                 SecureField("Senha", text: $senha)
+            }
+            .padding(4)
+            
+            Section("CPF") {
                 TextField("CPF", text: $cpf)
                     .onChange(of: cpf) { oldValue, newValue in
                         cpf = formatCPF(newValue)
                     }
-                
             }
+            .padding(4)
             
+            Section("Endereço") {
+                TextField("Endereço", text: $address)
+            }
+            .padding(4)
             
-            Button(action: {
+            Section("Data de Nascimento") {
+                DatePicker("Data de Nascimento", selection: $birthDate,in: ...Date(), displayedComponents: .date)
+                    .foregroundColor(birthDate > Date() ? .red : .primary)
+            }
+            .padding(4)
+            
+            Button("Cadastrar") {
                 
                 if senha.count >= 6
                     && birthDate < Date()
@@ -68,36 +91,41 @@ struct SignInFormsView: View {
                     }
                 }
             }
-            ) {
-                Text("Cadastrar")
-            }
+            .buttonBorderShape(.capsule)
+
             
-            .navigationTitle("Cadastrar")
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Erro"),
-                      message: Text(alertMessage),
-                      dismissButton: .default(Text("OK")))
-            }
         }
         
-
+        
+        
+        
+        
+        .navigationTitle("Criar Conta")
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Erro"),
+                  message: Text(alertMessage),
+                  dismissButton: .default(Text("OK")))
+        }
+        
+        
+        
     }
     
     
     func saveUser() {
         
         if isEmailAlreadyRegistered(email) {
-                showAlert = true
-                alertMessage = "E-mail já cadastrado"
-                return
+            showAlert = true
+            alertMessage = "E-mail já cadastrado"
+            return
         }
         
         if isCPFAlreadyRegistered(cpf) {
-                showAlert = true
-                alertMessage = "CPF já cadastrado"
-                return
+            showAlert = true
+            alertMessage = "CPF já cadastrado"
+            return
         }
-            
+        
         
         let newUser = User(userName: userName, firstName: firstName, lastName: lastName, birthDate: birthDate, address: address, email: email, password: senha, cpf: cpf, boi: selectedBoi)
         
@@ -149,7 +177,7 @@ struct SignInFormsView: View {
         let keys = UserDefaults.standard.dictionaryRepresentation().keys
         
         for key in keys {
-
+            
             if key.hasPrefix("user_") {
                 if let userData = UserDefaults.standard.data(forKey: key) {
                     if let user = try? JSONDecoder().decode(User.self, from: userData) {
@@ -165,19 +193,19 @@ struct SignInFormsView: View {
     }
     
     func isEmailAlreadyRegistered(_ email: String) -> Bool {
-
+        
         let users = getAllUsers()
         
         return users.contains { $0.email == email }
     }
-
+    
     func isCPFAlreadyRegistered(_ cpf: String) -> Bool {
-
+        
         let users = getAllUsers()
         
         return users.contains { $0.cpf == cpf }
     }
-
+    
 }
 
 
@@ -186,4 +214,20 @@ extension String {
         let cpfRegex = #"^\d{3}\.\d{3}\.\d{3}-\d{2}$"#
         return NSPredicate(format: "SELF MATCHES %@", cpfRegex).evaluate(with: self)
     }
+}
+
+#Preview {
+    SignInFormsView()
+        .environment(Router())
+}
+
+
+@Observable
+class LoginProfileViewModel{
+    
+    var email = ""
+    var senha = ""
+    var creatingAccount = false
+    var showAlert = false
+    var alertMessage = ""
 }

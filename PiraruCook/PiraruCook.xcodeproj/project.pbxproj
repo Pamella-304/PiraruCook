@@ -12,6 +12,9 @@
 		616604112BF63B5D00C82774 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616604102BF63B5D00C82774 /* Fonts.swift */; };
 		616604142BF6433900C82774 /* Fraunces_9pt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 616604132BF6433900C82774 /* Fraunces_9pt-Black.ttf */; };
 		616604172BF6469200C82774 /* Fraunces_9pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 616604162BF6469200C82774 /* Fraunces_9pt-Italic.ttf */; };
+		6166041A2BF6532600C82774 /* Sobremesas.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616604192BF6532600C82774 /* Sobremesas.xcassets */; };
+		6166041C2BF6536300C82774 /* Bebidas.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6166041B2BF6536300C82774 /* Bebidas.xcassets */; };
+		6166041E2BF653C800C82774 /* PratosSalgados.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6166041D2BF653C800C82774 /* PratosSalgados.xcassets */; };
 		61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61715A9E2BD9236300F83338 /* PiraruCookApp.swift */; };
 		61715AA32BD9236400F83338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA22BD9236400F83338 /* Assets.xcassets */; };
 		61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61715AA52BD9236400F83338 /* Preview Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		616604152BF643AE00C82774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		616604162BF6469200C82774 /* Fraunces_9pt-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces_9pt-Italic.ttf"; sourceTree = "<group>"; };
 		616604182BF646B700C82774 /* Fraunces_9pt-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fraunces_9pt-BoldItalic.ttf"; sourceTree = "<group>"; };
+		616604192BF6532600C82774 /* Sobremesas.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sobremesas.xcassets; sourceTree = "<group>"; };
+		6166041B2BF6536300C82774 /* Bebidas.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bebidas.xcassets; sourceTree = "<group>"; };
+		6166041D2BF653C800C82774 /* PratosSalgados.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PratosSalgados.xcassets; sourceTree = "<group>"; };
 		61715A9B2BD9236300F83338 /* PiraruCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiraruCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61715A9E2BD9236300F83338 /* PiraruCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiraruCookApp.swift; sourceTree = "<group>"; };
 		61715AA22BD9236400F83338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +214,9 @@
 			children = (
 				610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */,
 				61715AA22BD9236400F83338 /* Assets.xcassets */,
+				616604192BF6532600C82774 /* Sobremesas.xcassets */,
+				6166041B2BF6536300C82774 /* Bebidas.xcassets */,
+				6166041D2BF653C800C82774 /* PratosSalgados.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -338,11 +347,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6166041A2BF6532600C82774 /* Sobremesas.xcassets in Resources */,
+				6166041E2BF653C800C82774 /* PratosSalgados.xcassets in Resources */,
 				8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */,
 				616604172BF6469200C82774 /* Fraunces_9pt-Italic.ttf in Resources */,
 				610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */,
 				616604142BF6433900C82774 /* Fraunces_9pt-Black.ttf in Resources */,
 				61715AA62BD9236400F83338 /* Preview Assets.xcassets in Resources */,
+				6166041C2BF6536300C82774 /* Bebidas.xcassets in Resources */,
 				61715AA32BD9236400F83338 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,8 +13,8 @@ struct TabBarView: View {
     @State private var stackPathHome = Router()
     @State private var stackPathCart = Router()
     @State private var stackPathProfile = Router()
-    @State private var selection = 3
-    @Environment(User.self) var user: User?
+    @State private var selection = 4
+    @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
         
@@ -67,7 +67,7 @@ struct TabBarView: View {
                             PaymentDoneView()
                         default:
                             MenuView()
-
+                            
                         }
                     }
             }
@@ -80,8 +80,14 @@ struct TabBarView: View {
             
             
             NavigationStack(path: $stackPathProfile.path) {
-                LoginProfileView()
-                    .environment(user)
+                
+                Group {
+                    if isLoggedIn {
+                        LoggedProfileView(isLoggedIn: $isLoggedIn)
+                    } else {
+                        LoginProfileView()
+                    }
+                }
                     .navigationTitle("Perfil")
                     .navigationDestination(for: RouterData.self) { data in
                         
@@ -101,10 +107,9 @@ struct TabBarView: View {
                         default:
                             // TODO: verify navigation
                             LoginProfileView()
-                                .environment(user)
                         }
                     }
-
+                
             }
             .environment(stackPathProfile)
             .tabItem {
@@ -115,7 +120,3 @@ struct TabBarView: View {
         
     }
 }
-
-//#Preview {
-//    TabBarView()
-//}

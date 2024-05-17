@@ -30,6 +30,7 @@
 		8BB75C392BD9510100CB87B9 /* Receitas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BB75C382BD9510100CB87B9 /* Receitas.json */; };
 		8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */; };
 		8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */; };
+		8BC0C90A2BF64936008109E4 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0C9092BF64936008109E4 /* UserHelper.swift */; };
 		8BF407722BEE51BE00E5988A /* PreviousOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407712BEE51BE00E5988A /* PreviousOrdersView.swift */; };
 		8BF407742BEE68CB00E5988A /* CardPreviousOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407732BEE68CB00E5988A /* CardPreviousOrderView.swift */; };
 		8BF407762BF232BD00E5988A /* EditAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407752BF232BD00E5988A /* EditAddressView.swift */; };
@@ -45,10 +46,12 @@
 		D3380E4A2BF4E3D200457CC6 /* ValuesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E472BF4E3D200457CC6 /* ValuesSection.swift */; };
 		D3380E4B2BF4E3D200457CC6 /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E482BF4E3D200457CC6 /* ReviewCard.swift */; };
 		D3380E4C2BF4E3D200457CC6 /* PaymentSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E492BF4E3D200457CC6 /* PaymentSections.swift */; };
+		D3380E502BF501F500457CC6 /* SignInFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3380E4F2BF501F500457CC6 /* SignInFormsViewModel.swift */; };
 		D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */; };
 		D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3782FB12BE115A20041EEAC /* CartItemView.swift */; };
 		D3782FB42BE134630041EEAC /* DishCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3782FB32BE134630041EEAC /* DishCart.swift */; };
 		D380135F2BF64ECA00C32079 /* ChangeMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380135E2BF64ECA00C32079 /* ChangeMethodView.swift */; };
+		D380135D2BF6279700C32079 /* LoginProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380135C2BF6279700C32079 /* LoginProfileViewModel.swift */; };
 		D3B167DD2BF23F2200C067DA /* CartError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B167DC2BF23F2200C067DA /* CartError.swift */; };
 		D3B167DF2BF2567600C067DA /* CartItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B167DE2BF2567600C067DA /* CartItemsView.swift */; };
 		D3C73C802BF1B53E00CF9B44 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C73C7F2BF1B53E00CF9B44 /* CartService.swift */; };
@@ -90,6 +93,7 @@
 		8BB75C382BD9510100CB87B9 /* Receitas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Receitas.json; sourceTree = "<group>"; };
 		8BB75C3B2BDAA4EB00CB87B9 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		8BB75C3F2BDAA6A400CB87B9 /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
+		8BC0C9092BF64936008109E4 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		8BF407712BEE51BE00E5988A /* PreviousOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousOrdersView.swift; sourceTree = "<group>"; };
 		8BF407732BEE68CB00E5988A /* CardPreviousOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreviousOrderView.swift; sourceTree = "<group>"; };
 		8BF407752BF232BD00E5988A /* EditAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressView.swift; sourceTree = "<group>"; };
@@ -105,10 +109,12 @@
 		D3380E472BF4E3D200457CC6 /* ValuesSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesSection.swift; sourceTree = "<group>"; };
 		D3380E482BF4E3D200457CC6 /* ReviewCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 		D3380E492BF4E3D200457CC6 /* PaymentSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSections.swift; sourceTree = "<group>"; };
+		D3380E4F2BF501F500457CC6 /* SignInFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFormsViewModel.swift; sourceTree = "<group>"; };
 		D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D3782FB12BE115A20041EEAC /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = SOURCE_ROOT; };
 		D3782FB32BE134630041EEAC /* DishCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCart.swift; sourceTree = "<group>"; };
 		D380135E2BF64ECA00C32079 /* ChangeMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeMethodView.swift; sourceTree = "<group>"; };
+		D380135C2BF6279700C32079 /* LoginProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProfileViewModel.swift; sourceTree = "<group>"; };
 		D3B167DC2BF23F2200C067DA /* CartError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartError.swift; sourceTree = "<group>"; };
 		D3B167DE2BF2567600C067DA /* CartItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsView.swift; sourceTree = "<group>"; };
 		D3C73C7F2BF1B53E00CF9B44 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 				D3DC3CC82BDBEA45001C4300 /* CartViewModel.swift */,
 				D353682E2BDFC6FD005C9CA6 /* MenuViewModel.swift */,
 				8B0175162BE122410022410B /* ItemDetailsViewModel.swift */,
+				D3380E4F2BF501F500457CC6 /* SignInFormsViewModel.swift */,
+				D380135C2BF6279700C32079 /* LoginProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 				616604092BF63AE100C82774 /* Assets */,
 				D3E98FBD2BDBD8C900DCE016 /* Router.swift */,
 				8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */,
+				8BC0C9092BF64936008109E4 /* UserHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -378,6 +387,7 @@
 				D3DC3CCB2BDBEB1B001C4300 /* CartView.swift in Sources */,
 				D3DC3CCC2BDBF379001C4300 /* MenuView.swift in Sources */,
 				61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */,
+				D380135D2BF6279700C32079 /* LoginProfileViewModel.swift in Sources */,
 				8BF4077E2BF25E9F00E5988A /* CardPaymentMethodView.swift in Sources */,
 				616604112BF63B5D00C82774 /* Fonts.swift in Sources */,
 				D3380E4A2BF4E3D200457CC6 /* ValuesSection.swift in Sources */,
@@ -395,7 +405,9 @@
 				61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */,
 				D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */,
 				8BF407722BEE51BE00E5988A /* PreviousOrdersView.swift in Sources */,
+				8BC0C90A2BF64936008109E4 /* UserHelper.swift in Sources */,
 				8BF4077A2BF2455B00E5988A /* EventDescriptionView.swift in Sources */,
+				D3380E502BF501F500457CC6 /* SignInFormsViewModel.swift in Sources */,
 				8B1E6BE22BE9228400625875 /* User.swift in Sources */,
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3C73C862BF1B77D00CF9B44 /* CartPaymentButtonView.swift in Sources */,

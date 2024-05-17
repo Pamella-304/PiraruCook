@@ -33,18 +33,42 @@ struct PiraruCookApp: App {
     }
     
     func loadUserData() {
-            if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
-                if let userData = UserDefaults.standard.data(forKey: userID) {
-                    do {
-                        // Decodifica os dados do usuário
-                        let myUser = try JSONDecoder().decode(User.self, from: userData)
-                        self.user.updateUser(user: myUser) // Define o usuário recuperado na variável de estado
-                        print(user)
-                    } catch {
-                        print("Erro ao decodificar usuário:", error)
-                    }
+        if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
+            if let userData = UserDefaults.standard.data(forKey: userID) {
+                do {
+                    // Decodifica os dados do usuário
+                    let myUser = try JSONDecoder().decode(User.self, from: userData)
+                    self.user = user
+                } catch {
+                    print("Erro ao decodificar usuário:", error)
                 }
             }
+        }
+        
+        
+        // Se não encontrar usuário normal, tenta carregar usuário Apple
+
+        if user == nil, let appleUserID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("appleUser_") }) {
+                    if let appleUserData = UserDefaults.standard.data(forKey: appleUserID) {
+                        do {
+                            let appleUser = try JSONDecoder().decode(AppleUser.self, from: appleUserData)
+                            self.user = User(
+                                userName: appleUser.userName ?? "Apple User",
+                                firstName: "",
+                                lastName: "",
+                                birthDate: Date(),
+                                address: "",
+                                email: appleUser.email ?? "",
+                                password: "",
+                                cpf: ""
+                            ) // Crie um User a partir dos dados do AppleUser
+                        } catch {
+                            print("Erro ao decodificar usuário Apple:", error)
+                        }
+                    }
+                }
+        
     }
+    
     
 }

@@ -90,22 +90,22 @@ class SignInFormsViewModel {
         
     }
     
-    func saveUser(isLoggedIn:Bool) -> Bool {
+    func saveUser(isLoggedIn:Bool, currentUser: User) -> (isLoggedIn: Bool, user: User?) {
         
         if isEmailAlreadyRegistered() {
             showAlert = true
             alertMessage = "E-mail já cadastrado"
-                return isLoggedIn
+                return (isLoggedIn, nil)
         }
         
         if isCPFAlreadyRegistered() {
             showAlert = true
             alertMessage = "CPF já cadastrado"
-                return isLoggedIn
+                return (isLoggedIn, nil)
         }
             
         
-        let newUser = User(userName: userName,
+        var newUser = User(userName: userName,
                            firstName: firstName,
                            lastName: lastName,
                            birthDate: birthDate,
@@ -121,11 +121,11 @@ class SignInFormsViewModel {
             UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
             accountCreated = true
             print("usuário salvo com sucesso")
-            return true
+            return (true, newUser)
         } else {
             showAlert = true
             alertMessage = "Erro ao cadastrar usuário. Tente novamente mais tarde."
-            return isLoggedIn
+            return (isLoggedIn, nil)
         }
     }
 }

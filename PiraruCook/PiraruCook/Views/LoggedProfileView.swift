@@ -25,6 +25,7 @@ struct LoggedProfileView: View {
                         Image(systemName: "person")
                     }
                     
+                    //user name nao esta atualizando na primeira run do app
                     if let presentedUserName = user?.userName {
                         Text(presentedUserName)
                             .font(.title2)
@@ -44,6 +45,7 @@ struct LoggedProfileView: View {
                             .frame(width: 32, height: 32)
                             
                     }
+                    .environment(user)
                     .foregroundStyle(.primary)
                 
                     
@@ -79,6 +81,7 @@ struct LoggedProfileView: View {
                     ProfileOptionsView(imageName: "party.popper.fill", title:
                                         "Festival de Paratins", description: "Acesse as informações do evento atual")
                 }
+                .environment(user)
                 .foregroundStyle(.primary)
             }
             

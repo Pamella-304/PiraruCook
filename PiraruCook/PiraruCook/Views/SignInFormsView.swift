@@ -11,6 +11,7 @@ import SwiftUI
 struct SignInFormsView: View {
     
     @EnvironmentObject var stackPathProfile: Router
+    @Environment(User.self) var user
     @State var viewModel = SignInFormsViewModel()
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
@@ -57,8 +58,15 @@ struct SignInFormsView: View {
             Button("Cadastrar") {
                 
                 if viewModel.isValidAccount() {
-                    isLoggedIn = viewModel.saveUser(isLoggedIn: isLoggedIn)
+                    var result = viewModel.saveUser(isLoggedIn: isLoggedIn, currentUser: user)
+                    
+                    isLoggedIn = result.isLoggedIn
+                    if let newUser = result.user {
+                        user.updateUser(user: newUser)
+                    }
+                    
                     stackPathProfile.goToRoot()
+                    
                     
                 } else {
                     viewModel.showAlert = true

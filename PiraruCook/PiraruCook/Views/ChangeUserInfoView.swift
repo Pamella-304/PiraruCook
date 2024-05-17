@@ -7,17 +7,10 @@
 
 import SwiftUI
 
-@Observable
-class ChangeUserInfoViewModel {
-    var showingSheet = false
-    var currentEmail = ""
-    var newEmail = ""
-    var currentPassword = ""
-    var newPassword = ""
-}
+
 
 struct ChangeUserInfoView: View {
-    
+    @Environment(User.self) private var user
     @State var viewModel = ChangeUserInfoViewModel()
     
     var body: some View {
@@ -69,7 +62,16 @@ struct ChangeUserInfoView: View {
             }
             
             Button("Atualizar preferências de conta") {
-                // atualizar as informacoes com os text fields
+                if ((viewModel.confirmInformation(written: viewModel.currentEmail, actual: user.email)) && (viewModel.confirmInformation(written: viewModel.currentPassword, actual: user.password))) {
+                    
+                    UserHelper.updateUser(user: user, newEmail: viewModel.newEmail, newPassword: viewModel.newPassword)
+                    viewModel.alertMessage = "Usuario atualizado"
+                    viewModel.alertTitle = "Sucesso"
+                } else {
+                    viewModel.alertTitle = "Erro"
+                    viewModel.alertMessage = "Algum dos campos não condiz com o valor encontrado"
+                }
+                viewModel.showAlert.toggle()
             }
             .padding()
             
@@ -92,11 +94,41 @@ struct ChangeUserInfoView: View {
                 .sheet(isPresented: $viewModel.showingSheet) {
                     ChooseBoiSheet()
                 }
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text(viewModel.alertTitle),
+                          message: Text(viewModel.alertMessage),
+                          dismissButton: .default(Text("OK")))
+                }
         }
         
     }
 }
 
+@Observable
+class ChangeUserInfoViewModel {
+    var showAlert = false
+    var alertTitle = ""
+    var alertMessage = ""
+    var showingSheet = false
+    var currentEmail = ""
+    var actualCurrentEmail: String?
+    var newEmail = ""
+    var currentPassword = ""
+    var actualCurrentPassword: String?
+    var newPassword = ""
+    
+    
+    func confirmInformation(written: String, actual: String?) -> Bool {
+        
+        if actual == nil {
+            return false
+        }
+        return written == actual!
+    }
+}
+
+
 #Preview {
     ChangeUserInfoView()
+        .environment(User())
 }

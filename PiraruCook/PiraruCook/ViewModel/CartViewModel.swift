@@ -11,6 +11,7 @@ enum PaymentMethods: String {
     case Pix
     case CreditCard
     case ApplePay
+    case Dinheiro
 }
 
 class Cupom {
@@ -99,6 +100,9 @@ class CartViewModel {
     }
     func PixOption(){
         paymentMethod = PaymentMethods.Pix
+    }
+    func MoneyOption(){
+        paymentMethod = PaymentMethods.Dinheiro
     }
     func CreditCardOption(){
         paymentMethod = PaymentMethods.CreditCard

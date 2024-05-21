@@ -26,12 +26,11 @@ struct ItemDetailsView: View {
                 
                 // MARK: Image
                 Image(viewModel.displayImage()).resizable().frame(width: width,height: height*0.25)
-                Text("Headline")
-                    .font(Fonts.headlineFont                                                                                                            )
+                    .font(.title)
                 // MARK: Description
                 VStack{
                     HStack{
-                        Text(viewModel.displayName()).font(Fonts.headlineFont)
+                        Text(viewModel.displayName()).font(.title)
                         Spacer()
                         Text("R$ \(viewModel.displayPrice())")
                             .font(.title2)

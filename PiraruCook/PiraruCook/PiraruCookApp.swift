@@ -15,8 +15,17 @@ struct PiraruCookApp: App {
     
     init() {
         loadUserData()
+        for familyName in UIFont.familyNames {
+            print(familyName)
+            
+            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+                print("--\(fontName)")
+            }
+            
+        }
     }
     
+
     var body: some Scene {
         
         WindowGroup {
@@ -31,6 +40,7 @@ struct PiraruCookApp: App {
         
         
     }
+
     
     func loadUserData() {
         if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Fonts {
     static let largeTitleFont: Font = {
-        if let customFont = UIFont(name: "Fraunces_9pt-Black", size: 34) {
+        if let customFont = UIFont(name: "Fraunces9pt-Black", size: 34) {
             return Font(customFont)
         } else {
             return Font.largeTitle
@@ -18,7 +18,7 @@ struct Fonts {
     } ()
     
     static let title1Font: Font = {
-        if let customFont = UIFont(name: "Fraunces_9pt-Black", size: 28) {
+        if let customFont = UIFont(name: "Fraunces9pt-Black", size: 28) {
             return Font(customFont)
         } else {
             return Font.largeTitle
@@ -27,7 +27,7 @@ struct Fonts {
     } ()
     
     static let title2Font: Font = {
-        if let customFont = UIFont(name: "Fraunces_9pt-Black", size: 22) {
+        if let customFont = UIFont(name: "Fraunces9pt-Black", size: 22) {
             return Font(customFont)
         } else {
             return Font.largeTitle
@@ -36,7 +36,7 @@ struct Fonts {
     } ()
     
     static let title3Font: Font = {
-        if let customFont = UIFont(name: "Fraunces_9pt-Black", size: 20) {
+        if let customFont = UIFont(name: "Fraunces9pt-Black", size: 20) {
             return Font(customFont)
         } else {
             return Font.largeTitle
@@ -45,11 +45,11 @@ struct Fonts {
     } ()
     
     static let headlineFont: Font = {
-        if let customFont = UIFont(name: "Fraunces_9pt-BoldItalic", size: 20) {
+        if let customFont = UIFont(name: "Fraunces144pt-BoldItalic", size: 25) {
             return Font(customFont)
         } else {
-            return Font.largeTitle
 
+            return Font.largeTitle
         }
     } ()
     

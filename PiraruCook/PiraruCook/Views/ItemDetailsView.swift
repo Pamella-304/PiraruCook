@@ -26,7 +26,7 @@ struct ItemDetailsView: View {
                 
                 // MARK: Image
                 Image(viewModel.displayImage()).resizable().frame(width: width,height: height*0.25)
-                
+                    .font(.title)
                 // MARK: Description
                 VStack{
                     HStack{

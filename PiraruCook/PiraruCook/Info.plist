@@ -5,6 +5,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Fraunces_9pt-Black.ttf</string>
+		<string>Fraunces_9pt-Italic.ttf</string>
+		<string>Fraunces_9pt-BoldItalic</string>
+		<string>Fraunces_144pt-BoldItalic.ttf</string>
 	</array>
 </dict>
 </plist>

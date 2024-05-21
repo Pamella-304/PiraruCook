@@ -86,52 +86,11 @@ extension ItemCardView {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipped()
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay {
-                    VStack {
-                        Spacer()
-                        ZStack {
-                            VStack(spacing: 4) {
-                                Rectangle()
-                                    .frame(height: 4)
-                                    .hidden()
-                                
-                                HStack {
-                                    Text(dish.name)
-                                        .font(.title2)
-                                        .bold()
-                                    
-                                    Spacer()
-                                    
-                                    Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
-                                        .font(.title3)
-                                        .bold()
-                                }
-                                
-                                HStack {
-                                    Text(dish.ingredients.first ?? "")
-                                        .frame(alignment: .bottom)
-                                    Spacer()
-                                    Text("Serve até 2 pessoas")
-                                        .font(.footnote)
-                                }
-                                
-                                Rectangle()
-                                    .frame(height: 4)
-                                    .hidden()
-                            }
-                            .foregroundStyle(colorScheme == .light ? .black : .white)
-                            
-                            
-                        }
-                        .padding(4)
-                        .background(colorScheme == .dark ? .black : .white)
-                    }
+
                 }
-            //
-            //        .cornerRadius(20)
         }
-        
         
     }
     
@@ -140,3 +99,44 @@ extension ItemCardView {
 #Preview {
     ItemCardView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal"))
 }
+
+
+//VStack {
+//                        Spacer()
+//                        ZStack {
+//                            VStack(spacing: 4) {
+//                                Rectangle()
+//                                    .frame(height: 4)
+//                                    .hidden()
+//
+//                                HStack {
+//                                    Text(dish.name)
+//                                        .font(.title2)
+//                                        .bold()
+//
+//                                    Spacer()
+//
+//                                    Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+//                                        .font(.title3)
+//                                        .bold()
+//                                }
+//
+//                                HStack {
+//                                    Text(dish.ingredients.first ?? "")
+//                                        .frame(alignment: .bottom)
+//                                    Spacer()
+//                                    Text("Serve até 2 pessoas")
+//                                        .font(.footnote)
+//                                }
+//
+//                                Rectangle()
+//                                    .frame(height: 4)
+//                                    .hidden()
+//                            }
+//                            .foregroundStyle(colorScheme == .light ? .black : .white)
+//
+//
+//                        }
+//                        .padding(4)
+//                        .background(colorScheme == .dark ? .black : .white)
+//                    }

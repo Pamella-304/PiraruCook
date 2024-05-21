@@ -24,10 +24,18 @@ struct MenuView: View {
                     
                     Section {
                         ForEach(subItems, id: \.self) { typeDish in
-                            NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
-                                // TODO: Chango for card
+                            
+                            Button {
+                                viewModel.isPresented = true
+                                viewModel.choosenDish = typeDish
+                            } label: {
                                 ItemCardView(dish: typeDish)
                             }
+                            
+//                            NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
+//                                // TODO: Chango for card
+//                                
+//                            }
                         }
                     } header: {
                         Text("\(category)")
@@ -37,6 +45,9 @@ struct MenuView: View {
                     
                 }
                 
+            }
+            .sheet(isPresented: $viewModel.isPresented) {
+                ItemDetailsView(dish: viewModel.choosenDish!)
             }
         }
         .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")

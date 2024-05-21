@@ -13,6 +13,7 @@ struct ItemDetailsView: View {
     @Environment(CartViewModel.self) private var cartViewModel
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
+    @Environment(\.dismiss) var dismiss
     @State private var viewModel: ItemDetailsViewModel
     
     init(dish: TypeDish) {
@@ -121,7 +122,7 @@ struct ItemDetailsView: View {
             Button(action: {
                 viewModel.updateCommnet()
                 cartViewModel.addItem(item: viewModel.dish)
-                stackPathMenu.goBack()
+                dismiss()
             }) {
                 Text("Add to cart")
                     .foregroundColor(.white)

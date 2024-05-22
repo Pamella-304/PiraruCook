@@ -1,16 +1,10 @@
-//
-//  Cart.swift
-//  PiraruCook
-//
-//  Created by Gabriel Leite on 26/04/24.
-//
-
 import Foundation
 
 enum PaymentMethods: String {
     case Pix
     case CreditCard
     case ApplePay
+    case Dinheiro
 }
 
 class Cupom {
@@ -97,16 +91,20 @@ class CartViewModel {
         return "R$ " + text
         
     }
+    
     func PixOption(){
         paymentMethod = PaymentMethods.Pix
     }
+    
     func CreditCardOption(){
         paymentMethod = PaymentMethods.CreditCard
     }
+    
     func ApplePayOption(){
         paymentMethod = PaymentMethods.ApplePay
     }
     
-    
-    
+    func CashOption() {
+        paymentMethod = PaymentMethods.Dinheiro
+    }
 }

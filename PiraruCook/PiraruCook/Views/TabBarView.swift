@@ -1,10 +1,3 @@
-//
-//  TabBarView.swift
-//  PiraruCook
-//
-//  Created by Gabriel Leite on 26/04/24.
-//
-
 import SwiftUI
 
 struct TabBarView: View {
@@ -14,10 +7,11 @@ struct TabBarView: View {
     @State private var stackPathProfile = Router()
     @State private var selection = 4
     @AppStorage("isLoggedIn") private var isLoggedIn = false
-    
+    @State private var selectedPaymentMethod: PaymentMethods = .Pix  // Renomeado para PaymentMethods
+
     var body: some View {
         
-        TabView(selection:$selection) {
+        TabView(selection: $selection) {
             
             NavigationStack(path: $stackPathMenu.path) {
                 MenuView()
@@ -25,12 +19,11 @@ struct TabBarView: View {
                     .navigationDestination(for: RouterData.self) { data in
                         
                         switch data.screen {
-                        case Views.Menu:
+                        case .Menu:
                             MenuView()
-                        case Views.DishDetails:
+                        case .DishDetails:
                             ItemDetailsView(dish: data.dish!)
                         default:
-                            // TODO: should never end up here
                             MenuView()
                         }
                     }
@@ -43,22 +36,24 @@ struct TabBarView: View {
             
             NavigationStack(path: $stackPathCart.path) {
                 CartView()
-                    .navigationTitle("Cardápio")
+                    .navigationTitle("Carrinho")
                     .navigationDestination(for: RouterData.self) { data in
                         
                         switch data.screen {
-                        case Views.Menu:
+                        case .Menu:
                             MenuView()
-                        case Views.DishDetails:
+                        case .DishDetails:
                             ItemDetailsView(dish: data.dish!)
                         case .Payment:
-                            // TODO: Change to PaymentView()
                             PaymentView()
                         case .PaymentDone:
-                            PaymentDoneView()
+                            if let method = data.method {
+                                PaymentDoneView(selectedPaymentMethod: method)
+                            } else {
+                                PaymentDoneView(selectedPaymentMethod: .Pix)
+                            }
                         default:
                             MenuView()
-                            
                         }
                     }
             }
@@ -68,10 +63,7 @@ struct TabBarView: View {
             }
             .tag(2)
             
-            
-            
             NavigationStack(path: $stackPathProfile.path) {
-                
                 Group {
                     if isLoggedIn {
                         LoggedProfileView()
@@ -83,31 +75,28 @@ struct TabBarView: View {
                 .navigationDestination(for: RouterData.self) { data in
                     
                     switch data.screen {
-                    case Views.SignInForms:
+                    case .SignInForms:
                         SignInFormsView()
-                    case Views.PreviousOrders:
+                    case .PreviousOrders:
                         PreviousOrdersView()
-                    case Views.Addresses:
+                    case .Addresses:
                         EditAddressView()
-                    case Views.Configuration:
+                    case .Configuration:
                         ChangeUserInfoView()
-                    case Views.EventInfo:
+                    case .EventInfo:
                         EventDescriptionView()
-                    case Views.PaymentMethods:
+                    case .PaymentMethods:
                         PaymentMethodsView()
                     default:
-                        // TODO: verify navigation
                         LoginProfileView()
                     }
                 }
-                
             }
             .environment(stackPathProfile)
             .tabItem {
-                Label("Profile", systemImage: "person.fill")
+                Label("Perfil", systemImage: "person.fill")
             }
             .tag(3)
         }
-        
     }
 }

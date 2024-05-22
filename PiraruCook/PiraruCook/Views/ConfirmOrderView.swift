@@ -1,10 +1,3 @@
-//
-//  ConfirmOrderView.swift
-//  PiraruCook
-//
-//  Created by Antonio Hoffmann on 13/05/24.
-//
-
 import SwiftUI
 
 struct ConfirmOrderView: View {
@@ -12,32 +5,29 @@ struct ConfirmOrderView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(Router.self) private var stackPathPix
     @Environment(CartViewModel.self) private var viewModel
-    
+
     var body: some View {
-        VStack{
-            HStack{
+        VStack {
+            HStack {
                 Image(systemName: "mappin")
                 Text("R. Silvio da Silva")
                 Spacer()
                 Text("até 40 min").opacity(0.6)
             }.padding()
             Divider().padding(.horizontal)
-            HStack{
-                Image(systemName: "mappin")
+            HStack {
+                Image(systemName: "creditcard")  // Atualize este ícone conforme o método de pagamento
                 Text(viewModel.paymentMethod.rawValue)
                 Spacer()
                 Text(viewModel.displayTotalValue()).bold()
             }.padding()
             Spacer()
-            Button{
-                // TODO: ended payment logic
+            Button {
+                // Lógica para finalizar o pagamento
                 dismiss()
-                if viewModel.paymentMethod.rawValue == "Pix"{
-                    stackPathPix.path.append(RouterData(screen: .PaymentDone))
-                }else{
-                    
-                }
-            }label: {
+                let routerData = RouterData(screen: .PaymentDone, method: viewModel.paymentMethod)
+                stackPathPix.path.append(routerData)
+            } label: {
                 Text("Confirmar Pedido")
                     .foregroundColor(.white)
                     .padding(16)
@@ -46,11 +36,12 @@ struct ConfirmOrderView: View {
             }
             .cornerRadius(10)
             .padding(16)
-          Spacer()
+            Spacer()
         }.navigationTitle("Confirmar Pedido")
     }
 }
 
 #Preview {
     ConfirmOrderView()
+        .environment(CartViewModel())
 }

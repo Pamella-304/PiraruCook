@@ -53,9 +53,6 @@ struct MenuView: View {
                             
                         }
                     }
-                    
-                    
-                    
                 }
                 .sheet(isPresented: $viewModel.isPresented) {
                     ItemDetailsView(dish: viewModel.choosenDish!)
@@ -66,9 +63,6 @@ struct MenuView: View {
             .frame(alignment: .leading)
             .background(Color(red: 229/255, green: 229/255, blue: 234/255))
             .toolbar {
-    
-                        HStack{
-    
                                 Menu {
                                     Picker("Ordenar", selection: $viewModel.sortOrder) {
                                         ForEach(sortDishOrder.allCases, id: \.self) {
@@ -84,8 +78,7 @@ struct MenuView: View {
                                 } label: {
                                     Image(systemName: "list.bullet.circle")
                                 }
-                        }
-            
+       
             }
             
         

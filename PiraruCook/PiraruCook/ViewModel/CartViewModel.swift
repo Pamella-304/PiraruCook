@@ -1,16 +1,10 @@
-//
-//  Cart.swift
-//  PiraruCook
-//
-//  Created by Gabriel Leite on 26/04/24.
-//
-
 import Foundation
 
 enum PaymentMethods: String {
     case Pix
     case CreditCard
     case ApplePay
+    case Dinheiro
 }
 
 class Cupom {
@@ -30,15 +24,17 @@ class CartViewModel {
     var subTotalValue: Double
     var transportationValue: Double
     var paymentMethod: PaymentMethods
+    var change: Double
     var isDelivery = false
     var cupom: Cupom?
     var services = CartService()
     
-    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0, paymentMethod: PaymentMethods = .Pix, cupom: Cupom? = nil) {
+    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0, paymentMethod: PaymentMethods = .Pix, change: Double = 0, cupom: Cupom? = nil) {
         self.items = items
         self.subTotalValue = subTotalValue
         self.transportationValue = transportationValue
         self.paymentMethod = paymentMethod
+        self.change = change
         self.cupom = cupom
     }
     
@@ -58,6 +54,10 @@ class CartViewModel {
     
     func cleanItems() {
         items = []
+        subTotalValue = 0
+        transportationValue = 0
+        change = 0
+        
     }
     
     func getQuantity(item: TypeDish) -> Int {
@@ -97,16 +97,20 @@ class CartViewModel {
         return "R$ " + text
         
     }
+    
     func PixOption(){
         paymentMethod = PaymentMethods.Pix
     }
+
     func CreditCardOption(){
         paymentMethod = PaymentMethods.CreditCard
     }
+    
     func ApplePayOption(){
         paymentMethod = PaymentMethods.ApplePay
     }
     
-    
-    
+    func CashOption() {
+        paymentMethod = PaymentMethods.Dinheiro
+    }
 }

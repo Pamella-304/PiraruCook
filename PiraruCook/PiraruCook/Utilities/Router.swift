@@ -1,16 +1,10 @@
-//
-//  Router.swift
-//  PiraruCook
-//
-//  Created by Gabriel Leite on 26/04/24.
-//
-
 import Foundation
 
 @Observable
 class Router: ObservableObject {
     var path: [RouterData]
-    init(){
+    
+    init() {
         self.path = []
     }
     
@@ -24,28 +18,30 @@ class Router: ObservableObject {
 }
 
 enum Views {
-
     case Menu, DishDetails, Payment, PaymentDone, SignInForms, LoggedProfile
-    //cases para o profile logado
-    case PreviousOrders, Addresses, EventInfo, PaymentMethods, Configuration
-
+    // cases para o profile logado
+    case PreviousOrders, Addresses, EventInfo, PaymentMethods, Configuration, TrackOrder
 }
 
 class RouterData: Hashable {
     
     let screen: Views
     let dish: TypeDish?
+    let method: PaymentMethods?
     
-    init(screen: Views, dish: TypeDish? = nil) {
+    init(screen: Views, dish: TypeDish? = nil, method: PaymentMethods? = nil) {
         self.screen = screen
         self.dish = dish
+        self.method = method
     }
     
     static func == (lhs: RouterData, rhs: RouterData) -> Bool {
-        lhs.screen == rhs.screen
+        lhs.screen == rhs.screen && lhs.method == rhs.method
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(screen)
+        hasher.combine(method)
     }
 }
+

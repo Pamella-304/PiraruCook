@@ -54,6 +54,10 @@ class CartViewModel {
     
     func cleanItems() {
         items = []
+        subTotalValue = 0
+        transportationValue = 0
+        change = 0
+        
     }
     
     func getQuantity(item: TypeDish) -> Int {

@@ -43,9 +43,9 @@ struct PaymentView: View {
             ValuesSection(Title: "Desconto", Price: viewModel.getDiscount())
             ValuesSection(Title: "Entrega", Price: viewModel.transportationValue)
             ValuesSection(Title: "Total", Price: viewModel.getTotalValue())
-            if viewModel.change != 0{
-                ValuesSection(Title: "Seu troco", Price: viewModel.change - viewModel.getTotalValue())
-            }
+//            if viewModel.change != 0{
+//                ValuesSection(Title: "Seu troco", Price: viewModel.change - viewModel.getTotalValue())
+//            }
             
             
             

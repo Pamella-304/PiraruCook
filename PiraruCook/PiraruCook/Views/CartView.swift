@@ -9,6 +9,7 @@ import SwiftUI
 struct CartView: View {
     
     @Environment(Router.self) private var stackPathCart
+    @Environment(CartViewModel.self) private var viewModel
         
     var body: some View {
         
@@ -33,6 +34,13 @@ struct CartView: View {
             
         }
         .navigationTitle("Carrinho")
+        .toolbar{
+            Button{
+                viewModel.cleanItems()
+            }label:{
+               Text("Limpar")
+            }
+        }
 
     }
 }

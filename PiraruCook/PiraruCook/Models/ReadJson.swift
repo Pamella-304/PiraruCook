@@ -20,14 +20,15 @@ struct TypeDish: Codable, Hashable, Identifiable {
     let price: Double
     let tipo: String
     var comment: String
+    var boi: Bool
     
     static func preview() -> TypeDish {
-        TypeDish(name: "", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba", comment: "Sem gelo")
+        TypeDish(name: "", description: "", image: "", nutritionalInfo: [], ingredients: [], price: 0.0, tipo: "bebiba", comment: "Sem gelo", boi: false)
     }
     
-    static let example = TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Tacaca", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba", comment: "Sem sal")
+    static let example = TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Tacaca", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba", comment: "Sem sal", boi: false)
     
-    static let exampleBebida = TypeDish(name: "Suco de laranha", description: "Suco de laranja fresca, feito na hora", image: "Suco", nutritionalInfo: [], ingredients: ["Laranja"], price: 6.99, tipo: "Bebidas", comment: "Sem açúcar")
+    static let exampleBebida = TypeDish(name: "Suco de laranha", description: "Suco de laranja fresca, feito na hora", image: "Suco", nutritionalInfo: [], ingredients: ["Laranja"], price: 6.99, tipo: "Bebidas", comment: "Sem açúcar", boi: false)
 
     mutating func updateComment(_ comment :String) {
         self.comment = comment

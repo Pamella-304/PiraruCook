@@ -11,50 +11,84 @@ struct MenuView: View {
     
     @State private var viewModel = MenuViewModel()
     
+  
+    
     var body: some View {
-        
-        ScrollView {
-            ForEach(viewModel.categories, id:\.self) { category in
+            ScrollView {
                 
-                let subItems = viewModel.dishesList.filteredTypeDishes.filter({ (typeDish) -> Bool in
-                    typeDish.tipo == category
-                })
-                
-                if !subItems.isEmpty {
+                ForEach(viewModel.categories, id:\.self) { category in
                     
-                    Section {
-                        ForEach(subItems, id: \.self) { typeDish in
-                            
-                            Button {
-                                viewModel.isPresented = true
-                                viewModel.choosenDish = typeDish
-                            } label: {
-                                ItemCardView(dish: typeDish)
+                    
+                    if category == viewModel.selectedDishType.description  || viewModel.selectedDishType == .all {
+                        var subItems = viewModel.dishesList.filteredTypeDishes.filter({ (typeDish) -> Bool in
+                            typeDish.tipo == category
+                        }).sorted {
+                            switch viewModel.sortOrder {
+                            case .alphabetically:
+                                $0.name < $1.name
+                            case .priceBiggerToLower:
+                                $0.price > $1.price
+                            case .priceLowerToBigger:
+                                $0.price < $1.price
                             }
-                            
-//                            NavigationLink(value: RouterData(screen: Views.DishDetails, dish: typeDish)) {
-//                                // TODO: Chango for card
-//                                
-//                            }
                         }
-                    } header: {
-                        Text("\(category)")
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        if !subItems.isEmpty {
+                            
+                            Section {
+                                ForEach(subItems, id: \.self) { typeDish in
+                                    
+                                    Button {
+                                        viewModel.isPresented = true
+                                        viewModel.choosenDish = typeDish
+                                    } label: {
+                                        ItemCardView(dish: typeDish)
+                                    }
+                                }
+                            } header: {
+                                Text("\(category)")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .id(category)
+                            
+                        }
                     }
-                    .id(category)
+                    
+                    
                     
                 }
-                
+                .sheet(isPresented: $viewModel.isPresented) {
+                    ItemDetailsView(dish: viewModel.choosenDish!)
+                }
             }
-            .sheet(isPresented: $viewModel.isPresented) {
-                ItemDetailsView(dish: viewModel.choosenDish!)
+            .navigationBarTitle(Text("Cardápio"), displayMode: .large)
+            .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
+            .toolbar {
+    
+                        HStack{
+    
+                                Menu {
+                                    Picker("Ordenar", selection: $viewModel.sortOrder) {
+                                        ForEach(sortDishOrder.allCases, id: \.self) {
+                                            Text("Ordenar \($0.description)")
+                                        }
+                                    }
+                                    
+                                    Picker("Filtrar", selection: $viewModel.selectedDishType) {
+                                        ForEach(allDishTypes.allCases, id: \.self) { type in
+                                            Text(type.description)
+                                        }
+                                    }
+                                } label: {
+                                    Image(systemName: "list.bullet.circle")
+                                }
+                        }
+            
             }
-        }
-        .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
-        .ignoresSafeArea()
-        .padding()
-    }
+            .frame(alignment: .leading)
+          //  .background(Color.backgroundColor)
         
+    }
 
 }
 #Preview {

@@ -13,12 +13,12 @@ struct ItemCardView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        
-        if dish.tipo == "Bebidas" {
-            drinks
-        } else {
-            dishes
-        }
+     
+            if dish.tipo == "Salgado" ||  dish.tipo == "Doces"{
+                dishes
+            } else {
+                drinks
+            }
         
     }
     
@@ -86,19 +86,42 @@ extension ItemCardView {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipped()
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 10,
+                        bottomLeadingRadius: 10,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 0
+                    )
+                )
+            //.clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay {
-
+                    VStack{
+                        Spacer()
+                        ZStack{
+                            VStack{
+                                Rectangle()
+                                    .frame(width: 340, height: 52)
+                            }.padding(.horizontal, 19)
+                                .padding(.top, 10)
+                                .padding(.bottom, 16)
+                        }.background(Color.white)
+                    }
+                    
+                    
                 }
-        }
+        }.padding(.horizontal, 26)
+            .frame(height: 214.0)
         
     }
     
 }
 
 #Preview {
-    ItemCardView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal"))
+    ItemCardView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal", boi: false))
 }
+
+
 
 
 //VStack {

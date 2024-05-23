@@ -48,7 +48,7 @@ struct TrackOrderView: View {
             Button {
                 stackPathProfile.goToRoot()
             } label:{
-                Text("Voltar ao Cardápio")
+                Text("Voltar para Carrinho")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)

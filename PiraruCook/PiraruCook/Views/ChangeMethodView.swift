@@ -30,6 +30,13 @@ struct ChangeMethodView: View {
                                 .padding(4)
                         }
                         Button{
+                            viewModel.CashOption()
+                            dismiss()
+                        }label: {
+                            CardPaymentMethodView(symbol: "dollarsign.circle", description: ["Pagamento", "Dinheiro"])
+                                .padding(4)
+                        }
+                        Button{
                             viewModel.PixOption()
                             dismiss()
                         }label: {
@@ -49,7 +56,16 @@ struct ChangeMethodView: View {
                         }label: {
                             CardPaymentMethodView(symbol: "apple.logo", description: ["Pagamento", "Apple Pay"])
                                 .padding(4)
-                        }                        
+                        }
+                        Button{
+                            viewModel.CashOption()
+                            dismiss()
+                        }label: {
+                            CardPaymentMethodView(symbol: "dollarsign.circle", description: ["Pagamento", "Dinheiro"])
+                                .padding(4)
+                        }
+
+
                     }
                 }
             }

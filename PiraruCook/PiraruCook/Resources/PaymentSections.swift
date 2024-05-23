@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PaymentSections: View {
+    @Environment(CartViewModel.self) private var viewModel
     var usage: String
     var img1: String
     var subtext: String
@@ -23,6 +24,7 @@ struct PaymentSections: View {
                 Text(text)
                     .bold()
                 // TODO: Retrive number of cupons
+                
                 if subtext == ""{
                     
                 }else{
@@ -37,7 +39,7 @@ struct PaymentSections: View {
                 case "Método de pagamento":
                     changeMethod = true
                 default:
-                    print("1")
+                    print("")
                     
                 }
                 

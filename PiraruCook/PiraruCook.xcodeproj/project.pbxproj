@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F09D4C22BFF646500EA6A0D /* TrackOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F09D4C12BFF646500EA6A0D /* TrackOrderView.swift */; };
 		610B2E702BF62BD000533B52 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */; };
 		614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */; };
 		616604112BF63B5D00C82774 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616604102BF63B5D00C82774 /* Fonts.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F09D4C12BFF646500EA6A0D /* TrackOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackOrderView.swift; sourceTree = "<group>"; };
 		610B2E6F2BF62BD000533B52 /* BrandColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BrandColors.xcassets; sourceTree = "<group>"; };
 		614CE8F42BDBCCB000B0DAE8 /* itemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCardView.swift; sourceTree = "<group>"; };
 		616604102BF63B5D00C82774 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				8BF407752BF232BD00E5988A /* EditAddressView.swift */,
 				8BF407792BF2455B00E5988A /* EventDescriptionView.swift */,
 				8BF4077B2BF25D6500E5988A /* PaymentMethodsView.swift */,
+				3F09D4C12BFF646500EA6A0D /* TrackOrderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
 				8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */,
+				3F09D4C22BFF646500EA6A0D /* TrackOrderView.swift in Sources */,
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
 				D3380E442BF4E3A900457CC6 /* PaymentDoneView.swift in Sources */,
 				8BF407742BEE68CB00E5988A /* CardPreviousOrderView.swift in Sources */,

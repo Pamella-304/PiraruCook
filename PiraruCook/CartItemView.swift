@@ -36,30 +36,32 @@ struct CartItemView: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .frame(height: 102)
-                    .foregroundStyle(colorScheme == .dark ? .black : .white)
+                    .foregroundStyle(.brandSenary)
                     .overlay {
-                        HStack {
-                            VStack(alignment: .leading) {
+                       VStack {
+                            HStack {
                                 Text(dish.name)
                                     .font(.title2)
                                     .bold()
                                 
                                 Spacer()
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(.quaternary)
-                                    .overlay {
-                                        Text("\(viewModel.getQuantity(item: dish))")
-                                    }
+                                
+                                Text(totalPrice())
+                                    .font(.body)
+                                    .bold()
                             }
                             
                             Spacer()
                             
-                            VStack(alignment: .trailing) {
-                                Text(totalPrice())
-                                    .font(.body)
-                                    .bold()
+                            HStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundStyle(.quaternary)
+                                    .overlay{
+                                        Text("\(viewModel.getQuantity(item: dish))")
+                                    }
+                                
                                 
                                 Spacer()
                                 
@@ -68,6 +70,13 @@ struct CartItemView: View {
                                 } onDecrement: {
                                     decrementQuantity()
                                 }
+                                Spacer()
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundStyle(.quaternary)
+                                    .overlay{
+                                        Image(systemName: "pencil")
+                                    }
                                 
                             }
                         }

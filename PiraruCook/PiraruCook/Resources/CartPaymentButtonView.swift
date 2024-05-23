@@ -20,7 +20,7 @@ struct CartPaymentButtonView: View {
                 .foregroundColor(.white)
                 .padding(16)
                 .frame(maxWidth: .infinity)
-                .background(.blue)
+                .background(.brandPrimary)
         }
         .cornerRadius(10)
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))

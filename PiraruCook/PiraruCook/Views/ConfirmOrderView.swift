@@ -54,7 +54,7 @@ struct ConfirmOrderView: View {
                     .foregroundColor(.white)
                     .padding(16)
                     .frame(maxWidth: .infinity)
-                    .background(.blue).bold()
+                    .background(.brandPrimary).bold()
             }
             .cornerRadius(10)
             .padding(16)

@@ -34,23 +34,21 @@ class LoginProfileViewModel{
                 if let appleUser = AppleUser(credentials: appleIDCredentials),
                    let appleUserData =  try? JSONEncoder().encode(appleUser) {
                     
-                    UserDefaults.standard.setValue(appleUserData, forKey: appleUser.userID)
+                    UserDefaults.standard.setValue(appleUserData, forKey: "appleUser_\(appleUser.userID)")
+                    UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+                } else {
+                    // Handle case where appleUser couldn't be created
+                    showAlert = true
+                    alertMessage = "Não foi possível criar o usuário Apple"
                 }
-//                } else {
-//                    
-//                    guard
-//                        let appleUserData = UserDefaults.standard.data(forKey: appleIDCredentials.user),
-//                        let appleUser = try? JSONDecoder().decode(AppleUser.self, from: appleUserData)
-//                            
-//                    else {return}
-//                    
-//                }
+                
                 
             default:
-                print("a")
+                break
             }
         case .failure(_):
-            print("b")
+            showAlert = true
+            alertMessage = "Falha na autenticação Apple"    
         }
     }
     
@@ -70,6 +68,7 @@ class LoginProfileViewModel{
                     let user = try JSONDecoder().decode(User.self, from: userData)
                     if user.email == email && user.password == senha {
                         isLoggedIn = true
+                        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
                         break
                     }
                 } catch {

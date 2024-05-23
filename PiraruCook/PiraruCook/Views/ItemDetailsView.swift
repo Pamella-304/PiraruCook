@@ -13,6 +13,7 @@ struct ItemDetailsView: View {
     @Environment(CartViewModel.self) private var cartViewModel
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
+    @Environment(\.dismiss) var dismiss
     @State private var viewModel: ItemDetailsViewModel
     
     init(dish: TypeDish) {
@@ -25,7 +26,7 @@ struct ItemDetailsView: View {
                 
                 // MARK: Image
                 Image(viewModel.displayImage()).resizable().frame(width: width,height: height*0.25)
-                
+                    .font(.title)
                 // MARK: Description
                 VStack{
                     HStack{
@@ -121,7 +122,7 @@ struct ItemDetailsView: View {
             Button(action: {
                 viewModel.updateCommnet()
                 cartViewModel.addItem(item: viewModel.dish)
-                stackPathMenu.goBack()
+                dismiss()
             }) {
                 Text("Add to cart")
                     .foregroundColor(.white)

@@ -8,7 +8,8 @@
             "ingredients": ["batata, farinha, peixe Piracuí"],
             "price": 10.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Bolinho de Pirarucu seco",
@@ -18,7 +19,8 @@
             "ingredients": ["Batata", "farinha", "pirarucu"],
             "price": 12.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Camarão empanado na farinha de tapioca",
@@ -28,7 +30,8 @@
             "ingredients": ["camarão", "farinha", "leite", "ervas da casa"],
             "price": 18.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Dadinhos de tapioca",
@@ -38,7 +41,8 @@
             "ingredients": ["tapioca", "queijo", "geleia", "cupuaçu", "pimenta"],
             "price": 15.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Mojica",
@@ -48,7 +52,8 @@
             "ingredients": ["farinha", "peixe à escolha", "legumes"],
             "price": 14.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Pastel de camarão com Jambu",
@@ -58,7 +63,8 @@
             "ingredients": ["Camarão", "ervas da casa", "jambu"],
             "price": 16.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Guaraná",
@@ -68,7 +74,8 @@
             "ingredients": ["xarope de guaraná", "amendoim", "mel"],
             "price": 5.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Soda amazônica",
@@ -78,7 +85,8 @@
             "ingredients": ["frutas com soda"],
             "price": 3.5,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Cumaru",
@@ -88,7 +96,8 @@
             "ingredients": ["Álcool"],
             "price": 2.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Suco de frutas",
@@ -98,7 +107,8 @@
             "ingredients": ["Frutas à escolha"],
             "price": 7.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Cachaça de Jambu",
@@ -108,7 +118,8 @@
             "ingredients": ["Álcool", "Jambu"],
             "price": 4.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Mule Amazônico",
@@ -118,7 +129,8 @@
             "ingredients": ["Álcool", "açúcar", "limão"],
             "price": 6.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Pinaçu",
@@ -128,7 +140,8 @@
             "ingredients": ["Álcool", "açúcar", "suco de cupuaçu"],
             "price": 7.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Cunhatã",
@@ -138,7 +151,8 @@
             "ingredients": ["Álcool", "taperabá", "mel", "pimenta", "pacovã"],
             "price": 5.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Ambuçu com cana",
@@ -148,17 +162,19 @@
             "ingredients": ["Álcool", "caldo de cana", "açúcar", "limão"],
             "price": 6.0,
             "tipo": "Bebidas",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Tacaca",
             "description": "Tucupi, Goma de tapioca, camarão seco, jambu",
-            "image": "tacaca",
+            "image": "Tacaca",
             "nutritionalInfo": [""],
             "ingredients": ["Tucupi", "farinha de tapioca", "camarão", "jambu"],
             "price": 13.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Pirarucu grelhado",
@@ -168,7 +184,8 @@
             "ingredients": ["Peixe pirarucu", "alho", "limão", "pimenta"],
             "price": 25.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Pirarucu de Casaca",
@@ -178,7 +195,8 @@
             "ingredients": ["Peixe pirarucu", "farinha de trigo", "legumes", "banana", "leite de coco"],
             "price": 28.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Matrinxã recheada com farofa de banana",
@@ -188,7 +206,8 @@
             "ingredients": ["Peixe Matrinxã", "limão", "legumes", "queijo", "banana", "bacon", "calabresa"],
             "price": 22.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Caldeira de tambaqui",
@@ -198,7 +217,8 @@
             "ingredients": ["Tambaqui, tomates, legumes, temeperos"],
             "price": 30.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Ravioli verde de jambu",
@@ -208,7 +228,8 @@
             "ingredients": ["Ravioli", "jambu", "queijo ricota", "manteiga"],
             "price": 19.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Carré de tambaqui",
@@ -218,7 +239,8 @@
             "ingredients": ["Peixe Tambaqui", "arroz", "camarão", "farofa", "banana"],
             "price": 26.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Tacaqui",
@@ -228,7 +250,8 @@
             "ingredients": ["Peixe Tambaqui", "farinha", "molho de tucupi", "camarão"],
             "price": 24.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Salada caesar de tambaqui",
@@ -238,7 +261,8 @@
             "ingredients": ["tambaqui", "legumes", "queijo", "molho de tucupi"],
             "price": 20.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Moqueca de pirarucu com camarão",
@@ -248,7 +272,8 @@
             "ingredients": ["Peixe pirarucu", "camarão", "leite de coco", "legumes"],
             "price": 32.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Pacu",
@@ -258,7 +283,8 @@
             "ingredients": ["Peixe pacu", "farofa", "arroz", "farofa"],
             "price": 23.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Jaraqui frito",
@@ -268,7 +294,8 @@
             "ingredients": ["Peixe jaraqui", "farofa", "arroz", "farofa de banana"],
             "price": 18.0,
             "tipo": "Salgado",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Cubiu",
@@ -278,7 +305,8 @@
             "ingredients": ["Sorvete", "caldo de tucuri", "farinha"],
             "price": 14.0,
             "tipo": "Doces",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Camu-Camu",
@@ -288,7 +316,8 @@
             "ingredients": ["canela", "chancaca", "laranja"],
             "price": 10.0,
             "tipo": "Doces",
-            "comment": ""
+            "comment": "",
+            "boi" : false
         },
         {
             "name": "Petit gateau de cumaru",
@@ -298,7 +327,30 @@
             "ingredients": ["chocolate", "sorvete de cumaru", "castanha"],
             "price": 16.0,
             "tipo": "Doces",
-            "comment": ""
+            "comment": "",
+            "boi" : false
+        },
+        {
+            "name": "Ração para cachorro",
+            "description": "Peça um pacote de ração para o seu amiguinho canino também!",
+            "image": "RacaoCachorro",
+            "nutritionalInfo": [],
+            "ingredients": [],
+            "price": 46.0,
+            "tipo": "PET",
+            "comment": "",
+            "boi" : false
+        },
+        {
+            "name": "Ração para gato",
+            "description": "Peça um pacote de ração para o seu amiguinho felino também!",
+            "image": "RacaoGato",
+            "nutritionalInfo": [],
+            "ingredients": [],
+            "price": 46.0,
+            "tipo": "PET",
+            "comment": "",
+            "boi" : false
         }
     ]
 }

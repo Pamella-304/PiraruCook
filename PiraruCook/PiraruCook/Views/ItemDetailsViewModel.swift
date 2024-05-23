@@ -19,7 +19,7 @@ class ItemDetailsViewModel {
     var reviews: [Review] = []
     let exampleReviews = [Review(name: "Maria", description: "Achei o prato bem gostoso, pediria outras vezes com prazer."), Review(name: "Carlos", description: "Muito bom"), Review(name: "Andrea", description: "Optaria por outra opção do cardápio.")]
     
-    let exampleSugestedDishes = [TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem gelo")]
+    let exampleSugestedDishes = [TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem gelo", boi: false)]
     
     init(dish: TypeDish) {
         self.dish = dish

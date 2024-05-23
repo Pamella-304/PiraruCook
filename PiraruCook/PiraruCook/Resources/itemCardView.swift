@@ -14,10 +14,10 @@ struct ItemCardView: View {
     
     var body: some View {
         
-        if dish.tipo == "Bebidas" {
-            drinks
-        } else {
+        if dish.tipo == "Salgado" ||  dish.tipo == "Doces"{
             dishes
+        } else {
+            drinks
         }
         
     }
@@ -138,5 +138,5 @@ extension ItemCardView {
 }
 
 #Preview {
-    ItemCardView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal"))
+    ItemCardView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal", boi: false))
 }

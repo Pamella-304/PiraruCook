@@ -5,7 +5,6 @@
 //  Created by Breno Harris on 07/05/24.
 //
 
-import Foundation
 import SwiftUI
 
 struct LoggedProfileView: View {

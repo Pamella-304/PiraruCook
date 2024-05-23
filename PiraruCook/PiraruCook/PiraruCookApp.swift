@@ -15,9 +15,6 @@ struct PiraruCookApp: App {
     
     init() {
         
-//        let backgroundColor = UIColor(Color.backgroundColor)
-//        UIView.appearance().backgroundColor = backgroundColor
-                
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .font: Fonts.largeTitleFont,
             .foregroundColor: UIColor(.brandPrimary),

@@ -14,6 +14,17 @@ struct PiraruCookApp: App {
     @State var user: User = User(userName: "",firstName: "", lastName: "", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     
     init() {
+        
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .font: Fonts.largeTitleFont,
+            .foregroundColor: UIColor(.brandPrimary),
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: Fonts.title3Font,
+            .foregroundColor: UIColor(.brandPrimary)
+        ]
+        
         loadUserData()
         for familyName in UIFont.familyNames {
             print(familyName)
@@ -23,6 +34,7 @@ struct PiraruCookApp: App {
             }
             
         }
+        
     }
     
 
@@ -36,6 +48,7 @@ struct PiraruCookApp: App {
                 .task {
                     loadUserData()
                 }
+                
         }
         
         

@@ -5,9 +5,9 @@ struct TabBarView: View {
     @State private var stackPathMenu = Router()
     @State private var stackPathCart = Router()
     @State private var stackPathProfile = Router()
-    @State private var selection = 4
+    @State private var selection = 1  // Padrão para a tela de cardápio
     @AppStorage("isLoggedIn") private var isLoggedIn = false
-    @State private var selectedPaymentMethod: PaymentMethods = .Pix  // Renomeado para PaymentMethods
+    @State private var selectedPaymentMethod: PaymentMethods = .Pix
 
     var body: some View {
         
@@ -52,6 +52,8 @@ struct TabBarView: View {
                             } else {
                                 PaymentDoneView(selectedPaymentMethod: .Pix)
                             }
+                        case .TrackOrder:
+                            TrackOrderView()
                         default:
                             MenuView()
                         }

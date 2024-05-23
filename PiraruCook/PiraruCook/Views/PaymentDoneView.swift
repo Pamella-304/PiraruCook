@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PaymentDoneView: View {
     var selectedPaymentMethod: PaymentMethods
+    @State private var showTrackOrder = false
 
     var body: some View {
         VStack {
@@ -35,6 +36,23 @@ struct PaymentDoneView: View {
                     .frame(width: 100, height: 100)
                 Text("Aguardando pagamento em dinheiro na entrega.")
                     .padding(.horizontal)
+            }
+            
+            Button {
+                showTrackOrder = true
+            } label: {
+                Text("Acompanhar Pedido")
+                    .foregroundColor(.white)
+                    .padding(16)
+                    .frame(maxWidth: .infinity)
+                    .background(.blue)
+                    .bold()
+                    .cornerRadius(10)
+                    .padding(16)
+            }
+            .sheet(isPresented: $showTrackOrder) {
+                TrackOrderView()
+                    .environment(CartViewModel())
             }
         }
     }

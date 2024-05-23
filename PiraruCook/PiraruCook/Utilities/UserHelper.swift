@@ -15,8 +15,8 @@ class UserHelper {
         user.password = newPassword
         
         if let encodedUser = try? JSONEncoder().encode(user) {
-            let userID = UUID().uuidString
-            UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
+//            let userID = UUID().uuidString
+            UserDefaults.standard.set(encodedUser, forKey: "user_")
             print("usuário atualizado com sucesso")
 
         } else {

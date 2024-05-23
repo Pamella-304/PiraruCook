@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct CardAddressView: View {
-    var myAddress: Address
+    @Binding var myAddress: Address
     var isCurrentAddress = false
+    @Binding var isEditing: Bool
+    var myIndex = 0
+    @Binding var editingAddress: Int?
+    
+    @Binding var editingAddressName: String
+    @Binding var editingAddressLocation: String
+    @Binding var editingAddressPicture: String
+    
     
     var body: some View {
         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
@@ -33,15 +41,20 @@ struct CardAddressView: View {
                                     .fontWeight(.semibold)
                                     .foregroundStyle(isCurrentAddress ? .blue : .primary)
                                 
-                                if isCurrentAddress {
-                                    Image(systemName: "checkmark.circle")
-                                        .foregroundStyle(.blue)
-                                }
                                 
                                     
                                 Spacer()
-                                Image(systemName: "ellipsis")
-                                    .foregroundStyle(isCurrentAddress ? .blue : .primary)
+                                Menu {
+                                    Button("Editar") {
+                                        isEditing.toggle()
+                                        EditAddressPlaceHolder()
+                                        editingAddress = myIndex
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis")
+                                        .foregroundStyle(isCurrentAddress ? .blue : .primary)
+                                }
+                                
                             }
                             
                             Text("\(myAddress.location)")
@@ -58,8 +71,14 @@ struct CardAddressView: View {
             }
             
     }
+    
+    func EditAddressPlaceHolder() {
+        editingAddressName = myAddress.nickname
+        editingAddressLocation = myAddress.location
+        editingAddressPicture = myAddress.picture
+    }
 }
 
-#Preview {
-    CardAddressView(myAddress: exampleAddress.first!)
-}
+//#Preview {
+//    CardAddressView(myAddress: exampleAddress.first!, allAddresses: )
+//}

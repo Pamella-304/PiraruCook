@@ -118,7 +118,7 @@ class SignInFormsViewModel {
         
         if let encodedUser = try? JSONEncoder().encode(newUser) {
             let userID = UUID().uuidString
-            UserDefaults.standard.set(encodedUser, forKey: "user_ \(userID)")
+            UserDefaults.standard.set(encodedUser, forKey: "user_")
             accountCreated = true
             print("usuário salvo com sucesso")
             return (true, newUser)

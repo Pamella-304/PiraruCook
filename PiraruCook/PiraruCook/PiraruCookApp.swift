@@ -43,12 +43,12 @@ struct PiraruCookApp: App {
 
     
     func loadUserData() {
-        if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
+        if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_") }) {
             if let userData = UserDefaults.standard.data(forKey: userID) {
                 do {
                     // Decodifica os dados do usuário
                     let myUser = try JSONDecoder().decode(User.self, from: userData)
-                    self.user = user
+                    self.user = myUser
                 } catch {
                     print("Erro ao decodificar usuário:", error)
                 }

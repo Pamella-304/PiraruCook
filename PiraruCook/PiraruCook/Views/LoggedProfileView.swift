@@ -66,6 +66,7 @@ struct LoggedProfileView: View {
                     ProfileOptionsView(imageName: "mappin", title:
                                         "Endereços", description: "Preferências de endereço de entrega")
                 }
+                .environment(user)
                 .foregroundStyle(.primary)
                 
                 

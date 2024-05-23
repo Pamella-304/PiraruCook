@@ -15,7 +15,6 @@ struct TabBarView: View {
             
             NavigationStack(path: $stackPathMenu.path) {
                 MenuView()
-                    .navigationTitle("Cardápio")
                     .navigationDestination(for: RouterData.self) { data in
                         
                         switch data.screen {
@@ -30,7 +29,7 @@ struct TabBarView: View {
             }
             .environment(stackPathMenu)
             .tabItem {
-                Label("Cardápio", systemImage: "book.fill")
+                Label("Cardápio", systemImage: "list.bullet")
             }
             .tag(1)
             
@@ -99,6 +98,18 @@ struct TabBarView: View {
                 Label("Perfil", systemImage: "person.fill")
             }
             .tag(3)
-        }
+
+        }.accentColor(.brandPrimary)
+         .background(.white.opacity(0.75))
+         .shadow(color: .black.opacity(0.3), radius: 0, x: 0, y: -0.33)
+      
+
+
+
     }
+}
+
+
+#Preview {
+    TabBarView()
 }

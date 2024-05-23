@@ -32,7 +32,7 @@ struct MultiSelectionPicker<LabelView: View, Selectable: Identifiable & Hashable
                     label
                     Spacer()
                     Text(formattedSelectedListString)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
                 }
             }

@@ -30,7 +30,7 @@ struct ChangeMethodView: View {
                                 .padding(4)
                         }
                         Button{
-                            viewModel.MoneyOption()
+                            viewModel.CashOption()
                             dismiss()
                         }label: {
                             CardPaymentMethodView(symbol: "dollarsign.circle", description: ["Pagamento", "Dinheiro"])

@@ -47,6 +47,10 @@ struct MenuView: View {
                                 }
                             } header: {
                                 Text("\(category)")
+                                    .padding(.horizontal, 16)
+                                    .foregroundStyle(.brandPrimary)
+                                    .font(Font(Fonts.title2Font))
+                                    .bold()
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .id(category)

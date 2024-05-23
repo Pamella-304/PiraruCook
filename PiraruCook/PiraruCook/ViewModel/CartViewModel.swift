@@ -31,15 +31,17 @@ class CartViewModel {
     var subTotalValue: Double
     var transportationValue: Double
     var paymentMethod: PaymentMethods
+    var change: Double
     var isDelivery = false
     var cupom: Cupom?
     var services = CartService()
     
-    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0, paymentMethod: PaymentMethods = .Pix, cupom: Cupom? = nil) {
+    init(items: [DishCart] = [], subTotalValue: Double = 0, transportationValue: Double = 0, paymentMethod: PaymentMethods = .Pix, change: Double = 0, cupom: Cupom? = nil) {
         self.items = items
         self.subTotalValue = subTotalValue
         self.transportationValue = transportationValue
         self.paymentMethod = paymentMethod
+        self.change = change
         self.cupom = cupom
     }
     

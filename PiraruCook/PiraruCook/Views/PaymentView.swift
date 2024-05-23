@@ -12,8 +12,7 @@ struct PaymentView: View {
     @State var paymentSubtitle: String = ""
     @Environment(CartViewModel.self) private var viewModel
     @State private var finalPayment = false
-   
-    
+
     var body: some View {
         //MARK: Payment Method
         VStack{
@@ -44,6 +43,10 @@ struct PaymentView: View {
             ValuesSection(Title: "Desconto", Price: viewModel.getDiscount())
             ValuesSection(Title: "Entrega", Price: viewModel.transportationValue)
             ValuesSection(Title: "Total", Price: viewModel.getTotalValue())
+            if viewModel.change != 0{
+                ValuesSection(Title: "Seu troco", Price: viewModel.change - viewModel.getTotalValue())
+            }
+            
             
             
             Button{
@@ -61,7 +64,7 @@ struct PaymentView: View {
             
         
         }.navigationTitle("Pagamento").sheet(isPresented: $finalPayment) {
-            ConfirmOrderView().presentationDetents([.fraction(0.3)])
+            ConfirmOrderView().presentationDetents((viewModel.paymentMethod.rawValue == "Dinheiro") ? [.fraction(0.45)] : [.fraction(0.3)])
         }
         
     }

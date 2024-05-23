@@ -12,6 +12,7 @@ struct ConfirmOrderView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(Router.self) private var stackPathPix
     @Environment(CartViewModel.self) private var viewModel
+    @State var changeT = ""
     
     var body: some View {
         VStack{
@@ -23,12 +24,27 @@ struct ConfirmOrderView: View {
             }.padding()
             Divider().padding(.horizontal)
             HStack{
-                Image(systemName: "mappin")
+                Image(systemName: "dollarsign.circle")
                 Text(viewModel.paymentMethod.rawValue)
                 Spacer()
                 Text(viewModel.displayTotalValue()).bold()
+                
             }.padding()
-            Spacer()
+            if viewModel.paymentMethod.rawValue == "Dinheiro"{
+                Divider().padding(.horizontal)
+                HStack{
+                    Image(systemName: "dollarsign.circle")
+                    Text("Troco para:")
+                    TextField("Digite quanto vai pagar", text: $changeT)
+                        .onChange(of: changeT) { newValue in
+                            if let value = Double(newValue) {
+                                viewModel.change = value
+                            }
+                        }
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                }.padding(.horizontal)
+            }
             Button{
                 // TODO: ended payment logic
                 dismiss()
@@ -37,6 +53,7 @@ struct ConfirmOrderView: View {
                 }else{
                     
                 }
+                print(viewModel.change)
             }label: {
                 Text("Confirmar Pedido")
                     .foregroundColor(.white)

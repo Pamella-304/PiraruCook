@@ -15,13 +15,14 @@ struct PiraruCookApp: App {
     
     init() {
         
-        let backgroundColor = UIColor(Color.backgroundColor)
-        UIView.appearance().backgroundColor = backgroundColor
-        
+//        let backgroundColor = UIColor(Color.backgroundColor)
+//        UIView.appearance().backgroundColor = backgroundColor
+                
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .font: Fonts.largeTitleFont,
-            .foregroundColor: UIColor(.brandPrimary)
+            .foregroundColor: UIColor(.brandPrimary),
         ]
+        
         UINavigationBar.appearance().titleTextAttributes = [
             .font: Fonts.title3Font,
             .foregroundColor: UIColor(.brandPrimary)

@@ -63,6 +63,8 @@ struct MenuView: View {
             }
             .navigationBarTitle(Text("Cardápio"), displayMode: .large)
             .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
+            .frame(alignment: .leading)
+            .background(Color(red: 229/255, green: 229/255, blue: 234/255))
             .toolbar {
     
                         HStack{
@@ -85,8 +87,7 @@ struct MenuView: View {
                         }
             
             }
-            .frame(alignment: .leading)
-          //  .background(Color.backgroundColor)
+            
         
     }
 

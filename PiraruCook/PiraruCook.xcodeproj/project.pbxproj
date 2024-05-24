@@ -36,6 +36,7 @@
 		8BC0C90A2BF64936008109E4 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0C9092BF64936008109E4 /* UserHelper.swift */; };
 		8BC0C90C2BFCD093008109E4 /* MultiSelectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0C90B2BFCD093008109E4 /* MultiSelectionPicker.swift */; };
 		8BC0C9102C000F6E008109E4 /* Racao.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0C90F2C000F6D008109E4 /* Racao.xcassets */; };
+		8BC0C9122C001732008109E4 /* MenuPickerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0C9112C001732008109E4 /* MenuPickerCard.swift */; };
 		8BF407722BEE51BE00E5988A /* PreviousOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407712BEE51BE00E5988A /* PreviousOrdersView.swift */; };
 		8BF407742BEE68CB00E5988A /* CardPreviousOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407732BEE68CB00E5988A /* CardPreviousOrderView.swift */; };
 		8BF407762BF232BD00E5988A /* EditAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF407752BF232BD00E5988A /* EditAddressView.swift */; };
@@ -103,6 +104,7 @@
 		8BC0C9092BF64936008109E4 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		8BC0C90B2BFCD093008109E4 /* MultiSelectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionPicker.swift; sourceTree = "<group>"; };
 		8BC0C90F2C000F6D008109E4 /* Racao.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Racao.xcassets; sourceTree = "<group>"; };
+		8BC0C9112C001732008109E4 /* MenuPickerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPickerCard.swift; sourceTree = "<group>"; };
 		8BF407712BEE51BE00E5988A /* PreviousOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousOrdersView.swift; sourceTree = "<group>"; };
 		8BF407732BEE68CB00E5988A /* CardPreviousOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreviousOrderView.swift; sourceTree = "<group>"; };
 		8BF407752BF232BD00E5988A /* EditAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				8BF407772BF2331D00E5988A /* CardAddressView.swift */,
 				8BF4077D2BF25E9F00E5988A /* CardPaymentMethodView.swift */,
 				8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */,
+				8BC0C9112C001732008109E4 /* MenuPickerCard.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */,
 				61715A9F2BD9236300F83338 /* PiraruCookApp.swift in Sources */,
 				8BB75C3C2BDAA4EB00CB87B9 /* ItemDetailsView.swift in Sources */,
+				8BC0C9122C001732008109E4 /* MenuPickerCard.swift in Sources */,
 				8BB75C402BDAA6A400CB87B9 /* ReadJson.swift in Sources */,
 				8BC0C90C2BFCD093008109E4 /* MultiSelectionPicker.swift in Sources */,
 				8BB66BAB2BE3B9EB000E9E5B /* Formatter.swift in Sources */,

@@ -14,6 +14,21 @@ struct MenuView: View {
   
     
     var body: some View {
+        
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(allDishTypes.allCases, id: \.self) { type in
+                    Button {
+                        viewModel.selectedDishType = type
+                    } label: {
+                        MenuPickerCard(text: type.description, isSelected: type == viewModel.selectedDishType)
+                    }
+                }
+            }
+            .padding()
+        }
+        
+        
             ScrollView {
                 
                 ForEach(viewModel.categories, id:\.self) { category in
@@ -74,11 +89,7 @@ struct MenuView: View {
                                         }
                                     }
                                     
-                                    Picker("Filtrar", selection: $viewModel.selectedDishType) {
-                                        ForEach(allDishTypes.allCases, id: \.self) { type in
-                                            Text(type.description)
-                                        }
-                                    }
+                                    
                                 } label: {
                                     Image(systemName: "list.bullet.circle")
                                 }

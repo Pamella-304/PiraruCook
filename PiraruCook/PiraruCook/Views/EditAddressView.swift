@@ -8,18 +8,37 @@
 import SwiftUI
 
 struct EditAddressView: View {
+    @Environment(User.self) var user
+    @State var addingAddress = false
+    @State var searchingAddress = ""
     var addressesList: [Address]?
     var body: some View {
-        CardAddressView(myAddress: Address(location: "Av. Alan Turing, 275 - Cidade Universitária, Campinas - SP", nickname: "Usar minha localização", picture: "location.north.circle.fill"))
-//            .background(.quinary)
-        Divider()
-        
-        List(exampleAddress, id: \.self) {
-            CardAddressView(myAddress: $0, isCurrentAddress: ($0 == exampleAddress.first))
-        }
-        .listStyle(.inset)
-        .navigationTitle("Endereços")
-        .navigationBarTitleDisplayMode(.inline)
+        VStack{
+            ScrollView{
+                CardAddressView(myAddress: Address(location: "Av. Alan Turing, 275 - Cidade Universitária, Campinas - SP", nickname: "Usar minha localização", picture: "location.north.circle.fill")).padding(.bottom, 8)
+                ForEach(exampleAddress, id: \.self) {
+                    CardAddressView(myAddress: $0, isCurrentAddress: ($0 == exampleAddress.first)).padding(8)
+                }
+                .listStyle(.inset)
+            }
+            Spacer()
+            Button{
+                addingAddress = true
+            }label: {
+                Text("Adicionar endereço").font(Font(Fonts.title3Font))
+                    .foregroundColor(.white)
+                    .padding(16)
+                    .frame(maxWidth: .infinity)
+                    .background(.brandPrimary).bold()
+            }
+            .cornerRadius(10)
+            .padding(16)
+        }.navigationTitle("Endereços")
+            .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $searchingAddress, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar endereço")
+            .sheet(isPresented: $addingAddress){
+                AddingNewAddressView()
+            }
     }
 }
 

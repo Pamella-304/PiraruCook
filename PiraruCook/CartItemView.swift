@@ -13,7 +13,7 @@ struct CartItemView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var dish: TypeDish
     let imageWidth:CGFloat? = 102
-    let imageHeight:CGFloat? = 102
+    let imageHeight:CGFloat? = 130
 
     
     var body: some View {
@@ -22,7 +22,7 @@ struct CartItemView: View {
             HStack(spacing:-12) {
                 Image(dish.image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    
                     .frame(width: imageWidth, height: imageHeight)
                     .clipped()
                     .clipShape(
@@ -35,21 +35,23 @@ struct CartItemView: View {
                     )
                 
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(height: 102)
+                    .frame(height: imageHeight)
                     .foregroundStyle(.brandSenary)
                     .overlay {
                        VStack {
                             HStack {
                                 Text(dish.name)
-                                    .font(.title2)
+                                    .font(Font(Fonts.title4Font))
                                     .bold()
+                                    .foregroundStyle(.brandTerciary)
                                 
                                 Spacer()
                                 
                                 
                                 Text(totalPrice())
-                                    .font(.body)
+                                    .font(Font(Fonts.title4Font))
                                     .bold()
+                                    .foregroundStyle(.brandTerciary)
                             }
                             
                             Spacer()
@@ -57,26 +59,27 @@ struct CartItemView: View {
                             HStack {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(width: 30, height: 30)
-                                    .foregroundStyle(.quaternary)
+                                    .foregroundStyle(.tertiary)
                                     .overlay{
-                                        Text("\(viewModel.getQuantity(item: dish))")
+                                        Text("\(viewModel.getQuantity(item: dish))").font(Font(Fonts.title4Font)).foregroundStyle(.brandTerciary)
                                     }
                                 
                                 
-                                Spacer()
+                                
                                 
                                 Stepper("") {
                                     incrementQuantity()
                                 } onDecrement: {
                                     decrementQuantity()
                                 }
-                                Spacer()
+                                
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(width: 30, height: 30)
                                     .foregroundStyle(.quaternary)
                                     .overlay{
                                         Image(systemName: "pencil")
                                     }
+                                
                                 
                             }
                         }

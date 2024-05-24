@@ -88,11 +88,12 @@ struct CartItemView: View {
                         .foregroundStyle(colorScheme == .light ? .black : .white)
                     }
             }
-            
-            Text(dish.comment)
-                .background()
-                .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
-                .frame(maxWidth: .infinity, alignment: .leading)
+            if dish.comment != ""{
+                Text("- \(dish.comment)")
+                    .background()
+                    .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
             
         }
     }

@@ -38,37 +38,46 @@ extension ItemCardView {
                         topLeadingRadius: 10,
                         bottomLeadingRadius: 10,
                         bottomTrailingRadius: 0,
-                        topTrailingRadius: 0
+                        topTrailingRadius: 10
                     )
                 )
             
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 0)
                 .frame(height: 102)
-                .foregroundStyle(colorScheme == .dark ? .black : .white)
+                .foregroundStyle(.brandSenary)
+                .clipped()
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 0,
+                        bottomLeadingRadius: 0,
+                        bottomTrailingRadius: 10,
+                        topTrailingRadius: 10
+                    )
+                )
                 .overlay {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(dish.name)
-                                .font(.title2)
+                                .font(Font(Fonts.title3Font))
                                 .bold()
                             
                             Spacer()
                             
-                            Text(dish.ingredients.first ?? "")
+                            Text(dish.ingredients.joined(separator: ", "))
+                                .multilineTextAlignment(.trailing)
+                                .font(.body)
                         }
                         
                         Spacer()
                         
                         VStack(alignment: .trailing) {
                             Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
-                                .font(.body)
+                                .font(Font(Fonts.title3Font))
                                 .bold()
                             
                             Spacer()
                             
-                            Text("Serve até 2 pessoas")
-                                .font(.footnote)
-                                .frame(maxWidth: 70)
+                            
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -80,86 +89,54 @@ extension ItemCardView {
     }
     
     var dishes: some View {
-        
-        ZStack {
-            Image(dish.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipped()
-                .clipShape(
-                    .rect(
-                        topLeadingRadius: 10,
-                        bottomLeadingRadius: 10,
-                        bottomTrailingRadius: 0,
-                        topTrailingRadius: 0
-                    )
-                )
-            //.clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay {
-                    VStack{
-                        Spacer()
-                        ZStack{
-                            VStack{
-                                Rectangle()
-                                    .frame(width: 340, height: 52)
-                            }.padding(.horizontal, 19)
-                                .padding(.top, 10)
-                                .padding(.bottom, 16)
-                        }.background(Color.white)
-                    }
-                    
-                    
+        ZStack(alignment: .bottom) {
+            VStack {
+                Image(dish.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Spacer()
+            }
+            
+
+            VStack {
+                HStack {
+                    Text(dish.name)
+                    Spacer()
+                    Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
                 }
-        }.padding(.horizontal, 26)
-            .frame(height: 214.0)
+                .font(Font(Fonts.title3Font))
+                .bold()
+                
+                HStack {
+                    Text(dish.ingredients.joined(separator: ", "))
+                        .multilineTextAlignment(.trailing)
+                        .font(.body)
+                    Spacer()
+                    Text("Serve até 3 pessoas")
+                }
+                
+            }
+            .padding()
+            .foregroundStyle(.black)
+            .frame(width: 350, height: 80)
+            .background(.brandSenary)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 0,
+                    bottomLeadingRadius: 10,
+                    bottomTrailingRadius: 10,
+                    topTrailingRadius: 0
+                )
+            )
+        }
+        .frame(width: 200, height: 200)
+        
         
     }
     
 }
 
 #Preview {
-    ItemCardView(dish: TypeDish(name: "Capirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal", boi: false))
+    ItemCardView(dish: TypeDish(name: "Dadinhos de tapioca", description: "Bom", image: "DadinhoDeTapioca", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Salgado", comment: "Sem sal", boi: false))
 }
 
-
-
-
-//VStack {
-//                        Spacer()
-//                        ZStack {
-//                            VStack(spacing: 4) {
-//                                Rectangle()
-//                                    .frame(height: 4)
-//                                    .hidden()
-//
-//                                HStack {
-//                                    Text(dish.name)
-//                                        .font(.title2)
-//                                        .bold()
-//
-//                                    Spacer()
-//
-//                                    Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
-//                                        .font(.title3)
-//                                        .bold()
-//                                }
-//
-//                                HStack {
-//                                    Text(dish.ingredients.first ?? "")
-//                                        .frame(alignment: .bottom)
-//                                    Spacer()
-//                                    Text("Serve até 2 pessoas")
-//                                        .font(.footnote)
-//                                }
-//
-//                                Rectangle()
-//                                    .frame(height: 4)
-//                                    .hidden()
-//                            }
-//                            .foregroundStyle(colorScheme == .light ? .black : .white)
-//
-//
-//                        }
-//                        .padding(4)
-//                        .background(colorScheme == .dark ? .black : .white)
-//                    }

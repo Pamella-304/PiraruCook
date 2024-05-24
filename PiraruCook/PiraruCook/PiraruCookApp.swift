@@ -25,7 +25,6 @@ struct PiraruCookApp: App {
             .foregroundColor: UIColor(.brandPrimary)
         ]
         
-        loadUserData()
         for familyName in UIFont.familyNames {
             print(familyName)
             

@@ -22,7 +22,8 @@ struct ChevronDownComponent: View {
                 
             } label: {
                 HStack {
-                    Text("\(displayName)").font(.title2)
+                    Text("\(displayName)")
+                        .font(Font(Fonts.title3Font))
                         .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: ("chevron.right"))
@@ -35,7 +36,8 @@ struct ChevronDownComponent: View {
             if hasClicked {
                 VStack(alignment: .leading) {
                     ForEach(array, id: \.self) {
-                        Text("• \($0.TrimAndUpperCase() ?? "")")
+                        Text("•\($0.TrimAndUpperCase() ?? "")")
+                            .font(.body)
                     }
                 }
                 .padding()

@@ -32,6 +32,8 @@ struct ChangeUserInfoView: View {
             } header: {
                 HStack {
                     Text("Alterar Email Cadastrado")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.brandPrimary)
                         .padding()
                     Spacer()
                 }
@@ -55,6 +57,8 @@ struct ChangeUserInfoView: View {
             } header: {
                 HStack {
                     Text("Alterar Senha Cadastrada")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.brandPrimary)
                         .padding()
                     Spacer()
                 }
@@ -73,6 +77,7 @@ struct ChangeUserInfoView: View {
                 }
                 viewModel.showAlert.toggle()
             }
+            .foregroundStyle(.brandPrimary)
             .padding()
             
             
@@ -81,10 +86,13 @@ struct ChangeUserInfoView: View {
                     Button("Alterar meu Boi selecionado") {
                         viewModel.showingSheet.toggle()
                     }
+                    .foregroundStyle(.brandPrimary)
                 }
             } header: {
                 HStack {
                     Text("Opções do Evento")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.brandPrimary)
                         .padding()
                     Spacer()
                 }
@@ -93,6 +101,7 @@ struct ChangeUserInfoView: View {
             Spacer()
                 .sheet(isPresented: $viewModel.showingSheet) {
                     ChooseBoiSheet()
+                        .environment(user)
                 }
                 .alert(isPresented: $viewModel.showAlert) {
                     Alert(title: Text(viewModel.alertTitle),

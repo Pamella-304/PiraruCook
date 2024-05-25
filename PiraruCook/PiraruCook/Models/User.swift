@@ -3,10 +3,10 @@ import SwiftUI
 
 
 
-enum Boi: Codable {
-    case garantido
-    case caprichoso
+enum SelectedBoi: Codable {
+    case none, garantido, caprichoso
 }
+
 
 enum CodingKeys: CodingKey {
     case userName, firstName, lastName, birthDate
@@ -25,12 +25,12 @@ class User: Codable {
     var email: String
     var password: String
     var cpf: String
-    var boi: Boi?
+    var boi: SelectedBoi?
     
     var addresses: [Address] = []
     
     
-    init(userName: String = "", firstName: String = "", lastName: String = "", birthDate: Date = Date.now, address: String = "", email: String = "", password: String = "", cpf: String = "", boi: Boi = .caprichoso, registeredAdresses: [Address] = [Address(location: "Beco São Francisco 112, Lírio do Vale, Manaus, AM", nickname: "Casa", picture: "house"), Address(location: "Avenida Max Teixeira 2078 - Cidade Nova, Manaus, AM", nickname: "Trabalho", picture: "suitcase")]) {
+    init(userName: String = "", firstName: String = "", lastName: String = "", birthDate: Date = Date.now, address: String = "", email: String = "", password: String = "", cpf: String = "", boi: SelectedBoi = .none, registeredAdresses: [Address] = [Address(location: "Beco São Francisco 112, Lírio do Vale, Manaus, AM", nickname: "Casa", picture: "house"), Address(location: "Avenida Max Teixeira 2078 - Cidade Nova, Manaus, AM", nickname: "Trabalho", picture: "suitcase")]) {
         
         self.userName = userName
         self.firstName = firstName

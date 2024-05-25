@@ -23,14 +23,14 @@ struct CardAddressView: View {
         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
             .stroke(.secondary, lineWidth: 1.5)
             .frame(width: 350, height: 125)
-            .foregroundStyle(isCurrentAddress ? .blue : .secondary)
+            .foregroundStyle(isCurrentAddress ? .brandPrimary : .secondary)
             .overlay {
                 VStack {
                     HStack {
                         Spacer()
                         Image(systemName: "\(myAddress.picture)")
                             .font(.title)
-                            .foregroundStyle(isCurrentAddress ? .blue : .primary)
+                            .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                             
                         
                         VStack(alignment: .leading) {
@@ -39,7 +39,7 @@ struct CardAddressView: View {
                                 Text("\(myAddress.nickname)")
                                     .font(.title2)
                                     .fontWeight(.semibold)
-                                    .foregroundStyle(isCurrentAddress ? .blue : .primary)
+                                    .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 
                                 
                                     
@@ -52,7 +52,7 @@ struct CardAddressView: View {
                                     }
                                 } label: {
                                     Image(systemName: "ellipsis")
-                                        .foregroundStyle(isCurrentAddress ? .blue : .primary)
+                                        .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 }
                                 
                             }

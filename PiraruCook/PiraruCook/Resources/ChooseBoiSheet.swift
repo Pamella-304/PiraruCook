@@ -9,28 +9,28 @@ import SwiftUI
 
 struct ChooseBoiSheet: View {
     @Environment(\.dismiss) var dismiss
-    @State var selectedBoi = SelectedBoi.none
+    @Environment(User.self) var user
     var body: some View {
         VStack {
             
             Text("Está chegando o festival de Parintins")
                 .padding()
-                .font(.title3)
-                .foregroundStyle(.secondary)
+                .font(Font(Fonts.title4Font))
+                .foregroundStyle(.brandSecondary)
             Text("Declare sua torcida!")
-                .font(.title)
-                .foregroundStyle(.primary)
+                .font(Font(Fonts.title1Font))
+                .foregroundStyle(.brandPrimary)
             Spacer()
             HStack {
                 VStack {
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(selectedBoi == SelectedBoi.caprichoso ? .blue : .white, lineWidth: 1.5)
+                        .stroke(user.boi == SelectedBoi.caprichoso ? .blue : .white, lineWidth: 1.5)
                         .frame(width: 128, height: 128)
                         .opacity(1)
                         .overlay {
                             Button {
-                                selectedBoi = SelectedBoi.caprichoso
-                            }label: {
+                                user.boi = SelectedBoi.caprichoso
+                            } label: {
                                 VStack {
                                     Text("🐂🔵")
                                         .font(.title)
@@ -48,12 +48,12 @@ struct ChooseBoiSheet: View {
                 Spacer()
                 VStack {
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke( selectedBoi == SelectedBoi.garantido ? .red : .white, lineWidth: 1.5)
+                        .stroke( user.boi == SelectedBoi.garantido ? .red : .white, lineWidth: 1.5)
                         .frame(width: 128, height: 128)
                         .opacity(1)
                         .overlay {
                             Button {
-                                selectedBoi = SelectedBoi.garantido
+                                user.boi = SelectedBoi.garantido
                             } label: {
                                 VStack {
                                     Text("🐂🔴")
@@ -70,19 +70,19 @@ struct ChooseBoiSheet: View {
             }
             Spacer()
             Button {
-                print("Escolheu o boi \(selectedBoi)")
+                user.updateUser(user: user)
                 dismiss()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .frame(height: 64)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.brandPrimary)
                     .overlay {
                         Text("Escolher meu Boi")
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(.white)
                     }
                     .padding()
             }
-            .disabled(selectedBoi != SelectedBoi.none ? false : true)
+            .disabled(user.boi != SelectedBoi.none ? false : true)
             
         }
         
@@ -94,6 +94,3 @@ struct ChooseBoiSheet: View {
 }
 
 
-enum SelectedBoi {
-    case none, garantido, caprichoso
-}

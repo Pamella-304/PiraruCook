@@ -14,11 +14,19 @@ struct EditAddressView: View {
     @State var editingAddress: Int? = nil
     @State var isEditingList = false
     @State var currentAddress = 0
+    @State var isShowingSheetNewAddress = false
     
     @State var searchingAddress = ""
     @State var editingAddressName = ""
     @State var editingAddressLocation = ""
     @State var editingAddressPicture = "house"
+    
+    
+    @State var newAddressName = ""
+    @State var newAddressLocation = ""
+    @State var newAddressPicture = "house"
+    
+    
     
     var symbols = ["suitcase", "sofa", "house", "house.lodge"]
     
@@ -42,8 +50,7 @@ struct EditAddressView: View {
         .listStyle(.inset)
         
         Button {
-            isEditingList = true
-            print("hey")
+            isShowingSheetNewAddress.toggle()
         }label:{
             Text("Adicionar endereço").font(Font(Fonts.title3Font))
                             .foregroundColor(.white)
@@ -54,6 +61,71 @@ struct EditAddressView: View {
                     .cornerRadius(10)
                     .padding(16)
         
+        
+        
+        .sheet(isPresented: $isShowingSheetNewAddress) {
+            VStack {
+                Spacer()
+                Section {
+                    TextField("Nome do endereço", text: $newAddressName)
+                        .foregroundStyle(.secondary)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.bottom, 42)
+                    
+                } header: {
+                    HStack {
+                        Text("Cadastrar Nome do endereço")
+                            .font(Font(Fonts.title3Font))
+                            .bold()
+                        Spacer()
+                    }
+                    
+                }
+                .padding(.horizontal, 48)
+                
+                
+                
+                Section {
+                    TextField("Cadastrar endereço", text: $newAddressLocation, axis: .vertical)
+                        .foregroundStyle(.secondary)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.horizontal, 48)
+                    
+                } header: {
+                    HStack {
+                        Text("Cadastrar Nome do endereço")
+                            .font(Font(Fonts.title3Font))
+                            .bold()
+                        Spacer()
+                    }
+                    
+                }
+                .padding(.horizontal, 24)
+                
+                
+                Picker("Figura", selection: $newAddressPicture) {
+                        ForEach(symbols, id: \.self) {
+                            Image(systemName: $0)
+                    }
+                }
+                .padding()
+                .pickerStyle(.palette)
+                
+                Spacer()
+                Button {
+                    createNewAddress()
+                    isShowingSheetNewAddress.toggle()
+                } label: {
+                    Text("Salvar Alterações")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.white)
+                        .padding()
+                }
+                .background(.brandPrimary)
+                .clipShape(Capsule())
+            }
+            
+        }
         
         .sheet(isPresented: $isEditingList) {
             VStack {
@@ -67,6 +139,7 @@ struct EditAddressView: View {
                 } header: {
                     HStack {
                         Text("Alterar Nome do endereço")
+                            .font(Font(Fonts.title3Font))
                             .bold()
                         Spacer()
                     }
@@ -85,6 +158,7 @@ struct EditAddressView: View {
                 } header: {
                     HStack {
                         Text("Alterar Nome do endereço")
+                            .font(Font(Fonts.title3Font))
                             .bold()
                         Spacer()
                     }
@@ -107,9 +181,11 @@ struct EditAddressView: View {
                     isEditingList.toggle()
                 } label: {
                     Text("Salvar Alterações")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.white)
                         .padding()
                 }
-                .background(.brandSecondary)
+                .background(.brandPrimary)
                 .clipShape(Capsule())
             }
             
@@ -120,10 +196,18 @@ struct EditAddressView: View {
         .navigationTitle("Endereços")
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchingAddress, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar endereço")
+            
 
     }
     
     
+    func createNewAddress() {
+        var newAddress = Address(location: newAddressLocation, nickname: newAddressName, picture: newAddressPicture)
+        exampleAddress.append(newAddress)
+        
+        user.addresses.append(newAddress)
+        user.updateUser(user: user)
+    }
     
     func updateAddress() {
         exampleAddress[editingAddress ?? 0].nickname = editingAddressName

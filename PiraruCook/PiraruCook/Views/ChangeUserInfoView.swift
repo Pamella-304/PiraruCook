@@ -71,7 +71,37 @@ struct ChangeUserInfoView: View {
                 ButtonView(name: "Salvar Alterações", type: .primary)
                     .padding()
             }
+            .foregroundStyle(.brandPrimary)
+            .padding()
             
+            
+            Section {
+                VStack {
+                    Button("Alterar meu Boi selecionado") {
+                        viewModel.showingSheet.toggle()
+                    }
+                    .foregroundStyle(.brandPrimary)
+                }
+            } header: {
+                HStack {
+                    Text("Opções do Evento")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.brandPrimary)
+                        .padding()
+                    Spacer()
+                }
+                
+            }
+            Spacer()
+                .sheet(isPresented: $viewModel.showingSheet) {
+                    ChooseBoiSheet()
+                        .environment(user)
+                }
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text(viewModel.alertTitle),
+                          message: Text(viewModel.alertMessage),
+                          dismissButton: .default(Text("OK")))
+                }
         }
         .navigationTitle("Alteração de Dados")
         .navigationBarTitleDisplayMode(.inline)

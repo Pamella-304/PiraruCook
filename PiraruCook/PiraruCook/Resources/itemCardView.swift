@@ -30,7 +30,7 @@ extension ItemCardView {
         HStack(spacing:-12) {
             Image(dish.image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 102,height: 102)
                 .clipped()
                 .clipShape(
@@ -90,44 +90,46 @@ extension ItemCardView {
     
     var dishes: some View {
         ZStack(alignment: .bottom) {
-            VStack {
-                Image(dish.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Spacer()
-            }
+        
+            Image(dish.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .overlay {
+                    
+                    VStack {
+                        
+                        HStack {
+                            Text(dish.name)
+                            Spacer()
+                            Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+                        }
+                        .font(Font(Fonts.title3Font))
+                        .bold()
+                        
+                        HStack {
+                            Text(dish.ingredients.joined(separator: ", "))
+                                .multilineTextAlignment(.trailing)
+                                .font(.body)
+                            Spacer()
+                            Text("Serve até 3 pessoas")
+                        }
+                        
+                    }
+                    .padding()
+                    .foregroundStyle(.black)
+                    .frame(width: 350, height: 80)
+                    .background(.brandSenary)
+                    .clipShape(
+                        .rect(
+                            topLeadingRadius: 0,
+                            bottomLeadingRadius: 10,
+                            bottomTrailingRadius: 10,
+                            topTrailingRadius: 0
+                        )
+                    )
+                }
             
-
-            VStack {
-                HStack {
-                    Text(dish.name)
-                    Spacer()
-                    Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
-                }
-                .font(Font(Fonts.title3Font))
-                .bold()
-                
-                HStack {
-                    Text(dish.ingredients.joined(separator: ", "))
-                        .multilineTextAlignment(.trailing)
-                        .font(.body)
-                    Spacer()
-                    Text("Serve até 3 pessoas")
-                }
-                
-            }
-            .padding()
-            .foregroundStyle(.black)
-            .frame(width: 350, height: 80)
-            .background(.brandSenary)
-            .clipShape(
-                .rect(
-                    topLeadingRadius: 0,
-                    bottomLeadingRadius: 10,
-                    bottomTrailingRadius: 10,
-                    topTrailingRadius: 0
-                )
-            )
+            
         }
         .frame(width: 200, height: 200)
         
@@ -137,6 +139,6 @@ extension ItemCardView {
 }
 
 #Preview {
-    ItemCardView(dish: TypeDish(name: "Dadinhos de tapioca", description: "Bom", image: "DadinhoDeTapioca", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Salgado", comment: "Sem sal", boi: false))
+    ItemCardView(dish: TypeDish(name: "Cubiu", description: "Bom", image: "Cubiu", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Salgado", comment: "Sem sal", boi: false))
 }
 

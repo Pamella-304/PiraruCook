@@ -33,13 +33,8 @@ struct CardAddressView: View {
                             .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                         
                         
-                        HStack {
-                            Text("\(myAddress.nickname)")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
-                            
-                            
+                        VStack(alignment: .leading) {
+
                             HStack {
                                 Text("\(myAddress.nickname)")
                                 
@@ -61,27 +56,19 @@ struct CardAddressView: View {
                                     Image(systemName: "ellipsis")
                                         .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 }
-                                Spacer()
                                 
-                                
-                                Text("\(myAddress.location)")
-                                    .fontWeight(.thin)
                                 
                             }
-                            .padding()
-                        }
-                        
+                            Spacer()
+                                Text("\(myAddress.location)")
+                                    .fontWeight(.thin)
+                            
+                            
+                        }.padding()
                     }
-                    
                     .foregroundStyle(.primary)
-                    
-                    
                 }
-                
             }
-        
-        
-        
     }
     func EditAddressPlaceHolder() {
         editingAddressName = myAddress.nickname

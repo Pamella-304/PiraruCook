@@ -14,9 +14,6 @@ struct PiraruCookApp: App {
     @State var user: User = User(userName: "",firstName: "", lastName: "", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: Boi.caprichoso)
     
     init() {
-        
-        UINavigationBar.appearance().backgroundColor = UIColor.white
-        
 
             
         UINavigationBar.appearance().largeTitleTextAttributes = [

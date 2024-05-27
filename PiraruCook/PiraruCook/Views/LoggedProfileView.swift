@@ -102,7 +102,7 @@ struct LoggedProfileView: View {
         .frame(maxHeight: .infinity, alignment: .top)
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
-        
+        .navigationBarTitleDisplayMode(.large)
     }
     
 }

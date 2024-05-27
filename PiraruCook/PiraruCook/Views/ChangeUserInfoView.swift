@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ChangeUserInfoView: View {
     @Environment(User.self) private var user
+    @Environment(\.dismiss) private var dismiss
     @State var viewModel = ChangeUserInfoViewModel()
     @State var confirmEmail = ""
     @State var confirmPassword = ""
@@ -75,34 +76,6 @@ struct ChangeUserInfoView: View {
             .foregroundStyle(.brandPrimary)
             .padding()
             
-            
-//            Section {
-//                VStack {
-//                    Button("Alterar meu Boi selecionado") {
-//                        viewModel.showingSheet.toggle()
-//                    }
-//                    .foregroundStyle(.brandPrimary)
-//                }
-//            } header: {
-//                HStack {
-//                    Text("Opções do Evento")
-//                        .font(Font(Fonts.title4Font))
-//                        .foregroundStyle(.brandPrimary)
-//                        .padding()
-//                    Spacer()
-//                }
-//                
-//            }
-//            Spacer()
-//                .sheet(isPresented: $viewModel.showingSheet) {
-//                    ChooseBoiSheet()
-//                        .environment(user)
-//                }
-//                .alert(isPresented: $viewModel.showAlert) {
-//                    Alert(title: Text(viewModel.alertTitle),
-//                          message: Text(viewModel.alertMessage),
-//                          dismissButton: .default(Text("OK")))
-//                }
         }
         .navigationTitle("Alteração de Dados")
         .navigationBarTitleDisplayMode(.inline)

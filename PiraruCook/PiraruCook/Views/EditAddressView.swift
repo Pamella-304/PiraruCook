@@ -16,6 +16,7 @@ struct EditAddressView: View {
     @State var currentAddress = 0
     @State var isShowingSheetNewAddress = false
     
+    @State var searchingAddress = ""
     @State var editingAddressName = ""
     @State var editingAddressLocation = ""
     @State var editingAddressPicture = "house"
@@ -48,10 +49,18 @@ struct EditAddressView: View {
         }
         .listStyle(.inset)
         
-        Button("Adicionar Endereço") {
+        Button {
             isShowingSheetNewAddress.toggle()
-        }
-        .padding()
+        }label:{
+            Text("Adicionar endereço").font(Font(Fonts.title3Font))
+                            .foregroundColor(.white)
+                            .padding(16)
+                            .frame(maxWidth: .infinity)
+                            .background(.brandPrimary).bold()
+                    }
+                    .cornerRadius(10)
+                    .padding(16)
+        
         
         
         .sheet(isPresented: $isShowingSheetNewAddress) {
@@ -186,6 +195,7 @@ struct EditAddressView: View {
         }
         .navigationTitle("Endereços")
         .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $searchingAddress, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar endereço")
             
 
     }

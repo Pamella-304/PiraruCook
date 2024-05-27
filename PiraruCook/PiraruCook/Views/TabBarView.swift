@@ -72,7 +72,7 @@ struct TabBarView: View {
                         LoginProfileView()
                     }
                 }
-                .navigationTitle("Perfil")
+                .navigationBarTitle(Text("Iniciar Sessão"), displayMode: .inline)
                 .navigationDestination(for: RouterData.self) { data in
                     
                     switch data.screen {

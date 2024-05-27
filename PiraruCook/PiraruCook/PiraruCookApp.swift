@@ -15,9 +15,13 @@ struct PiraruCookApp: App {
     
     init() {
         
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        
+
+            
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .font: Fonts.largeTitleFont,
-            .foregroundColor: UIColor(.brandPrimary),
+            .foregroundColor: UIColor(.brandPrimary)
         ]
         
         UINavigationBar.appearance().titleTextAttributes = [
@@ -48,7 +52,6 @@ struct PiraruCookApp: App {
                 .task {
                     loadUserData()
                 }
-                
         }
         
         

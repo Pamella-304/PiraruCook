@@ -93,45 +93,49 @@ extension ItemCardView {
         
             Image(dish.image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 350, height: 250)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay {
-                    
                     VStack {
-                        
-                        HStack {
-                            Text(dish.name)
-                            Spacer()
-                            Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+                        Spacer()
+                        VStack {
+                            HStack {
+                                Text(dish.name)
+                                Spacer()
+                                Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+                            }
+                            .font(Font(Fonts.title3Font))
+                            .bold()
+                            
+                            HStack {
+                                Text(dish.ingredients.joined(separator: ", "))
+                                    .multilineTextAlignment(.trailing)
+                                    .font(.body)
+                                Spacer()
+                                Text("Serve até 3 pessoas")
+                            }
+                            
                         }
-                        .font(Font(Fonts.title3Font))
-                        .bold()
-                        
-                        HStack {
-                            Text(dish.ingredients.joined(separator: ", "))
-                                .multilineTextAlignment(.trailing)
-                                .font(.body)
-                            Spacer()
-                            Text("Serve até 3 pessoas")
-                        }
-                        
-                    }
-                    .padding()
-                    .foregroundStyle(.black)
-                    .frame(width: 350, height: 80)
-                    .background(.brandSenary)
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 0,
-                            bottomLeadingRadius: 10,
-                            bottomTrailingRadius: 10,
-                            topTrailingRadius: 0
+                        .padding()
+                        .foregroundStyle(.black)
+                        .frame(width: 350, height: 80)
+                        .background(.brandSenary)
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 0,
+                                bottomLeadingRadius: 10,
+                                bottomTrailingRadius: 10,
+                                topTrailingRadius: 0
+                            )
                         )
-                    )
+                    }
+                    
                 }
             
             
         }
-        .frame(width: 200, height: 200)
+//        .frame(width: 300, height: 200)
         
         
     }

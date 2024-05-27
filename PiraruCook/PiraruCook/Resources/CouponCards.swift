@@ -15,9 +15,9 @@ struct CouponCards: View {
     var body: some View {
         
         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-            .stroke(.brandSecondary, lineWidth: 3)
+            .stroke(isCurrentCoupon ? .brandPrimary : .brandSecondary, lineWidth: 3)
             .frame(width: 350, height: 70)
-            .foregroundStyle(isCurrentCoupon ? .brandPrimary : .brandSecondary)
+            
             .overlay {
                 HStack{
                     Text(couponValue).font(Font(Fonts.title1Font)).foregroundStyle(.brandPrimary)

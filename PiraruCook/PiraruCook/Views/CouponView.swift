@@ -11,7 +11,7 @@ struct CouponView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack(spacing: 5){
-            Text("Cupons disponíveis").font(Font(Fonts.title1Font))
+            Text("Cupons disponíveis").font(Font(Fonts.title3Font)).padding(.top)
             Divider().padding()
         }
         ScrollView{

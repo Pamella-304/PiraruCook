@@ -46,7 +46,7 @@ struct PaymentSections: View {
                 case "Cupom":
                     chooseCoupon = true
                     print("\(changeMethod)")
-                    sheetFraction = 0.2
+                    sheetFraction = 0.28
                 default:
                     print("")
                     

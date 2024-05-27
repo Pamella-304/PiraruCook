@@ -13,7 +13,10 @@ struct PaymentSections: View {
     var img1: String
     var subtext: String
     var text: String
+    @State private var paymentSheets = false
     @State private var changeMethod = false
+    @State private var chooseCoupon = false
+    @State private var sheetFraction = 0.25
     
     
     
@@ -35,9 +38,15 @@ struct PaymentSections: View {
             }
             Spacer()
             Button {
+                paymentSheets = true
                 switch usage{
                 case "Método de pagamento":
                     changeMethod = true
+                    sheetFraction = 0.25
+                case "Cupom":
+                    chooseCoupon = true
+                    print("\(changeMethod)")
+                    sheetFraction = 0.2
                 default:
                     print("")
                     
@@ -48,8 +57,16 @@ struct PaymentSections: View {
                 Text("Trocar")
                     .bold()
             }
-        }.sheet(isPresented: $changeMethod) {
-            ChangeMethodView().presentationDetents([.fraction(0.25)])
+        }.sheet(isPresented: $paymentSheets) {
+            switch usage{
+            case "Método de pagamento":
+                ChangeMethodView().presentationDetents([.fraction(sheetFraction)])
+            case "Cupom":
+                CouponView().presentationDetents([.fraction(sheetFraction)])
+            default:
+                ChangeMethodView()
+            }
+            
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
     }

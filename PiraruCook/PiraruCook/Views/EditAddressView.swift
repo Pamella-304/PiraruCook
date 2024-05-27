@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditAddressView: View {
+
     @Environment(User.self) private var user: User
     @State var exampleAddress = [Address]()
     @State var editingAddress: Int? = nil
@@ -185,6 +186,8 @@ struct EditAddressView: View {
         }
         .navigationTitle("Endereços")
         .navigationBarTitleDisplayMode(.inline)
+            
+
     }
     
     

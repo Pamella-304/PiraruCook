@@ -18,9 +18,10 @@ struct CartPaymentButtonView: View {
         }label: {
             Text("Pagamento")
                 .foregroundColor(.white)
+                .font(Font(Fonts.title3Font))
                 .padding(16)
                 .frame(maxWidth: .infinity)
-                .background(.blue)
+                .background(.brandPrimary)
         }
         .cornerRadius(10)
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))

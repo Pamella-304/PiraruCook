@@ -13,8 +13,12 @@ struct ConfirmOrderView: View {
             HStack {
                 Image(systemName: "mappin")
                 Text("R. Silvio da Silva")
+                .font(Font(Fonts.title4Font))
+
                 Spacer()
                 Text("até 40 min").opacity(0.6)
+                .font(Font(Fonts.title4Font))
+
             }.padding()
             Divider().padding(.horizontal)
 
@@ -22,8 +26,11 @@ struct ConfirmOrderView: View {
                 Image(systemName: "dollarsign.circle")
 
                 Text(viewModel.paymentMethod.rawValue)
+                .font(Font(Fonts.title3Font))
+
                 Spacer()
                 Text(viewModel.displayTotalValue()).bold()
+                .font(Font(Fonts.title3Font))
                 
             }.padding()
 
@@ -50,11 +57,14 @@ struct ConfirmOrderView: View {
                 stackPathPix.path.append(routerData)
             } label: {
 
-                Text("Confirmar Pedido")
+                Text("Confirmar compra")
                     .foregroundColor(.white)
                     .padding(16)
                     .frame(maxWidth: .infinity)
-                    .background(.blue).bold()
+
+                    .background(.brandPrimary)
+                    .font(Font(Fonts.title3Font))
+
             }
             .cornerRadius(10)
             .padding(16)

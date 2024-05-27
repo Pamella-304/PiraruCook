@@ -31,18 +31,25 @@ struct CardAddressView: View {
                         Image(systemName: "\(myAddress.picture)")
                             .font(.title)
                             .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
-                            
                         
-                        VStack(alignment: .leading) {
+                        
+                        HStack {
+                            Text("\(myAddress.nickname)")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
+                            
                             
                             HStack {
                                 Text("\(myAddress.nickname)")
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
+                                
+                                    .font(Font(Fonts.title3Font))
+                                
                                     .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 
                                 
-                                    
+                                
+                                
                                 Spacer()
                                 Menu {
                                     Button("Editar") {
@@ -54,24 +61,28 @@ struct CardAddressView: View {
                                     Image(systemName: "ellipsis")
                                         .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 }
+                                Spacer()
+                                
+                                
+                                Text("\(myAddress.location)")
+                                    .fontWeight(.thin)
                                 
                             }
-                            
-                            Text("\(myAddress.location)")
-                                .fontWeight(.thin)
+                            .padding()
                         }
-                        .padding()
+                        
                     }
+                    
+                    .foregroundStyle(.primary)
+                    
                     
                 }
                 
-                .foregroundStyle(.primary)
-                
-                
             }
-            
+        
+        
+        
     }
-    
     func EditAddressPlaceHolder() {
         editingAddressName = myAddress.nickname
         editingAddressLocation = myAddress.location

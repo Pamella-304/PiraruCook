@@ -14,16 +14,16 @@ struct MenuPickerCard: View {
         
         
         Text(text)
-            .font(Font(Fonts.title3Font))
-                .padding()
+            .font(Font(Fonts.title4Font))
+                .padding(8)
                 .foregroundStyle(isSelected ? .white : .brandPrimary)
                 .background(isSelected ? .brandPrimary : .white)
                 .clipShape(
                     .rect(
-                        topLeadingRadius: 5,
-                        bottomLeadingRadius: 5,
-                        bottomTrailingRadius: 5,
-                        topTrailingRadius: 5
+                        topLeadingRadius: 8,
+                        bottomLeadingRadius: 8,
+                        bottomTrailingRadius: 8,
+                        topTrailingRadius: 8
                     )
                            
                 )

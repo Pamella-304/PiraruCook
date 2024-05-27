@@ -12,7 +12,6 @@ struct ProfileOptionsView: View {
     var title: String
     var description: String
     
-    
     var body: some View {
         
         HStack(alignment: .center, spacing: 8) {

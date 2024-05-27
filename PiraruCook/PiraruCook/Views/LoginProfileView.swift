@@ -17,41 +17,109 @@ struct LoginProfileView: View {
     
     var body: some View {
         
-        VStack{
-            TextField("Email", text: $viewModel.email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            SecureField("Senha", text: $viewModel.senha)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            Button("Entrar") {
-                viewModel.verificacaoLogin()
-            }.padding()
-                .alert(isPresented: $viewModel.showAlert) {
-                    Alert(title: Text("Erro"),
-                          message: Text(viewModel.alertMessage),
-                          dismissButton: .default(Text("OK")))
-                }
-            
-            Button("Criar Conta"){
-                stackPathProfile.path.append(RouterData(screen: .SignInForms))
-            }
-            .padding()
-            Spacer()
-            
-            SignInWithAppleButton(
-                .signIn,
-                onRequest: viewModel.configure,
-                onCompletion: viewModel.handle
-            )
-            .frame(height: 45)
-            .padding()
-            .colorInvert()
+            VStack{
+                    
+                    Image("logoPlaceHolder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.horizontal, 32)
+                        .padding(.bottom, 32)
+                        .padding(.top, 16)
+                    
+                    TextField("Email", text: $viewModel.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(maxHeight: 44)
+                   
+                    TextField("Senha", text: $viewModel.senha)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxHeight: 44)
+                    
+                
+                Spacer()
+
+                    Button(action: {
+                        viewModel.verificacaoLogin()
+                        
+                    }) {
+                        Text("Iniciar sessão")
+                            .font(Font(Fonts.title3Font))
+                            .foregroundColor(.white)
+                        
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 41, alignment: .center)
+                    .background(Color.brandPrimary)
+                    .cornerRadius(10)
+                    .padding(.vertical, 8)
+                    .alert(isPresented: $viewModel.showAlert) {
+                        Alert(title: Text("Erro"),
+                              message: Text(viewModel.alertMessage),
+                              dismissButton: .default(Text("OK")))
+                    }
+                    
+                    LocalizedSignInWithAppleButton(
+                        type: .signIn,
+                        style: .black,
+                        locale: Locale(identifier: "pt_BR") // Força o botão para o português do Brasil
+                    )
+                    .frame(height: 45)
+                    .padding(.vertical, 8)
+                    .cornerRadius(15)
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Iniciar sessão como convidado")
+                            .font(Font(Fonts.title3Font))
+                            .foregroundColor(.black)
+                        
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 41, alignment: .center)
+                    .background(Color.brandSenary)
+                    .cornerRadius(10)
+                    .padding(.vertical, 8)
+                    .alert(isPresented: $viewModel.showAlert) {
+                        Alert(title: Text("Erro"),
+                              message: Text(viewModel.alertMessage),
+                              dismissButton: .default(Text("OK")))
+                    }
+                    
+                    Spacer()
+                    
+                    Text("Não tem uma conta?")
+                        .font(Font(Fonts.title4Font))
+                    
+                    Button("Criar agora"){
+                        stackPathProfile.path.append(RouterData(screen: .SignInForms))
+                    }
+                    .font(Font(Fonts.title4Font))
+                    .foregroundColor(.black)
+                }.padding(.bottom, 16)
+                .padding(.horizontal, 16)
+
+                .background(globalBackgroundColor)
+
+                .onAppear{
+                    viewModel.isLoggedIn = isLoggedIn
         }
-        .onAppear{
-            viewModel.isLoggedIn = isLoggedIn
-        }
+        
     }
     
+    
+    struct LocalizedSignInWithAppleButton: UIViewRepresentable {
+        var type: ASAuthorizationAppleIDButton.ButtonType
+        var style: ASAuthorizationAppleIDButton.Style
+        var locale: Locale
+
+        func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
+            let button = ASAuthorizationAppleIDButton(type: type, style: style)
+            
+            // Set the locale for the button (this will apply the correct language)
+            button.overrideUserInterfaceStyle = .dark // Example: ensure the button is in dark mode if needed
+            return button
+        }
+
+        func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
+            // No need to update the view
+        }
+    }
 }

@@ -13,7 +13,7 @@ struct CartItemView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var dish: TypeDish
     let imageWidth:CGFloat? = 102
-    let imageHeight:CGFloat? = 102
+    let imageHeight:CGFloat? = 130
 
     
     var body: some View {
@@ -22,7 +22,7 @@ struct CartItemView: View {
             HStack(spacing:-12) {
                 Image(dish.image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    
                     .frame(width: imageWidth, height: imageHeight)
                     .clipped()
                     .clipShape(
@@ -35,39 +35,51 @@ struct CartItemView: View {
                     )
                 
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(height: 102)
-                    .foregroundStyle(colorScheme == .dark ? .black : .white)
+                    .frame(height: imageHeight)
+                    .foregroundStyle(.brandSenary)
                     .overlay {
-                        HStack {
-                            VStack(alignment: .leading) {
+                       VStack {
+                            HStack {
                                 Text(dish.name)
-                                    .font(.title2)
+                                    .font(Font(Fonts.title4Font))
                                     .bold()
+                                    .foregroundStyle(.brandTerciary)
                                 
                                 Spacer()
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(.quaternary)
-                                    .overlay {
-                                        Text("\(viewModel.getQuantity(item: dish))")
-                                    }
+                                
+                                Text(totalPrice())
+                                    .font(Font(Fonts.title4Font))
+                                    .bold()
+                                    .foregroundStyle(.brandTerciary)
                             }
                             
                             Spacer()
                             
-                            VStack(alignment: .trailing) {
-                                Text(totalPrice())
-                                    .font(.body)
-                                    .bold()
+                            HStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundStyle(.tertiary)
+                                    .overlay{
+                                        Text("\(viewModel.getQuantity(item: dish))").font(Font(Fonts.title4Font)).foregroundStyle(.brandTerciary)
+                                    }
                                 
-                                Spacer()
+                                
+                                
                                 
                                 Stepper("") {
                                     incrementQuantity()
                                 } onDecrement: {
                                     decrementQuantity()
                                 }
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundStyle(.quaternary)
+                                    .overlay{
+                                        Image(systemName: "pencil")
+                                    }
+                                
                                 
                             }
                         }
@@ -76,11 +88,12 @@ struct CartItemView: View {
                         .foregroundStyle(colorScheme == .light ? .black : .white)
                     }
             }
-            
-            Text(dish.comment)
-                .background()
-                .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
-                .frame(maxWidth: .infinity, alignment: .leading)
+            if dish.comment != ""{
+                Text("- \(dish.comment)")
+                    .background()
+                    .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
             
         }
     }

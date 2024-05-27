@@ -15,14 +15,14 @@ struct CartPaymentResumeView: View {
     var body: some View {
         VStack(spacing:16) {
             HStack {
-                Text("Subtotal")
+                Text("Subtotal").font(Font(Fonts.title4Font))
                 Spacer()
-                Text(viewModel.displaySubTotalValue())
+                Text(viewModel.displaySubTotalValue()).font(Font(Fonts.title4Font))
             }
             
             VStack {
                 HStack {
-                    Text("Entrega")
+                    Text("Entrega").font(Font(Fonts.title4Font))
                     Spacer()
                     Picker(selection: $isDelivery, label: Text("Opção de entrega")) {
                         Text("Entrega").tag(true)
@@ -35,14 +35,19 @@ struct CartPaymentResumeView: View {
                 }
                 
                 Text(viewModel.displayTransportation())
+                    .font(Font(Fonts.title4Font))
                     .frame(maxWidth: .infinity, alignment: .trailing)
+                
                 
             }
             
             HStack {
-                Text("Total")
+                Text("Total").font(Font(Fonts.title4Font))
                 Spacer()
-                Text(viewModel.displayTotalValue())
+                ZStack{
+                    Rectangle().foregroundColor(.brandSenary).frame(width: UIScreen.main.bounds.width * 0.2, height: UIScreen.main.bounds.height * 0.04).cornerRadius(10)
+                    Text(viewModel.displayTotalValue()).font(Font(Fonts.title4Font))
+                }
                 
             }
         }

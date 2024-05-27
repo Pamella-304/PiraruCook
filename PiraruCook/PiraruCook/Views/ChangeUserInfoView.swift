@@ -12,60 +12,51 @@ import SwiftUI
 struct ChangeUserInfoView: View {
     @Environment(User.self) private var user
     @State var viewModel = ChangeUserInfoViewModel()
+    @State var confirmEmail = ""
+    @State var confirmPassword = ""
+    @State var newName = ""
+    @State var newCPF = ""
     
     var body: some View {
+        
         VStack {
-            Section {
-                VStack {
-                    TextField("Email Atual", text: $viewModel.currentEmail)
-                        .textFieldStyle(.roundedBorder)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
-                    
-                    TextField("Email", text: $viewModel.newEmail)
-                        .textFieldStyle(.roundedBorder)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal)
-                }
+            List {
                 
-            } header: {
-                HStack {
+                // TODO: Verificar e-mail
+                Section {
+                    TextField("Novo e-mail", text: $viewModel.currentEmail)
+                    TextField("Confirmar e-mail", text: $confirmEmail)
+                } header: {
                     Text("Alterar Email Cadastrado")
                         .font(Font(Fonts.title4Font))
-                        .foregroundStyle(.brandPrimary)
-                        .padding()
-                    Spacer()
+                        .foregroundStyle(.brandSecondary)
                 }
+                .headerProminence(.increased)
                 
-                
-            }
-            
-            Section {
-                VStack {
-                    TextField("Senha atual", text: $viewModel.currentPassword)
-                        .textFieldStyle(.roundedBorder)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
-                    
+                // TODO: Verificar conta
+                Section {
                     TextField("Nova senha", text: $viewModel.newPassword)
-                        .textFieldStyle(.roundedBorder)
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal)
-                }
-            } header: {
-                HStack {
+                    TextField("Confirmar senha", text: $confirmPassword)
+                } header: {
                     Text("Alterar Senha Cadastrada")
                         .font(Font(Fonts.title4Font))
-                        .foregroundStyle(.brandPrimary)
-                        .padding()
-                    Spacer()
+                        .foregroundStyle(.brandSecondary)
                 }
+                .headerProminence(.increased)
                 
+                Section {
+                    TextField("Nome", text: $newName)
+                    TextField("CPF", text: $newCPF)
+                } header: {
+                    Text("Alterar dados pessoais")
+                        .font(Font(Fonts.title4Font))
+                        .foregroundStyle(.brandSecondary)
+                }
+                .headerProminence(.increased)
             }
             
-            Button("Atualizar preferências de conta") {
+            // TODO: Atualizar CPF e nome
+            Button {
                 if ((viewModel.confirmInformation(written: viewModel.currentEmail, actual: user.email)) && (viewModel.confirmInformation(written: viewModel.currentPassword, actual: user.password))) {
                     
                     UserHelper.updateUser(user: user, newEmail: viewModel.newEmail, newPassword: viewModel.newPassword)
@@ -76,6 +67,9 @@ struct ChangeUserInfoView: View {
                     viewModel.alertMessage = "Algum dos campos não condiz com o valor encontrado"
                 }
                 viewModel.showAlert.toggle()
+            } label: {
+                ButtonView(name: "Salvar Alterações", type: .primary)
+                    .padding()
             }
             .foregroundStyle(.brandPrimary)
             .padding()
@@ -109,7 +103,10 @@ struct ChangeUserInfoView: View {
                           dismissButton: .default(Text("OK")))
                 }
         }
-        
+        .navigationTitle("Alteração de Dados")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(.colorBackground)
+   
     }
 }
 

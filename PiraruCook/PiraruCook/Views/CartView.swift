@@ -19,17 +19,10 @@ struct CartView: View {
             CartItemsView()
             
             VStack(spacing:16) {
-                
-                // MARK: Cupom section
-                CartCupomView()
-                
-                
                 // MARK: Payment Resume
                 CartPaymentResumeView()
-                
                 // MARK: Payment
                 CartPaymentButtonView()
-                
             }
             
         }

@@ -16,7 +16,7 @@ struct ChangeMethodView: View {
             HStack {
                 Text("Escolha o método de pagamento:")
                     .padding(.horizontal)
-                    .font(.title3)
+                    .font(Font(Fonts.title4Font))
                     .foregroundStyle(.primary)
                 Spacer()
             }.padding()

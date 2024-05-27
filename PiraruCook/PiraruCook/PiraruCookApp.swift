@@ -14,10 +14,11 @@ struct PiraruCookApp: App {
     @State var user: User = User(userName: "",firstName: "", lastName: "", birthDate: Date.now, address: "", email: "", password: "", cpf: "", boi: SelectedBoi.caprichoso)
     
     init() {
-        
+
+            
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .font: Fonts.largeTitleFont,
-            .foregroundColor: UIColor(.brandPrimary),
+            .foregroundColor: UIColor(.brandPrimary)
         ]
         
         UINavigationBar.appearance().titleTextAttributes = [
@@ -47,7 +48,6 @@ struct PiraruCookApp: App {
                 .task {
                     loadUserData()
                 }
-                
         }
         
         

@@ -15,7 +15,8 @@ struct PreviousOrdersView: View {
         ScrollView {
             ForEach(previousOrderExample, id: \.self) {
                 CardPreviousOrderView(previousOrder: $0)
-                    .padding()
+                    .padding(.horizontal)
+                    .padding(.vertical , 8)
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)

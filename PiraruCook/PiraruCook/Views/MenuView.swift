@@ -11,8 +11,6 @@ struct MenuView: View {
     
     @State private var viewModel = MenuViewModel()
     
-  
-    
     var body: some View {
         
         ScrollView(.horizontal) {

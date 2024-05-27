@@ -83,7 +83,7 @@ struct MenuView: View {
         .navigationBarTitle(Text("Cardápio"), displayMode: .large)
         .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
         .frame(alignment: .leading)
-        .background(.colorBackground)
+        .background(Color("globalBackgroundColor"))
         .toolbar {
             Menu {
                 Picker("Ordenar", selection: $viewModel.sortOrder) {
@@ -103,6 +103,7 @@ struct MenuView: View {
     }
     
 }
+    
 #Preview {
     MenuView()
 }

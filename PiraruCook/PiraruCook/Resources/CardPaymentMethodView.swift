@@ -9,32 +9,38 @@ import SwiftUI
 
 struct CardPaymentMethodView: View {
     var symbol: String
-    var description: [String]
+    var description: String
+    var actualMethod: Bool
     var body: some View {
-        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-            .stroke(.secondary, lineWidth: 1.5)
-            .frame(width: 125, height: 125)
-            .foregroundStyle(.tertiary)
-            .overlay {
-                VStack(alignment: .leading) {
-                    Image(systemName: "\(symbol)")
-                        .foregroundStyle(.blue)
-                        .font(.title2)
-                    Spacer()
-                    Text("\(description.first ?? "")")
-                        .font(.caption2)
+        
+        HStack(spacing: 16) {
+            Group {
+                Image(symbol)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 30)
                     
-                    Text("\(description[1])")
-                        .font(.footnote)
-                }
-                .font(.body)
-                .padding()
-                
             }
-            .background(.quinary)
+            .frame(width: 52, height: 44, alignment: .center)
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
+            
+            Text(description)
+                .foregroundStyle(.black)
+                .fontWeight(.semibold)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundStyle(.white)
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(actualMethod ? .brandPrimary : .clear, lineWidth: 2)
+        }
+
     }
 }
 
 #Preview {
-    CardPaymentMethodView(symbol: "apple.logo", description: ["Pagamento", "Apple Pay"])
+    CardPaymentMethodView(symbol: "Matrinxa", description: "Pagamento", actualMethod: true)
 }

@@ -25,7 +25,7 @@ struct PaymentView: View {
 //                Text("Desconto").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(usage: "", img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
+            PaymentSections(usage: "Cupom", img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
                 .font(Font(Fonts.title3Font))
 
                 

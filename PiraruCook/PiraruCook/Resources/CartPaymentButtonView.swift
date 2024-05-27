@@ -16,7 +16,7 @@ struct CartPaymentButtonView: View {
             // TODO: payment logic
             stackPathCart.path.append(RouterData(screen: .Payment))
         }label: {
-            Text("Pagamento")
+            Text("Finalizar Compra")
                 .foregroundColor(.white)
                 .font(Font(Fonts.title3Font))
                 .padding(16)

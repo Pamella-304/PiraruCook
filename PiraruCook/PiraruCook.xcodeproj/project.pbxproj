@@ -24,8 +24,12 @@
 		61CED8D92BEA79D500798247 /* SignInFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CED8D82BEA79D500798247 /* SignInFormsView.swift */; };
 		61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */; };
 		61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */; };
+
 		61F5F68E2C00C19E0062BE0B /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F5F68D2C00C19E0062BE0B /* globalVariables.swift */; };
 		742C63A42C00CA0600BBF01E /* AddingNewAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C63A32C00CA0600BBF01E /* AddingNewAddressView.swift */; };
+		742C63A62C04C6AB00BBF01E /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C63A52C04C6AA00BBF01E /* CouponView.swift */; };
+		742C63A82C04C6C400BBF01E /* CouponCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C63A72C04C6C400BBF01E /* CouponCards.swift */; };
+
 		8B0175172BE122410022410B /* ItemDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0175162BE122410022410B /* ItemDetailsViewModel.swift */; };
 		8B1E6BE22BE9228400625875 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E6BE12BE9228400625875 /* User.swift */; };
 		8B6F4E012BDBE8FB00ED83E3 /* ChevronDownComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */; };
@@ -96,8 +100,12 @@
 		61E10D0B2BE90E1700ACF7E9 /* LoginProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProfileView.swift; sourceTree = "<group>"; };
 		61E10D0D2BE9441400ACF7E9 /* AppleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUser.swift; sourceTree = "<group>"; };
 		61E3BA4E2BE3B869001C0201 /* PiraruCook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiraruCook.entitlements; sourceTree = "<group>"; };
+
 		61F5F68D2C00C19E0062BE0B /* globalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
 		742C63A32C00CA0600BBF01E /* AddingNewAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingNewAddressView.swift; sourceTree = "<group>"; };
+		742C63A52C04C6AA00BBF01E /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
+		742C63A72C04C6C400BBF01E /* CouponCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCards.swift; sourceTree = "<group>"; };
+
 		8B0175162BE122410022410B /* ItemDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDetailsViewModel.swift; path = PiraruCook/Views/ItemDetailsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B1E6BE12BE9228400625875 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B6F4E002BDBE8FB00ED83E3 /* ChevronDownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownComponent.swift; sourceTree = "<group>"; };
@@ -179,6 +187,7 @@
 				8BF4077B2BF25D6500E5988A /* PaymentMethodsView.swift */,
 				3F09D4C12BFF646500EA6A0D /* TrackOrderView.swift */,
 				742C63A32C00CA0600BBF01E /* AddingNewAddressView.swift */,
+				742C63A52C04C6AA00BBF01E /* CouponView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 				8BF4077F2BF3A4B600E5988A /* ChooseBoiSheet.swift */,
 				D38EEC372C00BCF100642953 /* ButtonView.swift */,
 				8BC0C9112C001732008109E4 /* MenuPickerCard.swift */,
+				742C63A72C04C6C400BBF01E /* CouponCards.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -241,7 +251,6 @@
 				8BB66BAA2BE3B9EB000E9E5B /* Formatter.swift */,
 				8BC0C9092BF64936008109E4 /* UserHelper.swift */,
 				8BC0C90B2BFCD093008109E4 /* MultiSelectionPicker.swift */,
-				61F5F68D2C00C19E0062BE0B /* globalVariables.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -413,6 +422,7 @@
 				614CE8F52BDBCCB000B0DAE8 /* itemCardView.swift in Sources */,
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
 				8BB16D5E2BEA769A000B7DDF /* LoggedProfileView.swift in Sources */,
+				742C63A62C04C6AB00BBF01E /* CouponView.swift in Sources */,
 				3F09D4C22BFF646500EA6A0D /* TrackOrderView.swift in Sources */,
 				61E10D0C2BE90E1700ACF7E9 /* LoginProfileView.swift in Sources */,
 				D3380E442BF4E3A900457CC6 /* PaymentDoneView.swift in Sources */,
@@ -436,6 +446,7 @@
 				D3E98FBE2BDBD8C900DCE016 /* Router.swift in Sources */,
 				8BF407822BF3AC1B00E5988A /* ChangeUserInfoView.swift in Sources */,
 				D3DC3CC92BDBEA45001C4300 /* CartViewModel.swift in Sources */,
+				742C63A82C04C6C400BBF01E /* CouponCards.swift in Sources */,
 				61E10D0E2BE9441400ACF7E9 /* AppleUser.swift in Sources */,
 				D3782FB22BE115A20041EEAC /* CartItemView.swift in Sources */,
 				8BF407722BEE51BE00E5988A /* PreviousOrdersView.swift in Sources */,
@@ -446,7 +457,6 @@
 				D353682F2BDFC6FD005C9CA6 /* MenuViewModel.swift in Sources */,
 				D3C73C862BF1B77D00CF9B44 /* CartPaymentButtonView.swift in Sources */,
 				D380135F2BF64ECA00C32079 /* ChangeMethodView.swift in Sources */,
-				61F5F68E2C00C19E0062BE0B /* globalVariables.swift in Sources */,
 				D3380E4C2BF4E3D200457CC6 /* PaymentSections.swift in Sources */,
 				8BF407802BF3A4B600E5988A /* ChooseBoiSheet.swift in Sources */,
 				D3E98FBC2BDBD7F900DCE016 /* TabBarView.swift in Sources */,

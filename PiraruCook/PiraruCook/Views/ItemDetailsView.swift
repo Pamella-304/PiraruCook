@@ -258,7 +258,9 @@ struct ItemDetailsView: View {
                         }
                 }
                 // MARK: Image
+
                 
+
 
                 // MARK: Description
                 VStack{
@@ -420,7 +422,9 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(dish: TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Matrinxa", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba", comment: "Sem sal", boi: false))
+
         .environment(User())
+
         .environment(Router())
         .environment(CartViewModel())
 }

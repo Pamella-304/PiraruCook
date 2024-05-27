@@ -46,14 +46,13 @@ struct CardAddressView: View {
                                 
                                 
                                 Spacer()
-                                Menu {
-                                    Button("Editar") {
-                                        isEditing.toggle()
-                                        EditAddressPlaceHolder()
-                                        editingAddress = myIndex
-                                    }
+                                
+                                Button {
+                                    isEditing.toggle()
+                                    EditAddressPlaceHolder()
+                                    editingAddress = myIndex
                                 } label: {
-                                    Image(systemName: "ellipsis")
+                                    Image(systemName: "pencil")
                                         .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 }
                                 

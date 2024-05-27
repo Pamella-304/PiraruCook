@@ -15,7 +15,7 @@ struct ChooseBoiSheet: View {
             ZStack {
                 HStack(spacing: -2) {
                     Button {
-                        user.boi = SelectedBoi.caprichoso
+                        user.boi = SelectedBoi.garantido
                         user.updateUser(user: user)
                         dismiss()
                     } label: {

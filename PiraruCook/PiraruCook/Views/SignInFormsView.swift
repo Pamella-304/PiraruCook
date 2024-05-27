@@ -16,73 +16,103 @@ struct SignInFormsView: View {
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     
     var body: some View {
+        
         Form {
-            Section("Nome") {
+            
+            Section {
                 TextField("Primeiro nome", text: $viewModel.firstName)
                 TextField("Sobrenome", text: $viewModel.lastName)
                 TextField("Como deseja ser chamado?", text: $viewModel.userName)
+            } header: {
+                Text("Nome")
+                    .font(Font(Fonts.title4Font))
+                    .foregroundStyle(.brandSecondary)
             }
-            .padding(4)
+            .headerProminence(.increased)
             
             
-            
-            Section("Email") {
+            Section {
                 TextField("E-mail", text: $viewModel.email)
+            } header: {
+                Text("E-mail")
+                    .font(Font(Fonts.title4Font))
+                    .foregroundStyle(.brandSecondary)
             }
-            .padding(4)
+            .headerProminence(.increased)
             
-            Section("Senha") {
+            Section {
                 SecureField("Senha", text: $viewModel.senha)
+            } header: {
+                Text("Senha")
+                    .font(Font(Fonts.title4Font))
+                    .foregroundStyle(.brandSecondary)
             }
-            .padding(4)
+            .headerProminence(.increased)
             
-            Section("CPF") {
+            Section {
                 TextField("CPF", text: $viewModel.cpf)
                     .onChange(of: viewModel.cpf) {
                         viewModel.formatCPF()
                     }
+            } header: {
+                Text("CPF")
+                    .font(Font(Fonts.title4Font))
+                    .foregroundStyle(.brandSecondary)
             }
-            .padding(4)
+            .headerProminence(.increased)
             
-            Section("Endereço") {
+            Section {
                 TextField("Endereço", text: $viewModel.address)
+            } header: {
+                Text("Endereço")
+                    .font(Font(Fonts.title4Font))
+                    .foregroundStyle(.brandSecondary)
             }
-            .padding(4)
+            .headerProminence(.increased)
             
-            Section("Data de Nascimento") {
+            Section {
                 DatePicker("Data de Nascimento", selection: $viewModel.birthDate,in: ...Date(), displayedComponents: .date)
                     .foregroundColor(viewModel.birthDate > Date() ? .red : .primary)
+            } header: {
+                Text("Data de Nascimento")
+                    .font(Font(Fonts.title4Font))
+                    .foregroundStyle(.brandSecondary)
             }
-            .padding(4)
+            .headerProminence(.increased)
             
-            Button("Cadastrar") {
+            Section {
                 
-                if viewModel.isValidAccount() {
-                    var result = viewModel.saveUser(isLoggedIn: isLoggedIn, currentUser: user)
+            } footer: {
+                Button {
                     
-                    isLoggedIn = result.isLoggedIn
-                    if let newUser = result.user {
-                        user.updateUser(user: newUser)
-                    }
-                    
-                    stackPathProfile.goToRoot()
-                    
-                    
-                } else {
-                    viewModel.showAlert = true
-                    if !(viewModel.senha.count >= 6) {
-                        viewModel.alertMessage = "A senha deve ter no mínimo 6 caracteres"
-                    }  else if viewModel.birthDate > Date() {
-                        viewModel.alertMessage = "Data de nascimento inválida!"
-                    } else if !viewModel.isValidEmail() {
-                        viewModel.alertMessage = "E-mail inválido!"
+                    if viewModel.isValidAccount() {
+                        var result = viewModel.saveUser(isLoggedIn: isLoggedIn, currentUser: user)
+                        
+                        isLoggedIn = result.isLoggedIn
+                        if let newUser = result.user {
+                            user.updateUser(user: newUser)
+                        }
+                        
+                        stackPathProfile.goToRoot()
+                        
+                        
                     } else {
-                        viewModel.alertMessage = "Erro no cadastro. Reverifique os campos preenchidos."
+                        viewModel.showAlert = true
+                        if !(viewModel.senha.count >= 6) {
+                            viewModel.alertMessage = "A senha deve ter no mínimo 6 caracteres"
+                        }  else if viewModel.birthDate > Date() {
+                            viewModel.alertMessage = "Data de nascimento inválida!"
+                        } else if !viewModel.isValidEmail() {
+                            viewModel.alertMessage = "E-mail inválido!"
+                        } else {
+                            viewModel.alertMessage = "Erro no cadastro. Reverifique os campos preenchidos."
+                        }
                     }
+                } label: {
+                    ButtonView(name: "Cadastrar", type: .primary)
+                        .padding(EdgeInsets(top: -16, leading: -20, bottom: 0, trailing: -20))
                 }
             }
-            .buttonBorderShape(.capsule)
-
             
         }
         
@@ -96,6 +126,11 @@ struct SignInFormsView: View {
         
         
     }
-
+    
 }
 
+#Preview {
+    SignInFormsView()
+        .environment(Router())
+        .environment(User())
+}

@@ -13,20 +13,22 @@ struct MenuView: View {
     
     var body: some View {
         
-        ScrollView(.horizontal) {
-            HStack {
-                ForEach(allDishTypes.allCases, id: \.self) { type in
-                    Button {
-                        viewModel.selectedDishType = type
-                    } label: {
-                        MenuPickerCard(text: type.description, isSelected: type == viewModel.selectedDishType)
+        VStack {
+            
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(allDishTypes.allCases, id: \.self) { type in
+                        Button {
+                            viewModel.selectedDishType = type
+                        } label: {
+                            MenuPickerCard(text: type.description, isSelected: type == viewModel.selectedDishType)
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
-        }
-        
-        
+            
+            
             ScrollView {
                 
                 ForEach(viewModel.categories, id:\.self) { category in
@@ -56,6 +58,8 @@ struct MenuView: View {
                                         viewModel.choosenDish = typeDish
                                     } label: {
                                         ItemCardView(dish: typeDish)
+                                            .padding(.horizontal)
+                                            .padding(.vertical,8)
                                     }
                                 }
                             } header: {
@@ -75,28 +79,29 @@ struct MenuView: View {
                     ItemDetailsView(dish: viewModel.choosenDish!)
                 }
             }
-            .navigationBarTitle(Text("Cardápio"), displayMode: .large)
-            .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
-            .frame(alignment: .leading)
-            .background(Color(red: 249/255, green: 249/255, blue: 249/255))
-            .toolbar {
-                                Menu {
-                                    Picker("Ordenar", selection: $viewModel.sortOrder) {
-                                        ForEach(sortDishOrder.allCases, id: \.self) {
-                                            Text("Ordenar \($0.description)")
-                                        }
-                                    }
-                                    
-                                    
-                                } label: {
-                                    Image(systemName: "list.bullet.circle")
-                                }
-       
+        }
+        .navigationBarTitle(Text("Cardápio"), displayMode: .large)
+        .searchable(text: $viewModel.dishesList.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar Prato")
+        .frame(alignment: .leading)
+        .background(.colorBackground)
+        .toolbar {
+            Menu {
+                Picker("Ordenar", selection: $viewModel.sortOrder) {
+                    ForEach(sortDishOrder.allCases, id: \.self) {
+                        Text("Ordenar \($0.description)")
+                    }
+                }
+                
+                
+            } label: {
+                Image(systemName: "list.bullet.circle")
             }
             
+        }
+        
         
     }
-
+    
 }
 #Preview {
     MenuView()

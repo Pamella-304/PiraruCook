@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct EditAddressView: View {
+
     @Environment(User.self) private var user: User
     @State var exampleAddress = [Address]()
     @State var editingAddress: Int? = nil
     @State var isEditingList = false
     @State var currentAddress = 0
     
-    
+    @State var searchingAddress = ""
     @State var editingAddressName = ""
     @State var editingAddressLocation = ""
     @State var editingAddressPicture = "house"
@@ -40,9 +41,18 @@ struct EditAddressView: View {
         }
         .listStyle(.inset)
         
-        Button("Adicionar Endereço") {
+        Button {
+            isEditingList = true
             print("hey")
-        }
+        }label:{
+            Text("Adicionar endereço").font(Font(Fonts.title3Font))
+                            .foregroundColor(.white)
+                            .padding(16)
+                            .frame(maxWidth: .infinity)
+                            .background(.brandPrimary).bold()
+                    }
+                    .cornerRadius(10)
+                    .padding(16)
         
         
         .sheet(isPresented: $isEditingList) {
@@ -109,6 +119,8 @@ struct EditAddressView: View {
         }
         .navigationTitle("Endereços")
         .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $searchingAddress, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar endereço")
+
     }
     
     

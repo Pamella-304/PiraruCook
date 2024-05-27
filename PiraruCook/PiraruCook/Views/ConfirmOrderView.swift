@@ -61,6 +61,7 @@ struct ConfirmOrderView: View {
                     .foregroundColor(.white)
                     .padding(16)
                     .frame(maxWidth: .infinity)
+
                     .background(.brandPrimary)
                     .font(Font(Fonts.title3Font))
 

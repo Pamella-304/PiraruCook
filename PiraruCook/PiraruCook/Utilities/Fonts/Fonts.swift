@@ -48,11 +48,14 @@ struct Fonts {
         if let customFont = UIFont(name: "Fraunces9pt-Black", size: 17) {
             return customFont
         } else {
-            return UIFont.systemFont(ofSize: 20.0)
+
+            return UIFont.systemFont(ofSize: 17.0)
+
 
         }
     } ()
     
+
 
     static let title5Font: UIFont = {
         if let customFont = UIFont(name: "Fraunces9pt-Black", size: 14) {
@@ -62,6 +65,7 @@ struct Fonts {
 
         }
     } ()
+
 
     static let headlineFont: UIFont = {
         if let customFont = UIFont(name: "Fraunces144pt-BoldItalic", size: 25) {

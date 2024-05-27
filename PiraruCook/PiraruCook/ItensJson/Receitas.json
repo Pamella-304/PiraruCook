@@ -157,9 +157,20 @@
         {
             "name": "Ambuçu com cana",
             "description": "Cachaça imburana, cupuaçu, caldo de cana, xarope de açúcar e sumo de limão",
-            "image": "Cunhata",
+            "image": "AmbucuComCana",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "caldo de cana", "açúcar", "limão"],
+            "price": 6.0,
+            "tipo": "Bebidas",
+            "comment": "",
+            "boi" : false
+        },
+        {
+            "name": "Caipirinha",
+            "description": "Caipirinha com frutas à escolha",
+            "image": "Caipirinha",
+            "nutritionalInfo": [""],
+            "ingredients": ["Álcool", "açúcar", "limão ou abacaxi"],
             "price": 6.0,
             "tipo": "Bebidas",
             "comment": "",

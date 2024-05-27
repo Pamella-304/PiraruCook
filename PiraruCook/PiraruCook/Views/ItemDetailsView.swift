@@ -11,6 +11,7 @@ struct ItemDetailsView: View {
     
     @Environment(Router.self) private var stackPathMenu
     @Environment(CartViewModel.self) private var cartViewModel
+    @Environment(User.self) var user
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     @Environment(\.dismiss) var dismiss
@@ -23,47 +24,241 @@ struct ItemDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing:24) {
-                
-                // MARK: Image
-                Image(viewModel.displayImage())
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: width, height: height*0.25)
-                    .clipShape(RoundedRectangle(cornerRadius: 0))
-                    .overlay {
-                        Button {
-                            dismiss()
-                        }label: {
-                            VStack {
-                                HStack {
-                                    ZStack {
+                if viewModel.dish.name == "Caipirinha" && user.boi != SelectedBoi.none {
+                        switch user.boi {
+                        case .caprichoso:
+                            Image("CaipirinhaCaprichosa")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: width, height: height*0.25)
+                                .clipShape(RoundedRectangle(cornerRadius: 0))
+                                .overlay {
+                                    VStack {
+                                        HStack {
+                                            Spacer()
+                                                    Image("PratoCaprichoso")
+                                                        .padding()
+                                                
+                                        }
                                         
-                                        Image(systemName: "x.circle")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .foregroundStyle(.brandPrimary)
-                                        
-                                        Image(systemName: "x.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .foregroundStyle(.brandSenary)
-                                        
-                                        
+                                        Spacer()
                                     }
                                     
+                                    
+                                    Button {
+                                        dismiss()
+                                    } label: {
+                                        VStack {
+                                            HStack {
+                                                ZStack {
+                                                    
+                                                    Image(systemName: "x.circle")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .foregroundStyle(.brandPrimary)
+                                                    
+                                                    Image(systemName: "x.circle.fill")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .foregroundStyle(.brandSenary)
+                                                    
+                                                    
+                                                }
+                                                
+                                                    
+                                                    .frame(width: 45, height: 45)
+                                                    .padding(16)
+                                                    
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+
+                                    }
+                                                            
+                                }
+                        case .garantido:
+                            Image("CaipirinhaGarantida")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: width, height: height*0.25)
+                                .clipShape(RoundedRectangle(cornerRadius: 0))
+                                .overlay {
+                                    VStack {
+                                        HStack {
+                                            Spacer()
+                                            
+                                                    Image("PratoGarantido")
+                                                        .padding()
+                                                    
+                                        }
                                         
-                                        .frame(width: 45, height: 45)
-                                        .padding(16)
+                                        Spacer()
+                                    }
+                                    
+                                    
+                                    Button {
+                                        dismiss()
+                                    } label: {
+                                        VStack {
+                                            HStack {
+                                                ZStack {
+                                                    
+                                                    Image(systemName: "x.circle")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .foregroundStyle(.brandPrimary)
+                                                    
+                                                    Image(systemName: "x.circle.fill")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .foregroundStyle(.brandSenary)
+                                                    
+                                                    
+                                                }
+                                                
+                                                    
+                                                    .frame(width: 45, height: 45)
+                                                    .padding(16)
+                                                    
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+
+                                    }
+                                                            
+                                }
+                        default:
+                            Image(viewModel.displayImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: width, height: height*0.25)
+                                .clipShape(RoundedRectangle(cornerRadius: 0))
+                                .overlay {
+                                    VStack {
+                                        HStack {
+                                            Spacer()
+                                            if ["Salgado", "Doces"].contains(viewModel.dish.tipo) && user.boi != SelectedBoi.none {
+                                                
+                                                switch user.boi! {
+                                                case SelectedBoi.caprichoso:
+                                                    Image("PratoCaprichoso")
+                                                        .padding()
+                                                default:
+                                                    Image("PratoGarantido")
+                                                        .padding()
+                                                    
+                                                }
+                                               
+                                            }
+                                        }
                                         
+                                        Spacer()
+                                    }
+                                    
+                                    
+                                    Button {
+                                        dismiss()
+                                    } label: {
+                                        VStack {
+                                            HStack {
+                                                ZStack {
+                                                    
+                                                    Image(systemName: "x.circle")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .foregroundStyle(.brandPrimary)
+                                                    
+                                                    Image(systemName: "x.circle.fill")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .foregroundStyle(.brandSenary)
+                                                    
+                                                    
+                                                }
+                                                
+                                                    
+                                                    .frame(width: 45, height: 45)
+                                                    .padding(16)
+                                                    
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+
+                                    }
+                                                            
+                                }
+                        }
+                } else {
+                    Image(viewModel.displayImage())
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: width, height: height*0.25)
+                        .clipShape(RoundedRectangle(cornerRadius: 0))
+                        .overlay {
+                            VStack {
+                                HStack {
                                     Spacer()
+                                    if ["Salgado", "Doces"].contains(viewModel.dish.tipo) && user.boi != SelectedBoi.none {
+                                        
+                                        switch user.boi! {
+                                        case SelectedBoi.caprichoso:
+                                            Image("PratoCaprichoso")
+                                                .padding()
+                                        default:
+                                            Image("PratoGarantido")
+                                                .padding()
+                                            
+                                        }
+                                       
+                                    }
                                 }
                                 
                                 Spacer()
                             }
+                            
+                            
+                            Button {
+                                dismiss()
+                            } label: {
+                                VStack {
+                                    HStack {
+                                        ZStack {
+                                            
+                                            Image(systemName: "x.circle")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .foregroundStyle(.brandPrimary)
+                                            
+                                            Image(systemName: "x.circle.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .foregroundStyle(.brandSenary)
+                                            
+                                            
+                                        }
+                                        
+                                            
+                                            .frame(width: 45, height: 45)
+                                            .padding(16)
+                                            
+                                        Spacer()
+                                    }
+                                    
+                                    Spacer()
+                                }
 
+                            }
+                                                    
                         }
-                                                
-                    }
+                }
+                // MARK: Image
+                
 
                 // MARK: Description
                 VStack{
@@ -225,6 +420,7 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(dish: TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Matrinxa", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba", comment: "Sem sal", boi: false))
+        .environment(User())
         .environment(Router())
         .environment(CartViewModel())
 }

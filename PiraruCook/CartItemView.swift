@@ -17,86 +17,101 @@ struct CartItemView: View {
 
     
     var body: some View {
-        VStack {
-            
-            HStack(spacing:-12) {
-                Image(dish.image)
-                    .resizable()
-                    .frame(width: imageWidth, height: imageHeight)
-                    .clipped()
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 10,
-                            bottomLeadingRadius: 10,
-                            bottomTrailingRadius: 0,
-                            topTrailingRadius: 0
+        VStack{
+            VStack {
+                HStack(spacing:-12) {
+                    Image(dish.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: imageWidth, height: imageHeight)
+                        .clipped()
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 10,
+                                bottomLeadingRadius: 10,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 0
+                            )
                         )
-                    )
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(height: imageHeight)
-                    .foregroundStyle(.brandSenary)
-                    .overlay {
-                       VStack {
-                            HStack {
-                                Text(dish.name)
-                                    .font(Font(Fonts.title4Font))
-                                    .bold()
-                                    .foregroundStyle(.brandTerciary)
+                    
+                    RoundedRectangle(cornerRadius: 0)
+                        .frame(height: imageHeight)
+                        .foregroundStyle(.brandSenary)
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 0,
+                                bottomLeadingRadius: 0,
+                                bottomTrailingRadius: 10,
+                                topTrailingRadius: 10
+                            )
+                        )
+                        .overlay {
+                            VStack {
+                                HStack {
+                                    Text(dish.name)
+                                        .font(Font(Fonts.title4Font))
+                                        .bold()
+                                        .foregroundStyle(.brandTerciary)
+                                    
+                                    Spacer()
+                                    
+                                    
+                                    Text(totalPrice())
+                                        .font(Font(Fonts.title4Font))
+                                        .bold()
+                                        .foregroundStyle(.brandTerciary)
+                                }
                                 
                                 Spacer()
                                 
-                                
-                                Text(totalPrice())
-                                    .font(Font(Fonts.title4Font))
-                                    .bold()
-                                    .foregroundStyle(.brandTerciary)
-                            }
-                            
-                            Spacer()
-                            
-                            HStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(.quaternary)
-                                    .opacity(0.4)
-                                    .overlay{
-                                        Text("\(viewModel.getQuantity(item: dish))").font(Font(Fonts.title4Font)).foregroundStyle(.brandTerciary)
+                                HStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 30)
+                                        .foregroundStyle(.quaternary)
+                                        .opacity(0.4)
+                                        .overlay{
+                                            Text("\(viewModel.getQuantity(item: dish))").font(Font(Fonts.title4Font)).foregroundStyle(.brandTerciary)
+                                        }
+                                    
+                                    Stepper("") {
+                                        incrementQuantity()
+                                    } onDecrement: {
+                                        decrementQuantity()
                                     }
-                                
-                                
-                                
-                                
-                                Stepper("") {
-                                    incrementQuantity()
-                                } onDecrement: {
-                                    decrementQuantity()
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 30, height: 30)
+                                        .foregroundStyle(.quaternary)
+                                        .opacity(0.45)
+                                        .overlay{
+                                            Image(systemName: "pencil")
+                                        }
                                 }
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(.quaternary)
-                                    .opacity(0.45)
-                                    .overlay{
-                                        Image(systemName: "pencil")
-                                    }
-                                
-                                
                             }
+                            .frame(maxWidth: .infinity)
+                            .padding(20)
+                            .foregroundStyle(colorScheme == .light ? .black : .white)
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(20)
-                        .foregroundStyle(colorScheme == .light ? .black : .white)
-                    }
-            }
-            if dish.comment != ""{
-                Text("- \(dish.comment)")
-                    .background()
-                    .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                if dish.comment != ""{
+                    Text("- \(dish.comment)")
+                        .background()
+                        .padding(EdgeInsets(top: 8, leading: 102, bottom: 0, trailing: 0))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
             
+            
+            HStack{
+                
+                Text(dish.description)
+                    .font(Font.body)
+                    
+            }
+            .padding(.leading, imageWidth)
         }
+        
     }
     
 }

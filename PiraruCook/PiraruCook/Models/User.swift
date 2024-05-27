@@ -2,18 +2,13 @@ import Foundation
 import SwiftUI
 
 
-enum RecordKeysUser: String {
-    case userName, firstName, lastName, birthDate
-    case address, email, password, cpf
-}
 
 enum Boi: Codable {
     case garantido
     case caprichoso
 }
 
-
-enum CodingKeysUser: CodingKey {
+enum CodingKeys: CodingKey {
     case userName, firstName, lastName, birthDate
     case address, email, password, cpf, boi
 }
@@ -30,11 +25,12 @@ class User: Codable {
     var email: String
     var password: String
     var cpf: String
-//    var photo: UIImage = UIImage (named: "BolinhoDePiracui") ?? nil
     var boi: Boi?
     
+    var addresses: [Address] = []
     
-    init(userName: String = "", firstName: String = "", lastName: String = "", birthDate: Date = Date.now, address: String = "", email: String = "", password: String = "", cpf: String = "", boi: Boi = .caprichoso) {
+    
+    init(userName: String = "", firstName: String = "", lastName: String = "", birthDate: Date = Date.now, address: String = "", email: String = "", password: String = "", cpf: String = "", boi: Boi = .caprichoso, registeredAdresses: [Address] = [Address(location: "Beco São Francisco 112, Lírio do Vale, Manaus, AM", nickname: "Casa", picture: "house"), Address(location: "Avenida Max Teixeira 2078 - Cidade Nova, Manaus, AM", nickname: "Trabalho", picture: "suitcase")]) {
         
         self.userName = userName
         self.firstName = firstName
@@ -45,6 +41,7 @@ class User: Codable {
         self.password = password
         self.cpf = cpf
         self.boi = boi
+        self.addresses = registeredAdresses
     }
 
     
@@ -78,6 +75,18 @@ class User: Codable {
         self.password = user.password
         self.cpf = user.cpf
         self.boi = user.boi
+        self.addresses = user.addresses
+        
+        if let encodedUser = try? JSONEncoder().encode(user) {
+//            let userID = UUID().uuidString
+            DispatchQueue.main.async {
+                UserDefaults.standard.set(encodedUser, forKey: "user_")
+                print("usuário atualizado com sucesso")
+            }
+            
+        } else {
+            print("erro atualizando o usuario")
+        }
     }
     
 }

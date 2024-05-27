@@ -11,7 +11,7 @@ import Foundation
 class ItemDetailsViewModel {
     
     var dish: TypeDish
-    
+    var quantityOfDish: Int = 1
     var showIngredients: Bool = false
     var showNutritionalInfo: Bool = false
     var comment: String = ""
@@ -23,6 +23,10 @@ class ItemDetailsViewModel {
     
     init(dish: TypeDish) {
         self.dish = dish
+    }
+    
+    func getQuantityOfDIsh() -> Int {
+        return quantityOfDish
     }
     
     func displayName() -> String {
@@ -62,6 +66,15 @@ class ItemDetailsViewModel {
     
     func updateCommnet() {
         dish.updateComment(comment)
+    }
+    
+    func increseQuantityOfDish() {
+        quantityOfDish += 1
+    }
+    func decreaseQuantityOfDish() {
+        if quantityOfDish > 1 {
+            quantityOfDish -= 1
+        }
     }
     
 }

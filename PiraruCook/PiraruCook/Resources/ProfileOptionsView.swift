@@ -11,34 +11,37 @@ struct ProfileOptionsView: View {
     var imageName: String
     var title: String
     var description: String
-
     
     var body: some View {
-        VStack {
-            HStack(alignment: .top) {
-                
-                Image(systemName: "\(imageName)")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .padding(.vertical)
-                
-                VStack(alignment: .leading) {
-                    Text("\(title)")
-                        .font(.title3)
-                    Text("\(description)")
-                        .font(.footnote)
-                        .fontWeight(.thin)
-                }
-                Spacer()
+        
+        HStack(alignment: .center, spacing: 8) {
+            
+            Image(systemName: "\(imageName)")
+                .font(
+                    Font.custom("SF Pro", size: 24)
+                        .weight(.medium)
+                )
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+            
+                .frame(width: 64, alignment: .top)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text("\(title)")
+                    .font(Font(Fonts.title3Font))
+                Text("\(description)")
+                    .font(.footnote)
+                    .fontWeight(.light)
             }
-            .padding(.horizontal, 36)
-            Divider()
-                .padding(.horizontal, 16)
+            
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical)
+        
     }
 }
-//
-//#Preview {
-//    ProfileOptionsView()
-//}
+
+#Preview {
+    ProfileOptionsView(imageName: "creditcard.fill", title:
+                        "Pagamentos", description: "Preferências de transferência")
+}

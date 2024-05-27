@@ -8,44 +8,142 @@
 import SwiftUI
 
 struct EditAddressView: View {
-    @Environment(User.self) var user
-    @State var addingAddress = false
+
+    @Environment(User.self) private var user: User
+    @State var exampleAddress = [Address]()
+    @State var editingAddress: Int? = nil
+    @State var isEditingList = false
+    @State var currentAddress = 0
+    
     @State var searchingAddress = ""
-    var addressesList: [Address]?
+    @State var editingAddressName = ""
+    @State var editingAddressLocation = ""
+    @State var editingAddressPicture = "house"
+    
+    var symbols = ["suitcase", "sofa", "house", "house.lodge"]
+    
     var body: some View {
-        VStack{
-            ScrollView{
-                CardAddressView(myAddress: Address(location: "Av. Alan Turing, 275 - Cidade Universitária, Campinas - SP", nickname: "Usar minha localização", picture: "location.north.circle.fill")).padding(.bottom, 8)
-                ForEach(exampleAddress, id: \.self) {
-                    CardAddressView(myAddress: $0, isCurrentAddress: ($0 == exampleAddress.first)).padding(8)
+        
+        
+        List {
+            ForEach(0..<exampleAddress.count, id: \.self) { index in
+                Button {
+                    currentAddress = index
+                    print("Current adddress = \(index)")
+                } label: {
+                    CardAddressView(myAddress: $exampleAddress[index], isCurrentAddress: (index == currentAddress), isEditing: $isEditingList, myIndex: index, editingAddress: $editingAddress, editingAddressName: $editingAddressName, editingAddressLocation: $editingAddressLocation, editingAddressPicture: $editingAddressPicture)
                 }
-                .listStyle(.inset)
+                
             }
-            Spacer()
-            Button{
-                addingAddress = true
-            }label: {
-                Text("Adicionar endereço").font(Font(Fonts.title3Font))
-                    .foregroundColor(.white)
+            .onDelete(perform: { indexSet in
+                exampleAddress.remove(atOffsets: indexSet)
+            })
+        }
+        .listStyle(.inset)
+        
+        Button {
+            isEditingList = true
+            print("hey")
+        }label:{
+            Text("Adicionar endereço").font(Font(Fonts.title3Font))
+                            .foregroundColor(.white)
+                            .padding(16)
+                            .frame(maxWidth: .infinity)
+                            .background(.brandPrimary).bold()
+                    }
+                    .cornerRadius(10)
                     .padding(16)
-                    .frame(maxWidth: .infinity)
-                    .background(.brandPrimary).bold()
+        
+        
+        .sheet(isPresented: $isEditingList) {
+            VStack {
+                Spacer()
+                Section {
+                    TextField("Nome do endereço", text: $editingAddressName)
+                        .foregroundStyle(.secondary)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.bottom, 42)
+                    
+                } header: {
+                    HStack {
+                        Text("Alterar Nome do endereço")
+                            .bold()
+                        Spacer()
+                    }
+                    
+                }
+                .padding(.horizontal, 48)
+                
+                
+                
+                Section {
+                    TextField("Alterar endereço", text: $editingAddressLocation, axis: .vertical)
+                        .foregroundStyle(.secondary)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.horizontal, 48)
+                    
+                } header: {
+                    HStack {
+                        Text("Alterar Nome do endereço")
+                            .bold()
+                        Spacer()
+                    }
+                    
+                }
+                .padding(.horizontal, 24)
+                
+                
+                Picker("Figura", selection: $editingAddressPicture) {
+                        ForEach(symbols, id: \.self) {
+                            Image(systemName: $0)
+                    }
+                }
+                .padding()
+                .pickerStyle(.palette)
+                
+                Spacer()
+                Button {
+                    updateAddress()
+                    isEditingList.toggle()
+                } label: {
+                    Text("Salvar Alterações")
+                        .padding()
+                }
+                .background(.brandSecondary)
+                .clipShape(Capsule())
             }
-            .cornerRadius(10)
-            .padding(16)
-        }.navigationTitle("Endereços")
-            .navigationBarTitleDisplayMode(.inline)
+            
+        }
+        .task {
+            exampleAddress = user.addresses
+        }
+        .navigationTitle("Endereços")
+        .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchingAddress, placement: .navigationBarDrawer(displayMode: .always), prompt: "Buscar endereço")
-            .sheet(isPresented: $addingAddress){
-                AddingNewAddressView()
-            }
+
+    }
+    
+    
+    
+    func updateAddress() {
+        exampleAddress[editingAddress ?? 0].nickname = editingAddressName
+        
+        exampleAddress[editingAddress ?? 0].location = editingAddressLocation
+        
+        exampleAddress[editingAddress ?? 0].picture = editingAddressPicture
+        
+        user.addresses[editingAddress ?? 0].nickname = editingAddressName
+        
+        user.addresses[editingAddress ?? 0].location = editingAddressLocation
+        
+        user.addresses[editingAddress ?? 0].picture = editingAddressPicture
+        user.updateUser(user: user)
+        
+//        UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") 
     }
 }
 
-
-let exampleAddress = [Address(location: "Beco São Francisco 112, Lírio do Vale, Manaus, AM", nickname: "Casa", picture: "house"), Address(location: "Avenida Max Teixeira 2078 - Cidade Nova, Manaus, AM", nickname: "Trabalho", picture: "suitcase") ]
-
-struct Address: Hashable {
+struct Address: Hashable, Codable {
     var location: String
     var nickname: String
     var picture: String

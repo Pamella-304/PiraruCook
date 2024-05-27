@@ -15,9 +15,13 @@ struct PiraruCookApp: App {
     
     init() {
         
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        
+
+            
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .font: Fonts.largeTitleFont,
-            .foregroundColor: UIColor(.brandPrimary),
+            .foregroundColor: UIColor(.brandPrimary)
         ]
         
         UINavigationBar.appearance().titleTextAttributes = [
@@ -25,7 +29,6 @@ struct PiraruCookApp: App {
             .foregroundColor: UIColor(.brandPrimary)
         ]
         
-        loadUserData()
         for familyName in UIFont.familyNames {
             print(familyName)
             
@@ -48,7 +51,6 @@ struct PiraruCookApp: App {
                 .task {
                     loadUserData()
                 }
-                
         }
         
         
@@ -56,12 +58,12 @@ struct PiraruCookApp: App {
 
     
     func loadUserData() {
-        if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_ ") }) {
+        if let userID = UserDefaults.standard.dictionaryRepresentation().keys.first(where: { $0.hasPrefix("user_") }) {
             if let userData = UserDefaults.standard.data(forKey: userID) {
                 do {
                     // Decodifica os dados do usuário
                     let myUser = try JSONDecoder().decode(User.self, from: userData)
-                    self.user = user
+                    self.user = myUser
                 } catch {
                     print("Erro ao decodificar usuário:", error)
                 }

@@ -12,88 +12,114 @@ struct LoggedProfileView: View {
     @Environment(Router.self) private var stackPathProfile
     @Environment(User.self) private var user: User?
     @AppStorage("isLoggedIn") private var isLoggedIn = false
+    @State private var isShowingDialog = false
     
     var body: some View {
+        
         VStack {
-            VStack {
-                HStack {
-                    ZStack {
-                        Circle()
-                            .frame(width: 70)
-                            .foregroundStyle(.secondary)
-                        Image(systemName: "person")
-                    }
-                    
-                    //user name nao esta atualizando na primeira run do app
-                    if let presentedUserName = user?.userName {
-                        Text(presentedUserName)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        
-                    } else {
-                        Text("Nome usuario")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        
-                    }
-                    Spacer()
-                    NavigationLink(value: RouterData(screen: Views.Configuration)) {
-                        Image(systemName: "pencil")
-                            .resizable()
-                            
-                            .frame(width: 32, height: 32)
-                            
-                    }
-                    .environment(user)
-                    .foregroundStyle(.primary)
-                
+            
+            HStack {
+                //user name nao esta atualizando na primeira run do app
+                if let presentedUserName = user?.userName {
+                    Text(presentedUserName)
+                        .font(Font(Fonts.title1Font))
+                } else {
+                    Text("Nome usuario")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     
                 }
-                .padding()
-                
-                Divider()
-                    .padding(.horizontal, 8)
-                
-                
+                Spacer()
+                NavigationLink(value: RouterData(screen: Views.Configuration)) {
+                    Image(systemName: "pencil")
+                        .resizable()
+                    
+                        .frame(width: 24, height: 24)
+                    
+                }
+                .environment(user)
+                .foregroundStyle(.primary)
+            }
+            Divider()
+            HStack {
                 NavigationLink(value: RouterData(screen: Views.PaymentMethods)) {
                     ProfileOptionsView(imageName: "creditcard.fill", title:
                                         "Pagamentos", description: "Preferências de transferência")
                 }
                 .foregroundStyle(.primary)
-                
-                
-                NavigationLink(value: RouterData(screen: Views.Addresses)) {
-                    ProfileOptionsView(imageName: "mappin", title:
-                                        "Endereços", description: "Preferências de endereço de entrega")
-                }
-                .foregroundStyle(.primary)
-                
-                
-                NavigationLink(value: RouterData(screen: Views.PreviousOrders)) {
-                    
-                    ProfileOptionsView(imageName: "book.pages.fill", title: "Histórico", description: "Histórico de pedidos")
-                }
-                .foregroundStyle(.primary)
-                
-                
-                NavigationLink(value: RouterData(screen: Views.EventInfo)) {
-                    ProfileOptionsView(imageName: "party.popper.fill", title:
-                                        "Festival de Paratins", description: "Acesse as informações do evento atual")
-                }
-                .environment(user)
-                .foregroundStyle(.primary)
             }
+            Divider()
             
-            Button("Sair") {
-                isLoggedIn = false
-                stackPathProfile.goToRoot()
+            NavigationLink(value: RouterData(screen: Views.Addresses)) {
+                ProfileOptionsView(imageName: "mappin", title:
+                                    "Endereços", description: "Preferências de endereço de entrega")
             }
+            .environment(user)
+            .foregroundStyle(.primary)
+            
+            Divider()
+            
+            NavigationLink(value: RouterData(screen: Views.PreviousOrders)) {
+                
+                ProfileOptionsView(imageName: "book.pages.fill", title: "Histórico", description: "Histórico de pedidos")
+            }
+            .foregroundStyle(.primary)
+            
+            Divider()
+            
+            NavigationLink(value: RouterData(screen: Views.EventInfo)) {
+                ProfileOptionsView(imageName: "party.popper.fill", title:
+                                    "Festival de Paratins", description: "Acesse as informações do evento atual")
+            }
+            .environment(user)
+            .foregroundStyle(.primary)
+            
+            Divider()
+            
+            Button {
+                isShowingDialog = true
+            } label: {
+                Text("Encerrar sessão")
+                    .font(Font(Fonts.title4Font))
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .tint(.red)
             .padding()
+            .confirmationDialog("Tem certeza que deseja encerrar a sessão?", isPresented: $isShowingDialog, titleVisibility: .visible) {
+                Button("Confirmar",role: .destructive) {
+                    isLoggedIn = false
+                    stackPathProfile.goToRoot()
+                }
+                
+                Button("Cancelar", role: .cancel) {
+                    
+                }
+            }
             
         }
+        .padding()
+        .frame(maxHeight: .infinity, alignment: .top)
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
-        Spacer()
+        
     }
     
+}
+
+#Preview {
+    LoggedProfileView()
+        .environment(Router())
+        .environment(User(userName: "haha",
+                          firstName: "haha",
+                          lastName: "haha",
+                          birthDate: Date(),
+                          address: "haha",
+                          email: "fad@mail.com",
+                          password: "231231231",
+                          cpf: "123.123.123-23",
+                          boi: .caprichoso,
+                          registeredAdresses: [Address(location: "asda",
+                                                       nickname: "asdas",
+                                                       picture: "asda")]))
 }

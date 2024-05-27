@@ -16,7 +16,7 @@ struct TrackOrderView: View {
     var body: some View {
         VStack {
             Text("Acompanhar Pedido")
-                .font(.largeTitle)
+                .font(Font(Fonts.title4Font))
                 .bold()
                 .padding()
             
@@ -30,31 +30,41 @@ struct TrackOrderView: View {
                     //                        }
                     //                    }
                 }
+                .font(Font(Fonts.title5Font))
+
                 
                 Section(header: Text("Método de Pagamento")) {
                     //                    Text(viewModel.paymentMethod.rawValue)
                 }
+                .font(Font(Fonts.title5Font))
+
                 
                 Section(header: Text("Entrega/Retirada")) {
                     //                    Text(viewModel.isDelivery ? "Entrega" : "Retirada no Local")
                 }
+                .font(Font(Fonts.title5Font))
+
                 
                 Section(header: Text("Tempo Estimado")) {
                     Text("40 minutos")
                 }
+                .font(Font(Fonts.title5Font))
+
             }
             .listStyle(InsetGroupedListStyle())
             
             Button {
                 stackPathProfile.goToRoot()
             } label:{
-                Text("Voltar ao Cardápio")
+                Text("Voltar para Carrinho")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(.brandPrimary)
                     .cornerRadius(10)
                     .padding(.horizontal)
+                    .font(Font(Fonts.title4Font))
+
             }
             .navigationTitle("Acompanhar Pedido")
             .navigationBarTitleDisplayMode(.inline)

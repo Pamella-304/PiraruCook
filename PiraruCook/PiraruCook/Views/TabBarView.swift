@@ -72,7 +72,7 @@ struct TabBarView: View {
                         LoginProfileView()
                     }
                 }
-                .navigationTitle("Perfil")
+                .navigationBarTitle(Text("Iniciar Sessão"), displayMode: .inline)
                 .navigationDestination(for: RouterData.self) { data in
                     
                     switch data.screen {
@@ -100,12 +100,6 @@ struct TabBarView: View {
             .tag(3)
 
         }.accentColor(.brandPrimary)
-         .background(.white.opacity(0.75))
-         .shadow(color: .black.opacity(0.3), radius: 0, x: 0, y: -0.33)
-      
-
-
-
     }
 }
 

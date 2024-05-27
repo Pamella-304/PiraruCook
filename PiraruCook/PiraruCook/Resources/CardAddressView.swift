@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct CardAddressView: View {
-    var myAddress: Address
+    @Binding var myAddress: Address
     var isCurrentAddress = false
+    @Binding var isEditing: Bool
+    var myIndex = 0
+    @Binding var editingAddress: Int?
+    
+    @Binding var editingAddressName: String
+    @Binding var editingAddressLocation: String
+    @Binding var editingAddressPicture: String
+    
     
     var body: some View {
         ZStack{
@@ -28,7 +36,13 @@ struct CardAddressView: View {
                                 .padding(.leading)
                             
                             
-                            VStack(alignment: .leading) {
+
+                            HStack {
+                                Text("\(myAddress.nickname)")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(isCurrentAddress ? .blue : .primary)
+
                                 
                                 HStack {
                                     Text("\(myAddress.nickname)")
@@ -45,9 +59,19 @@ struct CardAddressView: View {
                                         .foregroundStyle(isCurrentAddress ? .brandPrimary : .primary)
                                 }
                                 Spacer()
+
+                                Menu {
+                                    Button("Editar") {
+                                        isEditing.toggle()
+                                        EditAddressPlaceHolder()
+                                        editingAddress = myIndex
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis")
+                                        .foregroundStyle(isCurrentAddress ? .blue : .primary)
+                                }
                                 
-                                Text("\(myAddress.location)")
-                                    .fontWeight(.thin)
+
                             }
                             .padding()
                         }
@@ -61,8 +85,14 @@ struct CardAddressView: View {
         }
             
     }
+    
+    func EditAddressPlaceHolder() {
+        editingAddressName = myAddress.nickname
+        editingAddressLocation = myAddress.location
+        editingAddressPicture = myAddress.picture
+    }
 }
 
-#Preview {
-    CardAddressView(myAddress: exampleAddress.first!)
-}
+//#Preview {
+//    CardAddressView(myAddress: exampleAddress.first!, allAddresses: )
+//}

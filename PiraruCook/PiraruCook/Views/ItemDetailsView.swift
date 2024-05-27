@@ -30,63 +30,36 @@ struct ItemDetailsView: View {
                 // MARK: Description
                 VStack{
                     HStack{
-                        Text(viewModel.displayName()).font(.title)
+                        Text(viewModel.displayName())
+                            .font(Font(Fonts.title1Font))
                         Spacer()
                         Text("R$ \(viewModel.displayPrice())")
-                            .font(.title2)
-                    }.padding(.horizontal)
+                            .font(Font(Fonts.title2Font))
+                    }
+                    .foregroundStyle(.brandPrimary)
+                    .padding(.horizontal)
                     HStack{
                         Text(viewModel.displayDescription()).font(.title3)
                         Spacer()
                     }.padding(.horizontal)
                 }
-                //MARK: Allergies
-                ChevronDownComponent(displayName:"Alergias" ,hasClicked: $viewModel.showNutritionalInfo, array: [viewModel.displayAllergies()])
-                    .padding(.horizontal)
-
-                
-                
                 
                 // MARK: Ingredients
                 ChevronDownComponent(displayName:"Ingredientes" ,hasClicked: $viewModel.showIngredients, array: viewModel.displayIngredients())
                     .padding(.horizontal)
                 
-                // MARK: Comment
                 
-                VStack {
-                    Text("Observações")
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Ex: Tirar verduras, sem sal etc.", text: $viewModel.comment, axis: .vertical)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                .padding(.horizontal)
-                
-                // MARK: Avaliations
-                VStack {
+                //MARK: Allergies
+                ChevronDownComponent(displayName:"Alergias e restrições" ,hasClicked: $viewModel.showNutritionalInfo, array: [viewModel.displayAllergies()])
+                    .padding()
                     
-                    HStack{
-                        Text("Avaliações").font(.title2)
-                        Spacer()
-                        
-                    }
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(viewModel.exampleReviews, id: \.self) {
-                                ReviewCard(person: $0.name, reviewText: $0.description)
-                            }
-                            .padding(.horizontal, 4)
-                        }
-                        
-                    }
-                }
-                .padding(.horizontal)
+
                 
                 // MARK: Recomendation
                 VStack {
                     HStack {
                         Text("Seu prato \(viewModel.dish.name) combina com:")
-                            .font(.title2)
+                            .font(Font(Fonts.title3Font))
                         Spacer()
                     }
                     ScrollView(.horizontal) {
@@ -98,7 +71,41 @@ struct ItemDetailsView: View {
                         }
                     }
                 }
+                .padding()
+                
+                
+                // MARK: Comment
+                
+                VStack {
+                    Text("Observações")
+                        .font(Font(Fonts.title3Font))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    TextField("Ex: Tirar verduras, sem sal etc.", text: $viewModel.comment, axis: .vertical)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
                 .padding(.horizontal)
+                
+                // MARK: Avaliations
+//                VStack {
+//                    
+//                    HStack{
+//                        Text("Avaliações").font(.title2)
+//                        Spacer()
+//                        
+//                    }
+//                    ScrollView(.horizontal) {
+//                        HStack {
+//                            ForEach(viewModel.exampleReviews, id: \.self) {
+//                                ReviewCard(person: $0.name, reviewText: $0.description)
+//                            }
+//                            .padding(.horizontal, 4)
+//                        }
+//                        
+//                    }
+//                }
+//                .padding(.horizontal)
+                
+                
             }
         }
         .ignoresSafeArea()
@@ -107,30 +114,69 @@ struct ItemDetailsView: View {
         VStack {
             
             // MARK: Order now
-            Button(action: {
-                // Order Now
-            }) {
-                Text("Order Now")
+//            Button(action: {
+//                // Order Now
+//            }) {
+//                Text("Order Now")
+//                    .foregroundColor(.white)
+//                    .padding(16)
+//                    .frame(maxWidth: .infinity)
+//                    .background(.blue.opacity(0.7))
+//            }
+//            .cornerRadius(10)
+            
+            // MARK: Add to cart
+            
+            // MARK: Set Quantity of item
+            
+            HStack {
+                Text("Quantidade")
+                    .font(Font(Fonts.title3Font))
+                    .padding(8)
+                
+                Spacer()
+                Text("\(viewModel.quantityOfDish)")
+                    .bold()
+                    .padding(8)
+                    .background(.quaternary)
+                    .clipShape(
+                        .rect(
+                            topLeadingRadius: 5,
+                            bottomLeadingRadius: 5,
+                            bottomTrailingRadius: 5,
+                            topTrailingRadius: 5
+                        )
+                               
+                    )
+                
+                Stepper("Quantidade") {
+                    viewModel.increseQuantityOfDish()
+                } onDecrement: {
+                    viewModel.decreaseQuantityOfDish()
+                }
+                .labelsHidden()
+                .padding(.horizontal)
+            }
+            
+            
+            
+            Button {
+                viewModel.updateCommnet()
+                for _ in 0..<viewModel.quantityOfDish {
+                    cartViewModel.addItem(item: viewModel.dish)
+                }
+                dismiss()
+            } label: {
+                Text("Adicionar ao carrinho")
+                    .font(Font(Fonts.title3Font))
                     .foregroundColor(.white)
                     .padding(16)
                     .frame(maxWidth: .infinity)
-                    .background(.blue.opacity(0.7))
+                    .background(.brandPrimary)
             }
             .cornerRadius(10)
             
-            // MARK: Add to cart
-            Button(action: {
-                viewModel.updateCommnet()
-                cartViewModel.addItem(item: viewModel.dish)
-                dismiss()
-            }) {
-                Text("Add to cart")
-                    .foregroundColor(.white)
-                    .padding(16)
-                    .frame(maxWidth: .infinity)
-                    .background(.blue)
-            }
-            .cornerRadius(10)
+            
         }
         .padding(.horizontal)
 
@@ -141,5 +187,6 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(dish: TypeDish.example)
+        .environment(Router())
         .environment(CartViewModel())
 }

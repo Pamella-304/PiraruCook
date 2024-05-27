@@ -75,4 +75,5 @@ struct ConfirmOrderView: View {
 #Preview {
     ConfirmOrderView()
         .environment(CartViewModel())
+        .environment(Router())
 }

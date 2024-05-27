@@ -22,7 +22,6 @@ struct CartItemView: View {
             HStack(spacing:-12) {
                 Image(dish.image)
                     .resizable()
-                    
                     .frame(width: imageWidth, height: imageHeight)
                     .clipped()
                     .clipShape(
@@ -59,7 +58,8 @@ struct CartItemView: View {
                             HStack {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(width: 30, height: 30)
-                                    .foregroundStyle(.tertiary)
+                                    .foregroundStyle(.quaternary)
+                                    .opacity(0.4)
                                     .overlay{
                                         Text("\(viewModel.getQuantity(item: dish))").font(Font(Fonts.title4Font)).foregroundStyle(.brandTerciary)
                                     }
@@ -76,6 +76,7 @@ struct CartItemView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(width: 30, height: 30)
                                     .foregroundStyle(.quaternary)
+                                    .opacity(0.45)
                                     .overlay{
                                         Image(systemName: "pencil")
                                     }

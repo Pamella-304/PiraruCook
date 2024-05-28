@@ -20,7 +20,7 @@ struct ButtonView: View {
         Text(name)
             .font(Font(Fonts.title3Font))
             .foregroundStyle(type == .primary ? .white : .brandSecondary)
-            .padding()
+            .padding(8)
             .frame(maxWidth: .infinity)
             .background{
                 RoundedRectangle(cornerRadius: 10)

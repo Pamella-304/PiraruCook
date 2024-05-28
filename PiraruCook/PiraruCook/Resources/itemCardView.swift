@@ -10,7 +10,8 @@ import SwiftUI
 struct ItemCardView: View {
     
     let dish: TypeDish
-    @Environment(\.colorScheme) var colorScheme
+    let isEventItem = true
+    @Environment(User.self) var user
     
     var body: some View {
      
@@ -39,8 +40,68 @@ extension ItemCardView {
                         bottomLeadingRadius: 10,
                         bottomTrailingRadius: 0,
                         topTrailingRadius: 0
+
+             if dish.name == "Caipirinha" {
+                if user.boi == SelectedBoi.caprichoso {
+                    Image("CaipirinhaCaprichosa")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 102,height: 102)
+                        .clipped()
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 10,
+                                bottomLeadingRadius: 10,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 10
+                            )
+                        )
+                } else if user.boi == SelectedBoi.garantido {
+                    Image("CaipirinhaGarantida")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 102,height: 102)
+                        .clipped()
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 10,
+                                bottomLeadingRadius: 10,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 10
+                            )
+                        )
+                } else {
+                    Image(dish.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 102,height: 102)
+                        .clipped()
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 10,
+                                bottomLeadingRadius: 10,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 10
+                            )
+                        )
+                }
+            } else {
+                Image(dish.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 102,height: 102)
+                    .clipped()
+                    .clipShape(
+                        .rect(
+                            topLeadingRadius: 10,
+                            bottomLeadingRadius: 10,
+                            bottomTrailingRadius: 0,
+                            topTrailingRadius: 10
+                        )
                     )
-                )
+            }
+            
+            
             
             RoundedRectangle(cornerRadius: 0)
                 .frame(height: 102)
@@ -82,7 +143,7 @@ extension ItemCardView {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(20)
-                    .foregroundStyle(colorScheme == .light ? .black : .white)
+                    .foregroundStyle(.black)
                     
                 }
         }
@@ -93,52 +154,69 @@ extension ItemCardView {
         
             Image(dish.image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 350, height: 250)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay {
-                    
                     VStack {
-                        
                         HStack {
-                            Text(dish.name)
                             Spacer()
-                            Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
-                        }
-                        .font(Font(Fonts.title3Font))
-                        .bold()
+                            if isEventItem && user.boi != SelectedBoi.none {
+                                
+                                switch user.boi! {
+                                case SelectedBoi.caprichoso:
+                                    Image("PratoCaprichoso")
+                                        .padding()
+                                default:
+                                    Image("PratoGarantido")
+                                        .padding()
+                                    
+                                }
+                               
+                            }
                         
-                        HStack {
-                            Text(dish.ingredients.joined(separator: ", "))
-                                .multilineTextAlignment(.trailing)
-                                .font(.body)
-                            Spacer()
-                            Text("Serve até 3 pessoas")
                         }
-                        
-                    }
-                    .padding()
-                    .foregroundStyle(.black)
-                    .frame(width: 350, height: 80)
-                    .background(.brandSenary)
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 0,
-                            bottomLeadingRadius: 10,
-                            bottomTrailingRadius: 10,
-                            topTrailingRadius: 0
+                        Spacer()
+                        VStack {
+                            HStack {
+                                Text(dish.name)
+                                Spacer()
+                                Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+                            }
+                            .font(Font(Fonts.title3Font))
+                            .bold()
+                            
+                            HStack {
+                                Text(dish.ingredients.joined(separator: ", "))
+                                    .multilineTextAlignment(.trailing)
+                                    .font(.body)
+                                Spacer()
+                                Text("Serve até 3 pessoas")
+                            }
+                            
+                        }
+                        .padding()
+                        .foregroundStyle(.black)
+                        .frame(width: 350, height: 80)
+                        .background(.brandSenary)
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 0,
+                                bottomLeadingRadius: 10,
+                                bottomTrailingRadius: 10,
+                                topTrailingRadius: 0
+                            )
                         )
-                    )
+                    }
+                    
                 }
-            
-            
         }
-        .frame(width: 200, height: 200)
-        
-        
     }
     
 }
 
 #Preview {
-    ItemCardView(dish: TypeDish(name: "Cubiu", description: "Bom", image: "Cubiu", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Salgado", comment: "Sem sal", boi: false))
+    ItemCardView(dish: TypeDish(name: "Caipirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal", boi: false))
+        .environment(User())
 }
 

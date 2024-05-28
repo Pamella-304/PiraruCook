@@ -10,67 +10,103 @@ import SwiftUI
 struct ChangeMethodView: View {
     @Environment(CartViewModel.self) private var viewModel
     @Environment(\.dismiss) var dismiss
+    @State var actualMethod: Int = 1
 
     var body: some View {
         VStack{
-            HStack {
-                Text("Escolha o método de pagamento:")
-                    .padding(.horizontal)
-                    .font(Font(Fonts.title4Font))
-                    .foregroundStyle(.primary)
-                Spacer()
-            }.padding()
-            Section {
-                ScrollView(.horizontal) {
-                    HStack {
-                        Button{
-                            // TODO: change method label and subtitle
-                        }label: {
-                            CardPaymentMethodView(symbol: "plus", description: ["Cadastrar", "Novo cartão"])
-                                .padding(4)
-                        }
-                        Button{
-                            viewModel.CashOption()
-                            dismiss()
-                        }label: {
-                            CardPaymentMethodView(symbol: "dollarsign.circle", description: ["Pagamento", "Dinheiro"])
-                                .padding(4)
-                        }
-                        Button{
-                            viewModel.PixOption()
-                            dismiss()
-                        }label: {
-                            CardPaymentMethodView(symbol: "rectangle.checkered", description: ["Pagamento", "Pix"])
-                                .padding(4)
-                        }
-                        Button{
-                            viewModel.CreditCardOption()
-                            dismiss()
-                        }label: {
-                            CardPaymentMethodView(symbol: "creditcard", description: ["Pagamento", "Cartão de crédito"])
-                                .padding(4)
-                        }
-                        Button{
-                            viewModel.ApplePayOption()
-                            dismiss()
-                        }label: {
-                            CardPaymentMethodView(symbol: "apple.logo", description: ["Pagamento", "Apple Pay"])
-                                .padding(4)
-                        }
-                        Button{
-                            viewModel.CashOption()
-                            dismiss()
-                        }label: {
-                            CardPaymentMethodView(symbol: "dollarsign.circle", description: ["Pagamento", "Dinheiro"])
-                                .padding(4)
-                        }
-
-
-                    }
+            Text("Escolha o método de pagamento")
+                .padding()
+                .font(Font(Fonts.title4Font))
+            
+            
+            Divider()
+            
+            Group {
+                
+                Button {
+                    actualMethod = 1
+                    viewModel.ApplePayOption()
+                } label: {
+                    CardPaymentMethodView(symbol: "ApplePay", description: "Apple Pay", actualMethod: actualMethod == 1)
                 }
+                
+                Button {
+                    actualMethod = 2
+                    viewModel.CreditCardOption()
+                } label: {
+                    CardPaymentMethodView(symbol: "banco", description: "**** **** **** 4298", actualMethod: actualMethod == 2)
+                }
+                
+                Button {
+                    actualMethod = 3
+                    viewModel.CashOption()
+                } label: {
+                    CardPaymentMethodView(symbol: "dollarsign.circle", description: "Dinheiro", actualMethod: actualMethod == 3)
+                }
+                
+                Button {
+                    actualMethod = 4
+                    viewModel.PixOption()
+                } label: {
+                    CardPaymentMethodView(symbol: "Pix", description: "Pix", actualMethod: actualMethod == 4)
+                }
+                
             }
-            Spacer()
+            .padding(.horizontal)
         }
+        .frame(maxHeight: .infinity, alignment: .top)
+                
+                
+//                ScrollView(.horizontal) {
+//                    HStack {
+//                        Button{
+//                            // TODO: change method label and subtitle
+//                        }label: {
+//                            CardPaymentMethodView(symbol: "plus", description: "Cadastrar", actualMethod: actualMethod == 1)
+//                                .padding(4)
+//                        }
+//                        Button{
+//                            viewModel.CashOption()
+//                            dismiss()
+//                        }label: {
+//                            CardPaymentMethodView(symbol: "dollarsign.circle", description: "Pagamento", actualMethod: actualMethod == 2)
+//                                .padding(4)
+//                        }
+//                        Button{
+//                            viewModel.PixOption()
+//                            dismiss()
+//                        }label: {
+//                            CardPaymentMethodView(symbol: "rectangle.checkered", description: ["Pagamento", "Pix"])
+//                                .padding(4)
+//                        }
+//                        Button{
+//                            viewModel.CreditCardOption()
+//                            dismiss()
+//                        }label: {
+//                            CardPaymentMethodView(symbol: "creditcard", description: ["Pagamento", "Cartão de crédito"])
+//                                .padding(4)
+//                        }
+//                        Button{
+//                            viewModel.ApplePayOption()
+//                            dismiss()
+//                        }label: {
+//                            CardPaymentMethodView(symbol: "apple.logo", description: ["Pagamento", "Apple Pay"])
+//                                .padding(4)
+//                        }
+//                        Button{
+//                            viewModel.CashOption()
+//                            dismiss()
+//                        }label: {
+//                            CardPaymentMethodView(symbol: "dollarsign.circle", description: ["Pagamento", "Dinheiro"])
+//                                .padding(4)
+//                        }
+//
+//
+//                    }
+//                }
+//            }
+//            Spacer()
+//        }
     }
 }
 

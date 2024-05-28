@@ -27,6 +27,7 @@ struct ChevronDownComponent: View {
                         .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: ("chevron.right"))
+                        .foregroundStyle(.black)
                         .rotationEffect(.degrees(hasClicked ? 90 : 0))
                 }
                 

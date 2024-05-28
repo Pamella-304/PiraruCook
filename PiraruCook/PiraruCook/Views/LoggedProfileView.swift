@@ -13,6 +13,7 @@ struct LoggedProfileView: View {
     @Environment(User.self) private var user: User?
     @AppStorage("isLoggedIn") private var isLoggedIn = false
     @State private var isShowingDialog = false
+    @State private var isShowingSheet = false
     
     var body: some View {
         
@@ -66,13 +67,15 @@ struct LoggedProfileView: View {
             .foregroundStyle(.primary)
             
             Divider()
-            
-            NavigationLink(value: RouterData(screen: Views.EventInfo)) {
+            Button {
+                isShowingSheet.toggle()
+            } label: {
                 ProfileOptionsView(imageName: "party.popper.fill", title:
                                     "Festival de Paratins", description: "Acesse as informações do evento atual")
+                .foregroundStyle(.black)
             }
-            .environment(user)
-            .foregroundStyle(.primary)
+           
+        
             
             Divider()
             
@@ -103,6 +106,10 @@ struct LoggedProfileView: View {
         .navigationTitle("Perfil")
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.large)
+        
+        .sheet(isPresented: $isShowingSheet) {
+            ChooseBoiSheet()
+        }
     }
     
 }

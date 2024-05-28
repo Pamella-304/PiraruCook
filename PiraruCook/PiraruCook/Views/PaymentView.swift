@@ -13,48 +13,47 @@ struct PaymentView: View {
         VStack{
             HStack{
                 Text("Método de pagamento")
-                    .font(Font(Fonts.title2Font))
+                    .font(Font(Fonts.title3Font))
 
                 Spacer()
             }.padding(.horizontal)
             
-            PaymentSections(usage: "Método de pagamento", img1: "rectangle.checkered", subtext: paymentSubtitle, text: viewModel.paymentMethod.rawValue)
+            PaymentSections(outImage: true, usage: "Método de pagamento", img1: "Pix", subtext: paymentSubtitle, text: viewModel.paymentMethod.rawValue)
                 .font(Font(Fonts.title3Font))
 
             HStack{
-//                Text("Desconto").bold()
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(usage: "", img1: "ticket.fill", subtext: "\(1) cupom disponível", text: "Cupom")
+            PaymentSections(outImage: false, usage: "Cupom", img1: "ticket.fill", subtext: "\(2) cupons disponíveis", text: "Cupom")
                 .font(Font(Fonts.title3Font))
 
                 
             HStack{
-                Text("Entrega").bold()
-                    .font(Font(Fonts.title2Font))
+                Text("Entrega")
+                    .font(Font(Fonts.title3Font))
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(usage: "", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
+            PaymentSections(outImage: false, usage: "", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
                 .font(Font(Fonts.title3Font))
 
                 
             Spacer()
             HStack{
                 Text("Resumo da Compra").bold()
-                .font(Font(Fonts.title2Font))
+                .font(Font(Fonts.title3Font))
 
                 Spacer()
             }.padding()
             ValuesSection(Title: "Subtotal", Price: viewModel.subTotalValue)
-                .font(Font(Fonts.title4Font))
+                
             ValuesSection(Title: "Desconto", Price: viewModel.getDiscount())
-                .font(Font(Fonts.title4Font))
+                
 
             ValuesSection(Title: "Entrega", Price: viewModel.transportationValue)
-                .font(Font(Fonts.title4Font))
+                
 
             ValuesSection(Title: "Total", Price: viewModel.getTotalValue())
-                .font(Font(Fonts.title4Font))
+                .fontWeight(.semibold)
 
 
             

@@ -87,7 +87,7 @@ struct LoggedProfileView: View {
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-            .tint(.red)
+            .tint(.brandPrimary)
             .padding()
             .confirmationDialog("Tem certeza que deseja encerrar a sessão?", isPresented: $isShowingDialog, titleVisibility: .visible) {
                 Button("Confirmar",role: .destructive) {

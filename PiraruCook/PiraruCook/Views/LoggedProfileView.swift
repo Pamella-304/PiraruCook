@@ -71,7 +71,7 @@ struct LoggedProfileView: View {
                 isShowingSheet.toggle()
             } label: {
                 ProfileOptionsView(imageName: "party.popper.fill", title:
-                                    "Festival de Paratins", description: "Acesse as informações do evento atual")
+                                    "Festival de Parintins", description: "Acesse as informações do evento atual")
                 .foregroundStyle(.black)
             }
            

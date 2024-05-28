@@ -105,26 +105,27 @@ extension ItemCardView {
                 )
                 .overlay {
                     HStack {
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .center) {
                             Text(dish.name)
                                 .font(Font(Fonts.title3Font))
                                 .bold()
+                                .frame(maxWidth: .infinity,maxHeight: .infinity)
                             
                             Spacer()
                             
-                            Text(dish.ingredients.joined(separator: ", "))
-                                .multilineTextAlignment(.trailing)
-                                .font(.body)
+//                            Text(dish.ingredients.joined(separator: ", "))
+//                                .multilineTextAlignment(.trailing)
+//                                .font(.body)
                         }
                         
                         Spacer()
                         
-                        VStack(alignment: .trailing) {
+                        VStack(alignment: .center) {
                             Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
                                 .font(Font(Fonts.title3Font))
                                 .bold()
                             
-                            Spacer()
+//                            Spacer()
                             
                             
                         }
@@ -168,24 +169,34 @@ extension ItemCardView {
                         VStack {
                             HStack {
                                 Text(dish.name)
+                                    .font(Font(Fonts.title3Font))
+                                    .bold()
+                                
                                 Spacer()
-                                Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+                                
+                                VStack {
+                                    Text("R$\(dish.price.formatted(.number.precision(.fractionLength(2))))")
+                                        .font(Font(Fonts.title3Font))
+                                    
+                                    .bold()
+                                    Text("Serve 3 pessoas")
+                                }
+                                
                             }
-                            .font(Font(Fonts.title3Font))
-                            .bold()
                             
-                            HStack {
-                                Text(dish.ingredients.joined(separator: ", "))
-                                    .multilineTextAlignment(.trailing)
-                                    .font(.body)
-                                Spacer()
-                                Text("Serve 3 pessoas")
-                            }
+                            
+//                            HStack {
+////                                Text(dish.ingredients.joined(separator: ", "))
+////                                    .multilineTextAlignment(.trailing)
+////                                    .font(.body)
+//                                Spacer()
+//                                
+//                            }
                             
                         }
                         .padding()
                         .foregroundStyle(.black)
-                        .frame(width: 350, height: 80)
+                        .frame(width: 350, height: 100)
                         .background(.brandSenary)
                         .clipShape(
                             .rect(
@@ -204,7 +215,7 @@ extension ItemCardView {
 }
 
 #Preview {
-    ItemCardView(dish: TypeDish(name: "Caipirinha", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Bebidas", comment: "Sem sal", boi: false))
+    ItemCardView(dish: TypeDish(name: "Caipirinha com um texto muito grande que quebra linhas", description: "Bom", image: "Caipirinha", nutritionalInfo: ["Arroz"], ingredients: ["Álcool"], price: 20.25, tipo: "Salgado", comment: "Sem sal", boi: false))
         .environment(User())
 }
 

@@ -19,7 +19,7 @@ struct LoginProfileView: View {
         
         VStack{
             
-            Image("logoPlaceHolder")
+            Image("PiraruCooksLogo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 32)

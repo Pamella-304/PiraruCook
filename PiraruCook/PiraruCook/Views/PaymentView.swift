@@ -18,14 +18,14 @@ struct PaymentView: View {
                 Spacer()
             }.padding(.horizontal)
             
-            PaymentSections(outImage: true, usage: "Método de pagamento", img1: "Pix", subtext: paymentSubtitle, text: viewModel.paymentMethod.rawValue)
-                .font(Font(Fonts.title3Font))
+            PaymentSections(outImage: true, usage: "Método de pagamento", img1: "Pix", subtext: paymentSubtitle, text: Text(viewModel.paymentMethod.rawValue).font(Font(Fonts.title3Font)))
+                
             
             HStack{
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(outImage: false, usage: "Cupom", img1: "ticket.fill", subtext: "\(2) cupons disponíveis", text: "Cupom")
-                .font(Font(Fonts.title3Font))
+            PaymentSections(outImage: false, usage: "Cupom", img1: "ticket.fill", subtext: "\(2) cupons disponíveis", text: Text("Cupom").font(Font(Fonts.title3Font)))
+                
             
             
             HStack{
@@ -34,11 +34,7 @@ struct PaymentView: View {
                 Spacer()
             }.padding(.horizontal)
 
-            PaymentSections(outImage: false, usage: "Entrega", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
-
-                .font(Font(Fonts.title3Font))
-            
-            
+            PaymentSections(outImage: false, usage: "Entrega", img1: "mappin", subtext: "Entrega em até 40 min", text: Text("R. Silvio da Silva").font(Font(Fonts.title3Font)))
             Spacer()
             HStack{
                 Text("Resumo da Compra").bold()

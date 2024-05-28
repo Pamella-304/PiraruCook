@@ -89,18 +89,7 @@ struct EditAddressView: View {
                                 
                                 Section {
                                     TextField("Endereço", text: $editingAddressLocation, axis: .vertical)
-                                        .foregroundStyle(.secondary)
-                                    
-                                    
-                                    TextField("Número", text: $editingAddressLocation, axis: .vertical)
-                                        .foregroundStyle(.secondary)
-                                    
-                                    
-                                    TextField("CEP", text: $editingAddressLocation, axis: .vertical)
-                                        .foregroundStyle(.secondary)
-                                    
-                                    
-                                    
+                                        .foregroundStyle(.secondary)  
                                 } header: {
                                     HStack {
                                         Text("Endereço")
@@ -167,17 +156,6 @@ struct EditAddressView: View {
                     Section {
                         TextField("Endereço", text: $editingAddressLocation, axis: .vertical)
                             .foregroundStyle(.secondary)
-                        
-                        
-                        TextField("Número", text: $editingAddressLocation, axis: .vertical)
-                            .foregroundStyle(.secondary)
-                        
-                        
-                        TextField("CEP", text: $editingAddressLocation, axis: .vertical)
-                            .foregroundStyle(.secondary)
-                        
-                        
-                        
                     } header: {
                         HStack {
                             Text("Alterar endereço")

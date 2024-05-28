@@ -13,7 +13,7 @@ struct PaymentSections: View {
     var usage: String
     var img1: String
     var subtext: String
-    var text: String
+    var text: Text
     @State private var paymentSheets = false
     @State private var changeMethod = false
     @State private var chooseCoupon = false
@@ -37,7 +37,7 @@ struct PaymentSections: View {
             }
             .frame(width: 30)
             VStack(alignment: .leading) {
-                Text(text)
+                text
                     .font(.body)
 //                    .font(Font(Fonts.title5Font))
                 // TODO: Retrive number of cupons
@@ -91,5 +91,5 @@ struct PaymentSections: View {
 }
 
 #Preview {
-    PaymentSections(outImage: false, usage:"Método de pagamento", img1: "ticket.fill",subtext: "\(1) cupons disponíveis",text: "Cupom")
+    PaymentSections(outImage: false, usage:"Método de pagamento", img1: "ticket.fill",subtext: "\(1) cupons disponíveis",text: Text("Cupom"))
 }

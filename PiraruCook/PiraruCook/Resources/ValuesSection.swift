@@ -17,10 +17,11 @@ struct ValuesSection: View {
             Spacer()
             if Title == "Total"{
                 Text("R$ \((Price).formatted(.number.precision(.fractionLength(2))))").bold()
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
                     .background{
                         RoundedRectangle(cornerRadius: 15)
-                            .padding(.horizontal, -8)
-                            .padding(.vertical, -4)
+
                             .foregroundStyle(.brandSenary)
                     }
             }else{

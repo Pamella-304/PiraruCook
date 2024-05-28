@@ -179,7 +179,7 @@ extension ItemCardView {
                                     .multilineTextAlignment(.trailing)
                                     .font(.body)
                                 Spacer()
-                                Text("Serve até 3 pessoas")
+                                Text("Serve 3 pessoas")
                             }
                             
                         }

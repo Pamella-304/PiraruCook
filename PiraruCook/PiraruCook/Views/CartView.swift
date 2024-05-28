@@ -33,9 +33,11 @@ struct CartView: View {
                 
                 // MARK: Cart's items
                 CartItemsView()
-                VStack(spacing: 0) {
+                    .padding(.horizontal)
+                
+                VStack(spacing: 16) {
                     HStack {
-                        Text("Entrega").font(Font(Fonts.title4Font))
+                        Text("Entrega").fontWeight(.semibold)
 
                         Spacer()
                         Picker(selection: $isDelivery, label: Text("Opção de entrega")) {
@@ -53,13 +55,16 @@ struct CartView: View {
                     HStack {
                         Text("Subtotal").font(Font(Fonts.title4Font))
                         Spacer()
-                        ZStack{
-                            Rectangle().foregroundColor(.brandSenary).frame(width: UIScreen.main.bounds.width * 0.22, height: UIScreen.main.bounds.height * 0.03).cornerRadius(20)
-                            Text(viewModel.displaySubTotalValue()).font(Font(Fonts.title4Font))
-                        }
+                        
+                            Text(viewModel.displaySubTotalValue()).fontWeight(.semibold)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundStyle(.brandSenary)
+                            }
                     }
-                    .padding(.leading, 16)
-                    .padding(.bottom, 8)
+                    .padding()
                     
                     CartPaymentButtonView()
                     
@@ -81,4 +86,6 @@ struct CartView: View {
 
 #Preview {
     CartView()
+        .environment(Router())
+        .environment(CartViewModel(items: [DishCart(dish: TypeDish.example, quantity: 1)]))
 }

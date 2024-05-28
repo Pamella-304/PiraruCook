@@ -5,99 +5,99 @@
             "description": "Bolinho de batata envolvido com farinha de peixe regional",
             "image": "BolinhoDePiracui",
             "nutritionalInfo": ["Aproximadamente 660 calorias"],
-            "ingredients": ["batata, farinha, peixe Piracuí"],
+            "ingredients": ["Batata", "Farinha", "Peixe Piracuí"],
             "price": 10.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Bolinho de Pirarucu seco",
             "description": "Bolinho de batata envolvido com Pirarucu seco e desfiado",
             "image": "BolinhoDePirarucu",
             "nutritionalInfo": ["Aproximadamente 300 calorias cada 100g"],
-            "ingredients": ["Batata", "farinha", "pirarucu"],
+            "ingredients": ["Batata", "Farinha", "Pirarucu"],
             "price": 12.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Camarão empanado na farinha de tapioca",
             "description": "Servido com maionese de leite e ervas",
             "image": "CamaraoEmpanado",
             "nutritionalInfo": ["Aproximadamente 370 calorias cada 100g"],
-            "ingredients": ["camarão", "farinha", "leite", "ervas da casa"],
+            "ingredients": ["Camarão", "Farinha", "Leite", "Ervas da casa"],
             "price": 18.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Dadinhos de tapioca",
             "description": "Dadinhos de tapioca e queijo coalho fritos, servidos com geleia de cupuaçu levemente apimentada",
             "image": "DadinhoDeTapioca",
             "nutritionalInfo": ["Aproximadamente 270 calorias cada 100g"],
-            "ingredients": ["tapioca", "queijo", "geleia", "cupuaçu", "pimenta"],
+            "ingredients": ["Tapioca", "Queijo", "Geleia", "Cupuaçu", "Pimenta"],
             "price": 15.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Mojica",
             "description": "Caldo de peixe assado, encorpado com farinha de mandioca",
             "image": "Mojica",
             "nutritionalInfo": ["Aproximadamente 200 calorias cada 100g"],
-            "ingredients": ["farinha", "peixe à escolha", "legumes"],
+            "ingredients": ["Farinha", "Peixe à escolha", "Legumes"],
             "price": 14.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Pastel de camarão com Jambu",
             "description": "Camarão seco refogado com ervas da Amazônia e jambu",
             "image": "PastelCamaraoJambu",
             "nutritionalInfo": [""],
-            "ingredients": ["Camarão", "ervas da casa", "jambu"],
+            "ingredients": ["Camarão", "Ervas da casa", "Jambu"],
             "price": 16.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Guaraná",
             "description": "Xarope de guaraná, guaraná em pó, amendoim e mel",
             "image": "Guarana",
             "nutritionalInfo": [""],
-            "ingredients": ["xarope de guaraná", "amendoim", "mel"],
-            "price": 5.0,
+            "ingredients": ["Xarope de guaraná", "Amendoim", "Mel"],
+            "price": 10.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Soda amazônica",
             "description": "Além da soda de bacuri, o drinque leva cachaça, licor de flor de sabugueiro",
             "image": "Suco",
             "nutritionalInfo": [""],
-            "ingredients": ["frutas com soda"],
-            "price": 3.5,
+            "ingredients": ["Frutas com soda"],
+            "price": 11.5,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Cumaru",
-            "description": "sementes de Cumaru, cachaça, dose de maracujá, sumo de limão, Mel natural de abelha",
+            "description": "Sementes de Cumaru, cachaça, dose de maracujá, sumo de limão, Mel natural de abelha",
             "image": "Cumaru",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool"],
-            "price": 2.0,
+            "price": 12.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Suco de frutas",
@@ -105,274 +105,274 @@
             "image": "Suco",
             "nutritionalInfo": [""],
             "ingredients": ["Frutas à escolha"],
-            "price": 7.0,
+            "price": 13.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Cachaça de Jambu",
-            "description": "cachaça de Jambu, Pedaços de abacaxi, Sumo de limão, Melado de cana.",
+            "description": "Cachaça de Jambu, Pedaços de abacaxi, Sumo de limão, Melado de cana.",
             "image": "CachacaDeJambu",
             "nutritionalInfo": [""],
             "ingredients": ["Álcool", "Jambu"],
-            "price": 4.0,
+            "price": 19.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Mule Amazônico",
             "description": "Vodka, Sumo de limão, Sugar syrup, Espuma de taperebá a cereja da Amazônia, a Fisális.",
             "image": "MuleAmazonico",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "açúcar", "limão"],
-            "price": 6.0,
+            "ingredients": ["Álcool", "Açúcar", "Limão"],
+            "price": 16.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Pinaçu",
-            "description": "Suco de cupuaçu, vodka, xarope de açúcar, Cremosa espuma de taperebá ",
+            "description": "Suco de cupuaçu, vodka, xarope de açúcar, Cremosa espuma de taperebá",
             "image": "Pinacu",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "açúcar", "suco de cupuaçu"],
-            "price": 7.0,
+            "ingredients": ["Álcool", "Açúcar", "Suco de cupuaçu"],
+            "price": 17.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Cunhatã",
             "description": "Cachaça Branca, taperebá, xarope de mel com sementes de camu-camu, pimenta rosa, finalizado com pacovã frita",
             "image": "Cunhata",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "taperabá", "mel", "pimenta", "pacovã"],
-            "price": 5.0,
+            "ingredients": ["Álcool", "Taperebá", "Mel", "Pimenta", "Pacovã"],
+            "price": 15.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Ambuçu com cana",
             "description": "Cachaça imburana, cupuaçu, caldo de cana, xarope de açúcar e sumo de limão",
             "image": "AmbucuComCana",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "caldo de cana", "açúcar", "limão"],
-            "price": 6.0,
+            "ingredients": ["Álcool", "Caldo de cana", "Açúcar", "Limão"],
+            "price": 16.0,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Caipirinha",
             "description": "Caipirinha com frutas à escolha",
             "image": "Caipirinha",
             "nutritionalInfo": [""],
-            "ingredients": ["Álcool", "açúcar", "limão ou abacaxi"],
-            "price": 6.0,
+            "ingredients": ["Álcool", "Açúcar", "Limão ou abacaxi"],
+            "price": 16.50,
             "tipo": "Bebidas",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Tacaca",
             "description": "Tucupi, Goma de tapioca, camarão seco, jambu",
             "image": "Tacaca",
             "nutritionalInfo": [""],
-            "ingredients": ["Tucupi", "farinha de tapioca", "camarão", "jambu"],
+            "ingredients": ["Tucupi", "Farinha de tapioca", "Camarão", "Jambu"],
             "price": 13.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Pirarucu grelhado",
-            "description": "O peixe é temperado com ingredientes típicos da região, como alho, limão, pimenta eervas locais, e depois grelhado na brasa, o que realça o sabor da carne e a torna suculenta e saborosa",
+            "description": "O peixe é temperado com ingredientes típicos da região, como alho, limão, pimenta e ervas locais, e depois grelhado na brasa, o que realça o sabor da carne e a torna suculenta e saborosa",
             "image": "PirarucuGrelhado",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe pirarucu", "alho", "limão", "pimenta"],
+            "ingredients": ["Peixe pirarucu", "Alho", "Limão", "Pimenta"],
             "price": 25.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Pirarucu de Casaca",
-            "description": "Pirarucu salgado, Farinha de trigo, Farinha de mandioca, Banana-da-terra, Leite de coco, Azeite de dende, Batata palha, Tomates, Cebola, Pimentão, Cheiro-verde ",
+            "description": "Pirarucu salgado, Farinha de trigo, Farinha de mandioca, Banana-da-terra, Leite de coco, Azeite de dendê, Batata palha, Tomates, Cebola, Pimentão, Cheiro-verde",
             "image": "PirarucuDeCasaca",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe pirarucu", "farinha de trigo", "legumes", "banana", "leite de coco"],
+            "ingredients": ["Peixe pirarucu", "Farinha de trigo", "Legumes", "Banana", "Leite de coco"],
             "price": 28.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Matrinxã recheada com farofa de banana",
-            "description": "Peixe (Matrinxã), limão, olho, cebola,  queijo mussarela, banana pacovã, bacon em fatias, calabresa cortada em pedacinhos, cenoura ralada, tomate, couve e Farinha do Urini.",
+            "description": "Peixe (Matrinxã), limão, alho, cebola, queijo mussarela, banana pacovã, bacon em fatias, calabresa cortada em pedacinhos, cenoura ralada, tomate, couve e Farinha do Urini.",
             "image": "Matrinxa",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe Matrinxã", "limão", "legumes", "queijo", "banana", "bacon", "calabresa"],
+            "ingredients": ["Peixe Matrinxã", "Limão", "Legumes", "Queijo", "Banana", "Bacon", "Calabresa"],
             "price": 22.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Caldeira de tambaqui",
-            "description": "1 kg de tambaqui, tomates sem sementes, cebolas, pimentas de cheiro, cheiro verde (coentro)picadinho, cebolinha picadinha, colorau (colorifico), azeite de oliva e limão.",
+            "description": "1 kg de tambaqui, tomates sem sementes, cebolas, pimentas de cheiro, cheiro verde (coentro) picadinho, cebolinha picadinha, colorau (colorífico), azeite de oliva e limão.",
             "image": "CaldeiraTambaqui",
             "nutritionalInfo": [""],
-            "ingredients": ["Tambaqui, tomates, legumes, temeperos"],
+            "ingredients": ["Tambaqui", "Tomates", "Legumes", "Temperos"],
             "price": 30.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Ravioli verde de jambu",
-            "description": "Ravioli verde de jambu, ricota de tucumã, Manteiga com puxuri ",
+            "description": "Ravioli verde de jambu, ricota de tucumã, Manteiga com puxuri",
             "image": "RavioliVerde",
             "nutritionalInfo": [""],
-            "ingredients": ["Ravioli", "jambu", "queijo ricota", "manteiga"],
+            "ingredients": ["Ravioli", "Jambu", "Queijo ricota", "Manteiga"],
             "price": 19.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Carré de tambaqui",
             "description": "Costelas de Tambaqui servidas com arroz com camarão, farofa molhada e banana frita",
             "image": "CarreTambaqui",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe Tambaqui", "arroz", "camarão", "farofa", "banana"],
+            "ingredients": ["Peixe Tambaqui", "Arroz", "Camarão", "Farofa", "Banana"],
             "price": 26.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Tacaqui",
             "description": "Nhoque de tambaqui ao molho de tucupi, bambu e camarão fresco.",
             "image": "Tacaqui",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe Tambaqui", "farinha", "molho de tucupi", "camarão"],
+            "ingredients": ["Peixe Tambaqui", "Farinha", "Molho de tucupi", "Camarão"],
             "price": 24.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Salada caesar de tambaqui",
             "description": "Costela de tambaqui assado na brasa, alface americana, banana frita estilo chips, queijo coalho e molho de tucupi reduzido",
             "image": "SaladaCaesar",
             "nutritionalInfo": [""],
-            "ingredients": ["tambaqui", "legumes", "queijo", "molho de tucupi"],
+            "ingredients": ["Tambaqui", "Legumes", "Queijo", "Molho de tucupi"],
             "price": 20.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Moqueca de pirarucu com camarão",
             "description": "Pirarucu montado em postas, refogado no azeite de dendê com leite de coco, tomate, cebola e camarões frescos, acompanha arroz e pirão",
             "image": "MoquecaPirarucu",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe pirarucu", "camarão", "leite de coco", "legumes"],
+            "ingredients": ["Peixe pirarucu", "Camarão", "Leite de coco", "Legumes"],
             "price": 32.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Pacu",
             "description": "Pacu recheado com farofa de uarini temperada e assado na brasa, acompanha baião de dois ou arroz, farofa e vinagrete.",
             "image": "Pacu",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe pacu", "farofa", "arroz", "farofa"],
+            "ingredients": ["Peixe pacu", "Farofa", "Arroz", "Farofa"],
             "price": 23.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Jaraqui frito",
             "description": "Tiras de jaraqui frito acompanhando baião de dois ou arroz, farofa de banana e vinagrete.",
             "image": "JaraquiFrito",
             "nutritionalInfo": [""],
-            "ingredients": ["Peixe jaraqui", "farofa", "arroz", "farofa de banana"],
+            "ingredients": ["Peixe jaraqui", "Farofa", "Arroz", "Farofa de banana"],
             "price": 18.0,
             "tipo": "Salgado",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Cubiu",
-            "description": "Compota de subiu, caldo de tucuri preto, sorvete e farinha de castanha",
+            "description": "Compota de Cubiu, caldo de tucuri preto, sorvete e farinha de castanha",
             "image": "Cubiu",
             "nutritionalInfo": [""],
-            "ingredients": ["Sorvete", "caldo de tucuri", "farinha"],
+            "ingredients": ["Sorvete", "Caldo de tucuri", "Farinha"],
             "price": 14.0,
             "tipo": "Doces",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Camu-Camu",
-            "description": "moraya triturada, chancaca, canela, cravo de cheiro, casca de laranja",
+            "description": "Moraya triturada, chancaca, canela, cravo de cheiro, casca de laranja",
             "image": "CamuCamu",
             "nutritionalInfo": [""],
-            "ingredients": ["canela", "chancaca", "laranja"],
-            "price": 10.0,
+            "ingredients": ["Canela", "Chancaca", "Laranja"],
+            "price": 18.0,
             "tipo": "Doces",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Petit gateau de cumaru",
             "description": "Petit gateau de chocolate com sorvete artesanal de cumaru e com calda de chocolate e farofa crocante de castanha",
             "image": "PetitGateauCumaru",
             "nutritionalInfo": [""],
-            "ingredients": ["chocolate", "sorvete de cumaru", "castanha"],
-            "price": 16.0,
+            "ingredients": ["Chocolate", "Sorvete de cumaru", "Castanha"],
+            "price": 26.0,
             "tipo": "Doces",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Croquetinho",
-            "description": "Peça uma porção de croquetinhospara o seu amiguinho!",
+            "description": "Peça uma porção de croquetinhos para o seu amiguinho!",
             "image": "croquete",
             "nutritionalInfo": ["B"],
-            "ingredients": ["Batata doce", "Coentro", "Farinha de aveia", "óleo de coco"],
+            "ingredients": ["Batata doce", "Coentro", "Farinha de aveia", "Óleo de coco"],
             "price": 36.90,
             "tipo": "PET",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
-            "name": " Biscoitos de Abóbora e Aveia",
+            "name": "Biscoitos de Abóbora e Aveia",
             "description": "Um delicioso biscoito para seu pet.",
             "image": "biscoitoAbobora",
             "nutritionalInfo": [],
-            "ingredients": ["purê de abóbora", "farinha de trigo integral", " Aveia"],
+            "ingredients": ["Purê de abóbora", "Farinha de trigo integral", "Aveia"],
             "price": 16.90,
             "tipo": "PET",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
-            "name": "Biscoitinhos de peixe",
+        "name": "Biscoitinhos de peixe",
             "description": "Um delicioso biscoito para seu pet.",
             "image": "biscoitoPeixe",
             "nutritionalInfo": [],
-            "ingredients": ["Tilápia", "batata doce", "Farinha de trigo integral", "cebolinha picada", "Ovo", "Sal"],
+            "ingredients": ["Tilápia", "Batata doce", "Farinha de trigo integral", "Cebolinha picada", "Ovo", "Sal"],
             "price": 29.90,
             "tipo": "PET",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Biscoitos de Pirarucu",
@@ -383,18 +383,18 @@
             "price": 16.90,
             "tipo": "PET",
             "comment": "",
-            "boi" : false
+            "boi": false
         },
         {
             "name": "Biscoitos de Frango",
             "description": "Um delicioso biscoito para seu pet",
             "image": "biscoitoFrango",
             "nutritionalInfo": [],
-            "ingredients": ["Frango desfiado", "Farinha de trigo integral", "manteiga", "Alho frito"],
+            "ingredients": ["Frango desfiado", "Farinha de trigo integral", "Manteiga", "Alho frito"],
             "price": 11.90,
             "tipo": "PET",
             "comment": "",
-            "boi" : false
+            "boi": false
         }
     ]
 }

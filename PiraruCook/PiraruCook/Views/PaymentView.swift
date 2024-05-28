@@ -34,7 +34,7 @@ struct PaymentView: View {
                     .font(Font(Fonts.title2Font))
                 Spacer()
             }.padding(.horizontal)
-            PaymentSections(usage: "", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
+            PaymentSections(usage: "Entrega", img1: "mappin", subtext: "Entrega em até 40 min", text: "R. Silvio da Silva")
                 .font(Font(Fonts.title3Font))
 
                 

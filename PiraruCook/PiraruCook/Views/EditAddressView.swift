@@ -137,7 +137,7 @@ struct EditAddressView: View {
                                 .background(.brandPrimary)
                                 .clipShape(Capsule()).padding()
                             
-                        }.presentationDetents([.fraction(0.6)])
+                        }
             
         }
         
@@ -218,7 +218,7 @@ struct EditAddressView: View {
                     .padding()
                     
                 
-            }.presentationDetents([.fraction(0.5)])
+            }
             
         }
         .task {

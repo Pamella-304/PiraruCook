@@ -47,6 +47,8 @@ struct PaymentSections: View {
                     chooseCoupon = true
                     print("\(changeMethod)")
                     sheetFraction = 0.28
+                case "Entrega":
+                    sheetFraction = 1
                 default:
                     print("")
                     
@@ -63,6 +65,8 @@ struct PaymentSections: View {
                 ChangeMethodView().presentationDetents([.fraction(sheetFraction)])
             case "Cupom":
                 CouponView().presentationDetents([.fraction(sheetFraction)])
+            case "Entrega":
+                EditAddressView()
             default:
                 ChangeMethodView()
             }

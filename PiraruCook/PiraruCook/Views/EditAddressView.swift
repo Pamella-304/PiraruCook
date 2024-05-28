@@ -63,130 +63,161 @@ struct EditAddressView: View {
         
         
         
-        .sheet(isPresented: $isShowingSheetNewAddress) {
-            VStack {
-                Spacer()
-                Section {
-                    TextField("Nome do endereço", text: $newAddressName)
-                        .foregroundStyle(.secondary)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.bottom, 42)
-                    
-                } header: {
-                    HStack {
-                        Text("Cadastrar Nome do endereço")
-                            .font(Font(Fonts.title3Font))
-                            .bold()
-                        Spacer()
-                    }
-                    
-                }
-                .padding(.horizontal, 48)
-                
-                
-                
-                Section {
-                    TextField("Cadastrar endereço", text: $newAddressLocation, axis: .vertical)
-                        .foregroundStyle(.secondary)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.horizontal, 48)
-                    
-                } header: {
-                    HStack {
-                        Text("Cadastrar Nome do endereço")
-                            .font(Font(Fonts.title3Font))
-                            .bold()
-                        Spacer()
-                    }
-                    
-                }
-                .padding(.horizontal, 24)
-                
-                
-                Picker("Figura", selection: $newAddressPicture) {
-                        ForEach(symbols, id: \.self) {
-                            Image(systemName: $0)
-                    }
-                }
-                .padding()
-                .pickerStyle(.palette)
-                
-                Spacer()
-                Button {
-                    createNewAddress()
-                    isShowingSheetNewAddress.toggle()
-                } label: {
-                    Text("Salvar Alterações")
-                        .font(Font(Fonts.title4Font))
-                        .foregroundStyle(.white)
-                        .padding()
-                }
-                .background(.brandPrimary)
-                .clipShape(Capsule())
-            }
+                    .sheet(isPresented: $isShowingSheetNewAddress) {
+                        VStack{
+                            List {
+                                
+                                Section {
+                                    TextField("Nome do endereço", text: $newAddressName)
+                                        .foregroundStyle(.secondary)
+                                    
+                                    
+                                    
+                                } header: {
+                                    HStack {
+                                        Text("Nome do endereço")
+                                            .font(Font(Fonts.title4Font))
+                                            .foregroundStyle(.brandSecondary)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                }
+                                
+                                
+                                
+                                
+                                Section {
+                                    TextField("Endereço", text: $editingAddressLocation, axis: .vertical)
+                                        .foregroundStyle(.secondary)
+                                    
+                                    
+                                    TextField("Número", text: $editingAddressLocation, axis: .vertical)
+                                        .foregroundStyle(.secondary)
+                                    
+                                    
+                                    TextField("CEP", text: $editingAddressLocation, axis: .vertical)
+                                        .foregroundStyle(.secondary)
+                                    
+                                    
+                                    
+                                } header: {
+                                    HStack {
+                                        Text("Endereço")
+                                            .font(Font(Fonts.title4Font))
+                                            .foregroundStyle(.brandSecondary)
+                                        Spacer()
+                                    }
+                                    
+                                }
+                            }
+                                
+                                
+                                
+                                Picker("Figura", selection: $newAddressPicture) {
+                                    ForEach(symbols, id: \.self) {
+                                        Image(systemName: $0)
+                                    }
+                                }
+                                .padding()
+                                .pickerStyle(.palette)
+                            
+                                
+                                Spacer()
+                                Button {
+                                    createNewAddress()
+                                    isShowingSheetNewAddress.toggle()
+                                } label: {
+                                    Text("Salvar Alterações")
+                                        .font(Font(Fonts.title4Font))
+                                        .foregroundStyle(.white)
+                                        .padding()
+                                }
+                                .frame(maxWidth: .infinity)
+                                .background(.brandPrimary)
+                                .clipShape(Capsule()).padding()
+                            
+                        }
             
         }
         
         .sheet(isPresented: $isEditingList) {
-            VStack {
-                Spacer()
-                Section {
-                    TextField("Nome do endereço", text: $editingAddressName)
-                        .foregroundStyle(.secondary)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.bottom, 42)
+            VStack{
+                List {
                     
-                } header: {
-                    HStack {
-                        Text("Alterar Nome do endereço")
-                            .font(Font(Fonts.title3Font))
-                            .bold()
-                        Spacer()
+                    Section {
+                        TextField("Nome do endereço", text: $editingAddressName)
+                            .foregroundStyle(.secondary)
+                        
+                        
+                        
+                    } header: {
+                        HStack {
+                            Text("Alterar Nome do endereço")
+                                .font(Font(Fonts.title4Font))
+                                .foregroundStyle(.brandSecondary)
+                            
+                            Spacer()
+                        }
+                        
                     }
                     
-                }
-                .padding(.horizontal, 48)
-                
-                
-                
-                Section {
-                    TextField("Alterar endereço", text: $editingAddressLocation, axis: .vertical)
-                        .foregroundStyle(.secondary)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.horizontal, 48)
                     
-                } header: {
-                    HStack {
-                        Text("Alterar Nome do endereço")
-                            .font(Font(Fonts.title3Font))
-                            .bold()
-                        Spacer()
+                    
+                    Section {
+                        TextField("Endereço", text: $editingAddressLocation, axis: .vertical)
+                            .foregroundStyle(.secondary)
+                        
+                        
+                        TextField("Número", text: $editingAddressLocation, axis: .vertical)
+                            .foregroundStyle(.secondary)
+                        
+                        
+                        TextField("CEP", text: $editingAddressLocation, axis: .vertical)
+                            .foregroundStyle(.secondary)
+                        
+                        
+                        
+                    } header: {
+                        HStack {
+                            Text("Alterar endereço")
+                                .font(Font(Fonts.title4Font))
+                                .foregroundStyle(.brandSecondary)
+                            
+                            
+                        }
+                        
                     }
-                    
                 }
-                .padding(.horizontal, 24)
-                
-                
-                Picker("Figura", selection: $editingAddressPicture) {
+                    
+                    
+                    
+                    Picker("Figura", selection: $editingAddressPicture) {
                         ForEach(symbols, id: \.self) {
                             Image(systemName: $0)
+                        }
                     }
-                }
-                .padding()
-                .pickerStyle(.palette)
+                    .padding()
+                    .pickerStyle(.palette)
                 
-                Spacer()
-                Button {
-                    updateAddress()
-                    isEditingList.toggle()
-                } label: {
-                    Text("Salvar Alterações")
-                        .font(Font(Fonts.title4Font))
-                        .foregroundStyle(.white)
-                        .padding()
-                }
-                .background(.brandPrimary)
-                .clipShape(Capsule())
+                    
+                    
+                    Spacer()
+                    Button {
+                        updateAddress()
+                        isEditingList.toggle()
+                    } label: {
+                        Text("Salvar Alterações")
+                            .font(Font(Fonts.title4Font))
+                            .foregroundStyle(.white)
+                            .padding()
+                    }
+                    .cornerRadius(10)
+                    .background(.brandPrimary)
+                    .clipShape(Capsule())
+                    .padding()
+                    
+                
             }
             
         }

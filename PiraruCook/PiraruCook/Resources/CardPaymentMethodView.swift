@@ -15,16 +15,24 @@ struct CardPaymentMethodView: View {
         
         HStack(spacing: 16) {
             Group {
-                Image(symbol)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 30)
+                if symbol != "dollarsign.circle" {
+                    Image(symbol)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                } else {
+                    Image(systemName: symbol)
+                        .font(.title)
+                        .foregroundStyle(.green)
+                }
+                
                     
             }
             .frame(width: 52, height: 44, alignment: .center)
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
             
             Text(description)
+                .font(.body)
                 .foregroundStyle(.black)
                 .fontWeight(.semibold)
         }

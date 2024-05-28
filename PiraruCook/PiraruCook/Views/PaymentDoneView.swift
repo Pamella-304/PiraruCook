@@ -9,7 +9,7 @@ struct PaymentDoneView: View {
             switch selectedPaymentMethod {
             case .Pix:
                 Text("Aguardando pagamento via Pix...")
-                    .font(Font(Fonts.title3Font))
+                    .font(Font(Fonts.title4Font))
 
                 Image("QRCode")
                 Text("291g47012m4712437g732461291g47012m4712437g732461756148738417-8471-8237291g47012m4712437g732461756148738417-8471-8237291g47012m4712437g732461756148738417-8471-8237291g47012m4712437g732461756148738417-8471-8237756148738417-8471-8237")

@@ -16,12 +16,15 @@ struct ValuesSection: View {
             Text("\(Title)")
             Spacer()
             if Title == "Total"{
-                ZStack{
-                    Rectangle().frame(width: UIScreen.main.bounds.width * 0.2, height: UIScreen.main.bounds.height * 0.04).opacity(0.2).cornerRadius(10)
-                    Text("R$ \((Price).formatted(.number.precision(.fractionLength(2))))").bold()
-                }
+                Text("R$ \((Price).formatted(.number.precision(.fractionLength(2))))").bold()
+                    .background{
+                        RoundedRectangle(cornerRadius: 15)
+                            .padding(.horizontal, -8)
+                            .padding(.vertical, -4)
+                            .foregroundStyle(.brandSenary)
+                    }
             }else{
-                Text((Title == "Desconto") ? "- R$ \((Price).formatted(.number.precision(.fractionLength(2))))" : "R$ \((Price).formatted(.number.precision(.fractionLength(2))))").opacity(0.6)
+                Text((Title == "Desconto") ? "- R$ \((Price).formatted(.number.precision(.fractionLength(2))))" : "R$ \((Price).formatted(.number.precision(.fractionLength(2))))")
             }
         }.padding(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
     }

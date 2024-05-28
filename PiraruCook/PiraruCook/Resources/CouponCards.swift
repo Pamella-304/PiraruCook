@@ -15,16 +15,19 @@ struct CouponCards: View {
     var body: some View {
         
         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-            .stroke(isCurrentCoupon ? .brandPrimary : .brandSecondary, lineWidth: 3)
-            .frame(width: 350, height: 70)
+            .stroke(isCurrentCoupon ? .brandPrimary : .clear, lineWidth: 3)
+            .frame(height: 70)
             
             .overlay {
-                HStack{
+                HStack(spacing:16){
                     Text(couponValue).font(Font(Fonts.title1Font)).foregroundStyle(.brandPrimary)
-                    Spacer()
                     Text(couponLabel).font(Font(Fonts.title3Font)).foregroundStyle(.brandSecondary)
-                }.padding()
+                }
+                .padding(8)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .padding(.horizontal)
+            .padding(.bottom, 16)
     }
 }
 

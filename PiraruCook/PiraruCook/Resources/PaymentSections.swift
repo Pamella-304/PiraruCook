@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PaymentSections: View {
     @Environment(CartViewModel.self) private var viewModel
+    var outImage: Bool
     var usage: String
     var img1: String
     var subtext: String
@@ -21,11 +22,24 @@ struct PaymentSections: View {
     
     
     var body: some View {
-        HStack {
-            Image(systemName: img1)
+        HStack(spacing: 16) {
+            Group {
+                if outImage {
+                    Image(img1)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30)
+                } else {
+                    Image(systemName: img1)
+                        .foregroundStyle(.brandPrimary)
+                        .font(.title)
+                }
+            }
+            .frame(width: 30)
             VStack(alignment: .leading) {
                 Text(text)
-                    .bold()
+                    .font(.body)
+//                    .font(Font(Fonts.title5Font))
                 // TODO: Retrive number of cupons
                 
                 if subtext == ""{
@@ -60,9 +74,9 @@ struct PaymentSections: View {
         }.sheet(isPresented: $paymentSheets) {
             switch usage{
             case "Método de pagamento":
-                ChangeMethodView().presentationDetents([.fraction(sheetFraction)])
+                ChangeMethodView().presentationDetents([.medium])
             case "Cupom":
-                CouponView().presentationDetents([.fraction(sheetFraction)])
+                CouponView().presentationDetents([.medium])
             default:
                 ChangeMethodView()
             }
@@ -73,5 +87,5 @@ struct PaymentSections: View {
 }
 
 #Preview {
-    PaymentSections(usage:"Método de pagamento", img1: "ticket.fill",subtext: "\(1) cupons disponíveis",text: "Cupom")
+    PaymentSections(outImage: false, usage:"Método de pagamento", img1: "ticket.fill",subtext: "\(1) cupons disponíveis",text: "Cupom")
 }

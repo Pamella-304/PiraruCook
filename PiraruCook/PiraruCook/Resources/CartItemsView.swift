@@ -15,10 +15,12 @@ struct CartItemsView: View {
         ScrollView {
             
             Section {
-                      
-                if !viewModel.items.isEmpty {
-                    ForEach(viewModel.items) { item in
-                        CartItemView(dish: item.dish)
+                VStack(spacing: 16) {
+                    if !viewModel.items.isEmpty {
+                        ForEach(viewModel.items) { item in
+                            CartItemView(dish: item.dish)
+                            
+                        }
                     }
                 }
 

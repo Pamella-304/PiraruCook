@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuView: View {
     
     @State private var viewModel = MenuViewModel()
-    
+    @Environment(User.self) var user
     var body: some View {
         
         VStack {
@@ -30,6 +30,17 @@ struct MenuView: View {
             
             
             ScrollView {
+                
+                if user.boi == .caprichoso {
+                    Image("DisputaBoisCaprichoso")
+                        .resizable()
+                        .frame(width: 360, height: 200)
+                } else if user.boi == .garantido {
+                    Image("DisputaBoisGarantido")
+                        .resizable()
+                        .frame(width: 360, height: 200)
+                }
+                
                 
                 ForEach(viewModel.categories, id:\.self) { category in
                     

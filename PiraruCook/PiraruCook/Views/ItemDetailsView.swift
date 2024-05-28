@@ -291,22 +291,22 @@ struct ItemDetailsView: View {
 
                 
                 // MARK: Recomendation
-                VStack {
-                    HStack {
-                        Text("Seu prato \(viewModel.dish.name) combina com:")
-                            .font(Font(Fonts.title3Font))
-                        Spacer()
-                    }
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(viewModel.exampleSugestedDishes, id: \.self) {
-                                ItemCardView(dish: $0)
-                                    .frame(width: 340)
-                            }
-                        }
-                    }
-                }
-                .padding()
+//                VStack {
+//                    HStack {
+//                        Text("Seu prato \(viewModel.dish.name) combina com:")
+//                            .font(Font(Fonts.title3Font))
+//                        Spacer()
+//                    }
+//                    ScrollView(.horizontal) {
+//                        HStack {
+//                            ForEach(viewModel.exampleSugestedDishes, id: \.self) {
+//                                ItemCardView(dish: $0)
+//                                    .frame(width: 340)
+//                            }
+//                        }
+//                    }
+//                }
+//                .padding()
                 
                 
                 // MARK: Comment
@@ -421,7 +421,7 @@ struct ItemDetailsView: View {
 
 
 #Preview {
-    ItemDetailsView(dish: TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Matrinxa", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "bebiba", comment: "Sem sal", boi: false))
+    ItemDetailsView(dish: TypeDish(name: "Tacaca", description: "Lorem ipsum dolor sit amet", image: "Matrinxa", nutritionalInfo: ["alergia","vegano","gluten-free"], ingredients: ["bacuri","cerveja","Suco","Suco","cerveja"], price: 19.99, tipo: "Bebidas", comment: "Sem sal", boi: false))
 
         .environment(User())
 

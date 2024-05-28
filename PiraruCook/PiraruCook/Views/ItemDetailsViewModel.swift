@@ -55,7 +55,7 @@ class ItemDetailsViewModel {
         switch dish.tipo {
         case "Bebidas":
             "Pode conter: (Alergias na produção de bebidas)"
-        case "Doce":
+        case "Doces":
             "Pode conter: (Alergias na produção de doces)"
         case "Salgado":
             "Pode conter: (Alergias na produção de salgados)"

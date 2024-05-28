@@ -17,7 +17,7 @@ class SignInFormsViewModel {
     var email = ""
     var senha = ""
     var cpf = ""
-    var selectedBoi: SelectedBoi = .garantido
+    var selectedBoi: SelectedBoi = .none
     var accountCreated = false
     var showAlert = false
     var alertMessage = ""

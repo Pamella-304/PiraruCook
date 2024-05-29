@@ -29,7 +29,19 @@ extension ItemCardView {
     
     var drinks: some View {
         HStack(spacing:-12) {
-            if dish.name == "Caipirinha" {
+            Image(dish.image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 102, height: 102)
+                .clipped()
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 10,
+                        bottomLeadingRadius: 10,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 0
+
+             if dish.name == "Caipirinha" {
                 if user.boi == SelectedBoi.caprichoso {
                     Image("CaipirinhaCaprichosa")
                         .resizable()
